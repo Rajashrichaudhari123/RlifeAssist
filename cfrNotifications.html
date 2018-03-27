@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/collapsible.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/cfr.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+	    <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+	    <script src="scripts/messages.js"></script>
+    	<script src="scripts/constants.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/pendingCfrPojo.js"></script>
+		<script src="scripts/pendingCfrDetailspojo.js"></script>
+		<script src="scripts/cfrNotificationspojo.js"></script>
+		<script src="scripts/cfrApplicationNotificationsPojo.js"></script>
+		<script src="scripts/cfrAlertNotificationsPojo.js"></script>
+		<script src="scripts/pendingApplicationNotificationsPojo.js"></script>
+		<script src="scripts/superTrackAlertsPojo.js"></script>
+		<script src="scripts/pendingCfrNotificationsPojo.js"></script>
+		<script src="scripts/pdcCfrDeatilsPojo.js"></script>
+		<script src="scripts/cfrFilter.js"></script>
+		<script src="scripts/collapsible.js"></script>
+		<script src="scripts/hierarchy.js"></script>
+		<script src="scripts/hierarchyDatamanager.js"></script>
+		<script src="scripts/teamhierarchy.js"></script>
+		<script src="scripts/SHDataPojo.js"></script>
+		<script src="scripts/cfrNotifications.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+		<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+			<div class="menu arrow_box" id="profilelist" style="display:none;">
+            	<ul class="items">
+            		<li class="item_list" onclick="openSyncContacts()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Super Sync</span>
+	                </li>
+	               <li class="item_list" onclick="openSync()">
+	                  <img src="images/Sync.png"></img>
+	                  <span>Sync</span>
+	               </li>
+	               <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+               		</li>-->
+	               <li class="item_list" onclick="openProposal()">
+	                  <img src="images/New-Proposal.png"></img>
+	                  <span>New Proposal</span>
+	               </li>
+	               <li class="item_list" onclick="openProfileContent()">
+	                  <img src="images/Profile.png"></img>
+	                  <span>Profile</span>
+	               </li>
+	               <div class="" id="profile-content" style="display: none;">
+	                  <li class="item"    data-bind="with:profileDetail" onclick="openProfile()">
+	                     <div class="name" data-bind="html:name"></div>
+	                     <div class="id" data-bind="html:'ADV ID:'+ id()"></div>
+	                     <div class="id" data-bind="html:area"></div>
+	                  </li>
+	                  <li class="item_list" data-bind="with:goal" onclick="openDashboard()">
+	                     <span>Goal Summary</span> 
+	                     <div class="Goal_summary">
+	                        <div class="summary">
+	                           <div class="titles">Target:</div>
+	                           <div class="tar" data-bind="html:target"></div>
+	                        </div>
+	                        <div class="summary">
+	                           <div class="titles">Achieved:</div>
+	                           <div class="tar" data-bind="html:acheived"></div>
+	                        </div>
+	                        <div class="summary">
+	                           <div class="titles">Pending :</div>
+	                           <div class="tar" data-bind="html:pending"></div>
+	                        </div>
+	                     </div>
+	                  </li>
+	               </div>
+	               <li class="item_list" onclick="openLogs()">
+	                  <img src="images/logs.png"></img>
+	                  <span>Logs</span>
+	               </li>
+	               <li class="item_list" onclick="openDataRetrieve()">
+	                    <img src="images/database.png"></img>
+	                    <span>Data Retrieve</span>
+	                </li>
+					<li class="item_list" onclick="openForceUpdate()">
+	                    <img src="images/app.png"></img>
+	                    <span>Force Update</span>
+	                </li>
+	               <li class="item_list" onclick="openVersion()">
+	                  <img src="images/Folder_grey.png"></img>
+	                  <span>Version</span>
+	               </li>
+	               	<li class="item_list" onclick="openSelfieVideoRetrieval()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Selfie PIVC Retrieval</span>
+	        		</li>
+	               <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+		               <li class="item_list" onclick="openCustomers()">
+		                  <img src="images/female.png"></img>
+		                  <span>My Customers</span>
+		               </li>
+	               </div>
+	               <li class="item_list" onclick="openAdvisors()">
+	                  <img src="images/Folder_grey.png"></img>
+	                  <span class="my_advisors">My Advisors</span>
+	               </li>
+	               <!-- <div data-bind="visible:gettype()!=='ADV'">
+	                  <li class="item_list" onclick="openTeamLogin()">
+	                       <img src="images/Profile.png"></img>
+	                       <span>Team Login</span>
+	                  </li>
+	                  </div> -->
+	               <li class="item_list" onclick="openHelpDesk()">
+	                  <img src="images/Gallery_Grey.png"></img>
+	                  <span class="help">Help Desk</span>
+	               </li>
+	               <li class="item_list" onclick="openConfirmUpdate()">
+	                    <img src="images/Gallery_Grey.png"></img>
+	                    <span class="help">Confirm Update</span>
+                  </li>
+	               <li class="item_list" onclick="openCalculator()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Calculator</span>
+            		</li>
+	               <li class="item_list" onclick="doLogout()">
+	                  <img src="images/power-blackgold.png"></img>
+	                  <span class="log">Logout</span>
+	               </li>
+	            </ul>
+         	</div>
+         	<!--<div id="dialog-teamlogin" data-juci="dialog">
+            <div class="heading_team">
+               <div class="dialogheader">Login As</div>
+               <div class="refresh_area">
+                  <div class="refresh_img">	<img src="images/refresh.png" onclick="syncHierarchy()"></img></div>
+                  <span class="close" onclick="hidebox()">X</span>
+               </div>
+            </div>
+            <div class="content-body">
+               <div class="user_name_area">
+                  <div class="info">Currently logged in as</div>
+                  <div class="user" data-bind="html: $root.user().name()"></div>
+                  <div class="sync_time" data-bind="html:$root.syncTeam"></div>
+               </div>
+               <div id="zm" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="drillDown(event)" >
+               </div>
+               <div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup"data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+               </div>
+               <div id="am"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+               </div>
+               <div id="bm"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+               </div>
+               <div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format"    onafterchange="drillDown(event)" >
+               </div>
+               <div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm'),optionsList:$root.adlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)">
+               </div>
+            </div>
+            <div class="juci_thinbar team">
+               <button class="login" data-juci="button" onclick="openProducts()">Login as</button>
+               <button class="loginas" data-juci="button" onclick="openProposal()">Login as Myself</button>
+            </div>
+         </div>-->
+			
+		<div class="togg">
+			<div  id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+				<div data-bind="with:cfrs">
+					<button class="btn2 blst" data-juci="button" data-bind="visible:gettype()==='AGSM' || gettype()==='AGPS' || gettype()==='BM'" data-toggle="1">
+						<div class="alerts"><span class="notif" data-bind="html:supertrackMainCount"></span><span class="notifctn">Super Track</span></div>			
+					</button>
+					<button class="btn1" data-juci="button" data-toggle="2">
+						<div class="alerts"><span class="notif" data-bind="html:renewals"></span><span class="notifctn">Renewals</span></div>	
+					</button>
+					<button class="btn1 blst" data-juci="button" data-toggle="3">
+						<div class="alerts"><span class="notif" data-bind="html:alerts"></span><span class="notifctn">Alerts</span></div>		
+					</button>
+					<button class="btn" data-juci="button" data-toggle="4">
+						<div class="alerts"><span class="notif" data-bind="html:applications"></span><span class="notifctn">Applications</span></div>
+					</button>
+				</div>
+				
+	<!--		<div class="flagcheckbox"><label><input type="checkbox" name="sport[]" checked><i class="crf-enableflag"></i> Flagged</label></div> -->
+			</div>
+				</div>
+				<div class="filter_scroll_bar">
+			<div class="cfr_notifications">
+				<!--button class="search" data-juci="button"><img src="images/Flag.png"></></button!-->
+				<div class="cfr_counts" id="cfr-count">
+					<div class="cfr_count" data-bind="html:'CFR'+' '+'('+$root.cfrCount()+')'"></div>
+					<button class="view_All" data-juci="button" onclick="onViewAllCfrClick()">View All CFRs</button>
+				</div>
+				<div class="renewals_counts" id="renewal-count">
+					<div class="cfr_count">Upcoming Renewals(2)</div>
+					<button class="view_All" data-juci="button" onclick="viewAllRenewals()">View All Renewals</button>
+				</div>
+				<div class="alerts_counts" id="alert-count">
+					<div class="cfr_count">Birthday Today(0)</div>
+					<button class="view_All" data-juci="button" onclick>Birthdays this month</button>
+				</div>
+				<div class="super_counts" id="super-count" data-bind="visible:supertrack">
+					<div class="super_count" data-bind="html:'Super Track'+' '+'('+$root.superTrackCount()+')',visible:supertrack"></div>
+					<button class="view_Super_All" data-bind="visible:supertrack" data-juci="button" onclick="ViewAllSuperTrack()">View All SuperTrack</button>
+				</div>
+			</div>
+			<!--div class="selectfiltr" id="selfiltr" style="display: none;">
+				<div class="fltroption" data-juci="selectbox"  data-mode="popup" data-label="" data-bind="optionsList:options1, optionsText:"  onafterchange="getfilterlist(event)"></div>
+			</div>
+			
+			<div id="sortfiltr" style="display: none;">
+				<div class="sortoption" data-juci="selectbox"  data-mode="popup" data-label="Sort By" data-bind="optionsList:options2, optionsText:" onafterchange="getSortBy(event)" ></div>
+				<div class="sortoption" data-juci="selectbox"  data-mode="popup" data-label="Select Category" data-bind="optionsList:options3, optionsText:,ref:selectcatogory" onafterchange="getlistBySort(event)"></div>
+			</div!-->
+			</div>
+			<div class="scroll">
+			<div id="today">
+				<div data-juci="xlist" data-bind="ref: applicationNotifications">
+					<div data-juci="listitem" onclick="showFullLisItem(event)">
+						<div class="list_row">
+							<!--div class="new_item">New</div!-->
+							<!--div class="new" data-bind="html:New"></div!-->
+							<!--div class="cell" data-bind="html:ClientID"></div>
+							<div class="cell com" data-bind="html:ProductName"></div><img class="flag" src="images/Flag.png"></img>
+							<div class="incell" data-bind="html:ApplicantCfrStatus,css: {green: ApplicantCfrStatus() === 'Open',blue: ApplicantCfrStatus() === 'Complete',grey: ApplicantCfrStatus() === 'Reject',red:ApplicantCfrStatus() === 'Waived'}"></div!-->
+						</div>
+						<div class="heading">
+							 <div class="titles">Client Name</div>
+							 	<div class="data" data-bind="html:CustomerName"></div>
+						 </div>
+						 <div class="heading">
+							 <div class="titles">Client ID</div>
+							 	<div class="data" data-bind="html:ClientID"></div>
+						 </div>
+						 <div class="showItem"  id="more" data-bind="attr:{'id':$index()}" >
+							<div class="showing" data-bind="attr:{id: 'SM' +$index()}">Show more</div>
+						</div>
+						<div class="less" data-bind="attr:{id: 'less' + $index()}" style="display:none;"> 
+							 <div class="heading">
+								 <div class="titles">Login Date</div>
+								 	<div class="data" data-bind="html:ApplicantCfrDeadLine"></div>
+							 </div>
+							 <div class="heading">
+								 <div class="titles">Plan Name</div>
+								 	<div class="data" data-bind="html:ProductName"></div>
+							 </div>
+							 <div class="heading">
+								 <div class="titles">Deadline</div>
+								 	<div class="data" data-bind="html:ApplicantCfrDeadLine"></div>
+							 </div>
+							 <div class="upload">
+							 	<button class="view" data-juci="button" >View Details</button>
+							 </div>
+						</div>	 
+					</div>
+				</div>
+			</div>
+			<div class="cfr_counts" id="app-count">
+				<div class="app_count" data-bind="html:'Status Update'+' '+'('+$root.applicationsCount()+')'"></div>
+				<button class="view_All" data-juci="button" onclick="onViewAllAppsClick()">View All Applications</button>
+			</div>
+			<div id="notifications-app">
+				<div data-juci="xlist" data-bind="ref: appNotifications">
+					<div data-juci="listitem" onclick="showFullLisItem(event)">
+						<div class="list_row">
+							<!--div class="new_item">New</div!-->
+							<!--div class="new" data-bind="html:New"></div!-->
+							<!--div class="cell" data-bind="html:ClientID"></div>
+							<div class="cell com" data-bind="html:ProductName"></div><img class="flag" src="images/Flag.png"></img>
+							<div class="incell" data-bind="html:ApplicantCfrStatus,css: {green: ApplicantCfrStatus() === 'Open',blue: ApplicantCfrStatus() === 'Complete',grey: ApplicantCfrStatus() === 'Reject',red:ApplicantCfrStatus() === 'Waived'}"></div!-->
+						</div>
+						<div class="heading">
+							 <div class="titles">Client Name</div>
+							 	<div class="data" data-bind="html:CustomerName"></div>
+						 </div>
+						 <div class="heading">
+							 <div class="titles">Client ID</div>
+							 	<div class="data" data-bind="html:ClientID"></div>
+						 </div>
+						 <div class="showItem"  id="more" data-bind="attr:{'id':$index()}" >
+							<div class="showing" data-bind="attr:{id: 'SM' +$index()}">Show more</div>
+						</div>
+						<div class="less" data-bind="attr:{id: 'less' + $index()}" style="display:none;"> 
+							 <div class="heading">
+								 <div class="titles">Plan Name</div>
+								 	<div class="data" data-bind="html:ProductName"></div>
+							 </div>
+							 <div class="heading">
+								 <div class="titles">Deadline</div>
+								 	<div class="data" data-bind="html:Premium"></div>
+							 </div>
+							 <div class="upload">
+							 	<button class="view" data-juci="button" >View Details</button>
+							 </div>
+						</div>	 
+					</div>
+				</div>
+			</div>
+			
+			<div id="thisWeek" style="display: none;">
+				<div id="pending" data-juci="xlist" data-bind="ref: renewals">
+					<div data-juci="listitem" data-bind="attr:{id:'showlist'+$index()}" onclick="showlistitemforrenewals(event)">
+						<div class="list_row">
+							<div class="new" data-bind="html:PremiumDueDate"></div>
+							<div class="sidemenu" data-bind=attr:{'id':$index()} ><img class="vertical" src="images/dots-three-vertical.png"></></div>	
+							<div class="pendingbox" data-bind="attr:{id: 'menuBox' + $index()}" style="display: none;">
+								<div class="email">
+									<img src="images/email.png"></img>
+									<div class="elements">Email</div>
+								</div>
+								<div class="call">
+									<img src="images/phone.png"></img>
+									<div class="elements">Call</div>
+								</div>
+								<div class="sms">
+									<img src="images/bubbles2.png"></img>
+									<div class="elements">SMS</div>
+								</div>
+							</div>
+							<!--div class="cell" data-bind="html:ClientID"></div>
+							<div class="cell com" data-bind="html:ProductName"></div><img class="flag" src="images/Flag.png"></img>
+							<div class="incell" data-bind="html:ApplicantCfrStatus,css: {green: ApplicantCfrStatus() === 'Open',blue: ApplicantCfrStatus() === 'Complete',grey: ApplicantCfrStatus() === 'Reject',red:ApplicantCfrStatus() === 'Waived'}"></div!-->
+						</div>
+						<div class="heading">
+							 <div class="titles">Client Name</div>
+							 	<div class="data" data-bind="html:ClientName"></div>
+						 </div>
+						<div class="heading">
+							 <div class="titles">Client ID</div>
+							 	<div class="data" data-bind="html:ClientID"></div>
+						 </div>
+						 <div class="heading">
+							 <div class="titles">Plan Name</div>
+							 	<div class="data" data-bind="html:ClientID"></div>
+						 </div>
+						 <div class="heading">
+							 <div class="titles">Installment Premium</div>
+							 	<div class="data" data-bind="html:PremiumPayable"></div>
+						 </div>
+						 <!--div class="show"  id="more2" data-bind="attr:{'id':$index()}">
+							<div class="showing" data-bind="attr:{id: 'SMT' +$index()}" >Show more</div>
+						</div!-->
+						<div class="less" data-bind="attr:{id: 'lesst' + $index()}" style="display:none;">
+							 
+							 <div class="upload">
+							 	<button class="view" data-juci="button">View Details</button>
+							 </div>
+						</div>	 
+					</div>
+				</div>
+			</div>
+			
+			<div id="all" style="display: none;">
+				<div data-juci="xlist" data-bind="ref: alerts">
+					<div data-juci="listitem" onclick="showlistitemforalerts(event)">
+						<div class="list_row">
+							<div class="new_item">Birthday Today</div>
+							<div class="new" data-bind="html:BirthdayToday"></div>
+							<div class="sidemenu" data-bind=attr:{'id':$index()} ><img class="vertical" src="images/dots-three-vertical.png"></></div>
+							<!--div class="cell" data-bind="html:ClientID"></div>
+							<div class="cell com" data-bind="html:ProductName"></div><img class="flag" src="images/Flag.png"></img>
+							<div class="incell" data-bind="html:ApplicantCfrStatus,css: {green: ApplicantCfrStatus() === 'Open',blue: ApplicantCfrStatus() === 'Complete',grey: ApplicantCfrStatus() === 'Reject',red:ApplicantCfrStatus() === 'Waived'}"></div!-->
+						</div>
+						<div class="heading">
+							<div class="titles">Client Name</div>
+							 	<div class="data" data-bind="html:ClientName"></div>
+						 </div>
+						<div class="heading">
+							 <div class="titles">Client ID</div>
+							 	<div class="data" data-bind="html:ClientID"></div>
+						 </div>
+						 <div class="heading">
+							 <div class="titles">Plan Name</div>
+							 	<div class="data" data-bind="html:PlanName"></div>
+						 </div>
+					</div>
+				</div>
+				<div class="news_count" id="renewal-count">
+					<div class="cfr_count" data-bind="html:'Status Update'+' '+'('+$root.importantNews()+')'"></div>
+					<button class="view_All" data-juci="button" onclick="ViewNewsAndUpdates()">View New and Updates</button>
+				</div>
+				<div data-juci="xlist" data-bind="ref: alertNews">
+					<div data-juci="listitem" onclick="viewNewsAlerts(event)">
+					<div class="list_row">
+						<div class="title" data-bind="html:Title"></div>
+					</div>
+					<div class="heading date">
+						 	<div class="data" data-bind="html:NewsDate"></div>
+					 	</div>
+					 	 <div class="upload View">
+						 	<button class="view" data-juci="button">View Details</button>
+						 </div>
+					</div>
+				</div>
+			</div>
+			<div id="superTrack" data-bind="visible:superView">
+				<div data-juci="xlist" data-bind="ref: superTrackNotifications">
+					<div data-juci="listitem" onclick="showlistitem(event,'lessSP')">
+						<div class="list_row">
+							 	<div class="title" data-bind="html:Alert()"></div>
+						 </div>
+							 <div class="upload View">
+							 	<button class="view" data-juci="button" data-bind="visible:gettype()==='AGSM' || gettype()==='AGPS'">View Details</button>
+							 </div>
+					</div>
+				</div>
+			</div>
+			</div>
+	
+		</div>
+	</body>
+</html>

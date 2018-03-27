@@ -1,0 +1,77 @@
+.juci_selectbox_popup .juci_radiogroup .juci_options  {
+    margin: 0;
+    padding-bottom: 2px;
+}
+
+body {
+    /* font-size: 14px; */
+    font-family: 'roboto-light', Arial, sans-serif !important;
+    font-weight:normal;
+	font-style:normal;
+}
+
+.juci_option.selected {
+    background-position: 98% center;
+    background-repeat: no-repeat;
+    background: #3B4568;
+    color: #FFF;
+}
+
+.juci_selectbox_popup .juci_radiogroup {
+    padding: 0;
+    width: 100%;
+}
+
+.juci_selectbox_popup {
+    background: #ffffff;
+    padding: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    z-index: 1;
+    position: relative;
+    margin: auto;
+    /* margin-left: 5%; */
+    margin-top: -11px;
+    width: 90%;
+    max-height: 220px;
+}
+
+.juci_selectbox_popup {
+    background: #dddddd;
+    border-color: #dddddd;
+}
+
+.juci_selectbox_popup {
+    position: absolute;
+    width: 96%;
+    margin: -25px 2%;
+    z-index: 10000;
+    max-height: 300px;
+    overflow-y: auto;
+    border-width: 1px;
+    border-style: solid;
+}
+
+li.juci_check.juci_option {
+    margin: 0px;
+}
+
+.names .juci_linker {
+    background-image: url(images/downarrow.png);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+}
+
+.juci_selectbox.touch {
+	background:#3B4568;
+	border-color: #CECECE;
+    color: #343434 !important;
+}
+
+.juci_parent.touch.juci_ctrl_box {
+	color: #343434 !important;
+}
+
+@font-face {
+	font-family: 'roboto-light';
+	src: url('resources/roboto-light.woff') format("woff"),
+}

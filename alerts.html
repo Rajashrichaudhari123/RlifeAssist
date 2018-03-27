@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/alerts.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/header.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/alerts.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+				<div data-bind="with:alerts">
+					<button class="btn1" data-juci="button" data-toggle="1">
+						<div class="alerts"><span class="notif" data-bind="html:alert"></span><span class="notifctn">Alerts</span></div></button>
+					<button class="btn1" data-juci="button" data-toggle="2">
+						<div class="alerts"><span class="notif" data-bind="html:cfr"></span><span class="notifctn">CFR</span></div></button>
+					<button class="btn1" data-juci="button" data-toggle="3">
+						<div class="alerts"><span class="notif" data-bind="html:application"></span><span class="notifctn">Applications</span></div></button>
+				</div>
+		<!--<div class="managerselect" data-juci="selectbox" data-label data-bind="optionsList:$root.status,ref:status" placeholder="All"></div> -->
+			</div>
+			<div id="alertsView">
+				<div data-juci="xlist" data-bind="ref: alertDetails" data-titles data-subtitles data-new-item>
+					<div data-juci="listitem">
+						<div class="row">
+							<div class="cell bold" data-bind="html:Name()+','"></div>
+							<div class="cell" data-bind="html:'ID : '+id()"></div>
+							<div class="cell" data-bind="html:company"></div>
+						</div>
+						<div class="head">
+						 	<div class="titles">Amount</div>
+						 		<div class="data" data-bind="html:amount"></div>
+					 	</div>
+					 	<div class="head">
+						 	<div class="titles">Last Date</div>
+						 		<div class="data" data-bind="html:ldate"></div>
+					 	</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="cfrView" style="display: none;">
+				<div data-juci="xlist" data-bind="ref: cfrDetails" data-titles data-subtitles data-new-item>
+					 <div data-juci="listitem">
+					 	<div class="row">
+							<div class="cell bold" data-bind="html:Name()+','"></div>
+							<div class="cell" data-bind="html:'ID : '+id()"></div>
+							<div class="cell" data-bind="html:company"></div><img class="flag" src="images/Flag.png"></img>
+							<div class="incell" data-bind="html:date"></div>
+						</div>
+						<div class="heading">
+						 	<div class="titles">Application No.</div>
+						 		<div class="data" data-bind="html:appno"></div>
+					 	</div>
+					 	<div class="heading">
+						 	<div class="titles">Term</div>
+						 		<div class="data" data-bind="html:term"></div>
+					 	</div>
+						<div class="heading">
+						 	<div class="titles">Amount</div>
+						 		<div class="data" data-bind="html:amount"></div>
+					 	</div>
+					 	<div class="heading">
+						 	<div class="titles">Status</div>
+						 		<div class="data" data-bind="html:status"></div>
+					 	</div>
+					 	<div class="heading">
+						 	<div class="titles">Documents Required</div>
+						 		<div class="data" data-bind="html:docs"></div>
+					 	</div>
+					 	<div class="upload"><img src="images/upload.png"></img></div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="applicationView" style="display: none;">
+				<div class="statusselection">
+					<select id="appstatus" onchange="showStatus(event)">
+					  <option value="All">All
+					  <option value="Approved">Approved
+					  <option value="Rejected">Rejected
+					</select>
+				</div>	
+				<div data-juci="xlist" data-bind="ref:applicationDetails" data-titles data-subtitles data-new-item>
+					<div data-juci="listitem">
+						<div class="row">
+							<div class="cell bold" data-bind="html:Name()+','"></div>
+							<div class="cell" data-bind="html:'ID : '+id()"></div>
+							<div class="cell" data-bind="html:company"></div>
+							<div class="incell" data-bind="html:status,css:{green: status() === 'Approved',red: status() === 'Rejected'}"></div>
+						</div>
+						<div class="heading">
+						 	<div class="titles">Category</div>
+						 		<div class="data" data-bind="html:category"></div>
+					 	</div>
+					 	<div class="heading">
+						 	<div class="titles">Application No.</div>
+						 		<div class="data" data-bind="html:appnumber"></div>
+					 	</div>
+					 	<div class="heading">
+						 	<div class="titles">Amount</div>
+						 		<div class="data" data-bind="html:amount"></div>
+					 	</div>
+					 	<div class="heading">
+						 	<div class="titles">Tranasaction ID</div>
+						 		<div class="data" data-bind="html:tid"></div>
+					 	</div>
+					 	<div class="heading">
+						 	<div class="titles">Date</div>
+						 		<div class="data" data-bind="html:date"></div>
+					 	</div>
+					 	<div class="heading">
+						 	<div class="titles"><img src="images/actioncircle.png"></img>&nbsp&nbsp<img src="images/actioncircle.png"></img></div>
+					 	</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="footerbar">
+	          <div class="disclaimer">Disclaimer</div><span> | </span>
+	          <div class="terms">Terms and Conditions</div><span> | </span>
+	          <div class="privacy">Privacy Policy</div>
+	        </div>
+			
+		</div>		
+	</body>
+</html>

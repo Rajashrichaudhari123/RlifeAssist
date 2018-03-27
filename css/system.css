@@ -1,0 +1,186 @@
+#__rightBtn{
+	padding: 0px;
+}
+.current_account{
+}
+.current_account img{
+	vertical-align: middle;
+	margin-right: 5px;
+}
+#account-name{
+	vertical-align: middle;
+}
+.appitem{
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+/*
+.appitem > div{
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0px 2px;
+} */
+.appiconholder{
+	width: 38px;
+}
+.appicon {
+	width: 32px;
+	height: 32px;
+	padding: 0px 2px;
+}
+.appheaderholder{
+}
+.appheader{
+    font-size: 13pt;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 95%;
+}
+.about{
+	padding: 10px;
+}
+.version_info .hyperlink{
+	text-decoration: underline;
+	color: #333;
+}
+.about_group{
+	max-width: 282px;
+	display: block;
+}
+.about_group .about_desc b{
+	font-weight: normal;
+	font-size: 20px;
+}
+.about_groupbox{
+	background: none;
+}
+.version_info{
+	/* max-width: 282px; */
+	display: block;
+	margin: 20px;
+}
+.mowbly_icon{
+	width: 80px;
+	position: relative;
+	top: -5px;
+	left: -6px;
+}
+.about_image{
+	display: table-cell;
+	width: 75px;
+	vertical-align: top;
+}
+.about_desc{
+	display: table-cell;
+	padding-left: 6px;
+	width: 100%;
+	line-height: 22px;
+}
+.about_desc p{
+	margin: 0px;
+}
+.about_desc p b{
+	font-size: 11.5pt;
+}
+.mowbly_about{
+	width: 35px;
+}
+.version_info div{
+	display: block;
+	vertical-align: bottom;
+	color: #777;
+}
+.version_info span{
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	vertical-align: middle;
+	font-size: 14px;
+}
+.about_groupbox .juci_ctrl_label{
+	display: none;
+}
+.about_thinbar{
+	padding-left: 20px;
+	background: none;
+	border: none;
+	font-size: 20px;
+	font-weight: normal;
+	color: #666;
+}
+/*Juci customizations*/
+.juci_groupbox{
+	max-width: 500px;
+}
+#loglist .juci_display_padder_right{
+	width: 25px;
+}
+#loglist .juci_subtitle + .juci_subtitle{
+	text-overflow: ellipsis;
+}
+.about_packs{
+	margin: 0 auto;
+}
+.about_packs .juci_linker{
+	display: none;
+}
+/* WebApp styling*/
+.activepack{
+	background: #25B2F5;
+	color : white;
+}
+@media only screen and (min-width: 800px){
+	.webapp .juci_panel_title{
+		width: 300px;
+		position: relative;
+		top: 85px;
+		left: 50%;
+		margin-left: -150px;
+		overflow : hidden;
+		box-shadow: 0 0 5px #666 !important;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	.webapp .juci_body_container{
+		width: 300px;
+		max-height: 500px;
+		position: relative;
+		top: 50%;
+		left: 50%;
+		margin-left: -150px;
+		overflow: visible;
+		height: 362px;
+		background: white;
+		box-shadow: 0 0 10px #000!important;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+	.webapp .juci_basecontrol{
+		width: 88%;
+		border-width: 1px;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+	}
+	body.webapp{
+		background-image: url('../../images/backgrounds/thumbs/bg0.png');
+		background-size: cover;
+	}
+	.webapp.juci_panel{
+		position : relative;
+	}
+}
+
+.juci_imagelist_titlesContainer{
+	vertical-align : middle;
+}
+.powered_by{
+	overflow: visible;
+}
+.powered_by img{
+	width: 30px;
+	vertical-align: middle;
+	position: relative;
+	top: -2px;
+}

@@ -1,0 +1,61 @@
+.submitButton_Container {
+    margin-top: 20px;
+    background: #fff;
+    width: 95%;
+    margin-left: 7px;
+    height: 70px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+button.juci_button.submitButton {
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    font-size: 15px;
+    min-height: 38px;
+    border-radius: 4px;
+    /* display: inline-block; */
+    /* float: right; */
+    margin-right: 15px;
+    margin-top: 16px;
+    width: 45%;
+}
+.callTicket_form {
+    background: #fff;
+    width: 95%;
+    margin-left: 8px;
+    margin-top: 20px;
+    padding-bottom: 5px;
+}
+.callTicket_Container {
+    padding-top: 35px;
+}
+
+.juci_selectbox .juci_linker {
+ 
+    background-image: url("../images/down_arrow.png");
+    height: 39px;
+
+}
+
+.juci_basecontrol.juci_selectbox {
+    border: none;
+    width: 90%;
+     margin: 5px auto;
+}
+
+.juci_ctrl_box.juci_selectbox_box {
+    border-bottom: 1px solid #ccc;
+}
+
+.juci_option.selected {
+background: #0b4da1;
+color: #fff;
+}
+
+.juci_ctrl_box.juci_selectbox_box {
+    font-size: 14px;
+}
+
+.juci_selectbox_options_panel {
+    background: #ccc;
+}

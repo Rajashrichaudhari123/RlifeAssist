@@ -1,0 +1,110 @@
+/*div#Aadhar {
+    margin-top: 50%;
+}*/
+
+label.juci_label_text {
+    text-align: left;
+    color: #0b4daa !important;
+}
+
+.adhar input.juci_ctrl_box {
+    text-align: center;
+}
+
+button.juci_button.btn_auth {
+    background: #0b4da1;
+    border: #0b4da1;
+    min-height: 32px;
+    font-size: 13px;
+    width: 95px;
+    /* margin-left: auto; */
+    border-radius: 4px;
+    text-align: center;
+}
+
+div#authenticate {
+    text-align: center;
+}
+
+.dialogheader {
+    width: 67%;
+    margin-top: 18px;
+    display: inline-block;
+    text-align: left;
+    margin-left: 11px;
+}
+
+
+button.juci_button.validate_device {
+    background: #0b4da1;
+    border: #0b4da1;
+    min-height: 32px;
+    font-size: 13px;
+    width: 108px;
+    /* margin-left: auto; */
+    border-radius: 4px;
+    text-align: center;
+    margin: 14px;
+    vertical-align: middle;
+}
+
+.display_device {
+	text-align:center;
+}
+
+.juci_horizontal_bbar.is_submit {
+    text-align: center;
+}
+
+.email {
+    text-align: center;
+}
+
+.division {
+    text-align: center;
+    font-size: 15px;
+    color: #0b4da1;
+    font-weight: bold;
+}
+
+.juci_validation.juci_fail {
+    background: none;
+    color: red;
+}
+
+/*****Check box changes**********/
+.juci_basecontrol.juci_checkbox.juci_check {
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #9d9d9d;
+    font-weight: 400;
+}
+.juci_checkbox.touch{
+	background:none;
+	color:#444;
+}
+.juci_check_box{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image:none;
+	opacity: 0.2;
+}
+.agrement .juci_switch_label {
+    line-height: normal;
+    font-size: 13px;
+    margin-top: 8px;
+    width: 80%;
+}
+
+.submit_button{
+	display:block;
+	text-align:center;
+}
+.confirm_labl{
+	width: 94%;
+    text-align: left;
+    margin-left: 16px;
+    line-height: 20px;
+    color: #565656;
+}

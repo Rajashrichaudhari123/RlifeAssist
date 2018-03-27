@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/juci-ccalendar.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/juci-calender.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/juci-ccalendar.js"></script>
+		<script src="scripts/viewCalender.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div class="calender_section" id="cal" data-juci="ccalendar" data-year="true" data-month="true" 
+			data-mindate="" data-maxdate="" onCustomDateSelect="viewDates(event)" data-bind="ref:date"></div>
+		</div>
+	</body>
+</html>

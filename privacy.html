@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/terms.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/privacy.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/header.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			 <div class="menu arrow_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+            </div>
+        		<div class="menu arrow_box" id="profilelist" style="display:none;">
+	            <ul class="items">
+	            	<li class="item_list" onclick="openSyncContacts()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync Personal Contacts</span>
+	                </li>
+	               <li class="item_list" onclick="openSync()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync</span>
+	                </li>   
+	                
+	                 <!--<li class="item_list" onclick="openCustomers()">
+	                    <img src="images/male.png"></img>
+	                    <span>New Lead</span>
+	                </li>  -->
+	          
+	                 <li class="item_list" onclick="openProposal()">
+	                    <img src="images/New-Proposal.png"></img>
+	                    <span>New Proposal</span>
+	                </li>  
+	                
+	                <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/Profile.png"></img>
+	                    <span>Profile</span>
+	                </li>
+					<li class="item_list" onclick="openLogs()">
+	                    <img src="images/logs.png"></img>
+	                    <span>Logs</span>
+	                </li>
+					<li class="item_list" onclick="openDataRetrieve()">
+	                    <img src="images/database.png"></img>
+	                    <span>Data Retrieve</span>
+	                </li>
+					<li class="item_list" onclick="openForceUpdate()">
+	                    <img src="images/app.png"></img>
+	                    <span>Force Update</span>
+	                </li>
+	                <div data-bind="visible:gettype()!='TPADV' && gettype()!='TPSM'">
+		               <li class="item_list" onclick="openCustomers()">
+		                    <img src="images/female.png"></img>
+		                    <span>My Customers</span>
+		                </li>
+	                </div>
+	                <li class="item_list" onclick="openAdvisors()">
+	                    <img src="images/Folder_grey.png"></img>
+	                    <span class="my_advisors">My Advisors</span>
+	                </li>
+					<li class="item_list" onclick="openVersion()">
+	                    <img src="images/Folder_grey.png"></img>
+	                    <span class="my_advisors">Version</span>
+	                </li>
+	                
+	                 <!--<div data-bind="visible:gettype()!=='ADV'">
+	                 <li class="item_list" onclick="openTeamLogin()">
+	                    <img src="images/team.png"></img>
+	                    <span>Team Login</span>
+	                </li>
+	                </div>-->
+	                <li class="item_list" onclick="openHelpDesk()">
+	                    <img src="images/Gallery_Grey.png"></img>
+	                    <span class="help">Help Desk</span>
+	                </li>
+	                <li class="item_list" onclick="openConfirmUpdate()">
+	                    <img src="images/Gallery_Grey.png"></img>
+	                    <span class="help">Confirm Update</span>
+                	</li>
+	                <li class="item_list" onclick="openCalculator()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Calculator</span>
+	        		</li>
+	        		 <div>
+		               <li class="item_list" onclick="openVideoRetrieval()">
+		                    <img src="images/video.png"></img>
+		                    <span>Video Retrieval</span>
+		                </li>
+	                </div>
+	                <li class="item_list" onclick="doLogout()">
+	                    <img src="images/power-blackgold.png"></img>
+	                    <span class="log">Logout</span>
+	                </li>
+	            </ul>
+        	</div>
+				<div class="content_section">
+				<div class="pri_head">Privacy policy</div>
+				<div class="terms_content">
+					<p class="term_phead">At Reliance Life Insurance, we are committed to protect and maintain the confidentiality of any information relating to our customers.
+                  The information about your domain name, date and time of access to website, internet address which linked you to our website and the pages that you visited collected by us, would be kept confidential and would be used for the following purposes only:</p>
+                <ol class="nrml_txt_list">
+                  <li>To meet legal requirements (if any)</li>
+                  <li>To protect and defend Reliance Life Insurance or its Affiliates' rights, interests or property</li>
+                  <li>To analyze the usage pattern of the site or to get statistics on the number of visitors to the site</li>
+                  <li>For processing and assessment of your application/claims</li>
+                </ol>
+                <p class="term_phead">Reliance Life Insurance will not be responsible in any manner for any direct or indirect damages that may arise out of the use of this website.</p>
+                <p class="term_phead">Reliance Life Insurance has the right to change any part of the said content on the website at any time at its sole discretion. </p>
+				</div>
+			</div>
+				<div class="footerbar">
+	          <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div><span> | </span>
+	          <div class="terms" onclick="openTerms()">Terms and Conditions</div><span> | </span>
+	          <div class="privacy" onclick="">Privacy Policy</div>
+	        </div>
+		</div>
+	</body>
+</html>

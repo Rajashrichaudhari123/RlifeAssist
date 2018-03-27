@@ -1,0 +1,342 @@
+.alertCount {
+    border: 2px solid black;
+    border-radius: 21px;
+    height: 14px;
+    min-width: 14px;
+    background: red;
+    border-color: red;
+    position: relative;
+    color: white;
+    left: 49px;
+    font-size: 11px;
+    bottom: 22px;
+}
+
+.version_info_item {
+    width: 100%;
+    display: table;
+    border-bottom: 1px solid #DDD;
+    background: #FFF;
+    /* margin-top: 50px; */
+}
+
+.version_info_head {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	/* background: #d4d2d2; */
+	margin-top: 10px;
+	padding-left: 10px;
+	text-align: center;
+	font-size: 15px;
+	display: inline-block;
+	width: 40%;
+	/* height: 15px; */
+	font-size: 12px;
+}
+
+.version_info_head_bar {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	/* background: #d4d2d2; */
+	margin-top: 10px;
+	/* padding-left: 10px; */
+	text-align: center;
+	font-size: 15px;
+	display: inline-block;
+	width: 50%;
+	font-size: 12px;
+}
+
+.app_version_row {
+    display: table-row;
+}
+
+.app_version_key {
+    display: table-cell;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    width: 42%;
+    border: 1px solid #DDD;
+    border-bottom: 0px;
+    border-right: 0px;
+    font-weight: bold;
+}
+
+.app_version_value {
+    display: table-cell;
+    width: 70%;
+    text-align: center;
+    border: 1px solid #DDD;
+    border-bottom: 0px;
+}
+
+.app_version_check {
+    display: table-cell;
+    width: 70%;
+    text-align: center;
+    border: 1px solid #DDD;
+    border-bottom: 0px;
+}
+
+.app_version_key:last-child {
+    border-bottom: 1px solid #DDD;
+}
+
+.version_info_container {
+    width: 95%;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.header {
+    display: inline-block;
+    width: 100% !important;
+    margin-top: 50px;
+    background: #696969;
+    color: #FFF;
+    height: 53px;
+}
+
+button.juci_button.btn1.btn2 {
+    height: 50px;
+}
+
+.logins {
+    position: relative;
+    bottom: 34px;
+    right: 60px;
+}
+.renewals{
+    position: relative;
+    bottom: 34px;
+    right: 53%;	
+}
+
+button.juci_button.btn1.Meetingsbtn{
+	width: 105px;
+}
+.togcount{
+	overflow: hidden;
+	border: 1px solid #c6c6c6;
+    /* width: 99%; */
+    margin: 0 auto
+}
+div#toogle{
+	margin-bottom: 5px;
+}
+
+.viewarea{
+	margin-top: 52px;
+	/* border: 1px solid #aaa; */
+	height: 365px;
+}
+
+.header{
+	margin-top: 83px;
+}
+.headerrows{
+	width: 30%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+/*leads*/
+table, th,td{
+    text-align: center;
+    border: 1px solid #DDD;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    height: 38px;
+       
+}
+
+.headers{
+	background: #696969;
+    color: #FFF;
+    text-align: center;
+}
+.leadsalertNewBusiness, .leadsalertRecruitment{
+	margin: 32px 0;
+}
+.leadsalertNewBusiness{
+	margin-top:32px;	
+}
+.cell1{
+	display:table-cell;	
+}
+.row1{
+	display:table-row;	
+}
+
+.viewing_area {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 13px;
+    font-weight: 700;
+}
+
+
+.meetings_sub {
+    display: table;
+    width: 100%;
+    /* margin-left: 8px; */
+   /* background: #FFF;*/
+    height: 25px;
+    text-align: center;
+    padding-top: 6px;
+    color: #fffff;
+}
+
+.meetings_next {
+    display: table-cell;
+    margin-left: 7px;
+}
+
+.meetings_rescheduled {
+    display: table-cell;
+}
+
+.meetings_authenticated {
+    display: table-cell;
+}
+
+.meetings_next:hover {
+    color: #0b4daa;
+}
+.meetings_rescheduled:hover {
+    color: #0b4daa;
+}
+.meetings_authenticated:hover {
+    color: #0b4daa;
+}
+.meetings_meeting3{
+	color: #0b4daa;
+	font-weight:700
+}
+
+.leadbtn{
+	background: #0b4da1;
+    border: #0b4da1;
+    min-height: 32px;
+    font-size: 13px;
+    width: 108px !important;
+    border-radius: 4px;
+    text-align: center;
+    float: left;
+    vertical-align: middle;	
+}
+toggled .inputs.renewals {
+    right: 6px;
+}
+
+.renewals {
+    position: relative;
+    bottom: 34px;
+    right: 52%;
+}
+
+button.juci_button.btn1.btn2.toggled {
+    position: relative;
+    /* bottom: 34px; */
+    right: 14%;
+}
+.toggled .inputs.logins {
+    right: 16px;
+}
+.toggled .inputs.renewals {
+    right: 6px;
+}
+button.juci_button.btn1.Meetingsbtn.toggled {
+    width: 31%;
+}
+
+button.juci_button.btn1.Meetingsbtn {
+    width: 31%;
+}
+button.juci_button.btn1{
+	width: 31%;
+}
+.logins {
+    position: relative;
+    bottom: 34px;
+	right:0;
+}
+button.juci_button.btn1.btn2.loginstoggle {
+    position: relative;
+    /* bottom: 10px; */
+    right: 17%;
+	width: 31%;
+}
+button.juci_button.btn1.btn2.loginstoggle.toggled {
+    right: 13%;width:30%;
+    /* left: -5px; */
+}
+button.juci_button.btn1.btn2 {
+    height: 50px;
+    width: 30%;
+}
+.loginsalert{
+	display:block;	
+}
+.alertCountlead{
+	    border: 2px solid black;
+    border-radius: 21px;
+    height: 14px;
+    min-width: 14px;
+    background: red;
+    border-color: red;
+    position: relative;
+    color: white;
+    font-size: 11px;
+   	right: 131%;
+}
+
+.meetins_business_changecolors{
+	background : red;	
+	color:#FFF;
+}
+
+th.meetins_business {
+    width: 70px;
+}
+
+th.meetins_recruitment {
+    width: 70px;
+}
+
+.discussedARDM {
+    width: 113px;
+    background: #0b4daa;
+    color: #FFF;
+    font-size: 13px;
+    border-radius: 6px;
+    padding: 3px;
+    text-align: center;
+    font-weight: 500;
+    margin-left: 30px;
+}
+
+.alertCountmeeting {
+    border: 2px solid black;
+    border-radius: 21px;
+    height: 14px;
+    min-width: 14px;
+    background: red;
+    border-color: red;
+    position: relative;
+    color: white;
+    left: 1px;
+    top: -5px;
+    font-size: 11px;
+    bottom: 22px;
+}
+
+div#Renuwalslert {
+    width: 96%;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    margin: 5px;
+}	

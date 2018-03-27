@@ -1,0 +1,305 @@
+
+.juci_display {
+    border-radius: 0px;
+    border: none;
+}
+
+.juci_linker {
+    display:none;
+}
+
+.hd {
+	color: #0B4DA1;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 24px;
+    font-size: 15px;
+    margin-top: 28px;
+    margin-left: 19px;
+    margin-bottom: 19px;
+    border-bottom: thick;
+    border-bottom-color: #0b4da1;
+    border-bottom-style: groove;
+}
+
+
+.sheet {
+    /* margin: 10px; */
+    background-color: #fff;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 16px;
+}
+
+
+.f1 {
+    display: inline-block;
+}
+
+ol.tests {
+    background: #fff;
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.testrequired{
+    margin-left: 10px;
+}
+
+.listoftests {
+    height: 100%;
+    background-color: #fff;
+    width: 95%;
+    margin: auto;
+    /* margin-left: 10px; */
+    margin-bottom: 21px;
+}
+
+
+.hb {
+    display: block;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 18px;
+    border: 1px solid #aaa;
+}
+
+.hr {
+	display : inline-block;
+	color: #9d9d9d;
+	margin-left: 15px;
+	width: 40%;
+}
+
+label.juci_label_text {
+    padding: 5px;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #565656;
+}
+
+body {
+    background: #ebebeb
+}
+
+.juci_ctrl_label {
+    display: none;
+}
+
+.juci_groupbox {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: #F1F1F1;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top:0px;
+    padding-bottom: 1px;
+
+}
+/*
+.juci_basecontrol {
+    width: 96%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-width: 86px;
+    min-height: 35px;    
+    -webkit-border-radius: 12px;
+} */
+
+.juci_basecontrol.juci_display {
+    margin: 0px;
+    min-height: 20px;
+}
+
+p.remark {
+    background: #fff;
+    padding: 5px;
+    width: 97%;
+    font-size: 14px;
+    padding-top: 8px;
+    border-top: 1px solid #eeeeee;
+}
+
+.cal {
+    background: #0b4da1;
+    border: #0b4da1;
+    width: 69px !important;
+    min-height: 30px;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+.juci_ctrl_box {
+    padding: 0px !important;
+    padding-left: 20px !important;
+     width: 288px;
+}
+
+.juci_display .juci_ctrl_box {
+    padding: 6px 2px 4px 6px;
+    height: 25px;
+    font-size:14px;
+    display: table;
+    table-layout: fixed;
+}
+
+.juci_groupbox .juci_ctrl_label {
+    display: block;
+    margin-top: -4px;
+    height: 27px;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.comment {
+    height: 70px;
+}
+
+.communication {
+    background: #fff;
+    width: 88%;
+    margin-left: 2px;
+}
+
+.sidehd {
+    display: inline-block;
+    margin-left: 35px;
+}
+
+.green {
+    color: #77A543;
+    font-weight: bold;
+    margin-left: 1px;
+}
+
+
+.b1 {
+	min-height: 30px;
+	font-size: 14px;
+	width: 88px;
+	vertical-align: middle;
+}
+
+.dialogheader {
+    padding: 13px;
+    display:inline-block;
+}
+
+
+.juci_dialog {
+    padding: 0;
+    border: 1px;
+    position: absolute;
+    left: 3%;
+    top: 65px;
+    right: 4%;
+}
+
+.tpa_list{
+	
+	
+		overflow-x: hidden;
+overflow-y: scroll;
+background: #fff;
+/* padding: 5px; */
+height: 300px;
+margin: auto;
+	
+	
+	
+	
+}
+.heading {
+    overflow: hidden;
+    width: 100%;
+    height: 48px;
+    text-align: left;
+    vertical-align: middle;
+    background: #0B4DA1;
+    color: #fff;
+    font-weight: bold;
+    /* padding: 2px; */
+}
+.exit {
+    float: right;
+    color: white;
+    display: inline;
+    margin-top: 14px;
+    font-size: 17px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+
+.testname {
+	margin-left: 15px;
+	padding: 2px;
+}
+
+.juci_vertical_list {
+    width: 100%;
+    background: #fff;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    overflow:hidden;
+}
+
+.juci_dialog_container{
+	
+	background: rgba(51, 51, 51, 0.83);
+}
+
+.juci_vertical_bbar{
+	min-height: 30px;
+	margin: auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.juci_xlist_item {
+	padding: 4px;
+	border-bottom:none;
+}
+
+button.juci_button.close_btn {
+    background: #0B4DA1;
+    border: 0px #0B4DA1;
+    width: 64%;
+    height: 22px;
+    margin: auto;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+.date {
+    text-align: right;
+    margin-top: -41px;
+    margin-bottom: 28px;
+    margin-right: 10px;
+}
+
+.juci_button{
+	min-height: 41px;
+}
+
+.blue {
+    color: #0B4DAA;
+    padding: 10px;
+}
+
+.links {
+	margin: 20px;
+    margin-left: 5px;
+}
+.juci_display_container{
+
+	font-size: 12px;
+}

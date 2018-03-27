@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+      <link rel="stylesheet" type="text/css" href="css/dialog.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/rlifecss.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/newlead.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/dialog.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/proposalcolors.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/common.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/select-box.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/collapsible.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/juci-switch2-color.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/juci-switch2-layout.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/additionalswitch.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/select.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/jqueryui.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/colors.css">
+      </link>
+      <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+      <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+      <script src="scripts/constants.js"></script>
+      <script src="scripts/Utils.js"></script>
+      <script src="scripts/x2js library.js"></script>
+      <script src="scripts/messages.js"></script>
+      <script src="scripts/dbHelper.js"></script>
+      <script src="scripts/saveActivityResultPojo.js"></script>
+      <script src="scripts/aadharPojo.js"></script>
+      <script src="scripts/messagedigest.js"></script>
+      <script src="scripts/fingerPrintscan.js"></script>
+      <script src="scripts/CampaignNames.js"></script>
+      <script src="scripts/bindingObjectInput.js"></script>
+      <script src="scripts/dropdown.js"></script>
+      <script src="scripts/subdropdowns.js"></script>
+      <script src="scripts/rlifeservices.js"></script>
+      <script src="scripts/activityResult.js"></script>
+      <script src="scripts/ProductsMasterAcivityResult.js"></script>
+      <script src="scripts/aadharUtils.js"></script>
+      <script src="scripts/AadharIntegration.js"></script>
+      <script src="scripts/header.js"></script>
+   </head>
+   <body onclick="hideMenu()">
+      <div data-juci="panel" data-first-panel>
+         <div id="authentication" data-juci="dialog">
+            <div class="heading_otp">
+               <div class="dialogheader">Aadhaar Authentication</div>
+               <div class="exit" onclick="closeAuthenticate()">X</div>
+            </div>
+            <div class="content_body">
+               <div class="aadhar_content">
+                  <div class="aadhar_key">Aadhaar No :</div>
+                  <div class="aadhar_value" data-bind="html:$root.Aadharno()"></div>
+               </div>
+               <div class="Aadhar_image_area">
+                  <button class="authenticationBtn" data-bind="visible: gettype() !=='AGPS' && gettype() !=='AGSM' && gettype() !=='CNSM' && gettype() !=='PRSM' && gettype() !=='FLS'" data-juci="button" onclick = "openOtp()">
+                  	<div class="image_section">
+                    	<img class="aadharicon" src="images/mobile.png" ></img>
+                     	<div class="icon_label">OTP Verification</div>
+                 	</div>
+                  </button>
+                  <button class="authenticationBtn" data-juci="button" onclick = "openBiometric()">
+                  	<div class="image_section">
+                    	<img class="aadharicon" src="images/Finger print.png" ></img>
+                     	<div class="icon_label">Biometric</div>
+                  	</div>
+                  </button>
+               </div>
+            </div>
+         </div>
+         <div id="dialog-dob" data-juci="dialog">
+         	<div class="dialog_header">Enter your DOB</div>
+         	<div onclick="hidelife2assure()" >
+         	<div class="dob" data-juci="datepicker" data-picker="dob" data-label="LA DOB" data-bind="ref:LA_DOB"  data-formatter="dobValidation" required  onafterchange="checkDOBValidation(event)" onbeforechange="hidelife2assure()"></div>
+         	</div>
+         	<div class="submit_dob">
+         		<button data-juci="button" class="submitotp" onclick="onUpdateDOB()">Submit</button>
+         	</div>
+         </div>
+         <div id="dialog-otp" data-juci="dialog">
+            <div class="heading_otp">
+               <div class="dialogheader">Confirm OTP</div>
+               <div class="exit" onclick="closebox()">X</div>
+            </div>
+            <div class="col-xs-12">
+               <div class="form-group"> A One Time Password (OTP) has been sent to the mobile number associated with Aadhaar No.<span class="value" data-bind="html:$root.Aadharno()"></span> </div>
+            </div>
+            <div data-juci="form" data-bind="ref:otp" onsubmit="sendOtp(event)" onreset="closebox()">
+               <div id="otpNo" data-juci="number" data-label="Enter OTP<span class='star'>*</span>" data-bind placeholder data-trigger></div>
+               <button class="resndotp" data-juci="button" onclick="resendOtp()">Resend OTP</button>
+               <div class="juci_horizontal_bbar">
+                  <button data-juci="button" class="cancel" type="reset">Cancel</button>
+                  <button data-juci="button" class="submitotp" onclick="sendOtp()">Submit</button>
+               </div>
+            </div>
+         </div>
+         <div id="dialog-fingerprint" data-juci="dialog">
+            <div class="heading_otp">
+               <div class="dialogheader">Finger Print</div>
+               <div class="exit" onclick="closeAuthenticate()">X</div>
+            </div>
+             <div class="image_container">
+            	<div class="image_box">
+            	<img class="img_fingerprint" data-bind="attr:{src:fingerPrint}"></img>
+            	</div>
+            </div>
+               <div class="juci_horizontal_bbar">
+                  <button data-juci="button" class="cancel" onclick="closeAuthenticate()">Cancel</button>
+                  <button data-juci="button" class="submitotp" onclick="callBiometricService()">Submit</button>
+               </div>
+            </div>
+        
+         <div class="menu arrow_add_box" id="menulist" style="display: none;">
+            <ul class="items">
+               <li class="item" onclick="openLead()">
+                  <span>New Lead</span>
+               </li>
+               <li class="item" onclick="openPlanning()">
+                  <span>Planning</span>
+               </li>
+            </ul>
+         </div>
+         <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                  <img src="images/Sync.png"></img>
+                  <span>Sync</span>
+               </li>
+               <li class="item_list" onclick="openProposal()">
+                  <img src="images/New-Proposal.png"></img>
+                  <span>New Proposal</span>
+               </li>
+               <!--<li class="item_list" onclick="openCustomers()">
+                  <img src="images/Profile.png"></img>
+                  <span>Profile</span>
+               </li-->
+               <li class="item_list" onclick="openLogs()">
+                  <img src="images/logs.png"></img>
+                  <span>Logs</span>
+               </li>
+               <li class="item_list" onclick="openDataRetrieve()">
+                  <img src="images/database.png"></img>
+                  <span>Data Retrieve</span>
+               </li>
+               <li class="item_list" onclick="openDeviceCompatibility()">
+                  <img src="images/tablet.png"></img>
+                  <span>Device Compatibility check</span>
+               </li>
+               <li class="item_list" onclick="openForceUpdate()">
+                  <img src="images/app.png"></img>
+                  <span>Force Update</span>
+               </li>
+               <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+                  <li class="item_list" onclick="openCustomers()">
+                     <img src="images/female.png"></img>
+                     <span>My Customers</span>
+                  </li>
+               </div>
+                <div>
+	               <li class="item_list" onclick="openVideoRetrieval()">
+	                    <img src="images/video.png"></img>
+	                    <span>Video Retrieval</span>
+	                </li>
+                </div>
+               <!--<li class="item_list" onclick="openAdvisors()">
+                  <img src="images/Folder_grey.png"></img>
+                  <span class="my_advisors">My Advisors</span>
+               </li-->
+               <li class="item_list" onclick="openVersion()">
+                  <img src="images/Folder_grey.png"></img>
+                  <span class="my_advisors">Version</span>
+               </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+               <li class="item_list" onclick="openHelpDesk()">
+                  <img src="images/Gallery_Grey.png"></img>
+                  <span class="help">Help Desk</span>
+               </li>
+               <li class="item_list" onclick="openConfirmUpdate()">
+                  <img src="images/Gallery_Grey.png"></img>
+                  <span class="help">Confirm Update</span>
+               </li>
+               <li class="item_list" onclick="openCalculator()">
+                  <img src="images/Gallery_Grey.png"></img>
+                  <span class="help">Calculator</span>
+               </li>
+               <li class="item_list" onclick="doLogout()">
+                  <img src="images/power-blackgold.png"></img>
+                  <span class="log">Logout</span>
+               </li>
+               <li></li>
+            </ul>
+         </div>
+         <!-- Toggle Menu -->
+         <div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+            <div class="togcount" data-bind>
+               <button class="btn1 lftbrd" data-juci="button" data-toggle="1">
+                  <div class="inputs"><span class="notif" data-bind></span><span class="notifctn">Activity Result</span></div>
+               </button>
+            </div>
+         </div>
+         
+         <div class = "ref_button_section">
+         	<button class="ref_button" data-juci="button" class="btntxt" onclick="openReference()">Reference</button>
+         </div>
+         <!-- New Lead Form -->
+         <div data-juci="form" id="resultForm" onsubmit="SaveResultDetails(event)" data-bind="ref:newResultForm" data-validation="all">
+            <!-- New Lead Details -->
+            <div class="life2assure">
+               <p class="form-heading1 life">Enter Details</p>
+               <div class="meeting" id="meeting-type" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS',optionsList:$root.meeting,ref:Meeting_Status,optionsText:getInputs,attr:{'data-novalidate':(gettype() == 'FLS')}" data-label="Meeting<span class='star'>*</span>" data-formatter="getInputs" data-comparator="inputComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Meeting')" onafterchange="disabledate(event)"></div>
+               
+               <div class="meeting"  data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS',optionsList:$root.meeting,ref:Meeting_Status,optionsText:getInputs,attr:{'data-novalidate':(gettype() != 'FLS')}" data-label="Meeting<span class='star'>*</span>" data-formatter="getInputs" data-comparator="inputComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Meeting')" onafterchange="disabledate(event)"></div>
+               
+               <div class="activity" id="activity-type" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS' && $root.hasMet,optionsList:$root.activity_done,ref:Activity,optionsText:getInputs,attr:{'data-novalidate':(Meeting_Status().Description() == 'Not Met') || (Meeting_Status().Description() == 'Life Planner') || (gettype() == 'FLS')},disabled:$root.activityDone" data-label="Activity Done<span class='star'>*</span>" data-formatter="getInputs"  onafterchange="callActivitySubType(event)" required onvalidationfail="Utils.GetValidationMessage(event,'Activity done')" data-comparator="inputComparator"></div>
+               
+                <div class="activity" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS' && $root.hasMet,optionsList:$root.ActivityDone,ref:Activity,optionsText:getInputs,attr:{'data-novalidate':(Meeting_Status().Description() == 'Not Met') || (Meeting_Status().Description() == 'Life Planner') || (gettype() != 'FLS')}" data-label="Activity Done<span class='star'>*</span>" data-formatter="getInputs" 	data-comparator=""  onafterchange="callSubType(event)" required onvalidationfail="Utils.GetValidationMessage(event,'Activity done')"></div>
+               
+               <div class="activitysubtype" id="activity-subtype" data-juci="selectbox" data-mode="popup" data-bind="visible:($root.Subtype||$root.hasMet),disabled:$root.lifePlanner,optionsList: $root.activity_subtype,ref:Sub_Activity,optionsText: getInputsSubValue,attr:{'data-novalidate':Activity == '' && (Meeting_Status().Description() == 'Not Met') || (Meeting_Status().Description() == 'Life Planner') ||(Meeting_Status().Description() == 'Not Met')||(Meeting_Status().Description() == 'Met')}" data-label="Activity Subtype<span class='star'>*</span>" data-formatter="getInputsSubValue" onafterchange="callActivitySubOption(event)"  required onvalidationfail="Utils.GetValidationMessage(event,'Activity Subtype')" ></div>
+               
+               <div class="activitysubtypeOption" id="activity-subtype-opt" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS' &&($root.SubtypeOption||$root.hasMet),optionsList: $root.activity_option,ref:Sub_Activity_Options,optionsText: getInputsSubValue,attr:{'data-novalidate':(Sub_Activity() == '') || (Activity !='Regular Activity') ||  (Meeting_Status().Description() == 'Not Met') || (Meeting_Status().Description() == 'Life Planner')||(Meeting_Status().Description() == 'Met')}" data-label="Activity Subtype Option<span class='star'>*</span>" data-formatter="getInputsSubValue" 	data-comparator="inputSubComparator"   required onvalidationfail="Utils.GetValidationMessage(event,'Activity subtype option')"></div>
+               
+               <div class="activitysubtypeOption" id="activity-subtype-opt" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS' &&($root.SubtypeOption||$root.hasMet),optionsList: $root.activity_option,ref:Sub_Activity_Options,optionsText: getInputsSubValue,attr:{'data-novalidate':(Sub_Activity() == '') || (Activity() !='Regular Activity') ||  (Meeting_Status().Description() == 'Not Met') || (Meeting_Status().Description() == 'Life Planner')||(Meeting_Status().Description() == 'Met')}" data-label="Activity Subtype Option<span class='star'>*</span>" data-formatter="getInputsSubValue" 	data-comparator="inputSubComparator"   required onvalidationfail="Utils.GetValidationMessage(event,'Activity subtype option')"></div>
+               
+               <div id="activity-dob" class="dob" data-juci="datepicker" data-picker="dob" data-label="Next Appointment" data-bind="visible:gettype() != 'FLS',ref:Next_Appointment,disabled:$root.lifePlanner,attr:{'data-novalidate':(Meeting_Status().Description() == 'Not Met' && Lead_Type() != 'Renewal') || (Meeting_Status().Description() == 'Met') || (gettype() == 'FLS')}"  data-formatter="dobValidation" required onvalidationfail="Utils.GetValidationMessage(event,'Next Appointment')" onafterchange="assignDate(event)"></div>
+               
+               <!--<div class="dob" data-juci="datepicker" data-picker="dob" data-label="Next Appointment" data-bind="visible:gettype() == 'FLS',ref:Next_Appointment,attr:{'data-novalidate':(Meeting_Status().Description() != 'Not Met') || (Meeting_Status().Description() == 'Life Planner') || (gettype() != 'FLS')}"  data-formatter="dobValidation" required onvalidationfail="Utils.GetValidationMessage(event,'Next Appointment')" onafterchange="assignDate(event)"></div>-->
+               
+               <div class="activitysubtypeOption" id="lead-disp" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS',optionsList: $root.lead_disp,ref:Lead_Disposition,optionsText:getInputs,attr:{'data-novalidate':(Meeting_Status().Description() == 'Life Planner') || (gettype() == 'FLS' )}" data-label="Lead Disposition<span class='star'>*</span>" data-formatter="getInputs"  onvalidationfail="Utils.GetValidationMessage(event,'Lead Disposition')" onafterchange="changeLeadCategory(event)" required></div>
+               
+               <div class="activitysubtypeOption" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS' && $root.isDispFls,optionsList: $root.lead_disp_fls,ref:Lead_Disposition,optionsText:getInputs,attr:{'data-novalidate':(Meeting_Status().Description() == 'Life Planner') || (gettype() != 'FLS' || Lead_Disposition() == 'Converted')}" data-label="Lead Disposition<span class='star'>*</span>" data-formatter="getInputs" onvalidationfail="Utils.GetValidationMessage(event,'Lead Disposition')" required></div>
+               
+               <div class="lead_category" data-juci="selectbox" data-mode="popup" data-bind="visible:$root.renewalDisposition,optionsList:$root.leadCategory,ref:Lead_Category,optionsText: getInputs,attr:{'data-novalidate':(Lead_Type() == 'Renewal')}" data-label="Lead Category<span class='star'>*</span>" data-formatter="getInputs" data-comparator="inputComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Lead Category')"></div>
+               
+               <div class="activitysubtypeOption" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS' && $root.LeadType() != 'Recruitment' && $root.LeadType() != 'Renewal',optionsList: $root.permium_bucket,ref:permium_bucket_ref,optionsText:getInputs,attr:{'data-novalidate':(Meeting_Status().Description() == 'Life Planner') || (gettype() == 'FLS' ) || ($root.LeadType() == 'Recruitment') || ($root.LeadType() == 'Renewal')}" data-label="Potential Premium Range / Customer Premium Bucket<span class='star'>*</span>" data-formatter="getInputs"  onvalidationfail="Utils.GetValidationMessage(event,'Lead Disposition')" required></div>
+               
+               <!--div class="leadtype" id="campaign" data-juci="selectbox" data-mode="popup" data-bind="visible:($root.hasMet && $root.status && gettype() != 'FLS'),optionsList:$root.campaign_drop,ref:Campaign_Name,optionsText: getInputsSubValue,attr:{'data-novalidate':(Meeting_Status().Description() == 'Met' && validateWithLeadType(Sub_Activity())) ||  (Meeting_Status().Description() == 'Met' && validateWithLeadType(Sub_Activity())) || Meeting_Status().Description() == 'Not Met' || gettype() == 'FLS'}" data-label="Campaign<span class='star'>*</span>" data-formatter="getInputsSubValue" 	data-comparator="inputSubComparator" onvalidationfail="Utils.GetValidationMessage(event,'Campaign')" required ></div!-->
+               
+                <!--<div class="leadtype" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS' && $root.flsCampaign,optionsList:$root.campaign_names,ref:Campaign_Name,optionsText:getInputDescription,attr:{'data-novalidate':(Meeting_Status().Description() == 'Met' && validateWithLeadType(Sub_Activity())) ||  (Meeting_Status().Description() == 'Met' && validateWithLeadType(Sub_Activity())) || Meeting_Status().Description() == 'Not Met' || gettype() != 'FLS'}" data-trigger data-label="Campaign<span class='star'>*</span>" data-formatter="getInputDescription" onvalidationfail="Utils.GetValidationMessage(event,'Campaign')" data-comparator="inputDescComparator" required></div>-->
+                
+                <div class="aadharSection" data-bind="visible:$root.aadharSection">
+	               <div id="life-assured"  class="life_header">Life To Be Assured</div>
+	               <div class="adhar" id="Aadhar" data-juci="tel"  data-label="Aadhaar Card Details" data-bind="disabled:$root.hasAuthenticated,ref:$root.Aadharno" maxlength="12" placeholder="Aadhaar Card Number"></div>
+	               <div class="btn_section" id="authenticate"><button class="btn_auth" data-juci="button"  data-bind="disabled:$root.hasAuthenticated" onclick ="openauthentication()">Authenticate</button></div>
+	                <div id="checkAadhar" data-juci="checkbox" class="agrement"  data-label="I agree with the conditions" onafterchange="checkAadhaarValidation()"></div>	
+	                <div class="consent_text" data-bind="visible:$root.consentText">I/ unconditionally consent <span onclick="viewTextBox()">...</span></div>
+	                <div class="consent_full_text" data-bind="visible:$root.adag_group">I/ unconditionally consent to receive information about Reliance Group Products / Services. I understand and approve the fact that to facilitate the above process, my personal information about myself and Life Assured (where-ever applicable) personal information (PI) would need to be disclosed to the Reliance Group and wish to receive service offerings from the Reliance Group. We do not want to be disturbed by calls from each of the Reliance Group Company for basic personal information, since the same has already been provided to Reliance Group.</div>
+                </div>
+                <div class="SMSClass" data-bind="visible:$root.renewalSMS">
+	                <div class="TriggerSMS">Trigger SMS </div>
+	                <div class="triggerSmsParams">
+		                 <div id="productUpdate" data-juci="checkbox" class="agrement"  data-label="A product from a list" onafterchange="getTriggerSmsValue()"></div>
+		                 <div class="planCode" id="plan-code" data-juci="selectbox" data-mode="popup" data-bind="visible:($root.isProductsList),optionsList:$root.products_list,optionsText: getInputsSubValue,attr:{'data-novalidate':checkProductUpdate()}" data-label="" data-formatter="getInputsSubValue" 	data-comparator="inputSubComparator" onafterchange="takeProductCode(event)" required ></div>
+		                 <div id="companyinfo" data-juci="checkbox" class="agrement"  data-label="Company Info" onafterchange="getTriggerSmsValueOthers()"></div>
+		                 <div id="claimsRec" data-juci="checkbox" class="agrement"  data-label="Claims Record" onafterchange="getTriggerSmsValueOthers()"></div>
+	                 </div>
+             	</div>
+               <div id="adhar-section" class="Aadhar_section" data-bind="with:$root.Aadhar,visible:$root.aadhar_section">
+                  <div class="adhar_heading">Aadhaar Card Details</div>
+                  <div class="aadhar_detail">
+                     <div class="aadhar_info_name">Name</div>
+                     <div class="aadhar_data" data-bind="html:Name"></div>
+                  </div>
+                  <div class="aadhar_detail">
+                     <div class="aadhar_info_name">Date of Birth</div>
+                     <div class="aadhar_data" data-bind="html:DateofBirth"></div>
+                  </div>
+                  <div class="aadhar_detail">
+                     <div class="aadhar_info_name">Gender</div>
+                     <div class="aadhar_data" data-bind="html:Gender"></div>
+                  </div>
+                  <div class="aadhar_detail">
+                     <div class="aadhar_info_name">Phone</div>
+                     <div class="aadhar_data" data-bind="html:Phone"></div>
+                  </div>
+                  <div class="aadhar_detail">
+                     <div class="aadhar_info_name">Email ID</div>
+                     <div class="aadhar_data" data-bind="html:EmailID"></div>
+                  </div>
+                  <div class="aadhar_detail_last">
+                     <div class="aadhar_info_name_last">Address</div>
+                     <div class="aadhar_data_last" data-bind="html:Address"> </div>
+                  </div>
+               </div>
+               <div class="btn">
+                  <button class="save" data-juci="button" type="submit">Submit</button>
+                  <button class="save" data-juci="button" class="btntxt" onclick="$m.close()">Cancel</button>
+                  <button class="save" data-juci="button" class="btntxt" onclick="">Reference</button>
+               </div>
+            </div>
+         </div>
+         <div class="footerbar">
+            <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+            <span> | </span>
+            <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+            <span> | </span>
+            <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+         </div>
+      </div>
+   </body>
+</html>

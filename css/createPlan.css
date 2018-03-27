@@ -1,0 +1,396 @@
+.source_row {
+	text-align: left;
+	position: relative;
+	color: rgb(255,255,255);
+    width: 860px;
+}
+
+.lifeplan {
+    display: inline-block;
+    margin: 4px;
+    font-size: 16px;
+    height:510px;
+    color: #919191;
+}
+
+.tamil_font{
+    font-size: 9px;
+}
+
+.noUi-handle.noUi-handle-upper {
+    display: none;
+}
+
+.annual_income {
+    float: left;
+    margin-top: 7px;
+    color: #979797;
+}
+
+.married {
+    display: table-cell;
+    float: left;
+    margin-top: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 41px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.lifeplan.carefree {
+    width: 14%;
+    background-color: #e7f8ce;
+}
+
+.early_career,.married_young,.married_grownup,.preRetirement {
+    display: table-cell;
+    float: left;
+    margin-top: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 15px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tamil_font_stage{
+	font-size: 8px;
+    margin-left: 0px;
+}
+
+.married.tamil_font_stage {
+    margin-left: 33px;
+}
+
+.lifeplan.planning {
+    width: 18%;
+    background-color: #d5e9cd;
+}
+
+.lifeplan.responsible {
+    width: 21%;
+    background-color: #d3e9dd;
+}
+
+.lifeplan.settlement {
+    width: 20%;
+    background-color: #e0efec;
+}
+
+.lifeplan.relaxed {
+    width: 20%;
+    background-color: #dbdfea;
+    margin-right: 0px;
+}
+
+.year {
+    display: inline-block;
+}
+
+.years {
+    text-align: left;
+    margin-left: 38px;
+}
+
+.lifeplan p {
+	text-align: center;
+	font-size: 13px;
+    height: 20px;
+    font-weight:bold;
+	color:#919191;
+}
+
+.juci_basecontrol.juci_rangeslider {
+    border: none;
+    /* margin-bottom: -40px; */
+    width: 100%;
+    margin: auto;
+    margin-bottom: -38px;
+}
+
+
+.rangebox{
+	display:table;
+	width: 90%;
+	margin-right: 8px;
+	margin-top: 13px;
+	float: right;
+	vertical-align: middle;
+}
+
+.val {
+    display: table;
+    width: 100%;
+    margin-top: 28px;
+}
+
+.lval {
+    display: table-cell;
+    float: left;
+    width: 5%;
+    vertical-align: middle;
+    margin-left: 13px;
+}
+.child_education{
+	display:inline-block;
+	margin: 29px;
+}
+
+.wealth_creation{
+	display:inline-block;
+	margin: 27px;
+}
+
+.retirement{
+	display:inline-block;
+	margin: 25px;
+}
+
+.rval {
+    display: table-cell;
+    float: right;
+}
+
+.Learly_career{
+	display:inline-block;
+	margin: 7px;
+	font-size:12px;
+}
+.Lmarried{
+	display:inline-block;
+	margin: 17px;
+	font-size:12px;
+}
+.Lmarried_young{
+	display:inline-block;
+	margin: 3px;
+	font-size:12px;
+}
+.Lmarried_grownup{
+	display:inline-block;
+	margin: 6px;
+	font-size:12px;
+}
+.Lretirement{
+	display:inline-block;
+	margin: 10px;
+	font-size:12px;
+}
+span.text {
+    font-size: 14px;
+}
+
+span.number {
+    font-size: 14px;
+}
+
+.imgtext {
+    display: inline-block;
+    position: relative;
+}
+
+.iconimage, .icontext {
+    display: inline-block;
+}
+
+.icontext {
+    padding: 2px;
+    padding-left: 37px;
+}
+
+
+.iconimage {
+    position: absolute;
+    top: -15px;
+    left: -28px;
+    width: 62px;
+}
+
+.imgtext.protection {
+    position: absolute;
+    top: 85px;
+    left: 7%;
+    width: 90%;
+    text-align: left;
+    overflow: visible;
+}
+
+.protection .icontext {
+	width: 95%;
+	background-color: #03A9F4;
+}
+
+.imgtext.childeducation {
+    position: absolute;
+    top: 136px;
+    left: 66%;
+    width: 33%;
+    overflow: visible;
+}
+
+.childeducation .icontext {
+    width: 80%;
+    background-color: #03A9F4;
+}
+
+.imgtext.car {
+    position: absolute;
+    top: 203px;
+    left: 25%;
+    width: 28%;
+    overflow: visible;
+}
+
+.car .icontext {
+    width: 53%;
+    background-color: #03A9F4;
+}
+
+.imgtext.seccar {
+    position: absolute;
+    top: 203px;
+    left: 56%;
+    width: 35%;
+    overflow: visible;
+}
+
+.seccar .icontext {
+    width: 100%;
+    background-color: #03A9F4;
+}
+
+.create_plan_title {
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    color: #787878;
+    margin-bottom: 14px;
+}
+
+.yourAge{
+	display: inline-block;
+	float: left;
+	margin-top: 11px;
+	color: #787878;
+	margin-bottom: 4px;
+}
+
+.planContent{
+	display: block;
+	text-align: justify;
+	color: #787878;
+}
+
+
+
+.imgtext.retirement {
+    position: absolute;
+    top: 264px;
+    left: 63%;
+    width: 34%;
+    overflow: visible;
+}
+
+.retirement .icontext {
+    width: 77%;
+   	background-color: #03A9F4;
+}
+
+.imgtext.childmarriage {
+    position: absolute;
+    top: 342px;
+    left: 67%;
+    width: 30%;
+    overflow: visible;
+}
+
+.childmarriage .icontext {
+    width: 83%;
+    background-color: #03A9F4;
+}
+
+.imgtext.firsthouse {
+    position: absolute;
+    top: 408px;
+    left: 15%;
+    width: 80%;
+    overflow: visible;
+}
+
+.firsthouse .icontext {
+    width: 20%;
+    background-color: #03A9F4;
+}
+
+.imgtext.sechouse {
+    position: absolute;
+    top: 408px;
+    left: 65%;
+    width: 33%;
+    overflow: visible;
+}
+
+.sechouse .icontext {
+    width: 82%;
+    background-color: #03A9F4;
+    /*background-color: #E79394;*/
+}
+
+.createaplan {
+    position: absolute;
+    top: 86%;
+    left: 67%;
+}
+
+.createaplan button {
+    width: 200%;
+    background-color: #FF5500;
+    height: 40px;
+    border: 0px;
+    border-radius: 6px;
+    color: rgb(255,255,255);
+	cursor: pointer;
+    font-size: 18px;
+}
+
+a.Plan_link {
+   /* margin: -80px 36px 0 0;*/
+}
+
+.pop .box div.step{
+	color: #948A54;
+    font-size: 17px;
+}
+
+button.juci_button.seeplan {
+    display: table-cell;
+    border-radius: 7px;
+    background: #0b4daa;
+    border-color: 1px solid;
+    border-radius: 1px solid #0b4daa;
+    border-color: 1px solid #0b4daa;
+    border: 1px solid #0b4daa;
+    min-height: 41px;
+    font-size: 17px;
+}
+
+.reCal_row {
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+
+
+.slider_value {
+    margin-bottom: 5px;
+}
+
+.label_section {
+    text-align: left;
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+    color: rgba(68, 68, 68, 0.8);
+}

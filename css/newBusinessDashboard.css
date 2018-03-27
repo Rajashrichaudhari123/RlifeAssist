@@ -1,0 +1,428 @@
+.wrapper{
+	width: 100%;
+	margin: auto;
+	background-color: #FFFFFF;
+	background: #FFFFFF;
+}
+.wrapper .juci_label_text{
+	color: black;
+	overflow: unset;
+}
+.wrapper .juci_display .juci_ctrl_box{
+	display: none;	
+}
+.heading_container{
+	border: 1px solid gray;
+	border-bottom: none;
+	/* background-color: #E6E6E6; */
+}
+.heading_container .juci_display{
+	min-height:0;
+	height:30px;
+	margin:0;
+	border: none;
+	color: white;
+}
+.heading_container .juci_ctrl_label{
+	margin:0;
+	}
+.heading_container .juci_label_text{
+    vertical-align: middle;	
+    height: 28px;
+    color: black;
+}.labels{
+	width:100%;	
+	border: 1px solid gray;
+}
+.period_dropdown_container .juci_ctrl_label,.customer_name_container .juci_ctrl_label,.labels .juci_linker{
+	display: none;	
+}
+.period_dropdown_container  .juci_ctrl_box.juci_selectbox_box, .customer_name_container  .juci_ctrl_box.juci_selectbox_box{
+	padding: 0px 0px 0px 7px;
+    line-height: 27px;
+    font-size: 15px;
+    height: 28px;	
+}
+.period_dropdown_container, .customer_name_container{
+	width:45%;
+	display: inline-block;
+	vertical-align: top;
+}
+.customer_name_container{
+	width: 21%;	
+}
+.time_period,.customer_name_drop{
+	margin: 0;
+    padding: 0;
+    min-height: 30px;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    bottom: 3px;
+}
+.data_container .juci_display{
+	display: inline-block;
+	margin-bottom: 0;
+		
+}
+.customer_name{
+	text-align: center;	
+	width: 54%;
+	margin: 0;
+    margin-left: 47%;
+	padding: 0;
+	border:none;
+	margin-bottom: 6px;
+}
+.leads{
+	margin-top: 10px;	
+}
+.leads, .Meetings,.Logins,.Super_Express_Logins,.Issuance,.Super_Express_Issuance{
+	height:30px;
+}
+.juci_basecontrol.juci_display.Nb_Meetings.lable, .juci_basecontrol.juci_display.total_logins_lable.lable {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 0;
+}
+.block{
+	margin: 0;
+    padding: 0;
+    width: 45%;
+    height: 30px;
+    display: inline-block;
+}
+.leads_block{
+	border-top: 2px solid black !important;	
+}
+.value{
+	margin: 0;
+    padding: 0;
+    position: relative;
+	border: 2px solid black;
+	height: 30px;
+}
+.Super_Express_Issuance_lable{
+	line-height: 20px;
+    font-size: 15px;
+    color: black;
+    text-align: right;
+    width: 41%;	
+}
+.Super_Express_Issuance_lable  .juci_label_text{
+	position: relative;
+    bottom: 6px;	
+}
+.Super_Express_Issuance_block{
+	margin: 0;
+    padding: 0;
+    position: relative;
+	border: 2px solid black;
+}
+.Super_Express_Issuance	.block{
+	position: relative;
+    bottom: 56px;
+}
+/*---------interation---------*/
+.intersection {
+    width: 100%;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 2%;
+}
+.lables_intersection{
+	    width: 135px;
+	    height:0px;
+	    display: inline-block;
+	    border: 1px dotted black;
+}
+.graph_intersection {
+    height: 0px;
+    border: 1px dotted black;
+    width: 47%;
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 18px;
+    max-width: 300px;
+}
+/*---------footer---------*/
+.Nb_Meetings{
+    margin-top: 10px;
+    height: 41px;
+}
+.Nb_Meetings_block{
+	position: relative;
+    bottom: 3px;	
+}
+.juci_basecontrol.juci_display.Nb_Meetings_block.value {
+    margin: 0;
+    padding: 0;
+    border: 2px solid black;
+    display: inline-block;
+    background-color: red;
+    position: relative;
+    line-height: 28px;
+}
+.total_logins{
+	margin-top:5px;
+}
+.total_logins_block{
+	 margin: 0;
+    padding: 0;
+    border: 2px solid black;
+    display: inline-block;
+	}
+/*-------------------*/
+.lable{
+	width:43%;
+    margin: 0;
+    border: none;
+    padding: 0;
+    margin-right: 10px;
+    display: inline-block;
+    padding-left: 12px;
+}
+.juci_display{
+	min-height:0;
+	min-width:0;
+}
+.labels .juci_display{
+	display: inline-block;
+    margin: 6px;
+    padding: 0;
+    height: 30px;
+    padding-top: 8px;
+    padding-left: 4px;
+}
+.juci_basecontrol.juci_display.value {
+    width: 50px !IMPORTANT;
+    text-align: center;
+    height: 32px;
+    line-height: 28px;
+    margin: auto;
+    margin-left: 134px !important;
+}
+
+.hide_border_bottom{
+	border-bottom: none;	
+}
+.show_border_top{
+	border-top: 2px solid black !important;	
+}
+/*---------drodwon----------*/
+.juci_radiogroup {
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+.juci_option_label{
+	padding: 9px 3px;	
+}
+.juci_radiogroup .juci_option{
+	margin: 0;
+}
+.juci_radiogroup .juci_option.touch{
+	border-color: #ddd;
+}
+.juci_parent.touch .juci_ctrl_box {
+    color: black;
+    background-color: transparent;
+}
+.juci_selectbox.touch{
+	background: transparent;
+	border-bottom: 1px solid #ddd;
+}
+
+.juci_option.selected{
+	background-image: none;
+}
+/*-------------------------------*/
+.juci_xlist_item{
+	margin:0;
+	padding:0;
+	height:30;
+	border: none;
+}
+
+ .lable,.value{
+ 	line-height: 30px;
+    text-align: center;
+ }
+ .lable{
+ 	text-align: left;	
+ }
+ wrapper .juci_vertical_list{
+ 	margin: 0;	
+ }
+ 
+ .custom_selectbox {
+    width: 49%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 5px;
+    padding-right: 0;
+}
+
+.juci_selectbox_popup_panel {
+}
+
+.custom_selectbox .juci_selectbox_popup {
+    position: absolute;
+    width: 47.9%;
+    margin: auto !important;
+}
+
+.custom_selectbox .juci_selectbox {
+    margin: 0;
+    width: 98%;
+}
+
+.juci_xlist_item.touch {
+	background:#FFF;
+	color:#000000
+}
+
+.juci_panel {
+	overflow:hidden;
+}
+
+.dot {
+	display:inline-block;	
+}
+
+
+
+.Leads_block.value {
+    width: 300px !important;
+    margin-left:0 !important;
+}
+
+.Meetings_Aadhaar_block.value {
+    width: 250px !important;
+    margin-left: 25px !important;
+}
+
+.Logins_block.value {
+    width: 200px !important;
+    margin-left: 50px !important;
+}
+
+.SuperExpessLogins_block.value {
+    width: 150px !important;
+    margin-left: 75px !important;
+}
+
+.Issuance_block.value {
+    width: 100px !important;
+    margin-left: 100px !important;
+}
+.SuperExpressIssuance_block.value {
+	width: 50px !important;
+    margin-left: 125px !important;
+}
+
+.ScreeningInterview_block.value {
+    width: 250px !important;
+    margin-left: 25px !important;
+}
+
+.NAT_block.value {
+	width: 200px !important;
+    margin-left: 50px !important;
+}
+
+.ARF_block.value {
+	width: 150px !important;
+    margin-left: 75px !important;
+}
+
+.DRF_block.value {
+	width: 100px !important;
+    margin-left: 100px !important;
+}
+
+.ExamAttended_block.value {
+	width: 50px !important;
+    margin-left: 125px !important;
+}
+
+.Licenses_block.value {
+	width: 50px !important;
+    margin-left: 125px !important;
+}
+
+.data_container {
+    overflow-x: auto;
+}
+
+ .lable{
+ 	text-align: left;
+ 	max-width: 160px;
+ }
+ div#list .juci_linker {
+    display: none;
+}
+
+div#recruitment .juci_linker {
+    display:none;
+}
+
+div#recruitment-list .juci_linker {
+    display: none;
+}
+#new .juci_linker{
+	display: none;
+}
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+  border-radius:25px;
+  display: inline-block;
+  max-width: 80px;
+}
+
+#myBar {
+  width: 12%;
+  height: 10px;
+  background-color: #4CAF50;
+  border-radius:25px
+}
+
+.juci_ctrl_box.juci_datepicker_box {
+    border: 0;
+}
+
+.juci_basecontrol.juci_datepicker.juci_parent {
+    border-bottom: 1px solid #DDD;
+    width: 98%;
+    margin-left: 5px;
+}
+.legend {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+    overflow: auto;
+}
+
+.legend img {
+    width: 40px;
+    vertical-align: middle;
+}
+
+.legend span {
+    vertical-align: middle;
+    display: inline-block;
+    text-align: left;
+    width: 80px;
+}
+
+.legend_container {
+    width: 97%;
+    margin: auto;
+    overflow-x: auto;
+}
+
+.productmix_text{
+	    text-align: center;
+    padding: 10px 0;
+}

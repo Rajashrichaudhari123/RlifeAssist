@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/proposal.css"></link>
+	    <link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+	    <link rel="stylesheet" type="text/css" href="css/proposalcolors.css"></link>
+	    <link rel="stylesheet" type="text/css" href="css/common.css"></link>
+	    <link rel="stylesheet" type="text/css" href="css/messageSchedular.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/bindingObject.js"></script>
+		<script src="scripts/messageSchedular.js"></script>
+		<script src="scripts/pdcVideoDetailsPojo.js"></script>
+		<script src="scripts/header.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<div class="juci_thinbar">
+				<div class="message_schedular">Message Schedular</div>
+			</div>
+			<div data-juci="form" data-bind="ref:customerData" onsubmit="onCustomerSubmit(event)">
+				<div data-juci="text" data-label="Salutation" data-bind="ref:nomineeSalutation" disabled></div>
+				<div data-juci="text" data-label="Nominee Name<span class='star'>*</span>" data-bind="ref:nomineeName" disabled></div>
+				<div data-juci="email" data-label="Nominee Email.<span class='star'>*</span>" data-bind="ref:nomineeEmail" pattern="^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])" onvalidationfail="Utils.GetValidationMessage(event,'Email Id')" required maxlength="50" data-formatter="validateEmail"></div>
+				<div data-juci="tel" data-label="Nominee Mobile Number.<span class='star'>*</span>" data-bind="ref:nomineeMobileNo" required pattern="^[0-9]{10,11}$" onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')" maxlength="10"></div>
+				<div class="dob" data-juci="datepicker" data-picker="dob" data-label="Date" data-bind="ref:calender" required onvalidationfail="Utils.GetValidationMessage(event,'Date.')" onafterchange="assignDate(event)"></div>
+				<div class="class_btn">
+					<button data-juci="button" class="submit_data" type="submit">Submit</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

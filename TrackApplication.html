@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/TrackApplication.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/dialoguebox.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/TrackApplication.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+		<div class="menu" id="menulist" style="display: none;">
+	          <ul class="items">
+	            <li class="item" onclick="openLead()">
+	              <span>New Lead</span>
+	            </li>
+	            <li class="item" onclick="openProposal()">
+	              <span>New Proposal</span>
+	            </li>
+	            </ul>
+	      </div>
+	        
+	     <div id="dialog-box" data-juci="dialog">
+			<div class="heading">
+				<div class="dialogheader">Add Lead</div>
+			</div>	
+				<div class="lead" data-juci="form" data-bind="ref:lead" onsubmit="addLead(event)" onreset="removeBox()">
+					<div class="name" data-juci="text" data-label="First Name<span class='star'>*</span>" data-bind="ref:fname"></div>
+					<div data-juci="text" data-label="Last Name<span class='star'>*</span>" data-bind="ref:lname" placeholder data-trigger></div>
+					<div data-juci="email" data-label="Email<span class='star'>*</span>" data-bind="ref:email" placeholder data-trigger></div>
+					<div data-juci="number" data-label="Phone No.<span class='star'>*</span>" data-bind="ref:number" placeholder data-trigger></div>
+					<div class="managerselect" data-juci="selectbox" data-label="Manager Type<span class='star'>*</span>" data-bind="optionsList:$root.manager,ref:managertype" placeholder>
+						<!--<div data-juci="optiontemplate"></div>-->
+					</div>
+					<div class="juci_horizontal_bbar">
+						<button data-juci="button" class="btn1" type="reset">Cancel</button>
+						<button data-juci="button" class="btn2" type="submit">Add</button>
+					</div>
+				</div>	
+		</div>
+	        
+	      		 <div class="menu arrow_box" id="profilelist" style="display: none;">
+              <ul class="items">
+              		<li class="item_list" onclick="openSyncContacts()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync Personal Contacts</span>
+	                </li>
+                   <li class="item_list" onclick="openSync()">
+                        <img src="images/Sync.png"></img>
+                        <span>Sync</span>
+                    </li>   
+                    
+                     <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+               		</li>--> 
+              
+                     <li class="item_list" onclick="openProposal()">
+                        <img src="images/New-Proposal.png"></img>
+                        <span>New Proposal</span>
+                    </li>  
+                    
+                       <li class="item_list" onclick="openCustomers()">
+                        <img src="images/Profile.png"></img>
+                        <span>Profile</span>
+                    </li>  
+                    
+                   <li class="item" onclick="openCustomers()">
+                        <img src="images/female.png"></img>
+                        <span>My Customers</span>
+                    </li>
+                    <li class="item" onclick="openAdvisors()">
+                        <img src="images/Folder_grey.png"></img>
+                        <span class="my_advisors">My Advisors</span>
+                    </li>
+                    
+                     <!--<li class="item_list" onclick="openHelpDesk()">
+                        <img src="images/Profile.png"></img>
+                        <span>Team Login</span>
+                    </li>-->
+                    
+                    <li class="item_list" onclick="openHelpDesk()">
+                        <img src="images/Gallery_Grey.png"></img>
+                        <span class="help">Help Desk</span>
+                    </li>
+                    <li class="item_list" onclick="doLogout()">
+                        <img src="images/power-blackgold.png"></img>
+                        <span class="log">Logout</span>
+                    </li>
+                </ul>
+                </div>
+	       <!-- <div class="menu" id="profilelist" style="display: none;">
+	          <ul class="items">
+	          <li class="item" onclick="openProfile()">
+	          	<div data-juci="form" data-bind="ref:profileDetail">
+		              <div class="name" data-bind="html:name"></div>
+		              <div class="id" data-bind="html:'ADV ID:'+id()"></div>
+		              <div class="id" data-bind="html:area"></div>
+	            </div> 
+	            </li>
+	            <li class="item" onclick="openDashboard()">
+	             <div data-juci="form" data-bind="ref:goal">
+	             	<!--	<span>Goal Summary</span> 
+		             <div class="summary">		
+		             	<div class="titles">Target:</div>	
+			              <div class="tar" data-bind="html:target"></div>
+			          </div>  
+			          <div class="summary">
+			            <div class="titles">Achieved:</div> 
+			              <div class="tar" data-bind="html:acheived"></div>
+			          </div>    
+			          <div class="summary">   
+			            <div class="titles">Pending :</div> 
+			              <div class="tar" data-bind="html:pending"></div>
+			           </div>   
+	            </div>
+	            </li>
+	            <li class="item" onclick="openCustomers()">
+	              <img src="images/female.png"></img>
+	              <span>My Customers</span>
+	            </li>
+	            <li class="item" onclick="openAdvisors()">
+	              <img src="images/Folder_grey.png"></img>
+	              <span>My Advisors</span>
+	            </li>
+	            <li class="item" onclick="openHelpDesk()">
+	              <img src="images/Gallery_Grey.png"></img>
+	              <span>Help Desk</span>
+	            </li>
+	            <li class="item" onclick="doLogout()">
+	              <img src="images/power-blackgold.png"></img>
+	              <span>Logout</span>
+	            </li>
+	            </ul>
+	        </div>-->
+			<!-- Enter your HTML content here -->
+			<div class="topheader">
+				<div class="midheader">
+					<div class="selection" data-bind="with:select">
+							
+							<select id="slct1" onchange="view()">
+								
+								<option  class="opt1" data-bind="html:fld1"></option>
+								 
+								<option  class="opt1" data-bind="html:fld2"></option>
+								
+								<option  class="opt1" data-bind="html:fld3" selected></option>
+								
+							</select>
+							
+						</div>
+						<div data-juci="searchbox" data-bind="ref: tsearch" data-searcher="searcher"></div>
+							<button class="tbtn" data-juci="button">Search</button>
+					</div>
+				</div>	
+				
+				<div class="appno" id="appno" data-juci="xlist" data-bind="ref:appno" data-search-placeholder="Search by Name,Number.."> 
+				 <div data-juci="listitem">
+						<div class="row">
+							<div class="cell bold" data-bind="html:Name()+','"></div>
+							<div data-bind="visible:alstatus()=='Pending'">
+								<div class="pstatus" data-bind="html:alstatus"></div>
+							</div>
+							<div data-bind="visible:alstatus()=='Approved'">
+								<div class="astatus" data-bind="html:alstatus"></div>
+							</div>
+							<div data-bind="visible:alstatus()=='Rejected'">
+								<div class="rstatus" data-bind="html:alstatus"></div>
+							</div>
+							<div data-bind="visible:alstatus()=='In Process'">
+								<div class="ipstatus" data-bind="html:alstatus"></div>
+							</div>
+							<div class="cell" data-bind="html:'ID : '+id()"></div>
+							<div class="nxtcell" data-bind="html:company"></div>
+						</div>
+						<div class="head">
+						 	<div class="titles">Category</div>
+						 		<div class="data" data-bind="html:Category"></div>
+					 	</div>
+					 	<div class="head">
+						 	<div class="titles">Application No.</div>
+						 		<div class="data" data-bind="html:ApplicationNo"></div>
+					 	</div>
+						<div class="head">
+						 	<div class="titles">Amount</div>
+						 		<div class="data" data-bind="html:amount"></div>
+					 	</div>
+					 		<div class="head">
+						 	<div class="titles">TransactionID</div>
+						 		<div class="data" data-bind="html:TransactionID"></div>
+					 	</div>
+					 	<div class="head">
+						 	<div class="titles">Date</div>
+						 		<div class="data" data-bind="html:date"></div>
+					 	</div>
+					 	<div class="head">
+						 	<div class="titles"><img src="images/actioncircle.png"></img>&nbsp&nbsp<img src="images/actioncircle.png"></img></div>
+					 	</div>
+					</div>
+				 </div>
+				 
+				 <div class="customer" id="customerdetails" data-juci="xlist" data-bind="ref: customerDetails" data-search-placeholder="Search by Name,Number.." data-titles data-subtitles data-new-item>
+					<div data-juci="listitem">
+						<div class="row">
+							<div class="cell bold" data-bind="html:Name()+','"></div>
+							<div class="cell" data-bind="html:'ID : '+id()"></div>
+							<div class="cell" data-bind="html:company"></div>
+						</div>
+						<div class="head">
+						 	<div class="titles">Amount</div>
+						 		<div class="data" data-bind="html:amount"></div>
+					 	</div>
+					 	<div class="head">
+						 	<div class="titles">Last Date</div>
+						 		<div class="data" data-bind="html:ldate"></div>
+					 	</div>
+					</div>
+				 </div>
+				 
+				 	<div class="advisor" id="advisordetails" data-juci="imagelist" data-bind="ref:advisordetails" data-img="img" data-search-placeholder="Search by Name,Number..">
+				 		
+				 		<div data-juci="listitem">
+				 		<!--<img data-bind="attr: {'src': img}" />-->
+						<div class="row">
+							<div class="cell bold" data-bind="html:Name()+','"></div>
+							<div data-bind="visible:alstatus()=='Active'">
+								<div class="astatus" data-bind="html:alstatus"></div>
+							</div>
+							<div data-bind="visible:alstatus()=='In Active'">
+								<div class="rstatus" data-bind="html:alstatus"></div>
+							</div>
+							<div class="cell" data-bind="html:'ID : '+id()"></div>
+							<div class="nxtcell" data-bind="html:addr"></div>
+						</div>
+						<div class="head">
+						 	<div class="titles">Email</div>
+						 		<div class="data" data-bind="html:email"></div>
+					 	</div>
+					 	<div class="head">
+						 	<div class="titles">Mobile No.</div>
+						 		<div class="data" data-bind="html:mobileNo"></div>
+					 	</div>
+						<div class="head">
+						 	<div class="titles">Target Achieved</div>
+						 		<div class="data" data-bind="html:target"></div>
+					 	</div>
+					 	<div class="head">
+						 	<div class="titles"><img src="images/actioncircle.png"></img>&nbsp&nbsp<img src="images/actioncircle.png"></img></div>
+					 	</div>
+					</div>
+				 </div>
+				 
+				</div>
+			</dv>
+		</div>
+	</body>
+</html>

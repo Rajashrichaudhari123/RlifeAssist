@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/testtoggle.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/collapsible.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/testtoogle.js"></script>
+		<script src="scripts/collapsible.js"></script>
+		<script>
+			$m.juci.addDataset("gender","");
+		</script>
+		
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div data-juci="togglebar" data-bind="ref:gender" ontoggle="hi(event)">
+				<button class="b1" data-juci="button" data-toggle="1"> Male <img src="images/male.png"></></button>
+				<button class="b2" data-juci="button" data-toggle="1"> Female <img src="images/female.png"></></button>
+			</div>
+			
+			<div id="photo" data-juci="togglebar" data-bind="ref:gender" ontoggle="toggleView(event)">
+				<button class="b1 pic" data-juci="button" data-toggle="1" ><img src="images/Camera_Grey.png"></> Capture </button>
+				<button class="b2 pic" data-juci="button" data-toggle="1"><img src="images/Gallery_Grey.png"></> Gallery </button>
+				<button class="b2 pic" data-juci="button" data-toggle="1"><img src="images/Folder_grey.png"></> Browse </button>
+			</div>
+		
+			
+		</div>
+	</body>
+</html>

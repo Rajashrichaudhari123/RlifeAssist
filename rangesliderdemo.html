@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0" />
+		<meta http-equiv="x-rim-auto-match" content="none" />
+		<link rel="stylesheet" href="../themes/default/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="themes/juci_rangeslider.css" type="text/css" />
+		<script src="js/juci-rangeslider.js"></script>
+		<script>
+			juci.dataset("rangeValue", "1");
+			juci.dataset("form",{
+				"question": {
+					"answer": "2"
+				}
+			});
+			juci.dataset("forms", {
+				"question": "20"
+			});
+		</script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+            <div id="rs" data-juci="rangeslider" data-range-min="0", data-range-max="20" data-range-step="1" data-bind="ref: rangeValue"></div>
+			<div data-juci="form" data-bind="ref: form">
+				<div data-juci="rangeslider" data-range-min="0", data-range-max="50" data-range-step="2" data-bind="ref: $root.form().question().answer"></div>
+			</div>
+			<div data-juci="rangeslider" data-range-min="0", data-range-max="100" data-range-step="10" data-bind="ref: $root.forms().question"></div>
+		</div>
+	</body>
+</html>

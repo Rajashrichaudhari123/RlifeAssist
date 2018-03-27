@@ -1,0 +1,157 @@
+#dialog-box {
+    height: 250px;
+  
+}
+
+.heading{
+    overflow: hidden;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    vertical-align: middle;
+    background: #0B4DA1;
+    color: #fff;
+    font-weight: bold;
+}
+.heading__otp {
+    overflow: hidden;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    vertical-align: middle;
+    background: #0B4DA1;
+    color: #fff;
+    font-weight: bold;
+}
+.modal-body{
+      overflow-x: hidden;
+      overflow-y: scroll;
+      background: #fff;
+      padding: 5px;
+   height:242px;
+     
+}
+
+   div#update_Content {      overflow: hidden;  }
+      div#Otp_Content {      overflow: hidden;  }
+   
+
+
+ul.content {
+    padding-left: 6px;
+    font-size: 14px;
+    line-height: 19px;
+}
+p {
+    padding: 5px;
+    font-size: 14px;
+    line-height: 19px;
+
+}
+
+div#Otp {
+    margin-top: -20px;
+    border: none;
+    overflow: hidden;
+}
+
+.close {
+	display: inline-block;
+    vertical-align: super;
+    float: right;
+    margin-top: 10px;
+    margin-right: 8px;
+}
+
+.juci_dialog {
+	padding:0px;
+}
+.data {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+}
+button.juci_button {
+    width: 62px;
+    font-size: 13px;
+}
+.juci_button{
+	min-height:26px;
+}
+.otptext{
+	display:inline-block;
+	font-size: 14px;
+	padding-top: 14px;
+	overflow: hidden;
+}
+.user_id input.juci_ctrl_box {
+    border-bottom: 1px solid #ddd;
+}
+span.blueotp {
+    color: #1190e0;
+    margin-left: -20px;
+    margin-bottom: 35px;
+}
+.juci_dialog_container{
+	
+	background: rgba(0, 0, 0, 0.79);
+}
+
+.juci_thinbar {
+    background: #f1f1f1;
+    text-align: right;
+    padding-top: 17px;
+    overflow: hidden;
+    margin-top: 8%;
+}
+
+button.juci_button.btn_cancel {
+    margin-bottom: 10px;
+    height: 34px;
+    width: 64px;
+    background: #969494;
+    border-color: #969494;
+}
+
+
+div#dialogotp {
+    width: 100%;
+    font-size: 14px;
+   
+}
+
+.otp_data {
+    overflow: hidden;
+}
+
+
+button.juci_button.btn_submit {
+    height: 34px;
+    width: 64px;
+    margin-right: 8px;
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    border-radius: 2px;
+}
+
+button.juci_button.btn_resnd{
+background: #969494;
+	border-color: #969494;
+	height: 33px;
+	width: 104px;
+	font-size: 13px;
+	}
+	
+	p.text {
+    padding-left: 21px;
+    overflow: hidden;
+}
+
+.juci_fail{
+	color: #F34A4A;
+	background-color: transparent;
+	padding: 6px 2px;
+}
+.juci_validation.juci_fail {
+    margin-top: 1px;
+}

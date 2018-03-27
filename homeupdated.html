@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+        <!-- Add your stylesheets here -->
+        <link rel="stylesheet" type="text/css" href="css/newhome.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/homeupdated.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/common.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+        <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+        <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+        <!-- Add your scripts here -->
+        <script src="scripts/home.js"></script>
+        <script src="scripts/constants.js"></script>
+        <script src="scripts/hardcode.js"></script>
+        <script src="scripts/header.js"></script>
+        <script src="scripts/rlifeservices.js"></script>
+       <script src="scripts/teamhierarchy.js"></script>
+       <script src="scripts/hierarchyDatamanager.js"></script>
+       <script src="scripts/hierarchy.js"></script>
+       <script src="scripts/SHDataPojo.js"></script>
+       <script src="scripts/dbHelper.js"></script>
+    </head>
+   <body   onclick="hideMenu()">
+        <div data-juci="panel" data-first-panel>
+        
+        
+        <div class="juci_thinbar">
+        	<div class="header_container">
+        	
+        	<div class="user_name" data-bind="html:'HI, ' +$root.username()">  </div>
+        	
+        	<div class="version">Version : 2.0</div>
+        	</div>
+        </div>
+            <div class="menu" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openProposal()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+            </div>
+            
+              <div class="menu arrow_box" id="profilelist" style="display: none;">
+              <ul class="items">
+              		<li class="item_list" onclick="openSyncContacts()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync Personal Contacts</span>
+	                </li>
+                   <li class="item_list" onclick="openSync()">
+                        <img src="img/Sync.png"></img>
+                        <span>Sync</span>
+                    </li>   
+                    
+                    <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+               		</li>-->
+              
+                     <li class="item_list" onclick="openProposal()">
+                        <img src="img/New-Proposal.png"></img>
+                        <span>New Proposal</span>
+                    </li>  
+                    
+                       <li class="item_list" onclick="openCustomers()">
+                        <img src="img/Profile.png"></img>
+                        <span>Profile</span>
+                    </li>  
+                    
+                   <li class="item" onclick="openCustomers()">
+                        <img src="img/female.png"></img>
+                        <span>My Customers</span>
+                    </li>
+                    <li class="item" onclick="openAdvisors()">
+                        <img src="img/Folder_grey.png"></img>
+                        <span class="my_advisors">My Advisors</span>
+                    </li>
+                    
+                     <!--<li class="item_list" onclick="openTeamLogin()">
+                        <img src="img/Profile.png"></img>
+                        <span>Team Login</span>
+                    </li>-->
+                    
+                    <li class="item_list" onclick="openHelpDesk()">
+                        <img src="img/Gallery_Grey.png"></img>
+                        <span class="help">Help Desk</span>
+                    </li>
+                    <li class="item_list" onclick="doLogout()">
+                        <img src="img/power-blackgold.png"></img>
+                        <span class="log">Logout</span>
+                    </li>
+                </ul>
+                </div>
+         <!--   <div class="menu" id="profilelist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openProfile()">
+                        <div data-juci="form" data-bind="ref:profileDetail">
+                            <div class="name" data-bind="html:name"></div>
+                            <div class="id" data-bind="html:'ADV ID:'+id()"></div>
+                            <div class="id" data-bind="html:area"></div>
+                        </div>
+                    </li>
+                    <li class="item" onclick="openDashboard()">
+                        <div data-juci="form" data-bind="ref:goal">
+                            	<span>Goal Summary</span> 
+                            <div class="summary">
+                                <div class="titles">Target:</div>
+                                <div class="tar" data-bind="html:target"></div>
+                            </div>
+                            <div class="summary">
+                                <div class="titles">Achieved:</div>
+                                <div class="tar" data-bind="html:acheived"></div>
+                            </div>
+                            <div class="summary">
+                                <div class="titles">Pending :</div>
+                                <div class="tar" data-bind="html:pending"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item" onclick="openCustomers()">
+                        <img src="img/female.png"></img>
+                        <span>My Customers</span>
+                    </li>
+                    <li class="item" onclick="openAdvisors()">
+                        <img src="img/Folder_grey.png"></img>
+                        <span>My Advisors</span>
+                    </li>
+                    <li class="item" onclick="openHelpDesk()">
+                        <img src="img/Gallery_Grey.png"></img>
+                        <span>Help Desk</span>
+                    </li>
+                    <li class="item" onclick="doLogout()">
+                        <img src="img/power-blackgold.png"></img>
+                        <span>Logout</span>
+                    </li>
+                </ul>
+            </div> -->
+            	<!--<div id="dialog-teamlogin" data-juci="dialog">
+			<div class="heading_team">
+				<div class="dialogheader">Login As</div>
+				<div class="refresh_area">
+		         	<div class="refresh_img">	<img src="images/refresh.png"></img></div>
+				<span class="close" onclick="hidebox()">X</span>
+				</div>
+			</div>
+			
+			<div class="content-body"> 
+				<div class="user_name_area">
+				<div class="info">Currently logged in as</div>
+				<div class="user" data-bind="html: $root.user().name()"></div>
+				<div class="sync_time">Last Sync 13 Hours ago</div>
+				</div>
+				<div id="zm" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format" data-comparator="compare" onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup"data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format" data-comparator="compare"  onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="am"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format"  data-comparator="compare"  onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="bm"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format"  data-comparator="compare"  onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format" data-comparator="compare"   onafterchange="drillDown(event)" >
+				
+				</div>
+				
+				<div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm'),optionsList:$root.adlist,ref:name,optionsText:format" data-formatter="format" data-comparator="compare" onafterchange="drillDown(event)">
+				
+				</div>
+				
+			</div>
+				<div class="juci_thinbar">
+					<button class="login" data-juci="button" >Login as</button>
+					<button class="loginas" data-juci="button" onclick="openProposal()">Login as Myself</button>
+				</div> 
+			
+			</div>-->
+            <div class="dialoguebg"></div>
+            <div id="menu_list" data-juci="xlist" data-bind="ref:allpacks" >
+                <div data-juci="listitem" class="menu_item" data-bind="css:{dashboard_menu: name()=== 'Dashboard', products_menu: name() === 'Products', applications_menu : name() === 'Applications' , lead_management_menu : name() === 'Lead Managment', cfr_menu : name () === 'Call For Requirement', news_menu : name()  === 'News and Updates', renewals_menu: name () === 'Renewals' ,need_menu : name()  === 'Need Analysis'}">
+                    <div class="dashboard_container" data-bind="visible:name()=='Dashboard'">
+                        <div class="dashboard_section">
+                            <div class="dashboard_head_logo">
+                                <div class="dashboard_head_logo_img">
+                                    <img class="head_logo_src" src="images/Dashboard.png"/>
+                                </div>
+                                <div class="dashboard_head_logo_text">Dashboard</div>
+                            </div>
+                        </div>
+                        <div class="login_detail_section">
+                            <div class="login_details_select_box"></div>
+                            <div class="login_detials_tables">
+                                <div class="login_logins_details">
+                                    <div class="login_head_text">Logins</div>
+                                    <div class="login_head_details">
+                                        <div class="login_detials_item">
+                                            <div class="login_detail_item_key">₹ 2,34,000</div>
+                                            <div class="login_detail_item_value">Target</div>
+                                        </div>
+                                        <div class="login_detials_item">
+                                            <div class="login_detail_item_key">₹ 2,34,000</div>
+                                            <div class="login_detail_item_value">Achieved</div>
+                                        </div>
+                                        <div class="login_detials_item">
+                                            <div class="login_detail_item_key">₹ 2,34,000</div>
+                                            <div class="login_detail_item_value">Shortfall</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="login_insurance_details">
+                                    <div class="login_head_text">Issurance</div>
+                                    <div class="login_head_details">
+                                        <div class="login_detials_item">
+                                            <div class="login_detail_item_key">₹ 2,34,000</div>
+                                            <div class="login_detail_item_value">Target</div>
+                                        </div>
+                                        <div class="login_detials_item">
+                                            <div class="login_detail_item_key">₹ 2,34,000</div>
+                                            <div class="login_detail_item_value">Achieved</div>
+                                        </div>
+                                        <div class="login_detials_item">
+                                            <div class="login_detail_item_key">₹ 2,34,000</div>
+                                            <div class="login_detail_item_value">Shortfall</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div> 
+                            <div class="dashboard_sync_refresh_area">
+	                            <div class="dashboard_sync_info">Last Synced 13 hours ago</div>
+	                            <div class="dashboard_sync_refres_seperator"></div>
+	                            <div class="dashboard_refresh_icon">
+	                            	<img class="refresh_image" src="images/loop2.png"/>
+	                            </div>
+	                        </div> 
+                    </div>
+                    <div class="lead_management_container" data-bind="visible:name()=='Lead Managment'">
+                        <div class="common_menu_item">
+                            <div class="common_menu_item_row_one">
+                                <div class="menu_item_count_section">
+                                    <div class="menu_item_count_value" >08</div>
+                                    <div class="menu_item_count_key">New</div>
+                                </div>
+                                <div class="menu_item_image_section">
+                                    <img class="common_menu_logo_src" src="images/Lead Management.png">
+                                </div>
+                            </div>
+                            <div class="common_menu_item_row_two">
+                                <div class="menu_item_label">Lead Management</div>
+                                <div class="menu_item_refresh_section">
+                                    <div class="dashboard_sync_info">Last Synced 13 hours ago</div>
+		                            <div class="dashboard_sync_refres_seperator"></div>
+		                            <div class="dashboard_refresh_icon">
+		                            	<img class="refresh_image" src="img/loop2.png"/>
+		                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cfr_continer" data-bind="visible:name()=='Call For Requirement'">
+                        <div class="common_menu_item">
+                            <div class="common_menu_item_row_one" data-bind="with:$root.cfr_count">
+                                <div class="menu_item_count_section">
+                                    <div class="menu_item_count_value"  data-bind="html:count"></div>
+                                    <div class="menu_item_count_key"   data-bind="html:pname"></div>
+                                </div>
+                                <div class="menu_item_image_section">
+                                    <img class="common_menu_logo_src" src="img/CFR.png">
+                                </div>
+                            </div>
+                            <div class="common_menu_item_row_two">
+                                <div class="menu_item_label">Call For Requirement</div>
+                                <div class="menu_item_refresh_section">
+                                    <div class="dashboard_sync_info" data-bind= "html:$root.synccfr"></div>
+		                            <div class="dashboard_sync_refres_seperator"></div>
+		                            <div class="dashboard_refresh_icon">
+		                            	<img class="refresh_image" src="img/loop2.png"/>
+		                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="renewals_container" data-bind="visible:name()=='Renewals'">
+                    	<div class="common_menu_item">
+                            <div class="common_menu_item_row_one">
+                                <div class="menu_item_count_section" data-bind="with:$root.renl_count">
+                                    <div class="menu_item_count_value" data-bind="html:count"></div>
+                                    <div class="menu_item_count_key" data-bind="html:pname"></div>
+                                </div>
+                                <div class="menu_item_image_section">
+                                    <img class="common_menu_logo_src" src="img/Renewals.png">
+                                </div>
+                            </div>
+                            <div class="common_menu_item_row_two">
+                                <div class="menu_item_label">Renewals</div>
+                                <div class="menu_item_refresh_section">
+                                    <div class="dashboard_sync_info" data-bind= "html:$root.syncRenl"></div>
+		                            <div class="dashboard_sync_refres_seperator"></div>
+		                            <div class="dashboard_refresh_icon">
+		                            	<img class="refresh_image" src="img/loop2.png"/>
+		                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="applications_container" data-bind="visible:name()=='Applications'">
+                    	<div class="common_menu_item">
+                            <div class="common_menu_item_row_one">
+                                <div class="menu_item_count_section" data-bind="with:$root.aptns_count">
+                                    <div class="menu_item_count_value" data-bind="html:count"></div>
+                                    <div class="menu_item_count_key" data-bind="html:pname"></div>
+                                </div>
+                                <div class="menu_item_image_section">
+                                    <img class="common_menu_logo_src" src="img/Applications.png">
+                                </div>
+                            </div>
+                            <div class="common_menu_item_row_two">
+                                <div class="menu_item_label">Applications</div>
+                                <div class="menu_item_refresh_section">
+                                    <div class="dashboard_sync_info" data-bind= "html:$root.syncApp"></div>
+		                            <div class="dashboard_sync_refres_seperator"></div>
+		                            <div class="dashboard_refresh_icon">
+		                            	<img class="refresh_image" src="img/loop2.png"/>
+		                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="need_analysis_container" data-bind="visible:name()=='Need Analysis'">
+                    	<div class="common_menu_item">
+                            <div class="common_menu_item_row_one">
+                                <div class="menu_item_count_section">
+                                    <div class="menu_item_count_value need_analysis_list">Life Planner | Retirement Corpus | Human Life Value | Tax App</div>
+                                    <div class="menu_item_count_key"></div>
+                                </div>
+                                <div class="menu_item_image_section">
+                                    <img class="common_menu_logo_src" src="img/Need Analysis.png">
+                                </div>
+                            </div>
+                            <div class="common_menu_item_row_two">
+                                <div class="menu_item_label">Need Analysis</div>
+                                <div class="menu_item_refresh_section">
+                                    <div class="dashboard_sync_info">Last Synced 13 hours ago</div>
+		                            <div class="dashboard_sync_refres_seperator"></div>
+		                            <div class="dashboard_refresh_icon">
+		                            	<img class="refresh_image" src="img/loop2.png"/>
+		                            </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products_container" data-bind="visible:name()=='Products'">
+                    	<div class="common_menu_item">
+                            <div class="common_menu_item_row_one">
+                                <div class="menu_item_count_section">
+                                    <div class="menu_item_count_value need_analysis_list"></div>
+                                    <div class="menu_item_count_key"></div>
+                                </div>
+                                <div class="menu_item_image_section_Products">
+                                    <img class="common_menu_logo_src" src="img/Products.png">
+                                </div>
+                            </div>
+                            <div class="common_menu_item_row_two">
+                                <div class="menu_item_label">Products</div>
+                                <div class="menu_item_refresh_section">
+                                    <div class="dashboard_sync_info">Last Synced 13 hours ago</div>
+		                            <div class="dashboard_sync_refres_seperator"></div>
+		                            <div class="dashboard_refresh_icon">
+		                            	<img class="refresh_image" src="img/loop2.png"/>
+		                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news_update_container" data-bind="visible:name()=='News and Updates'">
+                    	<div class="common_menu_item_news">
+                    	    <div class="common_menu_item_row_one">
+                    	     <div class="menu_item_label_news">News and Updates</div>
+                    	     <div class="menu_item_link">View All</div>
+                    	 </div>
+                    	 
+                    	 <div class="image_list">
+                    	 <div  class="image_list_scroll" data-juci="imagelist" data-bind="ref:$root.newsupdate"  data-img="img" >
+										<div data-juci="listitem">
+											<div class="news_title" data-bind="html:$data.Title"></div>
+												<div class="news_title" data-bind="html:$data.TextPreview"></div>
+										</div> 
+									</div>
+								</div>
+								  <div class="common_menu_item_row_two">
+								  <div class="menu_item_refresh_section_news">
+                                    <div class="newupdate_sync_info" data-bind= "html:$root.syncNews"></div>
+		                            <div class="newupdate_sync_refres_seperator"></div>
+		                            <div class="newupdate_refresh_icon">
+		                            	<img class="refresh_image" src="img/loop2.png"/>
+		                            </div>
+                                </div>
+                                </div>
+                    	
+                    	
+                    	
+                    </div>
+                </div>
+            </div>
+            <div class="footerbar">
+                <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+                <span> | </span>
+                <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+                <span> | </span>
+                <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

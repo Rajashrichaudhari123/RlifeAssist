@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+	</head>
+	<script>
+	
+		var screenRecoderSuccessCallback = function (r){
+			console.log("Sucess");
+		}
+		function onStartRecordingClick() {
+			$m.screenRecorder("test123.mp4",screenRecoderSuccessCallback);
+		}
+		
+		function onStopRecordingClick(r){
+			$m.stopscreenRecorder();
+		}
+	</script>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div class="submit_cls">
+				<button class="submit_btn" onclick="onStartRecordingClick()" data-juci="button">StartRecording</button>
+				<button class="submit_btn" onclick="onStopRecordingClick()" data-juci="button">StopRecording</button>
+			</div>
+		</div>
+	</body>
+</html>

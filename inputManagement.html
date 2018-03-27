@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+      <link rel="stylesheet" type="text/css" href="css/jqueryui.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/select2.css"></link>
+    	<link rel="stylesheet" type="text/css" href="css/select2Custom.css"></link>
+	<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+	<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/inputManagement.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/collapsible.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/common.css"></link>
+      <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+      <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+      <script src="scripts/jquery.js"></script>
+    <script src="scripts/jqueryui.js"></script>
+      <script src="scripts/select2.js"></script>
+      <script src="scripts/messages.js"></script>
+      <script src="scripts/Utils.js"></script>
+      <script src="scripts/header.js"></script>
+      <script src="scripts/dbHelper.js"></script>
+      <script src="scripts/constants.js"></script>
+      <script src="scripts/rlifeservices.js"></script>
+      <script src="scripts/dbHelper.js"></script>
+      <script src="scripts/saveActivityPlanningPojo.js"></script>
+      <script src="scripts/saveActivityResultPojo.js"></script>
+      <script src="scripts/getViewDetailsPojo.js"></script>
+      <script src="scripts/saveLeadPojo.js"></script>
+      <script src="scripts/aadharPojo.js"></script>
+      <script src="scripts/inputPojo.js"></script>
+      <script src="scripts/saveLPCDetailsPojo.js"></script>
+      <script src="scripts/inputManagement.js"></script>
+      <script src="scripts/bindingObjectInput.js"></script>
+      <script src="scripts/collapsible.js"></script>
+      <script src="scripts/teamhierarchy.js"></script>
+      <script src="scripts/rlifeservices.js"></script>
+      <script src="scripts/hierarchyDatamanager.js"></script>
+      <script src="scripts/hierarchy.js"></script>
+      <script src="scripts/SHDataPojo.js"></script>
+      <script src="scripts/sticky.js"></script>
+   </head>
+   <body onclick="hideMenu()">
+      <div data-juci="panel" data-first-panel>
+      <div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+         <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li> --> 
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li-->
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+                <!--<li class="item_list" onclick="openLifePlanner()">
+                    <img src="images/database.png"></img>
+                    <span>Life Planner</span>
+                </li-->
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <li class="item_list" onclick="openDeviceCompatibility()">
+                  <img src="images/tablet.png"></img>
+                  <span>Device Compatibility check</span>
+               </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li>
+                 <div>
+	               <li class="item_list" onclick="openVideoRetrieval()">
+	                    <img src="images/video.png"></img>
+	                    <span>Video Retrieval</span>
+	                </li>
+                </div>
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Calculator</span>
+                </li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+            </ul>
+         </div>
+         <div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+            <div class="togcount" data-bind="with:inputManagement">
+               <button class="btn1" data-juci="button" data-toggle="1">
+                  <div class="inputs"><span class="notif" data-bind="html:newBusiness"></span><span class="notifctn">New Business</span></div>
+               </button>
+               <button class="btn1" data-juci="button" data-toggle="2" data-bind="visible:$root.isNotLms">
+                  <div class="inputs"><span class="notif" data-bind="html:recruitment"></span><span class="notifctn">Recruitment</span></div>
+               </button>
+               <button class="btn1" data-juci="button" data-toggle="3" data-bind="visible:$root.isNotLms">
+                  <div class="inputs"><span class="notif" data-bind="html:renewals"></span><span class="notifctn">Renewal</span></div>
+               </button>
+               <button class="btn1" data-juci="button" data-toggle="4" data-bind="visible:$root.isNotLms">
+                  <div class="inputs"><span class="notif" data-bind="html:existingAdv"></span><span class="notifctn">Advisor</span></div>
+               </button>
+                <button class="btn1" data-juci="button" data-toggle="5" data-bind="visible:$root.isLms">
+                  <div class="inputs"><span class="notif" data-bind="html:lms"></span><span class="notifctn">LMS</span></div>
+               </button>
+            </div>
+         </div>
+         <div id="dialog-profile" data-juci="dialog">
+			<div class="heading_team">
+				<div class="dialogheader">Profile Details</div>
+				<div class="refresh_area">
+		         	<!--<div class="refresh_img">	<img src="img/refresh.png" onclick="synchierarchy()"></img></div>-->
+				<span class="close" onclick="hidebox()">X</span>
+				</div>
+			</div>
+			
+			<div class="content-body"> 
+				<div class="user_name_area">
+					<div class="info">Please enter your details</div>
+					<div class="name" data-juci="text" data-label="Name" data-bind ></div>
+					<div class="mobile_no" data-juci="text" data-label="Mobile No" data-bind ></div>
+					<div class="alt_mobile" data-juci="text" data-label="Alternate MobileNo" ></div>
+				</div>
+			</div>
+				<div class="juci_thinbar team">
+					<button class="submit_details" data-juci="button" onclick="submitDetails()">Submit</button>
+				</div> 
+			
+			</div>
+         <!--  Filters  -->
+         <div id="sticky-anchor"></div>
+         <div id="filter_scroll" class="filter_scroll">
+            <div class="filters">
+               <!--<button class="search flag" data-juci="button" onclick="utils.ScrollToTop()"><img class="flag" src="images/Flag.png"></></button>-->
+               <button class="searchBy" data-juci="button" onclick="showsearchby()">Search By</button>
+               <button class="search" data-juci="button" onclick="showsortby()">Sort By</button>
+               <button class="new_lead nobrd" data-juci="button" onclick="openNewLead()">New Lead</button>
+            </div>
+              <div id="sortfiltr" style="display: none;">
+            	<div class="select_box sortoption">
+					<select id="filterList-sort" class="custome_selectbox" data-bind="options: options2" onChange="getSortBy(event)"></select>
+				</div>
+				<div class="select_box sortoption1 nobrd">
+					<select id="filterList-listsort" class="custome_selectbox " data-bind="options: options3" onChange="getlistBySort(event)"></select>
+				</div>
+            </div>
+            
+            <!--Search by select boxes-->
+            <div id="searchFilter" style="display: none;">
+	            <div class="select_box searchoption">
+					<select id="filterList-search" class="custome_selectbox" data-bind="options: options1" onChange="getSearchBy(event)"></select>
+				</div>
+				<div id="advisor-search" class="advisorSearch">
+					<div class="select_box advisordropdown" data-bind="visible:searchdisableenable">
+						<select id="filterList-advisorsearch" class="custome_selectbox" data-bind="options: advisorList" onChange="getSearchedItem(event)"></select>
+					</div>
+					<div class="searchButton" data-bind="visible:searchdisableenable">
+						<button class="searchBut" data-juci="button" onclick="searchAdvisorsName()">Search</button>
+					</div>
+				</div>
+			</div>
+			<div class="dateRangeFilter">
+				<div class="dateRange_Container">
+					<div id="dateranger" data-juci="daterange" data-bind="ref:dateranged,visible:$root.dateRange"  data-from-placeholder="From" data-to-placeholder="To" onafterchange= "getDateRange(event)" style="display: block;"></div>
+				</div>
+				<div class="searchButtonRange" data-bind="visible:$root.dateRangeButton">
+					<button class="searchButrange" data-juci="button" onclick="searchDateRange()">Search</button>
+				</div>
+			</div>
+			
+         </div>
+         <!-- New Business  -->
+         <div id="new-business">
+         <!--<button data-juci="button"  onclick = "opentest()"></button>-->
+            <div id="newBusip" data-juci="xlist" data-bind="ref:newbusinessinputs">
+               <div data-juci="listitem" data-bind="attr:{id:'showlistforce'+$index()}" onclick="showlistitem(event,'lessf')">
+                  <div class="row">
+                  <div class="left_row">
+                     <div class="cell bold" data-bind="html:Name"></div>
+                       </div>
+                     <!--<div class="sidemenu" data-bind="attr:{'id':$index()}"><img class="vertical" src="images/dots-three-vertical.png"></></div>-->
+                      <div class="right_row">
+                      <div class="status" data-bind="visible:Flag()=='1',css:{green:Flag()=='1'}">Lead Created</div>
+                     <div class="status" data-bind="visible:Flag()=='2',css:{blue:Flag()=='2'}">Activity Planned </div>
+                     <div class="status" data-bind="visible:Flag()=='3',html:Meeting_Status,css:{orange:Flag()=='3'}"></div>
+                     <div class="status" data-bind="visible:Flag()=='4',html:Meeting_Status,css:{purple:Flag()=='4'}"></div>
+                   </div>
+                  </div>
+                  <div class="nxtcell" data-bind="html:Lead_Sub_Source,visible:gettype() != 'FLS'"></div>
+                  <div class="nxtcell" data-bind="html:Lead_Type,visible:gettype() == 'FLS'"></div>
+                  <div class="right_leadid">
+                  	<div class="titles_leadId">Lead Id</div>
+                  	<div class="nxtcell_right" data-bind="html:Lead_Id"></div>
+                  </div>
+                  <div class="less" data-bind="attr:{id: 'lessf' + $index()}" style="display:none;">
+                     <div class="oneline">
+                     <div class="row_section">
+                     <div class="head">
+                        <div class="titles">Contact Number</div>
+                        <div class="data" id="activity-id" data-bind="html:Mobile"></div>
+                     </div>
+                     <div class="head right" data-bind="visible:gettype() !== 'FLS'">
+                        <div class="titles">Added Date</div>
+                        <div class="data" id="lead-id" data-bind="html:Added_Date"></div>
+                     </div>
+                     <div class="head right" data-bind="visible:gettype() == 'FLS'">
+                        <div class="titles">Appointment Date and Time</div>
+                        <div class="data" id="lead-id" data-bind="html:Activity_Date"></div>
+                     </div>
+                     </div>
+                     <div class="row_section">
+                     <div class="head" data-bind="visible:gettype() != 'FLS'">
+                        <div class="titles">Sub Activity</div>
+                        <div class="data"  data-bind=""></div>
+                     </div>
+                     <div class="head" data-bind="visible:gettype() == 'FLS'">
+                        <div class="titles">Sub Activity</div>
+                        <div class="data"  data-bind="html:Sub_Activity"></div>
+                     </div>
+                     <div class="head right" data-bind="visible:gettype() == 'FLS'">
+                        <div class="titles">Added Date</div>
+                        <div class="data"  data-bind="html:Added_Date"></div>
+                     </div>
+                     <div class="head right" data-bind="visible:gettype() != 'FLS'">
+                        <div class="titles">Address</div>
+                        <div class="data"  data-bind="html:Address"></div>
+                     </div>
+                     </div>
+                      <div class="row_section">
+                     <div class="head" data-bind="visible:gettype() != 'FLS'">
+                        <div class="titles">Campaign name</div>
+                        <div class="data"  data-bind="html:Campaign"></div>
+                     </div>
+                     <div class="head" data-bind="visible:gettype() == 'FLS'">
+                        <div class="titles">Address</div>
+                        <div class="data_address_new"  data-bind="html:Address"></div>
+                     </div>
+                     <div class="head right" data-bind="visible:gettype() != 'FLS'">
+                        <div class="titles">Lead Category</div>
+                        <div class="data"  data-bind="html:Lead_Category"></div>
+                     </div>
+                     </div>
+                     <div class="button_section">
+                     <div class="head bottom">
+                        <div class="titles"></div>
+                        <div class="data" data-bind></div>
+                        </div>
+                        <div class="button_area" data-bind="visible:gettype() != 'FLS'">
+                        	<img class="call_button" src="images/phone32.png"></img>
+							<img class="message_button" src="images/message32.png"></img>
+	                        <button class="update_lead" data-juci="button" data-bind="visible:Flag() == '1'">Planning</button>
+	                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '1' &&  Meeting_Status() ===''">Edit Lead</button>
+	                     	<button class="edit_lead" data-bind="visible:Flag() == '2'" data-juci="button">Activity Result</button>
+	                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Met')" data-juci="button">Update Planning</button>
+	                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Life Planner')" data-juci="button">Update Planning</button>
+	                       <button class="activity_result"  data-juci="button" data-bind="visible:(Flag() == '3' && Meeting_Status() ==='Not Met')" >Activity Result</button>
+	                     	<button class="update_result" data-bind="visible:Flag() == '4'" data-juci="button">Update Result</button>
+                     	</div>
+                     	<div class="button_area" data-bind="visible:gettype() == 'FLS'">
+	                        <button class="update_lead" data-juci="button" data-bind="visible:Flag() == '1'">Planning</button>
+	                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '1' &&  Meeting_Status() ===''">Edit Lead</button>
+	                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '2' &&  Meeting_Status() ===''">Edit Lead</button>
+	                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '3' &&  Meeting_Status() ==='Met'">Edit Lead</button>
+	                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '4'">Edit Lead</button>
+	                     	<button class="edit_lead" data-bind="visible:Flag() == '2'" data-juci="button">Activity Result</button>
+	                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Met')" data-juci="button">Update Planning</button>
+	                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Life Planner')" data-juci="button">Update Planning</button>
+	                     <button class="activity_result"  data-juci="button" data-bind="visible:(Flag() == '3' && Meeting_Status() ==='Not Met')" >Activity Result</button>
+	                     	<button class="update_result" data-bind="visible:Flag() == '4'" data-juci="button">Update Result</button>
+                     	</div>
+                     	<div class="button_area_lpc">
+	                     	<button class="lpc_button" data-bind="" data-juci="button">LPC</button>	
+	                    </div>
+                     </div>
+                  </div>
+                  </div>
+                  <div class="show"  data-bind=attr:{'id':$index()}>
+                     <div class="showing" data-bind="attr:{id: 'SMF' +$index()}">Show more</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Recruitment  -->
+         <div id="recruit-inputs">
+            <div id="recruitip" data-juci="xlist" data-bind="ref:recriutmentinputs">
+               <div data-juci="listitem" data-bind="attr:{id:'showlist'+$index()}" onclick="showlistitem(event,'lessl')">
+           <div class="row">
+                  <div class="left_row">
+                     <div class="cell bold" data-bind="html:Name"></div>
+                       </div>
+                     <!--<div class="sidemenu" data-bind="attr:{'id':$index()}"><img class="vertical" src="images/dots-three-vertical.png"></></div>-->
+                      <div class="right_row">
+                    <div class="status" data-bind="visible:Flag()=='1',css:{green:Flag()=='1'}">Lead Created</div>
+                     <div class="status" data-bind="visible:Flag()=='2',css:{blue:Flag()=='2'}">Activity Planned </div>
+                     <div class="status" data-bind="visible:Flag()=='3',html:Meeting_Status,css:{orange:Flag()=='3'}"></div>
+                     <div class="status" data-bind="visible:Flag()=='4',html:Meeting_Status,css:{purple:Flag()=='4'}"></div>
+                   </div>
+                  </div>
+                  <div class="nxtcell" data-bind="html:Lead_Sub_Source"></div>
+                  <div class="right_leadid">
+                  	<div class="titles_leadId">Lead Id</div>
+                  	<div class="nxtcell_right" data-bind="html:Lead_Id"></div>
+                  </div>
+                  <div class="less" data-bind="attr:{id: 'lessl' + $index()}" style="display:none;">
+                     <div class="oneline">
+                        <div class="row_section">
+                     <div class="head">
+                        <div class="titles">Contact Number</div>
+                        <div class="data" id="activity-id" data-bind="html:Mobile"></div>
+                     </div>
+                     <div class="head right">
+                        <div class="titles">Added Date</div>
+                        <div class="data" id="lead-id" data-bind="html:Added_Date"></div>
+                     </div>
+                     </div>
+                     <div class="row_section">
+                     <div class="head">
+                        <div class="titles">Sub Activity</div>
+                        <div class="data"  data-bind=""></div>
+                     </div>
+                     <div class="head right">
+                        <div class="titles">Address</div>
+                        <div class="data_address"  data-bind="html:Address"></div>
+                     </div>
+                     </div>
+                         <div class="row_section">
+                     <div class="head">
+                        <div class="titles">Campaign name</div>
+                        <div class="data"  data-bind="html:Campaign"></div>
+                     </div>
+                     <div class="head right">
+                        <div class="titles">Lead Category</div>
+                        <div class="data" data-bind="html:Lead_Category"></div>
+                     </div>
+                     </div>
+                     <div class="button_section">
+                     <div class="head bottom">
+                        <div class="titles"></div>
+                        <div class="data" data-bind></div>
+                        </div>
+                        <div class="button_area">
+                        	<img class="call_button" src="images/phone32.png"></img>
+							<img class="message_button" src="images/message32.png"></img>
+	                        <button class="update_lead" data-juci="button" data-bind="visible:Flag() == '1'">Planning</button>
+	                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '1' &&  Meeting_Status() ===''">Edit Lead</button>
+	                     	<button class="edit_lead" data-bind="visible:Flag() == '2'" data-juci="button">Activity Result</button>
+	                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Met') " data-juci="button">Update Planning</button>
+	                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Life Planner')" data-juci="button">Update Planning</button>
+	                     	<button class="activity_result"  data-juci="button" data-bind="visible:(Flag() == '3' && Meeting_Status() ==='Not Met')" >Activity Result</button>
+	                     	<button class="update_result" data-bind="visible:Flag() == '4'" data-juci="button">Update Result</button>
+                     	</div>
+                     </div>
+                  </div>
+                  </div>
+                  <div class="show"  id="more" data-bind="attr:{'id':$index()}">
+                     <div class="showing" data-bind="attr:{id: 'SML' +$index()}" >Show more</div>
+                  </div>
+                  </div>
+               </div>
+            </div>
+   
+         <!-- Existing Advisor -->
+         <div id="existing-adv">
+            <div id="existingip" data-juci="xlist" data-bind="ref:existingAdvinputs">
+               <div data-juci="listitem" data-bind="attr:{id:'showlist'+$index()}" onclick="showlistitem(event,'lessj')">
+                  <div class="row">
+                  <div class="left_row">
+                     <div class="cell bold" data-bind="html:Sub_Activity"></div>
+                       </div>
+                     <!--<div class="sidemenu" data-bind="attr:{'id':$index()}"><img class="vertical" src="images/dots-three-vertical.png"></></div>-->
+                      <div class="right_row">
+                     <div class="status" data-bind="visible:Flag()=='1',css:{green:Flag()=='1'}">Lead Created</div>
+                     <div class="status" data-bind="visible:Flag()=='2',css:{blue:Flag()=='2'}">Activity Planned </div>
+                     <div class="status" data-bind="visible:Flag()=='3',html:Meeting_Status,css:{orange:Flag()=='3'}"></div>
+                     <div class="status" data-bind="visible:Flag()=='4',html:Meeting_Status,css:{purple:Flag()=='4'}"></div>
+                   </div>
+                  </div>
+                  <div class="nxtcell" data-bind="html:Lead_Sub_Source"></div>
+                  <div class="right_leadid">
+                  	<div class="titles_leadId">Lead Id</div>
+                  	<div class="nxtcell_right" data-bind="html:Lead_Id"></div>
+                  </div>
+                  <div class="less" data-bind="attr:{id: 'lessj' + $index()}" style="display:none;">
+                     <div class="oneline">
+                       <div class="row_section">
+                     <div class="head">
+                        <div class="titles">Contact Number</div>
+                        <div class="data" id="activity-id" data-bind="html:Mobile"></div>
+                     </div>
+                     <div class="head right">
+                        <div class="titles">Added Date</div>
+                        <div class="data" id="lead-id" data-bind="html:Added_Date"></div>
+                     </div>
+                     </div>
+                     <div class="row_section">
+                     <div class="head">
+                        <div class="titles">Sub Activity</div>
+                        <div class="data"  data-bind="html:''"></div>
+                     </div>
+                     <div class="head right">
+                        <div class="titles">Address</div>
+                        <div class="data_address"  data-bind="html:Address"></div>
+                     </div>
+                     </div>
+                      <div class="row_section">
+                     <div class="head">
+                        <div class="titles">Campaign name</div>
+                        <div class="data"  data-bind="html:Campaign"></div>
+                     </div>
+                     <div class="head right">
+                        <div class="titles">Lead Category</div>
+                        <div class="data"  data-bind="html:Lead_Category"></div>
+                     </div>
+                     </div>
+                     <div class="button_section">
+                     <div class="head bottom">
+                        <div class="titles"></div>
+                        <div class="data" data-bind=""></div>
+                        </div>
+                        <div class="button_area">
+                        	<img class="call_button" src="images/phone32.png"></img>
+							<img class="message_button" src="images/message32.png"></img>
+	                        <button class="update_lead" data-juci="button" data-bind="visible:Flag() == '1'">Planning</button>
+	                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '1' &&  Meeting_Status() ===''">Edit Lead</button>
+	                     	<button class="edit_lead" data-bind="visible:Flag() == '2'" data-juci="button">Activity Result</button>
+	                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Met')" data-juci="button">Update Planning</button>
+	                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Life Planner')" data-juci="button">Update Planning</button>
+	                     <button class="activity_result"  data-juci="button" data-bind="visible:(Flag() == '3' && Meeting_Status() ==='Not Met')" >Activity Result</button>
+	                     	<button class="update_result" data-bind="visible:Flag() == '4'" data-juci="button">Update Result</button>
+                     	</div>
+                     </div>
+                  </div>
+                  </div>
+                  <div class="show"  id="more" data-bind=attr:{'id':$index()}>
+                     <div class="showing" data-bind="attr:{id: 'SMM' +$index()}" >Show more</div>
+                  </div>
+                  </div>
+               </div>
+            </div>
+            <div id="message-inbox" data-juci="dialog">
+				<div class="exit_dialog">
+					<div class="exit" onclick="closedialog('message-inbox')">X</div>
+				</div>
+				<div class="display_name" data-juci="text" data-label="Name" data-bind="html:'To : '+$root.displayName()"></div>
+				<div data-juci="textarea" data-label="New Message" data-bind="ref:new_message" placeholder data-trigger max-length="150" required onvalidationfail="Utils.GetValidationMessage(event,'New Message')"></div>
+				<button class="submit" data-juci="button" data-bind="click:onSendMessage">Send<img class="send_img" src="images/send.png"></img></button>
+			</div>
+			
+			<!-- Renewals -->
+         <div id="renewals">
+            <div id="renewalsip" data-juci="xlist" data-bind="ref:renewlasinputs">
+               <div data-juci="listitem" data-bind="attr:{id:'showlist'+$index()}" onclick="showlistitem(event,'lessj')">
+                  <div class="row">
+                  <div class="left_row">
+                     <div class="cell bold" data-bind="html:Name"></div>
+                       </div>
+                      <div class="right_row">
+                     <div class="status" data-bind="visible:Flag()=='1',css:{green:Flag()=='1'}">Lead Created</div>
+                     <div class="status" data-bind="visible:Flag()=='2',css:{blue:Flag()=='2'}">Activity Planned </div>
+                     <div class="status" data-bind="visible:Flag()=='3',html:Meeting_Status,css:{orange:Flag()=='3'}"></div>
+                     <div class="status" data-bind="visible:Flag()=='4',html:Meeting_Status,css:{purple:Flag()=='4'}"></div>
+                   </div>
+                  </div>
+                  <div class="nxtcell" data-bind="html:Lead_Sub_Source"></div>
+                  <div class="right_leadid">
+                  	<div class="titles_leadId">Lead Id</div>
+                  	<div class="nxtcell_right" data-bind="html:Lead_Id"></div>
+                  </div>
+                  <div class="less" data-bind="attr:{id: 'lessj' + $index()}" style="display:none;">
+                     <div class="oneline">
+                       <div class="row_section">
+                     <div class="head">
+                        <div class="titles">Contact Number</div>
+                        <div class="data" id="activity-id" data-bind="html:Mobile"></div>
+                     </div>
+                     <div class="head right">
+                        <div class="titles">Added Date</div>
+                        <div class="data" id="lead-id" data-bind="html:Added_Date"></div>
+                     </div>
+                     </div>
+                     <div class="row_section">
+                     <div class="head">
+                        <div class="titles">Sub Activity</div>
+                        <div class="data"  data-bind=""></div>
+                     </div>
+                     <div class="head right">
+                        <div class="titles">Address</div>
+                        <div class="data_address"  data-bind="html:Address"></div>
+                     </div>
+                     </div>
+                      <div class="row_section">
+                     <div class="head">
+                        <div class="titles">Campaign name</div>
+                        <div class="data"  data-bind="html:Campaign"></div>
+                     </div>
+                     </div>
+                     <div class="row_section">
+	                     <div class="head">
+	                        <div class="titles">Policy Number</div>
+	                        <div class="data"  data-bind="html:Policy_Number"></div>
+	                     </div>
+                     </div>
+                     <div class="button_section">
+                     <div class="head bottom">
+                        <div class="titles"></div>
+                        <div class="data" data-bind=""></div>
+                        </div>
+                        <div class="button_area">
+                        	<img class="call_button" src="images/phone32.png"></img>
+							<img class="message_button" src="images/message32.png"></img>
+	                        <button class="update_lead" data-juci="button" data-bind="visible:Flag() == '1'">Planning</button>
+	                     	<button class="edit_lead" data-bind="visible:Flag() == '2'" data-juci="button">Activity Result</button>
+	                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Met')" data-juci="button">Update Planning</button>
+	                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Life Planner')" data-juci="button">Update Planning</button>
+	                     <button class="activity_result"  data-juci="button" data-bind="visible:(Flag() == '3' && Meeting_Status() ==='Not Met')" >Activity Result</button>
+	                     	<button class="update_result" data-bind="visible:Flag() == '4'" data-juci="button">Update Result</button>
+                     	</div>
+                     	<div class="button_area_lpc">
+	                     	<button class="view_button" data-bind="" data-juci="button">View Details</button>	
+	                    </div>
+                     </div>
+                  </div>
+                  </div>
+                  <div class="show"  id="more" data-bind=attr:{'id':$index()}>
+                     <div class="showing" data-bind="attr:{id: 'SMM' +$index()}" >Show more</div>
+                  </div>
+                  </div>
+               </div>
+            </div>
+			
+			<!-- LMS Branch Data !-->
+			<div id="lms-branch">
+	            <div id="lmsip" data-juci="xlist" data-bind="ref:lmsBranchInputs">
+	               <div data-juci="listitem" data-bind="attr:{id:'showlist'+$index()}" onclick="showlistitem(event,'lessk')">
+	                  <div class="row">
+		                 <div class="left_row">
+	                     <div class="cell bold" data-bind="html:Name"></div>
+	                       </div>
+	                     <!--<div class="sidemenu" data-bind="attr:{'id':$index()}"><img class="vertical" src="images/dots-three-vertical.png"></></div>-->
+	                      <div class="right_row">
+	                     <div class="status" data-bind="visible:Flag()=='1',css:{green:Flag()=='1'}">Lead Created</div>
+	                     <div class="status" data-bind="visible:Flag()=='2',css:{blue:Flag()=='2'}">Activity Planned </div>
+	                     <div class="status" data-bind="visible:Flag()=='3',html:Meeting_Status,css:{orange:Flag()=='3'}"></div>
+	                     <div class="status" data-bind="visible:Flag()=='4',html:Meeting_Status,css:{purple:Flag()=='4'}"></div>
+	                   </div>
+	                  </div>
+	                  <div class="nxtcell" data-bind="html:Lead_Type"></div>
+	                  <div class="right_leadid">
+	                  	<div class="titles_leadId">Lead Id</div>
+	                  	<div class="nxtcell_right" data-bind="html:Lead_Id"></div>
+	                  </div>
+	                  <div class="less" data-bind="attr:{id: 'lessk' + $index()}" style="display:none;">
+	                     <div class="oneline">
+	                       <div class="row_section">
+	                     <div class="head">
+	                        <div class="titles">Contact Number</div>
+	                        <div class="data" id="activity-id" data-bind="html:Mobile"></div>
+	                     </div>
+	                     <div class="head right">
+	                        <div class="titles">Appointment Date and Time</div>
+	                        <div class="data" id="lead-id" data-bind="html:Activity_Date"></div>
+	                     </div>
+	                     </div>
+	                     <div class="row_section">
+	                     <div class="head">
+	                        <div class="titles">Sub Activity</div>
+	                        <div class="data"  data-bind="html:Sub_Activity"></div>
+	                     </div>
+	                     <div class="head right">
+	                        <div class="titles">Added Date</div>
+	                        <div class="data"  data-bind="html:Added_Date"></div>
+	                     </div>
+	                     </div>
+	                      <div class="row_section">
+	                     <div class="head">
+	                        <div class="titles">Address</div>
+	                        <div class="data_address_new"  data-bind="html:Address"></div>
+	                     </div>
+	                     <!--<div class="head right">
+	                        <div class="titles">Lead Category</div>
+	                        <div class="data"  data-bind="html:Lead_Category"></div>
+	                     </div>-->
+                     </div>
+                     <div class="button_section">
+	                     <div class="head bottom">
+	                        <div class="titles"></div>
+	                        <div class="data" data-bind=""></div>
+	                        </div>
+	                        <div class="button_area">
+		                        <button class="update_lead" data-juci="button" data-bind="visible:Flag() == '1'">Planning</button>
+		                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '1' &&  Meeting_Status() ===''">Edit Lead</button>
+		                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '2' &&  Meeting_Status() ===''">Edit Lead</button>
+		                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '3' &&  Meeting_Status() ==='Met'">Edit Lead</button>
+		                        <button class="editLead" data-juci="button" data-bind="visible:Flag() == '4'">Edit Lead</button>
+		                     	<button class="edit_lead" data-bind="visible:Flag() == '2'" data-juci="button">Activity Result</button>
+		                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Met')" data-juci="button">Update Planning</button>
+		                     	<button class="update_planning" data-bind="visible:(Flag() == '3' &&  Meeting_Status() ==='Life Planner')" data-juci="button">Update Planning</button>
+		                     <button class="activity_result"  data-juci="button" data-bind="visible:(Flag() == '3' && Meeting_Status() ==='Not Met')" >Activity Result</button>
+		                     	<button class="update_result" data-bind="visible:Flag() == '4'" data-juci="button">Update Result</button>
+	                     	</div>
+	                     	<div class="button_area_lpc">
+		                     	<button class="lpc_button" data-bind="" data-juci="button">LPC</button>	
+		                    </div>
+	                     </div>
+	                  </div>
+                  </div>
+                  <div class="show"  id="more" data-bind=attr:{'id':$index()}>
+                     <div class="showing" data-bind="attr:{id: 'SMM' +$index()}" >Show more</div>
+                  </div>
+                  </div>
+               </div>
+            </div>
+        	<div id="lpc-details" data-juci="dialog">
+	            <div class="heading_otp">
+	               <div class="dialogheader">LPC Details</div>
+	               <div class="exit" onclick="closeAuthenticate()">X</div>
+	            </div>
+	            <div class="content_body">
+	            	<div data-juci="xlist" class= "lpcDetails" data-bind="ref: lpcDetails" data-titles data-subtitles data-new-item>
+						<div data-juci="listitem">
+							<div class="display_policy">
+								<div class="eachrow">
+									<div class="policy_title">NAME</div>
+									<div class="policy_data" data-bind="html: NAME() ? ': '+NAME():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">FLS NAME</div>
+									<div class="policy_data" data-bind="html: ADVISOR_NAME() ? ': '+ADVISOR_NAME():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">ADDRESS</div>
+									<div class="policy_data" data-bind="html: ADDRESS() ? ': '+ADDRESS():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">CONTACT NO</div>
+									<div class="policy_data" data-bind="html: CONTACT_NO() ? ': '+CONTACT_NO():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">DATE OF BIRTH</div>
+									<div class="policy_data" data-bind="html: DATE_OF_BIRTH() ? ': '+DATE_OF_BIRTH():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">EMAIL ID</div>
+									<div class="policy_data" data-bind="html: EMAIL_ID() ? ': '+EMAIL_ID():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">FIRST ISSUANCE DATE</div>
+									<div class="policy_data" data-bind="html: FIRST_ISSUANCE_DATE() ? ': '+FIRST_ISSUANCE_DATE():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">FORM PRINT DATE</div>
+									<div class="policy_data" data-bind="html: FORM_PRINT_DATE() ? ': '+FORM_PRINT_DATE():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">FREQUENCY</div>
+									<div class="policy_data" data-bind="html: FREQUENCY() ? ': '+FREQUENCY():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">LAST INSTA PREMIUM PAID DATE</div>
+									<div class="policy_data" data-bind="html: LAST_INSTA_PREMIUM_PAID_DATE() ? ': '+LAST_INSTA_PREMIUM_PAID_DATE():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">MATURITY VALUE</div>
+									<div class="policy_data" data-bind="html: MATURITY_VALUE() ? ': '+MATURITY_VALUE():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">NEXT PREMIUM AMOUNT</div>
+									<div class="policy_data" data-bind="html: NEXT_PREMIUM_AMOUNT() ? ': '+NEXT_PREMIUM_AMOUNT():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">NEXT PREMIUM DUE DATE</div>
+									<div class="policy_data" data-bind="html: NEXT_PREMIUM_DUE_DATE() ? ': '+NEXT_PREMIUM_DUE_DATE():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">PAID TO DATE</div>
+									<div class="policy_data"data-bind="html: PAID_TO_DATE() ? ': '+PAID_TO_DATE():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">PIN CODE</div>
+									<div class="policy_data" data-bind="html: PIN_CODE() ? ': '+PIN_CODE():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">PLAN NAME</div>
+									<div class="policy_data" data-bind="html: PLAN_NAME() ? ': '+PLAN_NAME():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">POLICY NO</div>
+									<div class="policy_data" data-bind="html: POLICY_NO() ? ': '+POLICY_NO():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">POLICY STATUS</div>
+									<div class="policy_data" data-bind="html: POLICY_STATUS() ? ': '+POLICY_STATUS():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">POLICY TERM</div>
+									<div class="policy_data" data-bind="html: POLICY_TERM() ? ': '+POLICY_TERM():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">PREMIUM TYPE</div>
+									<div class="policy_data" data-bind="html: PREMIUM_TYPE() ? ': '+PREMIUM_TYPE():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">PRODUCT CATEGORY</div>
+									<div class="policy_data" data-bind="html: PRODUCT_CATEGORY() ? ': '+PRODUCT_CATEGORY():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">SUM ASSURED</div>
+									<div class="policy_data" data-bind="html: SUM_ASSURED() ? ': '+SUM_ASSURED():': -'"></div>
+								</div>
+							</div>
+						</div>
+						<!-- <div data-juci="listcontent"></div> -->
+					</div>
+	            </div>
+	         </div>
+	         <div id="view-details" data-juci="dialog">
+	            <div class="heading_otp">
+	               <div class="dialogheader">View Details</div>
+	               <div class="exit" onclick="closeAuthenticateView()">X</div>
+	            </div>
+	            <div class="content_body">
+	            	<div data-juci="xlist" class= "lpcDetails" data-bind="ref: viewDetails" data-titles data-subtitles data-new-item>
+						<div data-juci="listitem">
+							<div class="display_policy">
+								<div class="eachrow">
+									<div class="policy_title">Client Name</div>
+									<div class="policy_data" data-bind="html: CLNTNAME() ? ': '+CLNTNAME():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Policy No</div>
+									<div class="policy_data" data-bind="html: POLICY_NO() ? ': '+POLICY_NO():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Total Due</div>
+									<div class="policy_data_address" data-bind="html: TOTAL_DUE()? ': '+TOTAL_DUE():': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Issuance Date</div>
+									<div class="policy_data" data-bind="html: ISSUANCE_DATE() ? ': '+ISSUANCE_DATE() : ': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Client Address</div>
+									<div class="policy_data" data-bind="html: CLTADDR01() ? ': '+CLTADDR01() : ': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Client Contact Details</div>
+									<div class="policy_data" data-bind="html: CLIENT_MOBILENO() ? ': '+CLIENT_MOBILENO() : ': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Product Code</div>
+									<div class="policy_data" data-bind="html: PRODUCT_CODE() ? ': '+PRODUCT_CODE() : ': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Product Name</div>
+									<div class="policy_data" data-bind="html: PRODUCT_NAME() ? ': '+PRODUCT_NAME() : ': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Installment Premium</div>
+									<div class="policy_data" data-bind="html:':'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Late Fee</div>
+									<div class="policy_data" data-bind="html:':'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Amount in suspense</div>
+									<div class="policy_data" data-bind="html:':'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Net Due(Collectable)</div>
+									<div class="policy_data" data-bind="html:NET_DUE_COLLECTABLE() ? ': '+NET_DUE_COLLECTABLE() : ': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">Due Date</div>
+									<div class="policy_data" data-bind="html:DUE_DATE() ? ': '+DUE_DATE() : ': -'"></div>
+								</div>
+								<div class="eachrow">
+									<div class="policy_title">DGH Required</div>
+									<div class="policy_data" data-bind="html:DGH_REQUIRED() ? ': '+DGH_REQUIRED():': -'"></div>
+								</div>
+							</div>
+						</div>
+						<!-- <div data-juci="listcontent"></div> -->
+					</div>
+	            </div>
+	         </div>
+            <div class="footerbar">
+            <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+            <span> | </span>
+            <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+            <span> | </span>
+            <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+         </div>
+      </div>
+   </body>
+</html>

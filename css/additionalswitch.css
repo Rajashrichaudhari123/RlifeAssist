@@ -1,0 +1,25 @@
+.juci_switch2{
+	border:0px;
+	border-bottom:transparent;
+}
+
+.juci_switch2_label {
+/*	width: 95%; changed by ali  */
+	width: 100%;
+	overflow: inherit;
+	font-weight: 400;
+	font-size: 14px;
+	vertical-align: middle;
+	white-space: pre-line;
+	text-align:left;
+	color: #9d9d9d;
+	display: inline-block;
+}
+
+.juci_switch2_thumb {
+	background: #F3F1F1;
+}
+
+.juci_switch2_scroller>*{
+	border-radius:16px;
+}

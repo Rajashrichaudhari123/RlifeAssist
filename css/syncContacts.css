@@ -1,0 +1,516 @@
+.juci_linker {
+    display: none;
+}
+
+.juci_xlist_item.juci_xlist_item.juci_parent {
+    margin-bottom: 5px;
+    padding: 10px;
+    display: table;
+}
+.juci_basecontrol.juci_searchbox.juci_xlist_search.juci_xlist_search {
+    background: #FFF;
+    margin-bottom: 10px;
+    width: 97%;
+    margin: 5px;
+}
+.juci_xlist_item.touch{
+	background : #FFF;
+	color: #3B3B3B;
+}
+.juci_basecontrol.juci_checkbox.checkbox.juci_check {
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+/*.contactDetails {
+    display: table-cell;
+}
+
+.checkboxContainer {
+    display: table-cell;
+}*/
+/*.juci_check_box {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/unchecked_checkbox.png);
+    opacity: 0.2;
+}
+.juci_check.selected .juci_check_box{
+	opacity: 1;
+	background-image:url("../images/checked_checkbox.png");
+}
+.juci_basecontrol.juci_checkbox.checkbox.juci_check.selected {
+    background: url(../images/checked_checkbox.png);
+}*/
+
+/*new design*/
+li.juci_check.juci_option {
+    border: none;
+    background-color: #FFF;
+}
+.juci_basecontrol.juci_searchbox.search_box {
+    border-radius: 6px;
+    min-height: 30px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    height: 25px;
+}
+div#checkbox {
+    margin-top: 0px;
+}
+.juci_option {
+    background-image: url(images/unchecked-checkbox.png);
+    background-repeat: no-repeat;
+    background-position: 98% center;
+}
+.juci_option.selected {
+    background-image: url(../images/checked-checkbox.png);
+    background-position: 98% center;
+    background-repeat: no-repeat;
+}
+
+li.juci_check.juci_option {
+    background-image: url(../images/unchecked-checkbox.png);
+}
+li.juci_check.juci_option.selected {
+    background-image: url(../images/checked-checkbox.png);
+}
+
+.juci_basecontrol .juci_checkbox .juci_check .touch{
+	background-image: url(../images/unchecked-checkbox.png);
+	
+}
+.juci_check.touch{
+	background : #ebebeb;
+}
+.juci_check.touch .juci_check_box{
+	background-image: url(../images/unchecked-checkbox.png);
+}
+
+/*top select all*/
+/*.juci_basecontrol.juci_checkbox.juci_check {
+	border: none;
+    margin-bottom: 0px;
+    background: #FFF;
+}*/
+.juci_check_box {
+    background-position: 0% center;
+    background-repeat: no-repeat;
+    background-image: url(../images/unchecked-checkbox.png);
+    opacity: 1;
+}
+
+.juci_check.selected .juci_check_box {
+    opacity: 1;
+    background-image: url(../images/checked-checkbox.png);
+}
+/*.juci_check.touch{
+    background : #FFF;
+}*/
+/*.juci_check.touch .juci_check_box{
+	background-image: url(../images/unchecked_checkbox.png);
+	opacity: 1;
+}*/
+/*.juci_check_box{
+	height: 16px;
+    width: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 7px;
+    border-radius: 17%;
+    position: absolute;
+    left: 10%;
+    border: 1px solid #009245;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../images/unchecked_checkbox.png");
+}
+.juci_basecontrol.juci_checkbox.juci_check {
+    border: none;
+    margin-top: 0px;
+    margin-bottom: -20px;
+    font-weight: 400;
+}
+.juci_check.selected .juci_check_box{
+	opacity: 1;
+	background-image:url("../images/checked_checkbox.png");
+}
+.juci_switch_label {
+    display: table-cell;
+    width: 95%;
+    overflow: inherit;
+    font-size: 11pt;
+    vertical-align: middle;
+    white-space: inherit;
+}*/
+
+.contactDetails {
+    display: inline-block;
+    /* width: 65%; */
+    vertical-align: middle;
+}
+.checkboxContainer {
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+}
+.checkDetCont {
+	margin: 10px;
+	background: #FFF;
+	padding: 10px;
+}
+.name {
+    padding: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.number {
+    padding: 5px;
+}
+.email {
+    padding: 5px;
+}
+.address {
+        padding: 5px;
+}
+.show {
+    text-align: center;
+    padding: 4px;
+    border-top: 1px solid #FFF;
+    color: #0B4DAA;
+    /* background-color: #f8f8f8; */
+    margin-top: 10px;
+    height: 15px;
+    width: 98%;
+}
+.juci_ctrl_box.juci_float_left_right {
+    padding: 7px;
+}
+
+.check_box {
+	display:inline-block;
+	padding: 0 0 0 0px;
+	background-image: url(../images/unchecked-checkbox.png) !important;
+	background-position: 0% center;
+
+}
+.check_box :checked + label {
+    background-image: url(../images/unchecked-checkbox.png);
+}
+
+ 
+input[type=checkbox] + label
+{
+	display:inline-block;
+	background: url("http://www.corporatecomplianceinsights.com/wp-content/uploads/2013/06/Facebook-thumbs-up.jpg") right top no-repeat;
+	background-size: 50%;
+	height: 250px;
+	width: 250px;
+	display:inline-block;
+	padding: 0 0 0 0px;
+}
+input[type=checkbox]:checked + label
+{
+	background: url("http://thepridepost.com/wp-content/uploads/2013/10/Facebook-thumbs-down.jpg") no-repeat;
+	background-size: 50%;
+	height: 250px;
+	width: 250px;
+	display:inline-block;
+	padding: 0 0 0 0px;
+}
+
+/*load more button*/
+button.juci_button.load_button{
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    font-size: 15px;
+    min-height: 30px;
+    width: 30%;
+    border-radius: 4px;
+}
+.load_more_section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*top container*/
+.topContainer {
+    display: table;
+    width: 100%;
+}
+.juci_switch_box {
+    display: table;
+    margin: 8px auto;
+    padding: 0px 0px;
+    table-layout: fixed;
+    width: 80%;
+}
+.juci_basecontrol.juci_checkbox.juci_check {
+    border: none;
+    margin-bottom: 0px;
+    /* background: #FFF; */
+    display: table-cell;
+    width: 34%;
+    vertical-align: middle;
+}
+.createLead_section {
+    display: inline-block;
+    float: right;
+    /* padding-right: 10px; */
+    vertical-align: middle;
+    width: 100%;
+    margin-right: 5px;
+}
+button.juci_button.create_lead {
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    font-size: 15px;
+    min-height: 30px;
+    /* width: 100%; */
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/*pagination*/
+.footerbar {
+    padding-top: 0%;
+    text-align: start;
+}
+.previousbutContainer {
+    display: inline-block;
+    width: 35%;
+    /* height: 20px; */
+    vertical-align: middle;
+    /* margin: 0px; */
+    /* float: left; */
+    /* margin-left: 0px; */
+    padding-left: 30px;
+}
+
+.pageCountcontainer {
+    display: inline-block;
+    vertical-align: middle;
+    /* text-align: center; */
+    width: 25%;
+    margin: auto;
+    font-size: 15px;
+}
+
+.nextbutContainer {
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+    padding-right: 30px;
+}
+.pagecount {
+    display: inline-block;
+}
+
+.totalCount {
+    display: inline-block;
+}
+div#list_Container {
+    margin-bottom: 60px;
+}
+/*searchbox*/
+/*div#searchbox {
+    width: 60%;
+    margin: 7px;
+}*/
+.search_Container {
+    display: table;
+}
+div#searchbox {
+    /* width: 96%; */
+    /*margin: 7px;*/
+    /* display: table-cell; */
+    /* border: 1px solid #fff; */
+    background: #fff;
+    border-bottom: 0px;
+    min-height: 20px;
+    height: 35px; 
+    border-radius: 3px;
+    color: black;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+button.juci_button.search_button {
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    font-size: 15px;
+    min-height: 30px;
+    width: 100%;
+    border-radius: 4px;
+    display: table-cell;
+    /* width: 27%; */
+}
+input.juci_ctrl_box {
+    background-image: url(../images/Search.png);
+    background-repeat: no-repeat;
+    background-position: 96%;
+}
+.juci_ctrl_label {
+    height: 1px;
+}
+
+button.juci_button.trigger_msg {
+    display: table-cell;
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    font-size: 15px;
+    min-height: 30px;
+    border-radius: 4px;
+    margin: 5px;
+    vertical-align: middle;
+}
+
+img.message_button {
+    float: right;
+    vertical-align: middle;
+    display: inline-block;
+    width: 26%;
+    height: 21px;
+    margin-left: 8px;
+}
+
+img.call_button {
+    /* float: right; */
+    vertical-align: middle;
+    display: inline-block;
+    /* width: 38%; */
+    height: 21px;
+    margin-right: 12px;
+    /* margin: 2px; */
+}
+
+.juci_dialog {
+    border-color: #0B4DA1;
+    background: #f7f7f7;
+    color: #343434;
+    height: 318px;
+}
+
+.juci_dialog_viewport {
+	background: rgba(0,0,0,0.79);
+}
+
+img.send_img {
+    float: right;
+    /* margin: 5px; */
+    /* padding: 2px; */
+    width: 21px;
+    /* text-align: center; */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.exit {
+    float: right;
+    font-size: 17px;
+    position: relative;
+    bottom: 20px;
+    width: 20px;
+    /* margin: 4px; */
+}
+
+button.juci_button.submit {
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    height: 28px;
+    float: right;
+    min-height: 21px !important;
+    height: 33px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 27%;
+    margin-right: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.ageGroup {
+    border: none;
+    border-bottom: 1px solid #cecece;
+}
+
+.heading_otp{
+	overflow: hidden;
+    width: 100%;
+    height: 52px;
+    text-align: left;
+    vertical-align: middle;
+    background: #0B4DA1;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12) !important;
+	}
+	
+.juci_dialog {
+	padding: 0px;
+	border-color: #0B4DA1;
+	/* position: absolute; */
+	left: 3%;
+	top: 65px;
+	right: 4%;
+	width: 93%;
+	/* margin: auto; */
+}
+	
+.juci_selectbox .juci_linker {
+    background-image: url("../images/down_arrow.png");
+    height: 39px;
+}
+.content_body {
+    height: 320px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.refresh_img {
+    position: absolute;
+    right: 32px;
+    top: 16px;
+}
+.close {
+	display: inline-block;
+	float: right;
+	margin-right: 8px;
+	position: absolute;
+	top: 22px;
+	right: 6px;
+}
+
+.juci_dialog_container{
+	
+	background: rgba(0, 0, 0, 0.5);
+}
+.exit {
+    display: inline-block;
+    float: right;
+    font-size: 18px;
+    padding: 17px;
+    margin-top: 14px;
+}
+.juci_thinbar.team {
+    background: #f1f1f1;
+    text-align: right;
+    padding-top: 14px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    /* position: fixed;*/
+    height: 62px;
+    /* margin-top: 97px; */
+    /* padding-top: 0px; */
+}
+.juci_selectbox_popup {
+	 background: #ffffff;
+	 padding: 0;
+	 -webkit-transform: translate3d(0, 0, 0);
+	 z-index: 1;
+	 position: relative;
+	 margin: auto;
+	 margin-left: 3%;
+	 margin-top: -30px;
+	 width: 90%;
+	 max-height: 220px;
+}

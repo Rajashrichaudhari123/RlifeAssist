@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/dialoguebox.js"></script>
+		<script src="scripts/header.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+		<div id="dialog-box" data-juci="dialog">
+			<div class="heading">
+				<div class="dialogheader">Add Lead</div>
+			</div>	
+				<div class="lead" data-juci="form" data-bind="ref:lead" onsubmit="addLead(event)" onreset="removeBox()">
+					<div class="name" data-juci="text" data-label="First Name<span class='star'>*</span>" data-bind="ref:fname" placeholder data-trigger></div>
+					<div data-juci="text" data-label="Last Name<span class='star'>*</span>" data-bind="ref:lname" placeholder data-trigger></div>
+					<div data-juci="email" data-label="Email<span class='star'>*</span>" data-bind="ref:email" placeholder data-trigger></div>
+					<div data-juci="number" data-label="Phone No.<span class='star'>*</span>" data-bind="ref:number" placeholder data-trigger></div>
+					<div class="managerselect" data-juci="selectbox" data-label="Manager Type<span class='star'>*</span>" data-bind="optionsList:$root.manager,ref:managertype" placeholder>
+						<!--<div data-juci="optiontemplate"></div>-->
+					</div>
+					<div class="juci_horizontal_bbar">
+						<button data-juci="button" class="btn1" type="reset">Cancel</button>
+						<button data-juci="button" class="btn2" type="submit">Add</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</body>
+</html>

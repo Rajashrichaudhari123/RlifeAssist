@@ -1,0 +1,73 @@
+.juci_linker {
+    display: none;
+}
+
+.juci_xlist_item.juci_xlist_item.juci_parent.touch {
+    background: none;
+}
+.juci_xlist_item.juci_xlist_item.juci_parent {
+    height: 100px;
+    background: #2a4db1;
+}
+ul.juci_xlist_pane.juci_xlist_listPane {
+    background: #2a4db1;
+}
+
+.juci_option_label {
+    text-align: center;
+}
+
+.resourceName {
+    display: block;
+    text-align: center;
+    margin-top: 36px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.testimonial_sec {
+    width: 75%;
+    height: 100px;
+    display: block;
+    background: #f3b773;
+    margin-bottom: 21px;
+    margin-top: 11px;
+    margin-left: 12%;
+}
+.sub_section {
+    display: inline-block;
+    margin: 42px;
+    margin-left: 39%;
+    font-size: 14px;
+    font-weight: bold;
+    color: #274da9;
+}
+
+.resourcesList {
+    width: 84%;
+    height: 40px;
+    text-align: center;
+    padding-top: 16px;
+    background: white;
+    border: 1px solid #afa8a8;
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+
+.resources {
+    display: block;
+    margin-top: 28%;
+    margin-left: 13%;
+}
+
+span.subtitles {
+    display: block;
+    font-size: 11px;
+    color: #2a4dab;
+}
+span.stories_subtitles {
+    display: block;
+    font-size: 11px;
+    color: #2a4dab;
+}

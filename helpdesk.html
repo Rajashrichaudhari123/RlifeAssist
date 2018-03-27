@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/collapsible.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/helpdesk.css"></link>
+		<!-- Add your stylesheets here -->
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/helpdesk.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/collapsible.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+	                  <span>Planning</span>
+	               </li>
+                </ul>
+            </div>
+      	<div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync Personal Contacts</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li>  -->
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li-->
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <!--<li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li-->
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                 <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Calculator</span>
+        		</li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+                <li></li>
+            </ul>
+        </div>
+			<div class="helpdesk_container">
+				<div class="online_desk_section" id = "help-section">
+					<div class="online_heading">Online Help Desk</div>
+					<div class="heading_img1">
+						<img class="helpdesk_img" src="images/escalations.png"></img>
+					</div>
+					<div class="online_desk_content">For online helpdesk support please connect with us one numbers/mail id's given below
+</div>
+					<div class="call_heading">Call us on</div>
+					<div class="calls_details">
+						<div class="number">180030008181</div>
+						<div class="number">022-30002676 </div>
+						<!--div class="toll">Toll Free</div!-->
+					</div>
+					<div class="call_heading">Email us on</div>
+					<div class="email_details">
+						<div class="email"> rlife.eassistsupport@relianceada.com</div>
+						<div class="email_new">
+							<div class="email_next">rlife.superexpress@relianceada.com</div>
+							<div class="email_img">
+								<img class="mail_img" src="images/mail-black-1.png" onclick="emailCustomer(event)"></img>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="send_mail_section" id = "mail-section">
+					<div class="heading_section">
+						<div class="pdf_link" onclick="openBroucher()">Non Participating Product vs. Fixed Deposit</div>
+					</div>
+				</div>
+				<div class="faq_section">
+					<div class="heading_section">
+						<div class="faq_heading">FAQs</div>
+						<div class="heading_img">
+							<img src="images/FAQs.png"></img>
+						</div>
+					</div>
+					<div class="tabs_section">
+						<div class="tab desk">
+								<div class="juci_thinbar desk">
+									<div class=" tab_header" >Super Express Related</div>
+								</div>
+								<div class="collapse">
+									<div class="tab_content_section">
+										<div class="question_content">Q.What is Super Express?</div>
+										<ol>
+											<li class="first_listitem">   Super Express is a module developed within Sales Assist 2.0 to capture and manage the input activities of ARDM. The module has been designed to improve productivity, profitability and customer experience</li>
+											<li  class="answer_content">a.&nbspThe module helps the ARDM to mark his attendance, input new Leads (New Business/ Recruitment), and plan the appointments, fill details of activity, Sales process (Login & Issuance). 
+</li>
+											<li  class="answer_content">b.&nbspThe module has a unique feature of Aadhaar based authentication of leads</li>
+											<li  class="answer_content">c.&nbspThe module brings in a scientific approach to pitching the right product		 to customers, leading to better customer satisfaction.</li>
+											<li  class="answer_content">d.&nbspThe module uses eKYC and selfie camera innovatively and will reduce the mis-selling risk and make the sales and customer purchase process seamless.</li>
+										</ol>
+										<div class="question_content">Q.Who can use Super Express?</div>
+									<ol>
+										<li class="first_listitem">		At present, Super Express is available for Agency Recruitment & Development Managers (ARDM) in Agency Channel</li>
+									</ol>
+									<div class="question_content">Q.What is the Login id and Password for Super Express?</div>
+										<ol>
+											<li class="first_listitem">   <b>Employee ID</b> will be the Login id and Password.</li>
+										</ol>
+									<div class="question_content">Q.Does the application version automatically update?</div>
+										<ol>
+											<li class="first_listitem">  The module version does not update automatically. For updation a pop- up will come on the screen seeking permission. </li>
+										</ol>
+									<div class="question_content">Q.How does the data sync in the application?</div>
+										<ol>
+											<li class="first_listitem">   Once the data is entered the user needs to click on <b>Sync all</b> option, the data will sync automatically.</li>
+										</ol>
+									<div class="question_content">Q.What are the technical prerequisites for Super Express installation?</div>
+										<ol>
+											<li class="first_listitem">   Below are the technical pre-requisites for Super Express :</li>
+											<li  class="answer_content">a.&nbspAndroid 5.0 and above</li>
+											<li  class="answer_content">b.&nbsp2GB RAM </li>
+											<li  class="answer_content">c.&nbspSelfie Camera with a working mic in phone</li>
+											<li  class="answer_content">d.&nbspFree space of atleast 750 MB</li>
+											<li  class="answer_content">e.&nbspWorking OTG port (Mini USB) for biometric device Connection.</li>
+											<li  class="answer_content">f.&nbspMinimum 3G connectivity.</li>
+											<li class="first_listitem">		You can check the current configuration of your mobile handset by </li>
+											<li class="first_listitem">		Click on Setting- > About Phone/ About Device</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							<div class="tab desk">
+								<div class="juci_thinbar desk">
+									<div class=" tab_header" >Super Express Attendance</div>
+								</div>
+								<div class="collapse">
+									<div class="tab_content_section">
+										<div class="question_content">Q.How can I mark my attendance through Super Express ?</div>
+										<ol>
+											<li class="first_listitem">You need to login to the Sales Assist application > go to the Attendance tab></li>
+											<li class="first_listitem">Click on the calendar icon at the left side >your location will get tagged with a red pin and base branch will be tagged with blue pin > Click on Check In, attendance is recorded automatically.</li>
+											<li class="first_listitem">Note:</li>
+											<li  class="answer_content">a.&nbspYou will be able to mark your attendance only if you are in the office premise. 
+</li>
+											<li  class="answer_content">b.&nbspFirst Log -in timing will be considered as Log-in time for the day</li>
+										</ol>
+										<div class="question_content">Q.How to do the GPS setting on my mobile handset for marking attendance?</div>
+										<ol>
+											<li class="first_listitem">Go to > GPS setting/location > select ""High Accuracy" option. For more details kindly refer the small PPT sent for the same to all TMs and RMs</li>
+										</ol>
+										<div class="question_content">Q.I am not able to mark attendance through Geo Tag? How can I mark attendance?</div>
+									<ol>
+										<li class="first_listitem">For Geo tag error, please call on (9:30am-5:30pm) : <span class="callClient" onclick="callClient(event)">022 30002235</span>/2680</li>
+										<li class="first_listitem">Or</li>
+										<li class="first_listitem">Write to : <span class="contactDetails" onclick="emailClient(event)">rlife.superexpress@relianceada.com</span></li>
+										<li class="first_listitem">To mark attendance, employee can visit branch and login into e-konnect with domain Sap Code and password, automatically attendance will get marked.</li>
+									</ol>
+									<div class="question_content">Q.I was unable to mark attendance due to official reason, how can I mark attendance for days I missed marking?</div>
+										<ol>
+											<li class="first_listitem">To mark attendance for days you missed marking your attendance you need to logon to e-konnect 1) click on attendance tab 2) click on the date you want to regularize and submit appropriate reason from the drop down, the status would change from  'A' to 'W', for the particular date </li>
+										</ol>
+									<div class="question_content">Q.What will be the impact if my leaves/OD request is not approved by 25th of the month?</div>
+										<ol>
+											<li class="first_listitem">The attendance cycle at RNLIC is 26th of last month to 25th of current month. Employee needs to ensure that all leaves /OD request are approved by the reporting manager by 25th of the current month to avoid any Loss of Pay.</li>
+										</ol>
+									<div class="question_content">Q. How do I check my attendance records through Super Express?</div>
+										<ol>
+											<li class="first_listitem">Go to Attendance tab >Click on calendar icon on the right side. You can see your attendance records</li>
+										</ol>
+									<div class="question_content">Q.Can I mark attendance from other branch through Geo tagging?</div>
+										<ol>
+											<li class="first_listitem">Employee can mark attendance from Geo tagging app only from his base branch</li>
+										</ol>
+									<div class="question_content">Q.How can I mark my attendance through Sales Express if my branch location is changed?</div>
+										<ol>
+											<li class="first_listitem">Please contact your respective Zonal HR for branch mapping change request</li>
+										</ol>
+									<div class="question_content">Q.How do I come back to the home page after marking attendance?</div>
+										<ol>
+											<li class="first_listitem">Employee needs to click on <b>Check Out</b> tab to return to Super Express home page.</li>
+										</ol>
+									<div class="question_content">Q.Are both Red-blue icon required to merge for geo tagging and accurate attendance?</div>
+										<ol>
+											<li class="first_listitem">Yes, attendance will be marked only when both the red and blue icons are  merged together. </li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							<div class="tab desk">
+								<div class="juci_thinbar desk">
+									<div class=" tab_header" >Super Express New Lead</div>
+								</div>
+								<div class="collapse">
+									<div class="tab_content_section">
+										<div class="question_content">Q.How to create new lead?</div>
+										<ol>
+											<li class="first_listitem">   To create new lead user needs to click on New Lead tab on the top right hand side of the application page. User will get the pop up message to enable location; on enabling the location the user will be able to create new lead.</li>
+											<div class="helpImage"><img src="images/leadHelp.PNG"></img></div>
+										</ol>
+									<div class="question_content">Q.What are the leads Type available in Super Express?</div>
+									<ol>
+										<li class="first_listitem">There are three lead types available in Super Express: Recruitment, Existing Customer and New Business. </li>
+									</ol>
+									<div class="question_content">Q.. Do I have to enter all the details of the customer?</div>
+										<ol>
+											<li class="first_listitem">All the fields with <span class="redMark">*</span> mark are mandatory.</li>
+										</ol>
+									<div class="question_content">Q.Can I enter my existing customer details?</div>
+										<ol>
+											<li class="first_listitem">Yes, you can enter your existing customer’s details in Lead Type- Existing Customers.</li>
+										</ol>
+									<div class="question_content">Q.Where can I see the new lead details?</div>
+										<ol>
+											<li class="first_listitem">The details of the new lead can be seen by clicking on sort by name/date tab on the top of the screen </li>
+										</ol>
+									<div class="question_content">Q.Is Aadhar Card number mandatory while generating New Lead?</div>
+										<ol>
+											<li class="first_listitem">No, Aadhar number is not mandatory at the new lead generation stage</li>
+										</ol>
+									<div class="question_content">Q.How do I track the leads entered on a particular date or duration or advisor wise to work on them as and when required?</div>
+										<ol>
+											<li class="first_listitem">If we check in search in lead module itself there are various filters available. Like date from & to and advisor wise search both filters are available. Also there is a sorting option available to sort name wise (A to Z or Z to A) or even date wise (earliest to latest or latest to earliest)</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							<div class="tab desk">
+								<div class="juci_thinbar desk">
+									<div class=" tab_header" >Super Express Activity</div>
+								</div>
+								<div class="collapse">
+									<div class="tab_content_section">
+										<div class="question_content">Q.After entering the Aadhar number, how are the details authenticated?</div>
+										<ol>
+											<li class="first_listitem">After entering Aadhar number, user will get the pop up to authenticate either by biometric or OTP. </li>
+											<li class="answer_content">a.&nbsp&nbsp <b>For Biometric Authentication:</b>Biometric device needs to be connected to the mobile handset. You need to switch on OTG in the phone settings. The device will blink red light on being connected. Customer then needs to put any of the 10 fingers on the device. On authentication customer’s details as submitted in Aadhaar will auto- populate.</li>
+										</ol>
+									<div class="question_content">Q.What if there is mismatch with the details entered during lead generation and Aadhar?</div>
+									<ol>
+										<li class="first_listitem">If the details available through Aadhar don’t match with the details submitted during lead generation; a pop- up message will come on the screen to confirm the details and update the lead with details mentioned in Aadhar</li>
+									</ol>
+									<div class="question_content">Q.What if an Aadhaar is not available or DOB mentioned in Aadhaar is 01/01/XXXX. Can case be logged into Super Express without Aadhaar ?</div>
+										<ol>
+											<li class="first_listitem">Yes, a case can be logged in without Aadhar also, however it will be considered as a normal case or Non eKYC case. In such a case, one will need to capture alternate birth proof in documents section other than Aadhaar e.g. DL, passport, Pan Card, etc</li>
+										</ol>
+									<div class="question_content">Q. In-case any query who shall I contact?</div>
+										<ol>
+											<li class="answer_content">a.&nbsp&nbsp Unable to install the Super Express app?</li>
+											<li class="answer_content">b.&nbsp&nbsp Getting an error while downloading/installing the Super Express app?</li>
+											<li class="answer_content">c.&nbsp&nbsp Unable to login on Super Express app with Domain Sap Code and password?</li>
+											<li class="answer_content">d.&nbsp&nbsp Marking attendance from branch, but location is reflecting out of mapped location?</li>
+											<li class="answer_content">e.&nbsp&nbsp Updation of new mobile handset</li>
+											<li class="answer_content">f.&nbsp&nbsp Unable to mark attendance through Geo tagging?</li>
+											<li class="answer_content">g.&nbsp&nbsp Unable to open the Super Express app?</li>
+											<li class="answer_content">h.&nbsp&nbsp Attendance tab is not visible to mark attendance through Super Express?</li>
+											<li class="first_listitem"><b>For all the above query.Please contact us through</b></li>
+											<li class="first_listitem">Call(9:30am-5:30pm):<span class="callClient" onclick="callClient(event)">022 30002235</span>/2680</li>
+											<li class="first_listitem">Or</li>
+											<li class="first_listitem">Write to : <span class="contactDetails" onclick="emailClient(event)">rlife.superexpress@relianceada.com</span></li>
+										</ol>
+										<div class="question_content">Q.Is it mandatorily click on "I Agree" consent box for e- authentication? </div>
+										<ol>
+											<li class="first_listitem">Yes, one need to tick on "I Agree" box for Aadhaar consent from customer’s side or else the case will not be considered as eKYC case and shall be treated as a normal case</li>
+										</ol>
+										<div class="question_content">Q.What if one skips "Life Planner" page? </div>
+										<ol>
+											<li class="first_listitem">One cannot skip the Life Planner page . If done so, the case will not considered as eKYC/Aadhaar authenticated case.</li>
+										</ol>
+										<div class="question_content">Q.For which all activities in Super Express do we require Internet connectivity?</div>
+										<ol>
+											<li class="first_listitem">Internet connectivity is required for the below activities </li>
+												<ol>
+													<li class="answer_content">1.&nbsp&nbsp Aadhaar Authentication, </li>
+													<li class="answer_content">2.&nbsp&nbsp Online Payment,</li>
+													<li class="answer_content">3.&nbsp&nbsp BI generation </li>
+													<li class="answer_content">4.&nbsp&nbsp All kinds of syncing</li>
+												</ol>
+											<li class="first_listitem">    For all other activities the module can work off line </li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						<div class="tab desk">
+							<div class="juci_thinbar desk">
+								<div class=" tab_header" >Address Change</div>
+							</div>
+							<div class="collapse">
+								<div class="tab_content_section">
+									<div class="question_content">Q. What are the requirements to process ?</div>
+									<div class="first_listitem">A.&nbsp A formal request from the Policy owner intimating the new address with pin code and phone number, if available </div>
+									<div class="answer_sub_head">Before forwarding the same to the HO place</div>
+									<ol class="listnumeric">
+										<li class="answer_content">1.&nbspContact Number & pin code should be mentioned</li>
+										<li class="answer_content">2.&nbspCollect the new phone number if available</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+						<div class="tab desk">
+							<div class="juci_thinbar desk">
+								<div class=" tab_header" >Assignment</div>
+							</div>
+							<div class="collapse">
+								<div class="tab_content_section">
+									<div class="question_content">Q. What are the requirements to process ?</div>
+									<ol>
+										<li class="first_listitem">A.&nbsp1.&nbspAssignment  Format</li>
+										<li class="answer_content">2.&nbspNotice of Assignment</li>
+										<li class="answer_content">3.&nbspPolicy Document</li>
+									</ol>
+									<div class="answer_sub_head">Before forwarding the same to the HO place</div>
+									<div class="answer_sub_content">
+										<ol class="listnumeric">
+											<li>1.&nbspEnsure that the assignment forms is duly filled and witnessed.</li>
+											<li>2.&nbspPlace and date field should be filled. </li>
+											<li>3.&nbspIf the policy owner signs in vernacular, a vernacular declaration should be signed. </li>
+											<li>4.&nbspPlease enclose the Policy Document along with the Assignment format and Notice of Assignment.</li>
+										</ol>
+									</div>
+									<div class="answer_sub_head">Common Errors</div>
+									<div class="answer_sub_content">
+										<ol class="listnumeric">
+											<li>1.&nbspNotice of Assignment enclosed</li>
+											<li>2.&nbspAssignment is not witnessed</li>
+											<li>3.&nbspPolicy document not closed</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab desk">
+							<div class="juci_thinbar desk">
+								<div class=" tab_header" >Bill Changes</div>
+							</div>
+							<div class="collapse">
+								<div class="tab_content_section">
+									<div class="question_content">Q. What are the requirements to process ?</div>
+									<div class="first_listitem">
+									A.&nbsp	A formal request mentioning the new frequency of the payment
+									</div>
+									<div class="answer_sub_head">Before forwarding the same to the HO place</div>
+									<div class="answer_sub_content">
+										<ol class="listnumeric">
+											<li>1.&nbspEnsure that contract in force</li>
+											<li>2.&nbspMode change to verify frequency can be done only in cases where paid to date coincides the paid to anniversary</li>
+											<li>3.&nbspMode change from Quarterly to Half Yearly can be done only in cases where paid to date with policy anniversary / 2 quarterly premiums are paid in the policy year.</li>
+											<li>4.&nbspMode change from Yearly to Half-Yearly/ Quarterly or Half-Yearly to Quarterly are not to be encouraged</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab desk">
+							<div class="juci_thinbar desk">
+								<div class=" tab_header" >Cancellations</div>
+							</div>
+							<div class="collapse">
+								<div class="tab_content_section">
+									<div class="question_content">Q. What are the requirements to process ?</div>
+									<ol>
+										<li class="first_listitem">A. &nbsp1.&nbspA formal request  mentioning  the new frequency of the payment</li>
+										<li class="answer_content">2.&nbspPolicy Document</li>
+									</ol>
+								</li>
+							</ul>
+							<div class="answer_sub_head">Before forwarding the same to the HO place</div>
+							<div class="answer_sub_content">
+								<ol class="listnumeric">
+									<li>1.&nbspRequest Letter should be duly signed  &amp; contract number should be mentioned</li>
+									<li>2.&nbspIf the Policy owner signs in vernacular , a vernacular should be mentioned</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab desk">
+					<div class="juci_thinbar desk">
+						<div class=" tab_header" >Duplicate Policy</div>
+					</div>
+					<div class="collapse">
+						<div class="tab_content_section">
+							<div class="question_content">Q. In case of lost in transit , check verify the date on which the policy is dispatched</div>
+							<div class="first_listitem">
+								A.&nbsp 1.&nbsp	In case of courier delivery note down the Air Way Bill from My CSM check with the local branch of the courier about the status.
+									</div>
+							<div class="question_content">Q. What are the requirements to process ?</div>
+							<div class="first_listitem">
+								A.&nbsp 1.&nbsp	Request from the customer in the prescribed format (Lost / Lost in Transit).
+									</div>
+							<div class="answer_sub_head">Common Errors</div>
+							<div class="answer_sub_content">
+								<ol class="listnumeric">
+									<li>1.Duplicate policy requested for in a letter which is not acceptable.</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab desk">
+					<div class="juci_thinbar desk">
+						<div class=" tab_header" >Fund Switch</div>
+					</div>
+					<div class="collapse">
+						<div class="tab_content_section">
+							<div class="question_content">Q. What are the requirements to process ?</div>
+							<ol>
+								<li class="first_listitem">A.&nbsp1.&nbspThe source fund and the target fund amount/ percentage/ units has to be clearly mentioned.</li>
+								<li class="answer_content">2.&nbspThe total percentage corresponding to a particular source fund should be 100%</li>
+								<li class="answer_content">3.&nbspThe form should be signed by CE/MST and the branch seal affixed Before forwarding the Fund Switch request read the request and satisfy yourself about what the customer is trying to convey</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<div class="tab desk">
+					<div class="juci_thinbar desk">
+						<div class=" tab_header" >Premium Redirection</div>
+					</div>
+					<div class="collapse">
+						<div class="tab_content_section">
+							<div class="question_content">Q. What are the requirements to process ?</div>
+							<ol>
+								<li class="first_listitem">A.&nbsp1.&nbspThe total percentages of all funds should be 100%</li>
+								<li class="answer_content">2.&nbspThe form should be signed by CE/MST and the branch seal affixed
+Before forwarding the request read the request and yourself about what the customer is trying to convey</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<div class="tab desk">
+					<div class="juci_thinbar desk">
+						<div class=" tab_header" >Nomination Change</div>
+					</div>
+					<div class="collapse">
+						<div class="tab_content_section">
+							<div class="question_content">Q. What are the requirements to process ?</div>
+							<ol>
+								<li class="first_listitem">A.&nbsp1.&nbspNomination change form</li>
+								<li class="answer_content">2.&nbspNotice of Nomination</li>
+								<li class="answer_content">3.&nbspPolicy Document</li>
+							</ol>
+							<div class="answer_sub_head">Before forwarding the same to the HO place</div>
+							<div class="answer_sub_content">
+								<ol class="listnumeric">
+									<li>1.&nbspEnsure that the Nominee change request is signed by the Policy Owner.</li>
+									<li>2.&nbspIt should be duly witnessed. </li>
+									<li>3.&nbspIf the policy owner signs in vernacular, a vernacular declaration should be signed. </li>
+									<li>4.&nbspPlease enclose the Policy Document along with the Nomination change format and Notice of Nomination.</li>
+									<li>5.&nbspIn case of Minor Nominee an Appointee has to be mentioned.</li>
+								</ol>
+							</div>
+							<div class="answer_sub_head">Common Errors</div>
+							<div class="answer_sub_content">
+								<ol class="listnumeric">
+									<li>1.&nbspNomination change is requested in a letter which is not acceptable.d</li>
+									<li>2.&nbspNotice of nomination not enclosed.</li>
+									<li>3.&nbspNomination is not witnessed.</li>
+									<li>4.&nbspPolicy document not enclosed.</li>
+									<li>5.&nbspAge of the nominee not mentioned</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab desk">
+					<div class="juci_thinbar desk">
+						<div class=" tab_header" >Correction In Policy</div>
+					</div>
+					<div class="collapse">
+						<div class="tab_content_section">
+							<div class="question_content">Q. What are the requirements to process ?</div>
+							<div class="first_listitem">
+								A.&nbsp	In case of correction in name/nominee name etc proper proof to substantiate the request should be enclosed
+									</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab desk">
+					<div class="juci_thinbar desk">
+						<div class=" tab_header" >Reinstatement</div>
+					</div>
+					<div class="collapse">
+						<div class="tab_content_section">
+							<div class="question_content">Q. What are the requirements to process ?</div>
+							<div class="first_listitem">
+									A.&nbspDeclaration of state of health form.
+									</div>
+							<div class="answer_sub_head">Before forwarding the same to the HO place</div>
+							<div class="answer_sub_content">
+								<ol class="listnumeric">
+									<li>1.&nbspHeight and weight & occupation is filled.</li>
+									<li>2.&nbspDSH should be properly filled and all the questions answered.</li>
+									<li>3.&nbspDSH should be witnessed.</li>
+									<li>4.&nbspIf the policy owner signs in vernacular, a vernacular declaration should be signed.</li>
+									<li>5.&nbspIn case of minor life policies the particulars filled in DSH should be that of Life Assured and declaration should be signed by both Life Assured and Proposer.</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+					</div>
+					<div class="tab desk">
+						<div class="juci_thinbar desk">
+							<div class=" tab_header" >Surrenders Not Allowed For LPR, LPS, LCR, LCS, LBR, LBS, TRA</div>
+						</div>
+						<div class="collapse">
+							<div class="tab_content_section">
+								<div class="question_content">Q. What are the requirements to process ?</div>
+								<ol>
+									<li class="first_listitem">A.&nbsp&nbspA formal request letter for Surrender..</li>
+									<li class="answer_content">2.&nbspPolicy document.</li>
+									<li class="answer_content">3.&nbspPolicy should have completed at least three years from the RCD- not applicable for Unit Linked and Single premium contracts.</li>
+								</ol>
+								<div class="answer_sub_head">Before forwarding the same to the HO place</div>
+								<div class="answer_sub_content">
+									<ol class="listnumeric">
+										<li>1.&nbspRequest letter should be duly signed & contract number mentioned</li>
+										<li>2.&nbspIf the policy owner signs in vernacular, a vernacular declaration should be signed.</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+						</div>
+						<div class="tab desk">
+							<div class="juci_thinbar desk">
+								<div class=" tab_header" >Loans</div>
+							</div>
+							<div class="collapse">
+								<div class="tab_content_section">
+									<div class="question_content">Q. What are the requirements to process ?</div>
+									<ol>
+										<li class="first_listitem">A.&nbspLoan Application & Receipt of Loan advance duly filled and witnessed.</li>
+										<li class="answer_content">2.&nbspPolicy document.</li>
+										<li class="answer_content">3.&nbspAt least three full years premium should have been paid- not applicable for single premium contracts.</li>
+									</ol>
+									<div class="answer_sub_head">Loan eligibility Only for CPP,WLP,SEP,DEP,DES
+Before forwarding the same to the HO please ensure</div>
+									<div class="answer_sub_content">
+										<ol class="listnumeric">
+											<li>1.&nbspLoan application should be duly filled, signed and witnessed.</li>
+											<li>2.&nbspIf the policy owner signs in vernacular the declaration should be signed by a English knowing person.</li>
+											<li>3.&nbspLoan receipt should be obtained in which the policy owner should sign on a revenue stamp.
+</li>
+											<li>4.&nbspIn case of a minor life assured, a declaration from the proposer stating that the loan is utilized for the benefit of the life assured has to be obtained</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							</div>
+							<div class="tab desk">
+								<div class="juci_thinbar desk">
+									<div class=" tab_header" >Top Ups</div>
+								</div>
+								<div class="collapse">
+									<div class="tab_content_section">
+										<div class="question_content">Q. What are the requirements to process ?</div>
+										<ol>
+											<li class="first_listitem">A.&nbsp&nbspIn case of cash receipt please fax / scan the top up request and e-mail the same to customer service mail ID, as this would avoid delays in processing</li>
+											<li class="answer_content">2.&nbspBefore forwarding the top up request by courier/ e-mail check if the fund option is mentioned clearly & the total adds up to 100 %.</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							<div class="tab desk">
+								<div class="juci_thinbar desk">
+									<div class=" tab_header" >Market Return Plan Surrender/ Partial Withdrawal</div>
+								</div>
+								<div class="collapse">
+									<div class="tab_content_section">
+										<div class="question_content">Q. What are the requirements to process ?</div>
+										<ol>
+											<li class="first_listitem">A.&nbsp&nbsp case of part surrender the amount has to be mentioned in Rupees or as a percentage.</li>
+											<li  class="answer_content">2.&nbspCustomer has to clearly mention the Fund from which the withdrawal has to made.</li>
+											<li  class="answer_content">3.&nbspBranches are advised to enclose a DSH along with the request so that the delay arising due to a requirement for the same can be avoided.</li>
+										</ol>
+										<div class="answer_sub_head">Common Errors</div>
+										<div class="answer_sub_content">
+											<ol class="listnumeric">
+												<li>1.&nbspPart withdrawal is mentioned as profit booking.</li>
+												<li>2.&nbspWithdrawal is mentioned in units which are not permitted. It can be mentioned in rupees or as a percentage of funds.</li>
+												<li>3.&nbspPartial withdrawal requests on Regular premium contracts where Fund holdings are less than sum assured</li>
+												<li>4.&nbspPartial withdrawal requests on Single premium contracts issued after 20th Feb. 2005 within the first policy year.</li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+			</div>
+			</div>
+				<div class="footerbar">
+					<div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+					<span> | </span>
+					<div class="terms" onclick="openTerms()">Terms and Conditions</div>
+					<span> | </span>
+					<div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+				</div>
+			</div>
+		</body>
+	</html>

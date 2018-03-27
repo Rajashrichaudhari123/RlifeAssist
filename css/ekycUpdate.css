@@ -1,0 +1,97 @@
+.juci_thinbar_ekyc {
+    text-align: center;
+    background: #0b4daa;
+    color: #FFF;
+    height: 22px;
+    padding-top: 4px;
+}
+
+button.juci_button.btn_auth {
+    background: #0b4daa;
+    border-color: #0b4daa;
+    min-height: 30px !important;
+    font-size: 15px;
+    width: 30%;
+    border-radius: 6px;
+}
+
+.validate {
+    text-align: center;
+}
+
+.client_details {
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #0b4daa;
+}
+
+.juci_horizontal_bbar.is_submit {
+    text-align: center;
+}
+
+button.juci_button.validate_device {
+    background: #0b4da1;
+    border: #0b4da1;
+    min-height: 32px;
+    font-size: 13px;
+    width: 108px;
+    /* margin-left: auto; */
+    border-radius: 4px;
+    text-align: center;
+    margin: 14px;
+    vertical-align: middle;
+}
+
+.aadhar_number {
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.dialogheader {
+    display: inline-block;
+    margin-top: 18px;
+    margin-left: 10px;
+}
+
+div#dialog-otp {
+    display: inline-block;
+}
+
+#Aadhar input {
+    -webkit-text-security: disc;
+}
+.client_img_container{
+	 width: 100px;
+    height: 100px;
+    margin: auto;
+}
+.client_img{
+	    width: 70px;	
+}
+.yes_checkbox{
+	 width: 48%;
+    margin: 0;
+    display: inline-block;
+}
+
+.aadhar_validation .juci_switch_label{
+	width:20px;	
+}
+
+.no_checkbox{
+		 width: 48%;
+    margin: 0;
+    display: inline-block;	
+}
+.juci_check.touch .juci_check_box{
+	
+}
+
+.aadhar_validation{
+	margin-top: 15px;
+	margin-left: 10px;	
+}
+label {
+    position: relative;
+    bottom: 7px;
+}

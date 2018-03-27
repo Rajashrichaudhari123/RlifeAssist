@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+    	<link rel="stylesheet" type="text/css" href="css/Dashboard.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select2.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select2Custom.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/chartbundle.js"></script>
+		<script src="scripts/chartutils.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+	
+		<!-- Add your scripts here -->
+	<script>
+    var lineChartData = {
+        labels: ["January", "February", "March", "April", "May", "June"],
+        datasets: [{
+            label: "Leads",
+            lineTension: 0,
+            borderColor: window.chartColors.red,
+            backgroundColor: window.chartColors.red,
+            fill: false,
+            data: [
+            	0,
+               	0,
+                0,
+                0,
+                0,
+                0
+            ]
+        }, {
+            label: "Appointments",
+            lineTension: 0,
+            borderColor: window.chartColors.yellow,
+            backgroundColor: window.chartColors.yellow,
+            fill: false,
+            data: [
+            	0,
+               	0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },{
+            label: "Logins",
+            lineTension: 0,
+            borderColor: window.chartColors.blue,
+            backgroundColor: window.chartColors.blue,
+            fill: false,
+            data: [
+            	0,
+               	0,
+                0,
+                0,
+                0,
+                0
+            ]
+            
+        },{
+            label: "Super Express Logins",
+            lineTension: 0,
+            borderColor: window.chartColors.blue,
+            backgroundColor: window.chartColors.blue,
+            fill: false,
+            data: [
+            	30,
+               	29,
+                28,
+                27,
+               	26,
+                25
+            ]
+            
+        },{
+            label: "Issuance",
+            lineTension: 0,
+            borderColor: window.chartColors.blue,
+            backgroundColor: window.chartColors.blue,
+            fill: false,
+            data: [
+            	0,
+               	0,
+                0,
+                0,
+                0,
+                0
+            ]
+            
+        }]
+    };
+
+  function initReady(){
+        var ctx = document.getElementById("canvas").getContext("2d");
+       window.myLine = Chart.Line(ctx, {
+        	showTooltips: false,
+            data: lineChartData,
+            options: {
+                responsive: true,
+                bezierCurve : false,
+                hoverMode: 'index',
+                stacked: false,
+                title:{
+                    display: true,
+                    text:''
+                },
+                scales: {
+                    yAxes: [{
+                		display: false,
+                		gridLines: {
+                    		color: "rgba(0, 0, 0, 0)",
+                		},
+                		fontSize:6
+                		
+           		 	}
+           		 	],
+           		 	xAxes: [{
+           		 		gridLines: {
+                    		color: "rgba(0, 0, 0, 0)",
+                		},
+                		fontSize:6 
+           		 	}]
+                },
+                legend: {
+		            labels: {
+		                fontSize: 10
+		            }
+		        },
+		        animation : {
+		        	onComplete :function () {
+		        	var chart = this.chart;
+		        	var ctx = this.chart.ctx;
+					ctx.fillStyle = 'rgb(133, 157, 189)'; 
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "bottom";
+					var datasets = this.config.data.datasets;
+                      datasets.forEach(function (dataset, i) {
+                          chart.getDatasetMeta(i).data.forEach(function (p, j) {
+                            ctx.fillText(datasets[i].data[j], p._model.x, p._model.y - 0);
+                          });
+                       });
+				    }
+		        }
+            }
+        });
+    }
+	$m.onReady(function(){
+		initReady();
+	})
+    </script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<div style="width:100%;">
+		        <canvas id="canvas"></canvas>
+		    </div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+	    <link rel="stylesheet" type="text/css" href="css/collapsible.css"></link>
+	    <link rel="stylesheet" type="text/css" href="css/jqueryui.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+	    <link rel="stylesheet" type="text/css" href="css/common.css"></link>
+	    <link rel="stylesheet" type="text/css" href="css/collapsible.css"></link>
+	    <link rel="stylesheet" type="text/css" href="css/bmChannelReport.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/SHDataPojo.js"></script>
+		<script src="scripts/bmExceptionReportPojo.js"></script>
+		<script src="scripts/saveBMExceptionReportPojo.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/collapsible.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/bmChannelReport.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+		<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+         <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+	            <li class="item_list" onclick="openSyncContacts()">
+	                <img src="images/Sync.png"></img>
+	                <span>Sync Personal Contacts</span>
+	            </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li> --> 
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li>
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+               	<li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Calculator</span>
+                </li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+            </ul>
+         </div>
+			<div class="bmReport">
+				<div class="agsmDetails" id="agsm-sap" data-juci="selectbox" data-mode="popup" data-bind="optionsList:$root.SMDetails,ref:name,optionsText:format" data-label="Sales Manager<span class='star'>*</span>" data-formatter="format" onafterchange="getSMCode(event)" ></div>
+				<div class="dateRangeFilter">
+					<div class="dateRange_Container">
+						<div class="dateLabel">Choose the week<span class='star'>*</span></div>
+						<div id="dateranger" data-juci="daterange" data-bind="" data-from-placeholder="From" data-to-placeholder="To" onafterchange= "getDateRange(event)" style="display: block;"></div>
+					</div>
+					<div class="searchButtonRange" data-bind="">
+						<button class="searchButrange" data-juci="button" onclick="getBMExceptionReport()">Generate</button>
+					</div>
+				</div>
+				<div id="table-section" class="table_section" data-bind="visible:$root.tableValue">
+				<div class="bm_table_data">
+                  <div class="aadhar_detail">
+                     <div class="aadhar_info_name">Attribute</div>
+                     <div class="aadhar_data">This week</div>
+                     <div class="aadhar_data_reason">Reason<span class='star'>*</span></div>
+                     <div class="aadhar_data_remarks">Remarks<span class='star'>*</span></div>
+                     <div class="aadhar_data">Last week</div>
+                     <div class="aadhar_data">W-2</div>
+                     <div class="aadhar_data_w3">W-3</div>
+                  </div>
+                  <div class="aadhar_detail" data-bind="with:$root.nelsValue">
+                     <div class="aadhar_info_name_nels">NELS</div>
+                     <div class="aadhar_data_nels" data-bind="html:w1AchvCnt"></div>
+                     <div class="aadhar_data_reason">
+                     	<div class="aadhar_data_sample" style="display:block" id="nelsValueDropDown">
+                     	 <div class="select_box chooseoption_nels">
+							<select id="choose-nels" placeholder="Choose" class="chosen-rtl" onchange="getAttributeValue(this.value)">
+							  <option value = "NELSAL">ARDM leave</option>
+							  <option value = "NELSLLGA">Lack of lead generation activities</option>
+							  <option value = "NELSOR">Other (Mention in Remarks column)</option>
+							</select>
+						</div>
+                     </div>
+                     </div>
+                     <div class="aadhar_data_remarks">
+                     	<div id="remarks-nels">
+                     		<textarea class="aadhar_data_nels" rows="1" cols="auto" id="remarks-nelstext"></textarea>
+                 		</div>
+                     </div>
+                     <div class="aadhar_data_nels" data-bind="html:w2AchvCnt"></div>
+                     <div class="aadhar_data_nels" data-bind="html:w3AchvCnt"></div>
+                     <div class="aadhar_data_nels" data-bind="html:w4AchvCnt"></div>
+                  </div>
+                  
+                  <div class="aadhar_detail" data-bind="with:$root.elacValue">
+                     <div class="aadhar_info_name_elac">ELAC</div>
+                     <div class="aadhar_data_elac" data-bind="html:w1AchvCnt"></div>
+                     <div class="aadhar_data_reason">
+                     	<div class="aadhar_data_sample" style="display:block" id="elacValueDropDown">
+	                     	 <div class="select_box chooseoption_elac">
+								<select id="choose-elac" placeholder="Choose" class="chosen-rtl" onchange="getAttributeValueElac(this.value)">
+								  <option value = "ELACNBP">Need better prospects</option>
+								  <option value = "ELACPPM">Poor planning of meetings</option>
+								  <option value = "ELACMPNW">"Meetings planned for next week</option>
+								  <option value = "ELACTI">"Training issue</option>
+								  <option value = "ELACOR">"Other (Mention in Remarks column)</option>
+								</select>
+							</div>
+	                     </div>
+                     </div>
+                     <div class="aadhar_data_remarks">
+                     	<div id="remarks-elac">
+                     		<textarea class="aadhar_data_elac" rows="1" cols="auto" id="remarks-elactext"></textarea>
+                 		</div>
+                     </div>
+                     <div class="aadhar_data_elac" data-bind="html:w2AchvCnt"></div>
+                     <div class="aadhar_data_elac" data-bind="html:w3AchvCnt"></div>
+                     <div class="aadhar_data_elac" data-bind="html:w4AchvCnt"></div>
+                  </div>
+                  
+                  <div class="aadhar_detail" data-bind="with:$root.neacValue">
+                     <div class="aadhar_info_name_neac">NEAC</div>
+                     <div class="aadhar_data_neac" data-bind="html:w1AchvCnt"></div>
+                     <div class="aadhar_data_reason">
+                     	<div class="aadhar_data_sample" style="display:block" id="neacValueDropDown">
+                     	 <div class="select_box chooseoption_neac">
+							<select id="choose-neac" placeholder="Choose" class="chosen-rtl" onchange="getAttributeValueNeac(this.value)">
+							  <option value = "NEACAL">ARDM leave</option>
+							  <option value = "NEACLL">Lack of leads</option>
+							  <option value = "NEACPPM">Poor planning of meetings</option>
+							  <option value = "NEACNBP">Need better prospects</option>
+							  <option value = "NEACTI">Training issue</option>
+							  <option value = "NEACOR">Other (Mention in Remarks column)</option>
+							</select>
+						</div>
+                     </div>
+                     </div>
+                     <div class="aadhar_data_remarks">
+                     	<div id="remarks-neac">
+                     		<textarea class="aadhar_data_neac" rows="1" cols="auto" id="remarks-neactext"></textarea>
+                 		</div>
+                     </div>
+                     <div class="aadhar_data_neac" data-bind="html:w2AchvCnt"></div>
+                     <div class="aadhar_data_neac" data-bind="html:w3AchvCnt"></div>
+                     <div class="aadhar_data_neac" data-bind="html:w4AchvCnt"></div>
+                  </div>
+                  <div class="aadhar_detail_last" data-bind="with:$root.eanslValue">
+                     <div class="aadhar_info_name_eansl">EANSL</div>
+                     <div class="aadhar_data_eansl" data-bind="html:w1AchvCnt"></div>
+                     <div class="aadhar_data_reason">
+                     	<div class="aadhar_data_sample" style="display:block" id="eanslValueDropDown">
+                     	 <div class="select_box chooseoption_eansl">
+							<select id="choose-eansl" placeholder="Choose" class="chosen-rtl" onchange="getAttributeValueEansl(this.value)">
+							  <option value = "EANSLPTI">Product training issue</option>
+							  <option value = "EANSLNBP">Need better prospects</option>
+							  <option value = "EANSLLHO">Logins happening offline</option>
+							  <option value = "EANSLOR">Other (Mention in Remarks column)</option>
+							</select>
+						</div>
+                     </div>
+                     </div>
+                     <div class="aadhar_data_remarks">
+                     	<div id="remarks-eansl">
+                     		<textarea class="aadhar_data_eansl" rows="1" cols="auto" id="remarks-eansltext"></textarea>
+                 		</div>
+                     </div>
+                     <div class="aadhar_data_eansl" data-bind="html:w2AchvCnt"></div>
+                     <div class="aadhar_data_eansl" data-bind="html:w3AchvCnt"></div>
+                     <div class="aadhar_data_eansl" data-bind="html:w4AchvCnt"></div>
+                  </div>
+                  
+                  <div class="aadhar_detail_last" data-bind="with:$root.eannatValue">
+                     <div class="aadhar_info_name_eansl">EANNAT</div>
+                     <div class="aadhar_data_eansl" data-bind="html:w1AchvCnt"></div>
+                     <div class="aadhar_data_reason">
+                     	<div class="aadhar_data_sample" style="display:block" id="eannatValueDropDown">
+                     	 <div class="select_box chooseoption_eansl">
+							<select id="choose-eannat" placeholder="Choose" class="chosen-rtl" onchange="getAttributeValueEannat(this.value)">
+							  <option value = "EANSLPTI">Product training issue</option>
+							  <option value = "EANSLNBP">Need better prospects</option>
+							  <option value = "EANSLLHO">Logins happening offline</option>
+							  <option value = "EANSLOR">Other (Mention in Remarks column)</option>
+							</select>
+						</div>
+                     </div>
+                     </div>
+                     <div class="aadhar_data_remarks">
+                     	<div id="remarks-eannat">
+                     		<textarea class="aadhar_data_eansl" rows="1" cols="auto" id="remarks-eannattext"></textarea>
+                 		</div>
+                     </div>
+                     <div class="aadhar_data_eansl" data-bind="html:w2AchvCnt"></div>
+                     <div class="aadhar_data_eansl" data-bind="html:w3AchvCnt"></div>
+                     <div class="aadhar_data_eansl" data-bind="html:w4AchvCnt"></div>
+                  </div>
+                  
+                  
+                  </div>
+                  <div class="exceptionsName"><span  class="exceptionSym">NELS</span> - Not enough new leads</div>
+                  <div class="exceptionsName"><span  class="exceptionSym">ELAC</span> - Enough leads but less than 12 authenticated calls</div>
+                  <div class="exceptionsName"><span  class="exceptionSym">NEAC</span> - Not enough Authenticated calls</div>
+                  <div class="exceptionsName"><span  class="exceptionSym">EANSL</span> - Enough authenticated calls but no Super Express loginss</div>
+                  <div class="exceptionsName"><span  class="exceptionSym">EANNAT</span> - Enough authenticated calls but no NAT</div>
+                  <div class="searchButtonRange" data-bind="">
+					<button class="searchButrange" data-juci="button" onclick="submitReport()">Submit</button>
+				</div>
+               </div>
+			</div>
+		</div>
+	</body>
+</html>

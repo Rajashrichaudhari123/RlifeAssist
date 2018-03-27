@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0" />
+		<meta http-equiv="x-rim-auto-match" content="none" />
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/system.css"></link>
+		<style>
+			#__leftBtn{
+				border: none;
+				background: none;
+				padding: 0px;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/company.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/custom/loginpage.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/registration.css"></link>
+			<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+        <script src="libs/mowbly/js/mowbly.js"></script>
+		<script src="libs/mowbly/js/juci-0.2.js"></script>
+		<script src="js/systemutils.js"></script>
+		<script src="js/messages.js"></script>
+		<script src="js/addaccount.js"></script>
+		<script src="js/company.js"></script>
+		<script src="js/companyaddaccount.js"></script>
+		<script src="scripts/login.js"></script>
+		<script src="scripts/registration.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/header.js"></script>
+		
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel class="first_panel">
+				<div id="dialogotp" data-juci="dialog">
+			<div class="heading__otp">
+				<div class="dialogheader">Enter OTP</div>
+				<span class="close" onclick="hidebox()">X</span>
+			</div>
+			
+			<div class="modal-body"> 
+			<div class="otptext">Enter the One Time Password(OTP) sent your Mobile No./Email ID</div>
+			<div id="Otp" class="user_id" data-juci="text" data-label="" data-bind placeholder data-trigger></div>
+            	<p class="text"> <span class="blueotp" onclick="showContent()">Didn't Receive OTP</span></p>
+            	<div id="Otp_Content">
+            	<div class="otp_data" data-bind="with:otpdetails">The OTP is sent on
+            	<div class="data" data-bind="html:mobile()"></div>
+            	<span>&nbsp and</span>
+            	<div class="data" data-bind="html:emailid"></div>
+            	</div>
+            	<div class="otptext">If you didn't receive the OTP click on
+            	<button class="btn_resnd" data-juci="button" onclick="resendOtp()">Resend OTP</button> 
+            	<span class="update"> or </span> <span class="blue" onclick="Show_Update()">Update Details</span> </div>
+            	</div>
+            		<div  id="update_Content" class="update_content"><p>To update your contact details, please call us on 1800-267-7227 (toll-free) and follow the IVR. You can also walk into one of our branches and our Customer Executive will be happy to help you.</p>
+            	</div>
+            	<div class="juci_thinbar">
+            		<button class="btn_cancel" data-juci="button" onclick="hidebox()">Cancel</button>
+            		<button class="btn_submit" data-juci="button"onclick="SubmitOtpChange()()">Submit</button>
+            	</div>
+		</div>
+		</div>
+			<div class="login-form">
+				<div class="login-logo">
+					<img class="logo" src="img/logo-mob.png"></img>
+				</div>
+				<p class="log">Forgot Password</p>
+				<form id="loginform" action="javascript:document.activeElement.blur();forgot_password();">
+					<div id="userName" class="userid" data-juci="text" placeholder="Email ID / Mobile No. / Advisor Code" required onvalidationfail="Utils.GetValidationMessage(event,'User Name')"></div>
+					<div id="password" class="password" data-juci="password" placeholder="Password" required onvalidationfail="Utils.GetValidationMessage(event,'Password')"></div>
+					<div class="clearfix frgt-logdesc">
+                        <div data-juci="checkbox" data-label="Show Characters" onafterchange="show()" ></div>
+                       
+                    </div>
+					<div id="login-bbar" class="juci_vertical_bbar">
+						<button data-juci="button" id="change-button" value="Change" onclick="forgot_Paasword()"></button>
+					</div>
+				</form> 
+					<p class="change-pass" onclick="back()">Back to login</p>
+				</div>
+				</div>
+				</body>
+				</html>

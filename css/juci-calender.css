@@ -1,0 +1,71 @@
+.juci_date_disabled{
+	color: #aaaaaa;
+}
+
+input.juci_ctrl_box {
+    border-bottom: 1px solid;
+}
+
+.juci_ctrl_label {
+    display: none;
+}
+
+.group_name {
+    font-size: 17px;
+    margin: 11px;
+}
+
+/*div#calender-panel {
+    width: 50%;
+    margin: 11%;
+    margin-right: 0px;
+    display: inline-block;
+    margin-top: 20px;
+}*/
+
+.manage_capacity {
+    font-size: 22px;
+    margin-bottom: 16px;
+    margin: 2%;
+}
+
+.juci_negative, .juci_error, .juci_red {
+    background: #F34A4A !important;
+    border-color: #DDDDDD !important;
+    color: #aaaaaa;
+}
+
+.juci_left_head {
+    display: table-cell;
+    width: 12%;
+    text-align: center;
+    vertical-align: middle;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    font-weight: bold;
+    font-size: 11pt;
+    /* background: -webkit-gradient(linear, left top, left bottom, from(#F7F7F7), to(#F1F1F1)); */
+    border-right-color: #D1D1D1;
+    border-top-color: #D1D1D1;
+    border-left-color: #DBD9DA;
+    border-bottom-color: #DBD9DA;
+    background: #4f889d;
+    color: #FFF;
+}
+
+.juci_day {
+    color: #4f889d;
+}
+
+.juci_days {
+    height: 50px;
+}
+
+.juci_calendar_middle {
+    color: #0B4DA1;
+    font-weight: 500;
+}
+
+/*.juci_date_annotation_row {
+    height: 8px;
+}*/

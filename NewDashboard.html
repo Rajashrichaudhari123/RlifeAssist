@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/proposal.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/newBusinessDashboard.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/Mybusiness.css"></link>
+    	<link rel="stylesheet" type="text/css" href="css/Dashboard.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select2.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select2Custom.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/chartbundle.js"></script>
+		<script src="scripts/chartutils.js"></script>
+		<script src="scripts/chartpiecelabel.js"></script>
+		<script src="scripts/dashboardDatasets.js"></script>
+		<script src="scripts/newDashBoard.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        	</div>
+        		<div class="menu arrow_box" id="profilelist" style="display:none;">
+	            <ul class="items">
+	            	<li class="item_list" onclick="openSync()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync</span>
+	                </li>
+	                <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+	                	<li class="item_list" onclick="openSyncContacts()">
+		                    <img src="images/Sync.png"></img>
+		                    <span>Super Sync</span>
+		                </li>
+	                </div>
+	               <!--<li class="item_list" onclick="">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync</span>
+	                </li>   -->
+	                
+	                 <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+	           		</li>--> 
+	          
+	            
+	             <!--<li class="item_list" onclick="openCustomers()">
+	                <img src="images/male.png"></img>
+	                <span>New Lead</span>
+	            </li>  -->
+		      		<div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                 <li class="item_list" onclick="openProposal()">
+		                    <img src="images/New-Proposal.png"></img>
+		                    <span>New Proposal</span>
+		                </li>  
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openCustomers()">
+		                    <img src="images/Profile.png"></img>
+		                    <span>Profile</span>
+		                </li>
+		            </div>
+					<li class="item_list" onclick="openLogs()">
+		                <img src="images/logs.png"></img>
+		                <span>Logs</span>
+		            </li>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+						<li class="item_list" onclick="openDataRetrieve()">
+		                    <img src="images/database.png"></img>
+		                    <span>Data Retrieve</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+						<li class="item_list" onclick="openForceUpdate()">
+		                    <img src="images/app.png"></img>
+		                    <span>Force Update</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM' && gettype()!=='RRB' && gettype()!=='NCKYC'">
+		               <li class="item_list" onclick="openCustomers()">
+		                    <img src="images/female.png"></img>
+		                    <span>My Customers</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openAdvisors()">
+		                    <img src="images/Folder_grey.png"></img>
+		                    <span class="my_advisors">My Advisors</span>
+		                </li>
+		            </div>
+					<li class="item_list" onclick="openVersion()">
+		                <img src="images/Folder_grey.png"></img>
+		                <span class="my_advisors">Version</span>
+		            </li>
+		            
+		             <!--<div data-bind="visible:gettype()!=='ADV'">
+		             <li class="item_list" onclick="openTeamLogin()">
+		                <img src="images/team.png"></img>
+		                <span>Team Login</span>
+		            </li>
+		            </div>-->
+		            <div data-bind="visible:gettype()!=='RRB'">
+		                <li class="item_list" onclick="openHelpDesk()">
+		                    <img src="images/Gallery_Grey.png"></img>
+		                    <span class="help">Help Desk</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openConfirmUpdate()">
+		                    <img src="images/Gallery_Grey.png"></img>
+		                    <span class="help">Confirm Update</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openCalculator()">
+			                <img src="images/Gallery_Grey.png"></img>
+			                <span class="help">Calculator</span>
+		        		</li>
+		    		</div>
+		            <li class="item_list" onclick="doLogout()">
+		                <img src="images/power-blackgold.png"></img>
+		                <span class="log">Logout</span>
+		            </li>
+            	</ul>
+	         </div>
+			<!-- New Business !-->
+			<div class="wrapper">
+				<!-- dropdwons of period and customer name-->
+				<div class="dashboard_container">
+					<div class="dashboard_renewals dashboard_item_container">
+						<div class="dashboard_item">
+							<div class="dashboard_item_head">
+								<div class="dashboard_item_title">New Business</div>
+							</div>
+							<div class="dashboard_item_subhead">
+								<div class="custom_selectbox">
+									<div class="select_box">
+										<div class="dashboard_item_filter_select" data-juci="selectbox"  data-mode="popup" data-label="" placeholder="Select a Period" data-bind="optionsList:$root.newBusinessList,ref:$root.newBusiness" onafterchange="onNewBusinessChange(event)"></div>
+									</div>
+								</div>
+								<div class="custom_selectbox">
+									<div class="select_box">
+										<div class="dashboard_item_filter_select" id="new-business-ARDM" data-juci="selectbox"  data-mode="popup" data-label="" placeholder="Select All ARDM" data-bind="optionsList:$root.ardmList,ref:$root.ardm,optionsText:getARDM" data-formatter="getARDM" onafterchange="onNewBusinessArdmChange(event)"></div>
+									</div>
+								</div>
+								<div class="date_container" id="business_date_container">
+									<div class="from_date_picker">
+										<div data-juci="datepicker" data-bind="ref:newBusinessFromDate" class="from_date"  placeholder="From Date" onafterchange="onNewBusinessCustomChange(event,'from_nb')"></div>
+									</div>
+									<div class="to_date_picker">
+										<div data-juci="datepicker" data-bind="ref:newBusinessToDate" class="to_date" placeholder="To Date" onafterchange="onNewBusinessCustomChange(event,'to_nb')"></div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						<div class="data_container">
+							<!--div class="customer_name" data-juci="display" data-bind="text: $root.Customer_name"></div!-->
+							<div data-juci="xlist" id="new" data-bind="ref:$root.graph">
+								<div data-juci="listitem">
+									<div  data-juci="display" data-bind="text: type,attr: {class: getClassName(type)+'_lable lable'}"></div>
+									<div class="block">
+										<div data-juci="display" data-bind="text:dataValue,attr: {class: getClassName(type)+'_block value'},style:{background:color}" ></div>
+									</div>
+								</div>
+							</div>
+							<!-- dotted saprator  line between-->
+							<div class="intersection">
+								<div class="lables_intersection"></div>
+								<div class="graph_intersection"></div>
+							</div>
+							<!--bottom section -->
+							<div class="footer" >
+								<div data-juci="xlist"  id="list" data-bind="ref: $root.footerGraph" >
+									<div data-juci="listitem">
+										<div  data-juci="display" class="lable" data-bind="text: type" data-istext></div>
+										<div class="block">
+											<div data-juci="display" class="value" data-bind="text: value,style:{background:color}" ></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- New Business Progress !-->
+			<div class="dashboard_container">
+				<div class="dashboard_renewals dashboard_item_container">
+					<div class="dashboard_item">
+						<div class="dashboard_item_head">
+							<div class="dashboard_item_title">New Business Progress</div>
+						</div>
+						<div class="dashboard_item_subhead">
+							<div class="custom_selectbox">
+								<div class="select_box">
+									<div class="dashboard_item_filter_select" data-juci="selectbox"  data-mode="popup" data-label="" placeholder=" " data-bind="optionsList:$root.newBusinessProgressList,ref:$root.newBusinessProgress" onafterchange="onNewBusinessProgressChange(event)"></div>
+								</div>
+							</div>
+							<div class="custom_selectbox">
+								<div class="select_box">
+									<div class="dashboard_item_filter_select" data-juci="selectbox"  data-mode="popup" data-label="" placeholder="Select All ARDM" data-bind="optionsList:$root.businessProgressArdmList,ref:$root.businessProgressArdm,optionsText:getARDM" data-formatter="getARDM" onafterchange="onNewBusinessProgressArdmChange(event)"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="overflow-x:auto">
+				        <canvas id="canvas" style="width:500px;height:200px"></canvas>
+				    </div>
+				</div>
+			</div>
+			<!-- Recruitment !-->
+			<div class="wrapper">
+				<div class="heading_container">
+					<div data-juci="display" data-label="New Business" ></div>
+				</div>
+				<!-- dropdwons of period and customer name-->
+				<div class="dashboard_container">
+					<div class="dashboard_renewals dashboard_item_container">
+						<div class="dashboard_item">
+							<div class="dashboard_item_head">
+								<div class="dashboard_item_title">Recruitment</div>
+							</div>
+							<div class="dashboard_item_subhead">
+								<div class="custom_selectbox">
+									<div class="select_box">
+										<div class="dashboard_item_filter_select" data-juci="selectbox"  data-mode="popup" data-label="" placeholder=" " data-bind="optionsList:$root.newRecruitmentList,ref:$root.recruitment" onafterchange="onNewRecruitmentChange(event)"></div>
+									</div>
+								</div>
+								<div class="custom_selectbox">
+									<div class="select_box">
+										<div class="dashboard_item_filter_select" data-juci="selectbox"  data-mode="popup" data-label="" placeholder="Select All ARDM" data-bind="optionsList:$root.recruitmentArdmList,ref:$root.recruitmentArdm,optionsText:getARDM" data-formatter="getARDM" onafterchange="onRecruitmentArdmChange(event)"></div>
+									</div>
+								</div>
+								<div class="date_container" id="recruitment_date_container">
+									<div class="from_date_picker">
+										<div data-juci="datepicker" data-bind="ref:recritmentFromDate" class="from_date"  placeholder="From Date"  onafterchange="onRecriutmentCustomChange(event,'from_rec')"></div>
+									</div>
+									<div class="to_date_picker">
+										<div data-juci="datepicker" data-bind="ref:recruitmentToDate"  class="to_date"  placeholder="To Date" onafterchange="onRecriutmentCustomChange(event,'to_rec')"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="data_container">
+							<!--div class="customer_name" data-juci="display" data-bind="text: $root.Customer_name"></div!-->
+							<div data-juci="xlist" id="recruitment" data-bind="ref:$root.recruitmentGraph">
+								<div data-juci="listitem">
+									<div  data-juci="display" data-bind="text: type,attr: {class: getClassName(type)+'_lable lable'}"></div>
+									<div class="block">
+										<div data-juci="display" data-bind="text:dataValue,attr: {class: getClassName(type)+'_block value'},style:{background:color}" ></div>
+									</div>
+								</div>
+							</div>
+							<!-- dotted saprator  line between-->
+							<div class="intersection">
+								<div class="lables_intersection"></div>
+								<div class="graph_intersection"></div>
+							</div>
+							<!--bottom section -->
+							<div class="footer" >
+								<div data-juci="xlist" id="recruitment-list" data-bind="ref: $root.recruitmentFooterGraph" >
+									<div data-juci="listitem">
+										<div  data-juci="display" class="lable" data-bind="text: type" data-istext></div>
+										<div class="block">
+											<div  data-juci="display" class="value"  data-bind="text: value,style:{background:color}" ></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Recruitment Progress !-->
+			<div class="dashboard_container">
+				<div class="dashboard_renewals dashboard_item_container">
+					<div class="dashboard_item">
+						<div class="dashboard_item_head">
+							<div class="dashboard_item_title">Recruitment Progress</div>
+						</div>
+						<div class="dashboard_item_subhead">
+							<div class="custom_selectbox">
+								<div class="select_box">
+									<div class="dashboard_item_filter_select" data-juci="selectbox"  data-mode="popup" data-label="" placeholder=" " data-bind="optionsList:$root.newRecruitmentProgressList,ref:$root.newRecruitmentProgress" onafterchange="onNewRecruitmentProgressChange(event)"></div>
+								</div>
+							</div>
+							<div class="custom_selectbox">
+								<div class="select_box">
+									<div class="dashboard_item_filter_select" data-juci="selectbox"  data-mode="popup" data-label="" placeholder="Select All ARDM" data-bind="optionsList:$root.recruitmentProgressArdmList,ref:$root.recruitmentProgressArdm,optionsText:getARDM" data-formatter="getARDM" onafterchange="onRecruitmentProgressArdmChange(event)"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="overflow-x:auto">
+				        <canvas id="rec-canvas" style="width:500px;height:200px"></canvas>
+				    </div>
+				</div>
+			</div>
+			<!-- My Business !-->
+			<div class="dashboard_container">
+				<div class="dashboard_renewals dashboard_item_container">
+					<div class="dashboard_item">
+						<div class="dashboard_item_head">
+							<div class="dashboard_item_title">My Business</div>
+						</div>
+						<div class="wrapper">
+							<div class="heading">
+								<div data-juci="display" class="my_business_lable" data-label="My Business" ></div>
+							</div>
+							<div class-"periodAndARDM">
+								<div class="custom_selectbox">
+									<div data-juci="selectbox" class="time_period" id="time_period" data-mode="popup" 
+									data-bind="optionsList: $root.timePeriod, ref: $root.selectedPeriod" placeholder="Select a Period" onafterchange="onMyBusinessChangeClick(event)">	</div>
+								</div>
+								<div class="custom_selectbox">
+									<div data-juci="selectbox" class="ARDM" id="ARDM" data-mode="popup" 
+									data-bind="optionsList: $root.mybusinessARDM, ref: $root.selectedARDM,optionsText:getARDM" data-formatter="getARDM" placeholder="Select All ARDM" onafterchange="onMyBusinessArdmChange(event)"></div>
+							 		</div>
+								<div class="date_container" id="date_container">
+									<div class="from_date_picker">
+										<div data-juci="datepicker" data-bind="ref:myBusinessFromDate" class="from_date"  placeholder="From Date" onafterchange="onMyBusinessCustomChange(event,'from_mb')"></div>
+									</div>
+									<div class="to_date_picker">
+										<div data-juci="datepicker" data-bind="ref:myBusinessToDate" class="to_date"  placeholder="To Date" onafterchange="onMyBusinessCustomChange(event,'to_mb')"></div>
+									</div>
+								</div>
+							</div>
+							<div class="legend_container">
+								<div class="legend">
+									<img src="images/action.png"/>
+									<span data-bind="display: 'Action'" ></span>
+								</div>
+								<div class="legend">
+									<img src="images/target.png"/>
+									<span data-bind="display: 'Target'" ></span>
+								</div>
+								<div class="legend">
+									<img src="images/custom_progress.png"/>
+									<span data-bind="display: 'Achievement'" ></span>
+								</div>
+								<div class="legend">
+									<img src="images/growth_up.png"/>
+									<span data-bind="display: 'YOY Growth'" ></span>
+								</div>
+							</div>
+							<div class="scorecard_list_container">
+								<div data-juci="list" class="scorecard_list" data-bind="ref:$root.scorecardList" >
+									<div data-juci="listitem">
+										<div data-juci="display" class="customer_name" data-bind="display: Data().trim()" ></div>
+										<div class="name_and_vale">
+											<img src="images/action.png"></img>
+											<span data-bind="display: DataValues" ></span>
+										</div>
+										<div class="name_and_vale">
+											<img src="images/target.png"></img>
+											<span data-bind="text: Target" ></span>
+										</div>
+										<div class="achivement_data">
+											<div id="myProgress">
+											  <div id="myBar" data-bind="style:{width:getAchievementWidth(Achievement),maxWidth:'100%'}"></div>
+											</div>
+											<span data-bind="display: Achievement()+'%'" ></span>
+										</div>
+										<div class="yoy_growth">
+											<div class="yoy_growth_lable" data-bind="display: 'YOY Growth'" ></div>
+											<div class="yoygrowth_image_holder">
+												<img class="yoygrowth_image" src="" data-bind="attr:{src:getImg($data)}"></img>
+											</div>
+											<div class="yoy_growth_value" data-bind="display: YoY_Growth" ></div>
+										</div>
+									</div>
+								</div>				
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Product Mix !-->
+			<div class="dashboard_container" style="margin-bottom: 10%;">
+				<div class="dashboard_renewals dashboard_item_container">
+					<div class="dashboard_item">
+						<div class="dashboard_item_head">
+							<div class="dashboard_item_title">Product Mix</div>
+						</div>
+						<div class="dashboard_item_subhead">
+							<div class="custom_selectbox">
+								<div class="select_box">
+									<div class="dashboard_item_filter_select" data-juci="selectbox"  data-mode="popup" data-label="" placeholder="Select a Period" data-bind="optionsList:$root.myBusinessList,ref:$root.mybusinessProgress" onafterchange="onproductMixChange(event)"></div>
+								</div>
+							</div>
+							<div class="custom_selectbox">
+								<div class="select_box">
+									<div class="dashboard_item_filter_select" data-juci="selectbox"  data-mode="popup" data-label="" placeholder="Select All ARDM" data-bind="optionsList:$root.businessProgressArdmList,ref:$root.businessProgressArdm,optionsText:getARDM" data-formatter="getARDM" onafterchange="onProductMixArdmChange(event)"></div>
+								</div>
+							</div>
+							<div class="date_container" id="productmix_date_container">
+								<div class="from_date_picker">
+									<div data-juci="datepicker"  data-bind="ref:productmixFromDate" class="from_date"  placeholder="From Date"  onafterchange="onProductMixCustomChange(event)"></div>
+								</div>
+								<div class="to_date_picker">
+									<div data-juci="datepicker" data-bind="ref:productmixToDate"  class="to_date"  placeholder="To Date" onafterchange="onProductMixCustomChange(event)"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="productmix_text">Product Mix(%)</div>
+					<div style="width:100%;overflow-x:auto">
+				        <canvas id="pie"></canvas>
+				    </div>
+				</div>
+			</div>
+			<!--Footer !-->
+			<div class="footerbar">
+	            <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+	            <div class="dot"> | </div>
+	            <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+	            <div class="dot"> | </div>
+	            <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+	         </div>
+		</div>
+	</body>
+</html>
+	

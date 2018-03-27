@@ -1,0 +1,161 @@
+.juci_datelist_dateContainer .juci_datelist_container {
+    vertical-align: middle;
+    width: 64px !important;
+}
+
+.juci_datelist_dateContainer{
+	padding-left: 10px;
+}
+.juci_datelist_date {
+    background: none;
+    border: 0px;
+    border-radius: 0px;
+    height: 60px;
+    margin: 5px auto;
+    text-align: center;
+    width: 60px;
+    display: table;
+}
+.juci_datelist_dateContainer {
+    width: 95px !important;
+    border-right: 1px solid lightgray;
+}
+ul.juci_xlist_pane.juci_datelist_listPane {
+    border-radius: 14px;
+    padding: 0 !important;
+}
+.date_container {
+    display: table;
+    position: relative;
+    top: 13px;
+    font-weight: bold;
+    color: white;
+}
+.juci_datelist_titlesContainer {
+    padding-left: 7px;
+}
+.date {
+    font-size: 13px;
+    color: black;
+    font-weight: 100;
+    margin: 10px;
+}
+.month {
+    display: inline-block;
+    font-size: 12px;
+    color: black;
+    padding-top: 7px;
+    padding-right: 5px;
+    background: #5da5c0;
+    color: #fff;
+    padding: 8px 29px;
+    font-size: 11px;
+}
+.year {
+    display: inline-block;
+    font-size: 12px;
+    color: black;
+}
+div#Review {
+    margin-left: 102px;
+}
+.juci_vertical_list .juci_flag_drawer > * {
+    display: none;
+}
+.juci_xlist_item.juci_datelist_item.juci_parent.touch{
+	color:black;
+}
+.juci_title.juci_fixed_table {
+    display: table-cell;
+}
+.juci_subtitle.my-drafts {
+    display: table-cell;
+}
+
+.juci_subtitle.my-details {
+    display: table-cell;
+}
+.juci_subtitle {
+    margin: 7px 0px !important;
+    color:black;
+    display: inline-block;
+    text-align: center;
+    width: 60px;
+    vertical-align: middle;
+}
+.juci_xlist_item.juci_datelist_item.juci_parent {
+    padding: 8px !important;
+    margin-top: 12px;
+    background: #ffffff;
+    border-radius: 11px;
+}
+.juci_vertical_list .juci_xlist_pane {
+     background:none !important; 
+}
+.juci_subtitle.my-review {
+    display: table-cell;
+    background-image: url(images/arrow.png);
+    /* background-size: 0px 0px; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 51px;
+    /* background-position-y: initial; */
+    padding-right: 16px;
+    background-size: 8px 13px;
+}
+.juci_display_container {
+    padding-left: 2px;
+}
+.Synced{
+	color : green;
+}
+
+.juci_subtitle.prioriy {
+    float: right;
+    width: 26px;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.juci_title.juci_fixed_table{
+	border:0px !important;	
+	color: black
+}
+
+.juci_subtitle.raised_on{
+	float: right;
+	width: 89px;
+	display: inline-block;
+	color: #948B78;
+}
+
+.juci_subtitle.event_time {
+    /* width: 65%; */
+    display: inline-block;
+}
+
+
+.month_change {
+    margin: 10px;
+    /* margin-top: 10px; */
+    /* padding: 7px; */
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-block;
+    color: #0B4DA1;
+    overflow: hidden;
+}
+
+.month_Name {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.full_year {
+    display: inline-block; 
+    vertical-align: middle;
+}

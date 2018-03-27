@@ -1,0 +1,534 @@
+.juci_panel.panel_shown {
+  background: #f0f0f0;
+}
+
+.Profile_container {
+  overflow: hidden;
+  width: 94%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.profile_details {
+  display: table;
+  width: 153px;
+}
+
+.profile_image {
+  display: table-cell;
+  /* padding: 17px; */
+  width: 78px;
+  /* height: 90px; */
+  /* margin-right: 25px; */
+}
+
+img.adv_image_src {
+  height: 80px;
+  width: 80px;
+  border: 1px solid #ededed;
+  border-radius: 100px;
+  display: inline-block;
+  margin-top: 23px;
+  margin-left: 10px;
+}
+
+.advisor_details {
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 40px;
+  width: 67px;
+  padding-left: 22px;
+}
+
+.adv_detail_Title {
+  width: 36%;
+/* margin: auto; */
+  padding-left: 10px;
+  float: left;
+  height: 100%;
+  display: table-cell;
+}
+
+.detail_section {
+  border-bottom: 1px solid #ddd;
+  height: 100%;
+  line-height: 36px;
+    /* padding-left: 32px; */
+  text-align: left;
+    /* width: 100%; */
+  margin: auto;
+  position: relative;
+}
+
+.adv_detail_data {
+  width: 175px;
+    /* position: relative; */
+    /* margin: auto; */
+    /* word-wrap: inherit; */
+  height: 100%;
+  display: table-cell;
+}
+
+.adv_role {
+  color: #a9a1a1;
+}
+
+.adv_name {
+  font-size: 15px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.dob {
+  background-color: #f0f0f0;
+  width: 95%;
+  margin: auto;
+  margin-top: 10px;
+  height: 40px;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.detail_section1 {
+  height: 32px;
+  line-height: 36px;
+  text-align: left;
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+img.pencil {
+  height: 15px;
+}
+
+span.star {
+  color: red;
+}
+
+.image_edit {
+  position: absolute;
+  top: 0;
+  right: 4%;
+}
+
+.recog_heading {
+  font-size: 14px;
+  font-weight: bold;
+  width: 80px;
+  /* margin: auto; */
+  border-bottom: 4px solid #0B4DA1;
+  /* background-color: white; */
+  margin-left: 5px;
+  margin-top: 5px;
+  /* float: left; */
+  color: #0B4DA1;
+  padding: 2px;
+}
+
+.recognization_container {
+  margin-top: 13px;
+  background-color: #fff;
+}
+
+.Profile_section {
+  background-color: #fff;
+}
+
+.Adv_details_section_area {
+  background-color: #fff;
+}
+
+.club_heading {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 4px;
+}
+
+.club_name {
+  padding-left: 5px;
+}
+
+.qualification_container {
+  background: #fff;
+}
+
+.Trainings_container {
+  background-color: #fff;
+  padding-bottom: 10px;
+}
+
+.qualif_heading {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 4px;
+}
+
+.qualif_data {
+  padding: 2px 4px;
+}
+
+.Trainings_data {
+  padding: 2px 4px;
+}
+
+.qualif_section {
+  padding: 15px 0;
+}
+
+.Trainings_heading {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 4px;
+}
+
+.juci_selectbox_popup {
+  width: 50%;
+  margin: 0;
+  z-index: 1;
+}
+
+.juci_ctrl_box.juci_selectbox_box {
+  height: 20px;
+  line-height: 20px;
+  font-size: 13px;
+}
+
+.juci_selectbox .juci_linker {
+  background-image: url("../images/arrow_dropdown.png");
+  background-position: 9px 5px;
+}
+
+.account_filter_select {
+  border: none;
+  border-bottom: 1px solid #DDD;
+  margin: 0;
+  min-height: 20px;
+  width: 97%;
+  margin-top: 7px;
+}
+
+.account_container {
+  background-color: #fff;
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.account_heading {
+  font-size: 14px;
+  font-weight: bold;
+  width: 106px;
+  border-bottom: 4px solid #0B4DA1;
+  background-color: white;
+  padding: 3px;
+  color: #0B4DA1;
+  margin-left: 5px;
+}
+
+.account_details {
+  width: 40%;
+  display: table;
+  margin: auto;
+  float: left;
+  padding-left: 8px;
+  margin-top: 5px;
+}
+
+.acc_data_info {
+  padding-bottom: 4px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.account_details_per {
+  width: 58%;
+  display: table;
+  margin: auto;
+  float: left;
+  padding-left: 8px;
+  margin-top: 5px;
+}
+
+.acc_detail_head {
+  font-size: 16px;
+    /* margin-top: 8px; */
+  width: 97%;
+  margin: auto;
+  margin-top: 8px;
+}
+
+.accnt_content {
+  display: table-cell;
+  border-right: 1px solid #a09f9f;
+  height: 34px;
+  width: 70px;
+  padding-right: 8px;
+}
+
+.accnt_content_per {
+  display: table-cell;
+  border-right: 1px solid #a09f9f;
+  height: 34px;
+  width: 80px;
+}
+
+.accnt_content1 {
+  display: table-cell;
+  padding-left: 18px;
+}
+
+.account_section_area {
+  display: block;
+  width: 100%;
+  margin-top: 19px;
+}
+
+.aacc_data {
+  color: #5a5454;
+}
+
+.juci_button {
+  min-height: 10px;
+}
+
+.toggle_container {
+  width: 100%;
+  margin: auto;
+  margin-top: 40px;
+  background: #fff;
+}
+
+button.juci_button.togbtn.toggled {
+  background: #0b4daa;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+button.juci_button.togbtn {
+  font-size: 15px;
+  width: 102px;
+  height: 34px;
+  background: #fff;
+  border: 1px solid #cecece;
+}
+
+button.juci_button.togbtn_sub {
+  height: 32px;
+  width: 57px;
+  background: #fff;
+  position: relative;
+}
+
+button.juci_button.togbtn_sub.toggled {
+  background: #0b4daa;
+  position: relative;
+}
+
+.subtoggle_heading {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.togg1 {
+  position: absolute;
+/* padding-left: 9px; */
+  top: 5%;
+  right: 36%;
+}
+
+
+.toggled .togg_img1{
+	
+	content:url("../images/bar_white.png");	
+}
+
+
+.toggled .togg_img2{
+	
+	content:url("../images/table_white.png");	
+}
+
+.togg {
+  position: absolute;
+  top: 5%;
+  right: 71%;
+  width: 95px;
+  /* background: #fff; */
+}
+
+.togg_img1 {
+  content: url("../images/bar_grey.png");
+  height: 23px;
+  position: absolute;
+  top: 5px;
+  right: 14px;
+  /* width: 95px; */
+}
+
+.togg_img2 {
+  content: url("../images/table_grey.png");
+  height: 23px;
+  position: absolute;
+  top: 7px;
+  right: 18px;
+}
+
+.toogle_buttons {
+  position: relative;
+}
+
+.juci_dialog {
+  padding: 0px;
+}
+
+button.juci_button.cancel {
+  width: 90px;
+  font-size: 13px;
+  min-height: 35px;
+  background: #9d9d9d;
+  border-color: #9d9d9d;
+  border-radius: 4px;
+}
+
+button.juci_button.add {
+  width: 135px;
+  background: #0b4da1;
+  border-color: #0b4da1;
+  border-radius: 4px;
+  min-height: 35px;
+  font-size: 15px;
+}
+
+.heading_dialog {
+  overflow: hidden;
+  width: 100%;
+  height: 48px;
+  text-align: left;
+  vertical-align: middle;
+  background: #0B4DA1;
+  color: #fff;
+  font-weight: bold;
+  position: relative;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12) !important;
+}
+
+.dialogheader {
+  padding: 15px 10px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.close {
+  display: inline-block;
+  float: right;
+  margin-top: 16px;
+  margin-right: 8px;
+}
+
+.juci_basecontrol.juci_text {
+  width: 90%;
+}
+
+.juci_basecontrol {
+  min-height: 0;
+  height: 42px;
+}
+
+.juci_linker {
+  display: none;
+}
+
+.juci_basecontrol.juci_datepicker.juci_parent {
+  border: none;
+  border-bottom: 1px solid #cecece;
+  padding: 0;
+  width: 90%;
+}
+
+.data_head {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  color: #9C9C9C;
+}
+
+.juci_ctrl_label {
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+}
+
+.juci_ctrl_box.juci_datepicker_box {
+  padding: 0;
+  font-size: 15px;
+  margin: 0;
+}
+
+label.juci_label_text {
+  white-space: normal;
+}
+
+input.juci_ctrl_box {
+  margin-top: -3px;
+}
+
+.toggle_sub {
+  position: relative;
+}
+
+
+
+.logins_table {
+    display: table;
+    margin-top: 15px;
+    border: 1px solid #d8d8d8;
+    margin-bottom: 10px;
+}
+
+.logins_month_row {
+    display: table-row;
+}
+
+.table_column {
+    display: table-cell;
+    padding: 10px;
+    background: #f1f1f1;
+}
+
+
+
+
+.table_column_values {
+    display: table-cell;
+    /* width: 40px; */
+    padding: 14px;
+}
+
+.scroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+
+.logins_value_row {
+    display: table-row;
+}
+
+.table_container {
+    background: #fff;
+    margin-top: 10px;
+}
+
+.table_heading {
+    font-size: 16px;
+    
+    margin-left: 3px;
+}
+
+.barchart {
+    margin-bottom: 30px;
+    margin-top: 40px;
+}

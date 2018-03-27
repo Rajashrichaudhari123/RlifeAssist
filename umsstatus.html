@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+			<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/umsstatus.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+	
+		
+		<!-- Add your stylesheets here -->
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		 <script src="scripts/sync.js"></script>
+        <script src="scripts/umsstatus.js"></script>
+        <script src="scripts/rlifeservices.js"></script>
+        <script src="scripts/teamhierarchy.js"></script>
+       
+        <script src="scripts/dbHelper.js"></script>
+        <script src="scripts/hierarchyDatamanager.js"></script>
+        <script src="scripts/hierarchy.js"></script>
+        <script src="scripts/SHDataPojo.js"></script>
+        <script src="scripts/messages.js"></script>
+        <script src="scripts/constants.js"></script>
+        <script src="scripts/header.js"></script>
+        
+		<!-- Add your scripts here -->
+	
+
+	</head>
+	<body onclick="">
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+        	  	<div class="menu arrow_box" id="profilelist" style="display:none;">
+                <ul class="items">
+                	<li class="item_list" onclick="openSyncContacts()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync Personal Contacts</span>
+	                </li>
+                   <li class="item_list" onclick="openSync()">
+                        <img src="images/Sync.png"></img>
+                        <span>Sync</span>
+                    </li>   
+                    
+                     <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+               		</li>-->  
+              
+                     <li class="item_list" onclick="openProposal()">
+                        <img src="images/New-Proposal.png"></img>
+                        <span>New Proposal</span>
+                    </li>  
+                    
+                    <li class="item_list" onclick="openProfileContent()">
+                        <img src="images/Profile.png"></img>
+                        <span>Profile</span>
+                    </li>
+                 <div class="" id="profile-content" style="display: none;">
+	                <li class="item"    data-bind="with:profileDetail" onclick="openProfile()">
+		              <div class="name" data-bind="html:name"></div>
+		              <div class="id" data-bind="html:'ADV ID:'+ id()"></div>
+		              <div class="id" data-bind="html:area"></div>
+	              </li>
+	                <li class="item" data-bind="with:goal" onclick="openDashboard()">
+	             		<span>Goal Summary</span> 
+	             		<div class="Goal_summary">
+		             <div class="summary">		
+		             	<div class="titles">Target:</div>	
+			              <div class="tar" data-bind="html:target"></div>
+			          </div>  
+			          <div class="summary">
+			            <div class="titles">Achieved:</div> 
+			              <div class="tar" data-bind="html:acheived"></div>
+			          </div>    
+			          <div class="summary">   
+			            <div class="titles">Pending :</div> 
+			              <div class="tar" data-bind="html:pending"></div>
+			           </div>   
+			          </div>
+	               </li>
+	            </div>
+                    <li class="item_list" onclick="openLogs()">
+                        <img src="images/logs.png"></img>
+                        <span>Logs</span>
+                    </li>
+                    
+                     <li class="item_list" onclick="openVersion()">
+                        <img src="images/logs.png"></img>
+                        <span>Version</span>
+                    </li>
+                    <li class="item_list" onclick="openSelfieVideoRetrieval()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Selfie PIVC Retrieval</span>
+	        		</li>
+                    
+                   <li class="item" onclick="openCustomers()">
+                        <img src="images/female.png"></img>
+                        <span>My Customers</span>
+                   </li>
+                   <li class="item" onclick="openAdvisors()">
+                        <img src="images/Folder_grey.png"></img>
+                        <span class="my_advisors">My Advisors</span>
+                   </li>
+                    
+                     <!--<div data-bind="visible:gettype()!=='ADV'">
+                   <li class="item_list" onclick="openTeamLogin()">
+                        <img src="images/team.png"></img>
+                        <span>Team Login</span>
+                   </li>
+                </div>-->
+                    
+                    <li class="item_list" onclick="openHelpDesk()">
+                        <img src="images/Gallery_Grey.png"></img>
+                        <span class="help">Help Desk</span>
+                    </li>
+                    <li class="item_list" onclick="doLogout()">
+                        <img src="images/power-blackgold.png"></img>
+                        <span class="log">Logout</span>
+                    </li>
+                </ul>
+             </div>
+		
+                
+                			<!--<div id="dialog-teamlogin" data-juci="dialog">
+			<div class="heading_team">
+				<div class="dialogheader">Login As</div>
+				<div class="refresh_area">
+		         	<div class="refresh_img">	<img src="images/refresh.png" onclick="syncHierarchy()"></img></div>
+				<span class="close" onclick="hidebox()">X</span>
+				</div>
+			</div>
+			
+			<div class="content-body"> 
+				<div class="user_name_area">
+				<div class="info">Currently logged in as</div>
+				<div class="user" data-bind="html: $root.user().name()"></div>
+				<div class="sync_time" data-bind="html:$root.syncTeam"></div>
+				</div>
+				<div id="zm" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup"data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="am"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="bm"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format"    onafterchange="drillDown(event)" >
+				
+				</div>
+				
+				<div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm'),optionsList:$root.adlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)">
+				
+				</div>
+				
+			</div>
+				<div class="juci_thinbar team">
+					<button class="login" data-juci="button" onclick="openProducts()">Login as</button>
+					<button class="loginas" data-juci="button" onclick="openProposal()">Login as Myself</button>
+				</div> 
+			
+			</div>-->
+			
+				<div data-juci="form" data-bind="ref:uml_status">
+				 <div div class="scroll">
+				<div class="juci_group">
+				<div class="juci_H1">
+				<div class="headers">
+				<div class ="heading1">Category</div></div>
+				<div class="row"><div class="cellf">Final Status </div></div>
+				<div class="row"><div class="cell bold">LTRF NO </div></div>
+				<div class="row"><div class="cell bold">Application No </div> </div>
+				<div class="row"><div class="cell bold">TPA Code </div> </div>
+				<div class="row"><div class="cell bold">RIN NO </div> </div>
+				<div class="row"><div class="cell bold">Customer Name </div> </div>
+				<div class="row"><div class="cell bold">Levels </div> </div>
+				<div class="row"><div class="celldetails">Level Details </div> </div>
+				<div class="row"><div class="celldc">DC Name </div> </div>
+				<div class="row"><div class="cell bold">DC Code  </div> </div>
+				<div class="row"><div class="cell bold">DC Location </div> </div>
+				<div class="row"><div class="cell bold">DC State </div> </div>
+				<div class="row"><div class="cell bold">Risk Location </div> </div>
+				<div class="row"><div class="cell bold">Service Type </div> </div>
+				<div class="row"><div class="cell bold">First Schedule Date </div> </div>
+				<div class="row"><div class="cell bold">First Schedule Status </div> </div>
+				<div class="row"><div class="cell bold">Second Schedule Date </div> </div>
+				<div class="row"><div class="cell bold">Second Schedule Status </div> </div>
+				<div class="row"><div class="cell bold">Third Schedule Date </div> </div>
+				<div class="row"><div class="cell bold">Third Schedule Status </div> </div>
+				<div class="row"><div class="cell bold">Fourth Schedule Date </div> </div>
+				<div class="row"><div class="cell bold">Fourth Schedule Status </div> </div>
+				<div class="row"><div class="cell bold">Fifth Schedule Date </div> </div>
+				<div class="row"><div class="cell bold">Fith Schedule Status </div> </div>
+				<div class="row"><div class="cell bold">Medical Received TPA Date</div> </div>
+				<div class="row"><div class="cell bold">Medical Upload Date </div> </div>
+				<div class="row"><div class="cell bold">Case Type </div> </div>
+				<div class="row"><div class="cell bold">TPA Branch </div> </div>
+				<div class="row"><div class="cell bold">TPA Name </div> </div>
+				<div class="row"><div class="cell bold">Delay Reason </div> </div>
+				<div class="row"><div class="cell bold">Photo Attached </div> </div>
+				<div class="row"><div class="cell bold">UMS QC Date </div> </div>
+				<div class="row"><div class="cell bold">Source </div> </div>
+				<div class="row"><div class="cell bold">LA Status </div> </div>
+				<div class="row"><div class="cell bold">WORKFLOW STATUS </div> </div>
+				<div class="row"><div class="cell bold">QC FINAL STATUS </div> </div>
+				<div class="row"><div class="cell bold">PROCESS </div> </div>
+				<div class="row"><div class="cell bold">PROCESS DATE </div> </div>
+				<div class="row"><div class="cell bold">COMMENTS </div> </div>
+				
+				</div>
+				<div class="juci_H2">
+				<div class="headers">
+				<div class="heading2">Round 1</div>
+				</div>
+				<div class="row"><div class="cell2" data-bind="html: FinalStatus()"></div>
+			    <div class="row">	<div class="cell2" data-bind="html: LtrfNo()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:ApplicationNumber ()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: Tpacode()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:RinNo()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: CustomerName()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: Levels()"></div></div>
+				<div class="row"><div class="celldetails2" data-bind="html: LevelDetails()"></div></div>
+				<div class="row"><div class="celldc2" data-bind="html:DcName()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: DcCode()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: DcLocation()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:DcState()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:RiskLocation()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: ServiceType()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:FirstScheduleDate()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:FirstScheduleStatus()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:SecondScheduleDate()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:SecondScheduleStatus()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: ThirdScheduleDate()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:ThirdScheduleStatus()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:FourthScheduleDate()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:FourthScheduleStatus()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:FifthScheduleDate()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: FifthScheduleStatus()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:MedicalReceivedTpaDate()"></div></div>
+			    <div class="row"><div class="cell2" data-bind="html:MedicalUploadDate()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: CaseType()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: TpaBranch()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: TpaName()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: DelayReason()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: PhotoAttached()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: UmsQcDate()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: Source()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: LaStatus()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: WorkFlowStatus()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: QcFinalStatus()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html:Processed()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: ProcessDate()"></div></div>
+				<div class="row"><div class="cell2" data-bind="html: Comments()"></div></div>
+				
+				</div>
+					</div>
+		</div>
+			</div>
+			 </div>
+			<div class="footerbar">
+	          <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div><span> | </span>
+	          <div class="terms" onclick="openTerms()">Terms and Conditions</div><span> | </span>
+	          <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+	       
+	</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/proposal.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/userProgress.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/userprogress.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/header.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        	</div>
+        		<div class="menu arrow_box" id="profilelist" style="display:none;">
+	            <ul class="items">
+	            	<li class="item_list" onclick="openSync()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync</span>
+	                </li>
+	                <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+	                	<li class="item_list" onclick="openSyncContacts()">
+		                    <img src="images/Sync.png"></img>
+		                    <span>Super Sync</span>
+		                </li>
+	                </div>
+	               <!--<li class="item_list" onclick="">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync</span>
+	                </li>   -->
+	                
+	                 <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+	           		</li>--> 
+	          
+	            
+	             <!--<li class="item_list" onclick="openCustomers()">
+	                <img src="images/male.png"></img>
+	                <span>New Lead</span>
+	            </li>  -->
+		      		<div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                 <li class="item_list" onclick="openProposal()">
+		                    <img src="images/New-Proposal.png"></img>
+		                    <span>New Proposal</span>
+		                </li>  
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openCustomers()">
+		                    <img src="images/Profile.png"></img>
+		                    <span>Profile</span>
+		                </li>
+		            </div>
+					<li class="item_list" onclick="openLogs()">
+		                <img src="images/logs.png"></img>
+		                <span>Logs</span>
+		            </li>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+						<li class="item_list" onclick="openDataRetrieve()">
+		                    <img src="images/database.png"></img>
+		                    <span>Data Retrieve</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+						<li class="item_list" onclick="openForceUpdate()">
+		                    <img src="images/app.png"></img>
+		                    <span>Force Update</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM' && gettype()!=='RRB' && gettype()!=='NCKYC'">
+		               <li class="item_list" onclick="openCustomers()">
+		                    <img src="images/female.png"></img>
+		                    <span>My Customers</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openAdvisors()">
+		                    <img src="images/Folder_grey.png"></img>
+		                    <span class="my_advisors">My Advisors</span>
+		                </li>
+		            </div>
+					<li class="item_list" onclick="openVersion()">
+		                <img src="images/Folder_grey.png"></img>
+		                <span class="my_advisors">Version</span>
+		            </li>
+		            <li class="item_list" onclick="openSelfieVideoRetrieval()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Selfie PIVC Retrieval</span>
+	        		</li>
+		             <!--<div data-bind="visible:gettype()!=='ADV'">
+		             <li class="item_list" onclick="openTeamLogin()">
+		                <img src="images/team.png"></img>
+		                <span>Team Login</span>
+		            </li>
+		            </div>-->
+		            <div data-bind="visible:gettype()!=='RRB'">
+		                <li class="item_list" onclick="openHelpDesk()">
+		                    <img src="images/Gallery_Grey.png"></img>
+		                    <span class="help">Help Desk</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openConfirmUpdate()">
+		                    <img src="images/Gallery_Grey.png"></img>
+		                    <span class="help">Confirm Update</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openCalculator()">
+			                <img src="images/Gallery_Grey.png"></img>
+			                <span class="help">Calculator</span>
+		        		</li>
+		    		</div>
+		            <li class="item_list" onclick="doLogout()">
+		                <img src="images/power-blackgold.png"></img>
+		                <span class="log">Logout</span>
+		            </li>
+            	</ul>
+	         </div>
+		<!-- Toggle !-->
+			<div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+	            <div class="togcount" data-bind="with:userExperianceOptions">
+	               <button class="btn1" data-juci="button" data-toggle="1">
+	                  <div class="inputs"><span class="notif" data-bind="html:targets"></span><span class="notifctn">Targets</span></div>
+	               </button>
+	               <button class="btn1" id="performance" data-juci="button" data-toggle="2">
+	                  <div class="inputs"><span class="notif" data-bind="html:performance"></span><span class="notifctn">Performance</span></div>
+	               </button>
+	            </div>
+	         </div>
+	         <!-- Target Panel !-->
+	        <div class="target_Panel" data-bind="visible:isTargets">
+				<div class="monthYear_options"> 
+					<div class="custom_selectbox">
+						<div data-juci="selectbox" data-mode="popup" data-label="Month<span class='star'>*</span>" 
+							data-bind ="optionsList:$root.monthNames,ref:month" placeholder='Choose' required 
+							onvalidationfail="Utils.GetValidationMessage(event,'Choose Month')" onafterchange="checkTargetsCurrentMonth()">
+						</div>
+					</div>
+					<div class="custom_selectbox">
+						<div data-juci="selectbox" data-mode="popup" data-label="Year<span class='star'>*</span>" 
+							data-bind ="optionsList:$root.yearNames,ref:year" placeholder='Choose' required 
+							onvalidationfail="Utils.GetValidationMessage(event,'Choose year')" onafterchange="checkTargetsCurrentMonth()">
+						</div>
+					</div>	
+				</div>
+				<div class="target_amounts" data-juci="form"  id="targetform" data-bind="ref:target_amounts" onsubmit="sumitTargets(event)" data-validation="all">
+					<div class="name"  data-juci="tel" data-label="Monthly Incentive Target(In RS.)<span class='star'>*</span>" data-bind="ref:monthlyIncentiveTarget" required  onvalidationfail="Utils.GetValidationMessage(event,'Monthly Incentive Target')" maxlength="9"></div>
+					<div class="name"  data-juci="selectbox" data-mode="popup" data-label="WCP(In RS.)<span class='star'>*</span>" data-bind ="optionsList:$root.wcpOptions,ref:wcp,optionsText:showWCPdata" required onvalidationfail="Utils.GetValidationMessage(event,'WCP')" data-formatter="showWCPdata"></div>
+					<div class="name"  data-juci="tel" data-label="Monthly New License Target<span class='star'>*</span>" data-bind="visible: gettype() !=='AGADV' && gettype() !=='CNADV',ref:monthlyNewLicenceTarget" required onvalidationfail="Utils.GetValidationMessage(event,'Monthly New License Target')"></div>
+					<div class="submit_targets_div">
+						<button data-juci="button" class="submit_targets" type="submit" >Submit Targets</button>
+					</div>
+				</div>
+			</div>
+			 <!-- Performance Panel !-->
+			<div class="performance_Panel" data-bind="visible:isPerformance">
+				<div class="text_achievements">Your Achievements</div>
+				<div class="custom_selectbox">
+					<div data-juci="selectbox" data-mode="popup" data-label="Month<span class='star'>*</span>" 
+						data-bind ="optionsList:$root.monthNames,ref:month1" placeholder='Choose' required 
+						onvalidationfail="Utils.GetValidationMessage(event,'Choose Month')">
+					</div>
+				</div>
+				<div class="custom_selectbox">
+					<div  data-juci="selectbox" data-mode="popup" data-label="Year<span class='star'>*</span>" 
+						data-bind ="optionsList:$root.yearNames,ref:year1" placeholder='Choose' required 
+						onvalidationfail="Utils.GetValidationMessage(event,'Choose year')">
+					</div>
+				</div>
+				<div class="submit_targets_div">
+					<button data-juci="button" class="submit_targets" onClick="onViewClick('2')">View</button>
+				</div>
+				<div class="performance_details" data-bind="visible:$root.isPerformanceTable">
+                   <div class="performance_detail bgcolor">
+                   		<div class="performance_info_name"></div>
+                      	<div class="target_data_header">Target</div>
+                      	<div class="achieved_data_header">Achieved</div>
+                      	<div class="achieved_data_header">% Achieved</div>
+                   </div>
+                   <div class="performance_detail" data-bind="with:NBCalls">
+                      <div class="performance_info_name">NBCalls</div>
+                      <div class="target_data" data-bind="html:target"></div>
+                      <div class="achieved_data" data-bind="html:achieved"></div>
+                      <div class="achieved_data" data-bind="html:perAcheived"></div>
+                   </div>
+                   <div class="performance_detail" data-bind="with:NOP">
+                      <div class="performance_info_name">NOP</div>
+                      <div class="target_data" data-bind="html:target"></div>
+                      <div class="achieved_data" data-bind="html:achieved"></div>
+                      <div class="achieved_data" data-bind="html:perAcheived"></div>
+                   </div>
+                   <div class="performance_detail" data-bind="with:Recruitment_Leads">
+                      <div class="performance_info_name">Recruitment_Leads</div>
+                      <div class="target_data" data-bind="html:target"></div>
+                      <div class="achieved_data" data-bind="html:achieved"></div>
+                      <div class="achieved_data" data-bind="html:perAcheived"></div>
+                   </div>
+                   <div class="performance_detail" data-bind="with:Sales_Lead">
+                      <div class="performance_info_name">Sales_Lead</div>
+                      <div class="target_data" data-bind="html:target"></div>
+                      <div class="achieved_data" data-bind="html:achieved"></div>
+                      <div class="achieved_data" data-bind="html:perAcheived"></div>
+                   </div>
+                   <div class="performance_detail" data-bind="with:WCP">
+                      <div class="performance_info_name">WCP</div>
+                      <div class="target_data" data-bind="html:target"></div>
+                      <div class="achieved_data" data-bind="html:achieved"></div>
+                      <div class="achieved_data" data-bind="html:perAcheived"></div>
+                   </div>
+	            </div>
+	            <div class="salestarget" data-bind="visible:$root.isPerformanceTable">
+	            	<span data-bind="display:'You need '"></span>
+	            	<span data-bind="display:salescallperday"></span>
+	            	<span data-bind="display:' Sales Calls and'"></span>
+	            	<span data-bind="display:sales_rec_perday"></span>
+	            	<span data-bind="display:salesLeadsText"></span>
+	            	<!--span data-bind="visible: gettype() =='AGSM' && gettype() =='PRSM' && gettype() =='CNSM' && gettype() =='TPBOM',display:' recruitment leads per day'"></span!-->
+	            </div>
+			</div>
+			<div class="footerbar">
+	            <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+	            <span> | </span>
+	            <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+	            <span> | </span>
+	            <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+	         </div>
+		</div>
+	</body>
+</html>

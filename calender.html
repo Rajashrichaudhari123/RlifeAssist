@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/datelist.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/proposal.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/calender.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/juci-ccalendar.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/juci-calender.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select-box.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/collapsible.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/select.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/jqueryui.css">
+	      </link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/juci-ccalendar.js"></script>
+		<script src="scripts/juci-datelist.js"></script>
+		<script src="scripts/juci-wcalendar.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/collapsible.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/bindingObject.js"></script>
+		<script src="scripts/CalendarEventsDataPojo.js"></script>
+		<script src="scripts/calender.js"></script>
+      	<script src="scripts/Utils.js"></script>
+      	<script src="scripts/header.js"></script>
+      	<script src="scripts/SHDataPojo.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+		<div class="menu arrow_add_box" id="menulist" style="display: none;">
+            <ul class="items">
+               <li class="item" onclick="openLead()">
+                  <span>New Lead</span>
+               </li>
+               <li class="item" onclick="openPlanning()">
+                  <span>Planning</span>
+               </li>
+            </ul>
+         </div>
+         <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                  <img src="images/Sync.png"></img>
+                  <span>Sync</span>
+               </li>
+               <li class="item_list" onclick="openProposal()">
+                  <img src="images/New-Proposal.png"></img>
+                  <span>New Proposal</span>
+               </li>
+               <!--<li class="item_list" onclick="openCustomers()">
+                  <img src="images/Profile.png"></img>
+                  <span>Profile</span>
+               </li-->
+               <li class="item_list" onclick="openLogs()">
+                  <img src="images/logs.png"></img>
+                  <span>Logs</span>
+               </li>
+               <li class="item_list" onclick="openDataRetrieve()">
+                  <img src="images/database.png"></img>
+                  <span>Data Retrieve</span>
+               </li>
+               <li class="item_list" onclick="openForceUpdate()">
+                  <img src="images/app.png"></img>
+                  <span>Force Update</span>
+               </li>
+                <div>
+	               <li class="item_list" onclick="openVideoRetrieval()">
+	                    <img src="images/video.png"></img>
+	                    <span>Video Retrieval</span>
+	                </li>
+                </div>
+               <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+                  <li class="item_list" onclick="openCustomers()">
+                     <img src="images/female.png"></img>
+                     <span>My Customers</span>
+                  </li>
+               </div>
+               <!--<li class="item_list" onclick="openAdvisors()">
+                  <img src="images/Folder_grey.png"></img>
+                  <span class="my_advisors">My Advisors</span>
+               </li-->
+               <li class="item_list" onclick="openVersion()">
+                  <img src="images/Folder_grey.png"></img>
+                  <span class="my_advisors">Version</span>
+               </li>
+               	<li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+               <li class="item_list" onclick="openHelpDesk()">
+                  <img src="images/Gallery_Grey.png"></img>
+                  <span class="help">Help Desk</span>
+               </li>
+               <li class="item_list" onclick="openDeviceCompatibility()">
+                  <img src="images/tablet.png"></img>
+                  <span>Device Compatibility check</span>
+               </li>
+               <li class="item_list" onclick="openConfirmUpdate()">
+                  <img src="images/Gallery_Grey.png"></img>
+                  <span class="help">Confirm Update</span>
+               </li>
+               <li class="item_list" onclick="openCalculator()">
+                  <img src="images/Gallery_Grey.png"></img>
+                  <span class="help">Calculator</span>
+               </li>
+               <li class="item_list" onclick="doLogout()">
+                  <img src="images/power-blackgold.png"></img>
+                  <span class="log">Logout</span>
+               </li>
+               <li></li>
+            </ul>
+         </div>
+			<div class="panel_body">	
+				<div class="button_Container">
+					<!--SM for BM-->
+					<div class="SM_Container" data-bind="visible:$root.smList">
+						<div class="smDetails" id="sm_Details" data-juci="selectbox" data-bind="optionsList:$root.SMDetails" data-mode="popup" data-label="SM code" onafterchange="FetchSMDetails()"></div>
+				  	</div>
+					<div class="juci_vertical_bbar" data-bind="visible:gettype()!=='BM'">
+						<button data-juci="button" class="create_events" onclick="onCreateEventsClick()"><span class="create_img"><img class="aadharicon" src="images/create-new-event.png" ></img></span>Create Leads</button>
+					</div>
+			  	</div>
+				
+				<div class="toogle_bar" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+	               <button id="togbtn1" class="btn_class" data-juci="button" data-toggle="1">
+	                  <div class="toggle_events"><span class="prop">Up Coming</span></div>
+	               </button>
+	               <button id="togbtn2" class="btn_class" data-juci="button" data-toggle="2">
+	                  <div class="toggle_events"><span class="prop">Month</span></div>
+	               </button>
+	               <button id="togbtn3" class="btn_class" data-juci="button" data-toggle="3">
+	                  <div class="toggle_events"><span class="prop">Week</span></div>
+	               </button>
+	               <button id="togbtn4" class="btn_class" data-juci="button" data-toggle="4">
+	                  <div class="toggle_events"><span class="prop">Day</span></div>
+	               </button>
+            	</div>
+            	<div class="toggle_thin_bar"></div>
+            	<div class="event_dates" id="scroll_bar">
+            	
+            		 <!-- Upcoming Events !-->
+		            <div id="upcoming-events" data-bind="visible:upcomingEvents() == true">
+	            		<div class="month_change">
+	            			<img class="righticon" src="images/right.png" onclick="onLeftArrowClick()">
+			            	<div class="month_Name" data-bind="html:monthName"></div>
+			            	<div class="full_year" data-bind="html:fullYear"></div>
+			            	<img class="lefticon" src="images/left.png" onclick="onRightArrowClick()">
+			            </div>
+		            	<div class="time">AM <span class="till_time">(till 11:59am)</span></div>
+		            	<div class="morning_events" id="horizantal_scroll_bar">
+		            		<div data-juci="datelist" id="morning-events" data-bind="ref:morningEvents" data-date="Activity_Date"  placeholder = "No Morning Events Found">
+				            	<div data-juci="listitem">
+				            		<div class="parent_class">
+				            			<div class="juci_subtitle" data-bind="display: Activity_Time"></div>
+					            		<div class="event_title">
+											<div class="juci_title" data-bind="display: leadDes"></div>
+										</div>
+										<div class="event_icons">
+											<div class="juci_subtitle trash"><img class="trashicon" src="images/edit.png" ></div>
+										</div>
+										<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+										<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+										<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+									</div>
+								</div>
+			            	</div>
+		            	</div>
+		            	<div class="time">LUNCH <span class="till_time">(12:00pm to 02:59pm)</span></div>
+		            	<div class="Afternoon_events" id="horizantal_bar">
+		            		<div data-juci="datelist" id="aft-events" data-bind="ref:afternoonEvents"  data-date="Activity_Date"  placeholder = "No Afternoon Events Found">
+				            	<div data-juci="listitem">
+				            		<div class="parent_class">
+				            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+					            		<div class="event_title">
+											<div class="juci_title" data-bind="display: leadDes"></div>
+										</div>
+										<div class="event_icons">
+											<div class="juci_subtitle trash"><img class="trashicon" src="images/edit.png" ></div>
+										</div>
+										<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+										<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+										<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+									</div>
+								</div>
+			            	</div>
+		            	</div>
+		            	<div class="time">PM 1 <span class="till_time">(03:00pm to 04:59pm)</span></div>
+		            	<div class="Afternoon_events">
+		            		<div data-juci="datelist" id="midaft-events" data-bind="ref:midAfternoonEvents"  data-date="Activity_Date"  placeholder = "No Afternoon Events Found">
+				            	<div data-juci="listitem">
+				            		<div class="parent_class">
+				            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+					            		<div class="event_title">
+											<div class="juci_title" data-bind="display: leadDes"></div>
+										</div>
+										<div class="event_icons">
+											<div class="juci_subtitle trash"><img class="trashicon" src="images/edit.png" ></div>
+										</div>
+										<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+										<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+										<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+									</div>
+								</div>
+			            	</div>
+		            	</div>
+		            	<div class="time">PM 2 <span class="till_time">(05:00pm onwards)</span></div>
+		            	<div class="Afternoon_events">
+		            		<div data-juci="datelist" id="evng-events" data-bind="ref:eveningEvents"  data-date="Activity_Date"   placeholder = "No Evening Events Found">
+				            	<div data-juci="listitem">
+				            		<div class="parent_class">
+				            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+					            		<div class="event_title">
+											<div class="juci_title" data-bind="display: leadDes"></div>
+										</div>
+										<div class="event_icons">
+											<div class="juci_subtitle trash"><img class="trashicon" src="images/edit.png" ></div>
+										</div>
+										<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+										<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+										<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+									</div>
+								</div>
+			            	</div>
+		            	</div>
+		            </div>
+		            <!-- End of Upcoming Events !-->
+		            
+		            <!-- Month Events !-->
+		            <div id="month-events" data-bind="visible:monthEvents() == true">
+		            	<div class="calender_section" id="cal" data-juci="ccalendar" data-year="true" data-month="true" 
+						data-mindate="" data-maxdate="" onCustomDateSelect="onMonthDateSelect(event)" data-bind="ref:date" onCalendarNavigate="onNextAndPreviousMonthClick(event)"></div>
+						<div class="event_lengends">
+			            	<div class="event new_bussiness_event"></div>
+			            	<div class="event_name" data-bind="html:new_business">New Bussiness</div>
+			            	<div class="event recruitment_event"></div>
+			            	<div class="event_name" data-bind="html:recruitment">Recruiment</div>
+			            	<div id="existing" class="event existing_event"></div>
+			            	<div id="existing_name" class="event_name" data-bind="html:existing_customer">Existing Customer</div>
+		            	</div>
+		            </div>
+		            <div id="month-list">
+		            		<div class="eventdate" data-bind="html:eventDate"></div>
+		            		<div class="time">AM <span class="till_time">(till 11:59am)</span></div>
+			            	<div class="morning_events" id="horizantal_scroll_bar">
+			            		<div data-juci="xlist" id="week_day_morning"  data-bind="ref:monthMorningEvents"  onlistitemclick="onWeekDayMorningEvents(event)" placeholder="No Morning Events Found">
+					            	<div data-juci="listitem">
+					            		<div class="parent_class">
+					            			<div class="juci_subtitle" data-bind="display: Activity_Time"></div>
+						            		<div class="event_title">
+												<div class="juci_title" data-bind="display: leadDes"></div>
+											</div>
+											<div class="event_icons">
+												<div class="juci_subtitle trash"><img class="editicon" src="images/edit.png" ></div>
+											</div>
+											<div class="less" data-bind="attr:{id: 'weekdayviewc' + $index()}" style="display:none;">
+												<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+												<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+												<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+											</div>
+										</div>
+									</div>
+				            	</div>
+			            	</div>
+			            	<div class="time">LUNCH <span class="till_time">(12:00pm to 12:59pm)</span></div>
+			            	<div class="Afternoon_events" id="horizantal_bar">
+			            		<div data-juci="xlist" id="week_day_aft" data-bind="ref:monthAfternoonEvents" onlistitemclick="onWeekDayAfternoonEventsClick(event)" placeholder = "No Afternoon Events Found">
+					            	<div data-juci="listitem">
+					            		<div class="parent_class">
+					            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+						            		<div class="event_title">
+												<div class="juci_title" data-bind="display: leadDes"></div>
+											</div>
+											<div class="event_icons">
+												<div class="juci_subtitle trash"><img class="editicon" src="images/edit.png" ></div>
+											</div>
+											<div class="less" data-bind="attr:{id: 'weekdayeventc' + $index()}" style="display:none;">
+												<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+												<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+												<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+											</div>
+										</div>
+									</div>
+				            	</div>
+			            	</div>
+			            	<div class="time">PM 1 <span class="till_time">(03:00pm to 04:59pm)</span></div>
+			            	<div class="Afternoon_events">
+			            		<div data-juci="xlist" id="week_day_midaft"  data-bind="ref:monthMidAfternoonEvents"  onlistitemclick="onWeekDayMidAfternoonEventsClick(event)" placeholder = "No Afternoon Events Found">
+					            	<div data-juci="listitem">
+					            		<div class="parent_class">
+					            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+						            		<div class="event_title">
+												<div class="juci_title" data-bind="display: leadDes"></div>
+											</div>
+											<div class="event_icons">
+												<div class="juci_subtitle trash"><img class="editicon" src="images/edit.png" ></div>
+											</div>
+											<div class="less" data-bind="attr:{id: 'weekdaydisplay' + $index()}" style="display:none;">
+												<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+												<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+												<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+											</div>
+										</div>
+									</div>
+				            	</div>
+			            	</div>
+			            	<div class="time">PM 2 <span class="till_time">(05:00pm onwards)</span></div>
+			            	<div class="Afternoon_events">
+			            		<div data-juci="xlist" id="week_day_evng"  data-bind="ref:monthEveningEvents"  onlistitemclick="onWeekDayEveningEventsClick(event)" placeholder = "No Evening Events Found">
+					            	<div data-juci="listitem">
+					            		<div class="parent_class">
+					            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+						            		<div class="event_title">
+												<div class="juci_title" data-bind="display: leadDes"></div>
+											</div>
+											<div class="event_icons">
+												<div class="juci_subtitle trash"><img class="editicon" src="images/edit.png" ></div>
+											</div>
+											<div class="less" data-bind="attr:{id: 'weekdayshowc' + $index()}" style="display:none;">
+												<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+												<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+												<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+											</div>
+										</div>
+									</div>
+				            	</div>
+			            	</div>
+		            	</div>
+		            <!-- End of Month Events !-->
+		            
+		            <!-- Week Calendar!-->
+		            	<div id="week-events" data-bind="visible:weekEvents() == true">
+		            		<div data-juci="wcalendar" id="wcal" onDateSelect="onDateSelect(event)" onCalendarNavigate="onCalendarNavigate(event)" data-left-col='{"Am":"12","Lunch":"15","PM1":"17","PM2":"24"}'></div>
+		            	</div>
+		            	<div id="week-days-list">
+		            		<div class="eventdate" data-bind="html:eventDate"></div>
+		            		<div class="time">AM <span class="till_time">(till 11:59am)</span></div>
+			            	<div class="morning_events" id="horizantal_scroll_bar">
+			            		<div data-juci="xlist" id="month-morning"  data-bind="ref:weekDayMorningEvents"  onlistitemclick="onWeekDayMorningEvents(event)" placeholder="No Morning Events Found">
+					            	<div data-juci="listitem">
+					            		<div class="parent_class">
+					            			<div class="juci_subtitle" data-bind="display: Activity_Time"></div>
+						            		<div class="event_title">
+												<div class="juci_title" data-bind="display: leadDes"></div>
+											</div>
+											<div class="event_icons">
+												<div class="juci_subtitle trash"><img class="editicon" src="images/edit.png" ></div>
+											</div>
+											<div class="less" data-bind="attr:{id: 'weekdayviewc' + $index()}" style="display:none;">
+												<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+												<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+												<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+											</div>
+										</div>
+									</div>
+				            	</div>
+			            	</div>
+			            	<div class="time">LUNCH <span class="till_time">(12:00pm to 12:59pm)</span></div>
+			            	<div class="Afternoon_events" id="horizantal_bar">
+			            		<div data-juci="xlist" id="month-aft" data-bind="ref:WeekDayAfternoonEvents" onlistitemclick="onWeekDayAfternoonEventsClick(event)" placeholder = "No Afternoon Events Found">
+					            	<div data-juci="listitem">
+					            		<div class="parent_class">
+					            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+						            		<div class="event_title">
+												<div class="juci_title" data-bind="display: leadDes"></div>
+											</div>
+											<div class="event_icons">
+												<div class="juci_subtitle trash"><img class="editicon" src="images/edit.png" ></div>
+											</div>
+											<div class="less" data-bind="attr:{id: 'weekdayeventc' + $index()}" style="display:none;">
+												<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+												<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+												<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+											</div>
+										</div>
+									</div>
+				            	</div>
+			            	</div>
+			            	<div class="time">PM 1 <span class="till_time">(03:00pm to 04:59pm)</span></div>
+			            	<div class="Afternoon_events">
+			            		<div data-juci="xlist" id="month-midaft"  data-bind="ref:weekDayMidAfternoonEvents"  onlistitemclick="onWeekDayMidAfternoonEventsClick(event)" placeholder = "No Afternoon Events Found">
+					            	<div data-juci="listitem">
+					            		<div class="parent_class">
+					            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+						            		<div class="event_title">
+												<div class="juci_title" data-bind="display: leadDes"></div>
+											</div>
+											<div class="event_icons">
+												<div class="juci_subtitle trash"><img class="editicon" src="images/edit.png" ></div>
+											</div>
+											<div class="less" data-bind="attr:{id: 'weekdaydisplay' + $index()}" style="display:none;">
+												<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+												<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+												<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+											</div>
+										</div>
+									</div>
+				            	</div>
+			            	</div>
+			            	<div class="time">PM 2 <span class="till_time">(05:00pm onwards)</span></div>
+			            	<div class="Afternoon_events">
+			            		<div data-juci="xlist" id="month-evng"  data-bind="ref:WeekDayEveningEvents"  onlistitemclick="onWeekDayEveningEventsClick(event)" placeholder = "No Evening Events Found">
+					            	<div data-juci="listitem">
+					            		<div class="parent_class">
+					            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+						            		<div class="event_title">
+												<div class="juci_title" data-bind="display: leadDes"></div>
+											</div>
+											<div class="event_icons">
+												<div class="juci_subtitle trash"><img class="editicon" src="images/edit.png" ></div>
+											</div>
+											<div class="less" data-bind="attr:{id: 'weekdayshowc' + $index()}" style="display:none;">
+												<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+												<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+												<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+											</div>
+										</div>
+									</div>
+				            	</div>
+			            	</div>
+		            	</div>
+		            <!-- End of Week Calendar !-->
+		            
+		            <!-- Day Events !-->
+		            <div id="day-events" data-bind="visible:dayEvents() == true">
+		            	<div class="day_events">
+			            	<div class="month_change">
+		            			<img class="righticon" src="images/right.png" onclick="onDayRightArrow()">
+		            			<div class="day_name" data-bind="html:dayname"></div>
+				            	<div class="month_Name" data-bind="html:monthName"></div>
+				            	<div class="full_year" data-bind="html:fullYear"></div>
+				            	<img class="lefticon" src="images/left.png" onclick="onDayLeftArrow()">
+				            </div>
+				            <div class="filter_icon">
+				            	<img class="filter" src="images/filter.png" onclick="onFiterClick(event)">
+				            </div>
+				        </div>
+			            <div class="time">AM <span class="till_time">(till 11:59am)</span></div>
+		            	<div class="morning_events" id="horizantal_scroll_bar">
+		            		<div data-juci="xlist" id="day-morning"  data-bind="ref:dayMorningEvents"  onlistitemclick="onDayMorningEvents(event)" placeholder = "No Morning Events Found">
+				            	<div data-juci="listitem">
+				            		<div class="parent_class">
+				            			<div class="juci_subtitle" data-bind="display: Activity_Time"></div>
+					            		<div class="event_title">
+											<div class="juci_title" data-bind="display: leadDes"></div>
+										</div>
+										<div class="event_icons">
+											<div class="juci_subtitle trash"><img class="trashicon" src="images/edit.png" ></div>
+										</div>
+										<div class="less" data-bind="attr:{id: 'dayviewc' + $index()}" style="display:none;">
+											<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+											<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+											<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+										</div>
+									</div>
+								</div>
+			            	</div>
+		            	</div>
+		            	<div class="time">LUNCH <span class="till_time">(12:00pm to 12:59pm)</span></div>
+		            	<div class="Afternoon_events" id="horizantal_bar">
+		            		<div data-juci="xlist" id="day-aft" data-bind="ref:dayAfternoonEvents" onlistitemclick="onDayAfternoonEventsClick(event)" placeholder = "No Afternoon Events Found">
+				            	<div data-juci="listitem">
+				            		<div class="parent_class">
+				            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+					            		<div class="event_title">
+											<div class="juci_title" data-bind="display: leadDes"></div>
+										</div>
+										<div class="event_icons">
+											<div class="juci_subtitle trash"><img class="trashicon" src="images/edit.png" ></div>
+										</div>
+										<div class="less" data-bind="attr:{id: 'dayeventc' + $index()}" style="display:none;">
+											<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+											<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+											<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+										</div>
+									</div>
+								</div>
+			            	</div>
+		            	</div>
+		            	<div class="time">PM 1 <span class="till_time">(03:00pm to 04:59pm)</span></div>
+		            	<div class="Afternoon_events">
+		            		<div data-juci="xlist"  id="day-midaft" data-bind="ref:dayMidAfternoonEvents"  onlistitemclick="onDayMidAfternoonEventsClick(event)" placeholder = "No Afternoon Events Found">
+				            	<div data-juci="listitem">
+				            		<div class="parent_class">
+				            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+					            		<div class="event_title">
+											<div class="juci_title" data-bind="display: leadDes"></div>
+										</div>
+										<div class="event_icons">
+											<div class="juci_subtitle trash"><img class="trashicon" src="images/edit.png" ></div>
+										</div>
+										<div class="less" data-bind="attr:{id: 'daydisplay' + $index()}" style="display:none;">
+											<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+											<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+											<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+										</div>
+									</div>
+								</div>
+			            	</div>
+		            	</div>
+		            	<div class="time">PM 2 <span class="till_time">(05:00pm onwards)</span></div>
+		            	<div class="Afternoon_events">
+		            		<div data-juci="xlist" id="day-evng" data-bind="ref:dayEveningEvents"  onlistitemclick="onDayEveningEventsClick(event)" placeholder = "No Evening Events Found">
+				            	<div data-juci="listitem">
+				            		<div class="parent_class">
+				            			<div class="juci_subtitle event_time" data-bind="display: Activity_Time"></div>
+					            		<div class="event_title">
+											<div class="juci_title" data-bind="display: leadDes"></div>
+										</div>
+										<div class="event_icons">
+											<div class="juci_subtitle trash"><img class="trashicon" src="images/edit.png" ></div>
+										</div>
+										<div class="less" data-bind="attr:{id: 'dayshowc' + $index()}" style="display:none;">
+											<div class="juci_subtitle showless" data-bind="display: Lead_Type"></div>
+											<div class="juci_subtitle showless" data-bind="display: eventDes"></div>
+											<div class="juci_subtitle mobileno" data-bind="display:'Contact : '+ Mobile()"></div>
+										</div>
+									</div>
+								</div>
+			            	</div>
+		            	</div>
+		            	<!-- Filters !-->
+		            	<div class="filter_data" id="filter-data" style="display:none;">
+		            		<div class="filter_list">
+		            			<div class="reset" onclick="onResetClick()">Reset</div>
+		            			<div class="event_types">
+		            				<div class="type_class">
+		            					<div class="type">Type</div>
+		            				</div>
+		            				<div class="first_event">
+		            					<div class="squaredFour">
+      										<input type="checkbox" id="new-business" name="check" />
+      									</div>
+      									<div class="event new_bussiness_event"></div>
+      									<div class="event_names">New Bussiness</div>
+		            				</div>
+		            				<div class="second_event">
+		            					<div class="squaredFour">
+      										<input type="checkbox" id="recruitment" name="check" />
+      									</div>
+      									<div class="event recruitment_event"></div>
+      									<div class="event_names">Recruitment</div>
+		            				</div>
+		            				<div class="third_event">
+		            					<div class="squaredFour">
+      										<input type="checkbox" id="existing_customer" name="check" />
+      									</div>
+      									<div class="event existing_event"></div>
+      									<div class="event_names">Existing Customer</div>
+		            				</div>
+		            			</div>
+		            			<div class="juci_horizontal_bbar">
+									<button class="save btntxt" data-juci="button" onClick="onCancelClick()">Cancel</button>
+									<button class="save btntxt" data-juci="button" onClick="onApplyClick()">Apply</button>
+								</div>
+		            		</div>
+		            	</div>
+		            	<!-- End of filters !-->
+		            </div>
+		            <!-- End of Day Events !-->
+	            </div>
+			</div>
+			<div class="footerbar">
+	            <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+	            <span> | </span>
+	            <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+	            <span> | </span>
+	            <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+         	</div>
+		</div>
+	</body>
+</html>

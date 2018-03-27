@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/source.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select-box.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/lifeplannerCommon.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/recommendedProducts.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/jqueryLifePlanner.js"></script>
+		<script src="scripts/x2js library.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/lifeplannerConstants.js"></script>
+		<script src="scripts/expertCall.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/translations.js"></script>
+		<script src="scripts/dictionaries.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/inputPojo.js"></script>
+		<script src="scripts/getblob.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/expertToCallPojo.js"></script>
+		<script src="scripts/recommendedProducts.js"></script>
+		<script src="scripts/finalSheet.js"></script>
+		<script src="scripts/finalSheetnl.js"></script>
+		<script src="scripts/expenseMatrix.js"></script>
+		<script src="scripts/incomeBand.js"></script>
+		<script src="scripts/inflation.js"></script>
+		<script src="scripts/html2canvas.js"></script>
+		<script src="scripts/lifeStage.js"></script>
+		<script src="scripts/likelyAgeOfOccurance.js"></script>
+		<script src="scripts/priorityOrder.js"></script>
+		<script src="scripts/sheet3.js"></script>
+		<script src="scripts/hierarchy.js"></script>
+		<script src="scripts/syncHierarchy.js"></script>
+		<script src="scripts/productRecomendation.js"></script>
+		<script src="scripts/productMaster.js"></script>
+		<script src="scripts/productsName.js"></script>
+		<script src="scripts/bimapping.js"></script>
+		<script src="scripts/cityTier.js"></script>
+		<script src="scripts/chart2.js"></script>
+		<script src="scripts/chart3.js"></script>
+		<script src="scripts/SHDataPojo.js"></script>
+        <script src="scripts/shTpdPojo.js"></script>
+        <script src="scripts/teamhierarchy.js"></script>
+        <script src="scripts/hierarchyDatamanager.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+         <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li> --> 
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li>
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li>
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Calculator</span>
+                </li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+                <li class="item_list" onclick="onUploadVideo()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Upload Video</span>
+                </li>
+            </ul>
+         </div>
+			<div id="disc-pop">
+            <div class="pop">
+                <div class="box">
+                    <h2>Disclaimer</h2>
+                    <a href="#" class="close" onclick="document.getElementById('disc-pop').style.display='none';">X</a>
+                    <div class="disc">
+						<p>Reliance Nippon Life Insurance Company Limited (formerly known as Reliance Life Insurance Company Limited) - IRDAI Reg. No 121. Registered Office: H Block, 1st Floor, Dhirubhai Ambani Knowledge City, Navi Mumbai, Maharashtra 400 710. Call us on our Toll free no. 1800 300 08181 (between 9 am to 6 pm, Monday to Saturday). Trade logo displayed above belongs to Anil Dhirubhai Ambani ventures Private Limited and used by Reliance Life under license. Reliance Nippon Life Insurance Company is only the name of the Insurance Company, and following are the names of the life insurance products. Reliance's Guaranteed Money Back Plan -121N084V02 | Reliance Fixed Savings -121N101V01 | Reliance's Super Endowment Plan - 121N088V02 | Reliance Increasing Income Insurance Plan:121N108V01 | Reliance Life Insurance Super Money Back Plan: 121N098V01 | Reliance Education Plan:121N106V01 | Reliance Life Classic Plan II: 121L085V02 | Reliance Pay Five :121L082V02 | Reliance Smart Cash Plus Plan:121N096V01 | Reliance Smart Pension:121L090V02 | Reliance Smart Pension:121L090V02 | Reliance Lifelong Savings:121N110V01. For more details on risk factors, terms and conditions please read sales brochure carefully before concluding a sale. Subject to provisions as per Income Tax Act, 1961. Tax Laws are subject to change. Please consult your tax advisor for more details.</p>
+
+						<p>BEWARE OF SPURIOUS PHONE CALLS AND FICTITIOUS/FRAUDULENT OFFERS IRDA clarifies to public that: (i) IRDA or its officials do not involve in activities like sale of any kind of insurance or financial products nor invest premiums. (ii)IRDA does not announce any bonus. Public receiving such phone calls are requested to lodge a police complaint along with details of phone call, number.</p>
+
+						<p>CIN: U66010MH2001PLC167089</p>
+					</div>
+                </div>
+            </div>
+        </div>
+		<div class="main">
+			<div class="content">
+				<div class="main5">Let us suggest the following products to prepare you financially </div> 
+				 <div id="dialog-teamlogin" data-juci="dialog">
+			<div class="heading_team">
+				<div class="dialogheader">Login As</div>
+				<div class="refresh_area">
+		         	<div class="refresh_img">	<img src="images/refresh.png" onclick="syncHierarchy()"></img></div>
+				<span class="close" onclick="hidebox()">X</span>
+				</div>
+			</div>
+			
+			<div class="content-body"> 
+				<div class="user_name_area">
+				<div class="info">Currently logged in as</div>
+				<div class="user" data-bind="html: $root.user().name()"></div>
+				<div class="sync_time" data-bind="html:$root.syncTeam"></div>
+				</div>
+			
+			<!--	<div data-juci="form" data-bind="ref:Hierarchy" >-->
+				<div id="zm" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format" onafterchange="drillDown(event)">
+				
+				</div>
+				<div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup"data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="am"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="bm"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format"    onafterchange="drillDown(event)" >
+				
+				</div>
+				
+				<div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm')&&$root.advisorVisible,optionsList:$root.adlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" required  onvalidationfail="Utils.GetValidationMessage(event,'Team Login')">
+					</div>
+				<div id="tpsm" class="Team_select_box" data-juci="selectbox" data-label="TPSM" data-mode="popup" data-bind="visible:gettype()== 'TPSM',optionsList:$root.tpsmlist,ref:name,optionsText:formatTPSM" data-formatter="formatTPSM"  onafterchange="confirmTeamUser(event)" >
+				</div>
+				<div id="tpadv" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="TPADV" data-bind="visible:gettype()== 'TPADV',optionsList:$root.tpadvlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" required  onvalidationfail="Utils.GetValidationMessage(event,'Team Login')">
+					</div>
+				<div id="tppar" class="Team_select_box" data-juci="selectbox" data-label="TPPR" data-mode="popup" data-bind="visible:gettype()== 'TPPR',optionsList:$root.tpparlist,ref:name,optionsText:formatTPSM" data-formatter="formatTPSM"  onafterchange="confirmTeamUser(event)" >
+				
+				</div>
+				<div id="agsm" class="Team_select_box" data-juci="selectbox" data-label="AGSM" data-mode="popup" data-bind="visible:gettype()== 'AGSM',optionsList:$root.agsmlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" >
+				</div>
+				<div id="prsm" class="Team_select_box" data-juci="selectbox" data-label="PRSM" data-mode="popup" data-bind="visible:gettype()== 'PRSM',optionsList:$root.prsmlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" >
+				</div>
+				<div id="cnsm" class="Team_select_box" data-juci="selectbox" data-label="CNSM" data-mode="popup" data-bind="visible:gettype()== 'CNSM',optionsList:$root.cnsmlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" >
+				</div>
+				<div id="agps" class="Team_select_box" data-juci="selectbox" data-label="AGPS" data-mode="popup" data-bind="visible:gettype()== 'AGPS',optionsList:$root.agpslist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" >
+				</div>
+				<div id="agadv" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="AGADV" data-bind="visible:gettype()== 'AGADV',optionsList:$root.agadvlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" required  onvalidationfail="Utils.GetValidationMessage(event,'Team Login')">
+				</div>
+				<div id="fls" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="FLS" data-bind="visible:gettype()== 'FLS',optionsList:$root.flslist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" required  onvalidationfail="Utils.GetValidationMessage(event,'Team Login')">
+				</div>
+				<div id="tpbom" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="TPBOM" data-bind="visible:gettype()== 'TPBOM',optionsList:$root.tpbomlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" required  onvalidationfail="Utils.GetValidationMessage(event,'Team Login')"></div>
+					<div class="juci_thinbar team">
+					<button class="login" data-juci="button" onclick="openBIUrl()">Team Login</button>
+			
+			</div>
+						</div> 
+			
+			</div>
+				<div class="product-box1" id="prod1" data-bind="visible:products1()">
+					<div class="product-a">
+						<div id="product1-name" class="products1_name" data-bind="html:product1Name"></div>
+						<div id="product1_paragraph" class="products1_paragraph"> yourtext goes here. yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.</div>
+						<div class="btns2-row" onclick="goToProducts(event);">
+			                	<button class="showplan" id="showme" data-juci="button">Show me the plan</button>
+		            	</div>
+					</div>
+                </div>
+                <div class="product-box1"  id="prod2" data-bind="visible:products2()">
+					<div class="product-a">
+						<div id="product2-name" class="products1_name" data-bind="html:product2Name"></div>
+						<div id="product2_paragraph" class="products2_paragraph">yourtext goes here. yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.</div>
+						<div class="btns2-row" onclick="goToProducts(event);">
+		                	<button class="showplan" data-juci="button">Show me the plan</button>
+		            	</div>
+					</div>
+                </div>
+                
+                 <div class="product-box1"  id="prod3" data-bind="visible:products3()">
+					<div class="product-a">
+						<div id="product3-name" class="products1_name" data-bind="html:product3Name"></div>
+						<div id="product3_paragraph" class="products3_paragraph">yourtext goes here. yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.</div>
+						<div class="btns2-row" onclick="goToProducts(event);">
+		                	<button class="showplan" data-juci="button">Show me the plan</button>
+		            	</div>
+					</div>
+                </div>
+				<div class="btns1-row ">
+					<div data-bind="ref:productsName,visible:showMore()" onclick="showMoreProducts()" class="back">Show More</div>
+				</div>
+				<!--<div class="product-box1" data-bind="visible:productsName() && product4Name()">
+					<div class="product-a">
+						<div id="product4-name" class="products1_name" data-bind="html:product4Name"></div>
+						<div id="product4_paragraph" class="products3_paragraph">yourtext goes here. yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.</div>
+						<div class="btns2-row" onclick="goToProducts(event);">
+		                	<button class="showplan" data-juci="button">Show me the plan</button>
+		            	</div>
+					</div>
+                </div>
+                <div class="product-box1" data-bind="visible:productsName() && product5Name()">
+					<div class="product-a" onclick="goToProducts(event);">
+						<div id="product5-name" class="products1_name" data-bind="html:product5Name"></div>
+						<div id="product5_paragraph" class="products3_paragraph">yourtext goes here. yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.</div>
+						<div class="btns2-row" onclick="goToProducts(event);">
+		                	<button class="showplan" data-juci="button">Show me the plan</button>
+		            	</div>
+					</div>
+                </div>
+                <div class="product-box1" data-bind="visible:productsName() && product6Name()">
+					<div class="product-a" onclick="goToProducts(event);">
+						<div id="product6-name" class="products3_name" data-bind="html:product6Name"></div>
+						<div id="product6_paragraph" class="products3_paragraph">yourtext goes here. yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.yourtext goes here.</div>
+						<div class="btns2-row" onclick="goToProducts(event);">
+		                	<button class="showplan" data-juci="button">Show me the plan</button>
+		            	</div>
+					</div>
+                </div>-->
+                <div data-juci="xlist" data-bind="ref: productsList,visible:productsName()" data-titles data-subtitles data-new-item>
+					<div data-juci="listitem" onclick="showProducts(event)">
+						<div class="row_section">
+							<div class="listtitle" data-bind="html:title"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

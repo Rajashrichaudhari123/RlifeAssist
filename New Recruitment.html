@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/proposal.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/deviceCompatibilityCheck.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/x2js library.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/messagedigest.js"></script>
+		<script src="scripts/bindingObject.js"></script>
+		<script src="scripts/newRecruitment.js"></script>
+		<script src="scripts/validatePan.js"></script>
+		<script src="scripts/fingerPrintscan.js"></script>
+		<script src="scripts/AadharIntegration.js"></script>
+		<script src="scripts/aadharUtils.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/header.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<!-- Validate Aadhar!-->
+			<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        	</div>
+	        <div class="menu arrow_box" id="profilelist" style="display:none;">
+	            <ul class="items">
+	               <li class="item_list" onclick="openSync()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync</span>
+	                </li>   
+					<li class="item_list" onclick="openLogs()">
+	                    <img src="images/logs.png"></img>
+	                    <span>Logs</span>
+	                </li>
+	                <li class="item_list" onclick="openDeviceCompatibility()">
+	                  <img src="images/tablet.png"></img>
+	                  <span>Device Compatibility check</span>
+	               </li>
+					<li class="item_list" onclick="openVersion()">
+	                    <img src="images/Folder_grey.png"></img>
+	                    <span class="my_advisors">Version</span>
+	                </li>
+	                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Selfie PIVC Retrieval</span>
+		    		</li>
+	                <div data-bind="visible:gettype()!=='RRB'">
+		                <li class="item_list" onclick="openHelpDesk()">
+		                    <img src="images/Gallery_Grey.png"></img>
+		                    <span class="help">Help Desk</span>
+		                </li>
+	                </div>
+	                <li class="item_list" onclick="doLogout()">
+	                    <img src="images/power-blackgold.png"></img>
+	                    <span class="log">Logout</span>
+	                </li>
+	            </ul>
+	         </div>
+	         <div id="authentication" data-juci="dialog">
+	            <div class="heading_otp">
+	               <div class="dialogheader">Aadhaar Authentication</div>
+	               <div class="exit" onclick="closeAuthenticate('authentication')">X</div>
+	            </div>
+	            <div class="content_body">
+	               <div class="aadhar_content">
+	                  <div class="aadhar_key">Aadhaar No :</div>
+	                  <div class="aadhar_value" data-bind="html:$root.Aadharno()"></div>
+	               </div>
+	               <div class="Aadhar_image_area">
+	                  <button class="authenticationBtn" data-juci="button" onclick = "openOtp()">
+	                  	<div class="image_section">
+	                    	<img class="aadharicon" src="images/mobile.png" ></img>
+	                     	<div class="icon_label">OTP Verification</div>
+	                 	</div>
+	                  </button>
+	                  <button class="authenticationBtn" data-juci="button" onclick = "openBiometric()">
+	                  	<div class="image_section">
+	                    	<img class="aadharicon" src="images/Finger print.png" ></img>
+	                     	<div class="icon_label">Biometric</div>
+	                  	</div>
+	                  </button>
+	               </div>
+	            </div>
+	         </div>
+			<div class="adhar" id="Aadhar" data-juci="tel" data-label="Enter your Aadhaar Number" data-bind="visible:$root.aadharNumber,disabled:$root.aadharNumberEnable,ref:$root.Aadharno" maxlength="12" placeholder="Aadhaar Card Number"></div>
+			<div class="division" data-bind="visible:$root.commonOr">Or</div>
+			<div class="adhar" data-juci="text" data-label="Enter you PAN Card Number" placeholder="Pan Card Number" pattern="^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]$" data-bind="visible:$root.panNumber,disabled:$root.panNumberEnable,ref:$root.panCardNo" onvalidationfail="Utils.GetValidationMessage(event,'Pan Card No.')"	maxlength="10"></div>
+			 <div class="display_device">
+	            <button class="validate_device" data-juci="button" id="validate-device-pan" data-bind="visible:$root.displayDeviceDataPan" onclick = "displayDeviceDataPan()">Validate Device</button>
+	         </div>
+	         <div id="device-section" class="Aadhar_section" data-bind="with:$root.deviceData,visible:$root.device_section_pan">
+              	<div class="adhar_heading">Device Information</div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Device Id</div>
+	                 <div class="aadhar_data" data-bind="html:Device_ID"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Android Version Name and Number</div>
+	                 <div class="aadhar_data" data-bind="html:versionName"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Model Name</div>
+	                 <div class="aadhar_data" data-bind="html:deviceModel"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Model Number</div>
+	                 <div class="aadhar_data" data-bind="html:modelNumber"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">CPU Details</div>
+	                 <div class="aadhar_data" data-bind="html:cpuDetails"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Sap Code</div>
+	                 <div class="aadhar_data" data-bind="html:sapCode"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Mobile Os Version</div>
+	                 <div class="aadhar_info_name" data-bind="html:Android_Version"></div>
+	                 <div class="aadhar_data"><img id="android-version" src="images/tick-right.png"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">RAM Size</div>
+	                 <div class="aadhar_info_name" data-bind="html:RAM"></div>
+	                 <div class="aadhar_data"><img id="ram" src="images/tick-right.png"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">OTG Option Availability</div>
+	                 <div class="aadhar_info_name" data-bind="html:getotgInfo"></div>
+	                 <div class="aadhar_data"><img id="otg" src="images/tick-right.png"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Selfie Camera Availability</div>
+	                 <div class="aadhar_info_name" data-bind="html:Selfie_Camera"></div>
+	                 <div class="aadhar_data"><img id="selfie" src="images/tick-right.png"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">GPS Option</div>
+	                 <div class="aadhar_info_name" data-bind="html:getGpsInfo"></div>
+	                 <div class="aadhar_data"><img id="get-gps" src="images/tick-right.png"></div>
+	              </div>
+	               <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Free Space</div>
+	                 <div class="aadhar_info_name" data-bind="html:Free_Space"> </div>
+	                 <div class="aadhar_data"><img id="free-space" src="images/tick-right.png"></div>
+	              </div>
+				</div>
+			<div class="pancard_data" id="pan-data" data-juci="form" data-bind="visible:isPancard,ref:panCardData" onsubmit="SavePANDetails(event)" data-validation="all">
+				<div data-juci="text" data-label="Name<span class='star'>*</span>" 
+                   data-bind="ref:CustomerName" maxlength="30" 
+                   pattern = "[a-z\.?\s\'?A-Z]*$" minlength="3" onvalidationfail="Utils.GetValidationMessage(event,'Name')"></div>
+				<div class="dob" data-juci="datepicker" data-picker="dob" data-label="Date of Birth<span class='star'>*</span>" data-bind="ref:DOB" 
+                  data-formatter="dobValidation" onafterchange="assigndate()"></div>
+                 <div data-juci="email"data-label="Email ID<span class='star'>*</span>" data-bind="ref:email" 
+                 pattern="^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])" 
+                 onvalidationfail="Utils.GetValidationMessage(event,'Email Id')" placeholder maxlength="50" data-formatter="validateEmail" required></div>
+                 <div data-juci="tel" data-label="MobileNo<span class='star'>*</span>" data-bind="ref:MobileNo" pattern="^[0-9]{10,11}$" onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')" maxlength="10" required></div>
+               	<div data-juci="text" data-label="Address 1<span class='star'>*</span>" 
+                   data-bind="ref:Address1" onvalidationfail="Utils.GetValidationMessage(event,'Address')" maxlength="30" 
+                   pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$"  required></div>
+               <div data-juci="text" data-label="Address 2<span class='star'>*</span>" 
+                   data-bind="ref:Address2" onvalidationfail="Utils.GetValidationMessage(event,'Address')" maxlength="30" 
+                   pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" minlength="3" required></div>
+               <div data-juci="text" data-label="Address 3<span class='star'>*</span>" 
+                   data-bind="ref:Address3" onvalidationfail="Utils.GetValidationMessage(event,'Address')" maxlength="30" 
+                   pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" minlength="3" required></div>
+                   <div data-juci="text"  data-label="State<span class='star'>*</span>" required data-bind="ref:state"data-trigger  pattern = "^[a-zA-Z ]*$" maxlength="30"></div>
+                   <!-- <div id="Pin" data-juci="tel" data-label="Pincode<span class='star'>*</span>" data-bind="ref:Pincode"  required
+                    pattern="^[0-9]{6}\s*$" onvalidationfail="Utils.GetValidationMessage(event,'Pincode')" maxlength="6"  ></div>-->
+                 <div data-juci="text" data-label="City<span class='star'>*</span>" required data-bind="ref:City" pattern="^[a-zA-Z ]*$" 
+                    onvalidationfail="Utils.GetValidationMessage(event,'City')" required  maxlength="30" minlength="3"></div>
+                 <div class="button_new">
+                      <div data-juci="tel"   data-label="Pincode<span class='star'>*</span>" required data-bind="ref:Pincode"data-trigger  pattern = "^[0-9]{6}\s*$" maxlength="6"></div>
+                  <div class="submit_button">
+	                   <button class="submit" data-juci="button" onClick="onSendEmail()">Email</button>
+                   </div>
+				<div class="juci_horizontal_bbar is_submit" data-bind="visible:$root.isSumitOrEmail">
+					<!--<button data-juci="button" class="validate_device" onClick="onSaveDeviceCompatibilityInfo()">Submit</button>-->
+					<button data-juci="button" class="validate_device"  type="submit">Submit</button>
+					<button data-juci="button" class="validate_device" onClick="$m.close()">Close</button>
+				</div>	
+			</div>
+		</div>
+			<div class="btn_section" id="authenticate"><button class="btn_auth" data-juci="button" onclick ="openauthentication()">Authenticate</button></div>
+			  <div id="dialog-fingerprint" data-juci="dialog">
+	            <div class="heading_otp">
+	               <div class="dialogheader">Finger Print</div>
+	               <div class="exit" onclick="closeAuthenticate()">X</div>
+	            </div>
+	             <div class="image_container">
+	            	<div class="image_box">
+		            	<img class="img_fingerprint" data-bind="attr:{src:fingerPrint}"></img>
+		            </div>
+            	</div>
+               <div class="juci_horizontal_bbar">
+                  <button data-juci="button" class="cancel" onclick="closeAuthenticate()">Cancel</button>
+                  <button data-juci="button" class="submitotp" onclick="callBiometricService()">Submit</button>
+               </div>
+            </div>
+            <div id="adhar-section" class="Aadhar_section" data-bind="with:$root.Aadhar,visible:$root.aadhar_section">
+              <div class="adhar_heading">Aadhaar Card Details</div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Name</div>
+	                 <div class="aadhar_data" data-bind="html:Name"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Date of Birth</div>
+	                 <div class="aadhar_data" data-bind="html:DateofBirth"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Gender</div>
+	                 <div class="aadhar_data" data-bind="html:Gender"></div>
+	              </div>
+	              <div class="aadhar_detail_last">
+	                 <div class="aadhar_info_name_last">Address</div>
+	                 <div class="aadhar_data_last" data-bind="html:Address"> </div>
+	              </div>
+			</div>
+			
+			<div id="dialog-otp" data-juci="dialog">
+	            <div class="heading_otp">
+	               <div class="dialogheader">Confirm OTP</div>
+	               <div class="exit" onclick="closebox()">X</div>
+	            </div>
+	            <div class="col-xs-12">
+	               <div class="form-group"> A One Time Password (OTP) has been sent to the mobile number associated with Aadhaar No.<span class="value" data-bind="html:$root.Aadharno()"></span> </div>
+	        </div>
+            <div data-juci="form" data-bind="ref:otp" onsubmit="sendOtp(event)" onreset="closebox()">
+               <div id="otpNo" data-juci="number" data-label="Enter OTP<span class='star'>*</span>" data-bind placeholder data-trigger></div>
+	               <button class="resndotp" data-juci="button" onclick="resendOtp()">Resend OTP</button>
+	               <div class="juci_horizontal_bbar">
+	                  <button data-juci="button" class="cancel" type="reset">Cancel</button>
+	                  <button data-juci="button" class="submitotp" onclick="sendOtp()">Submit</button>
+	               </div>
+            	</div>
+         	</div>
+	         <div class="display_device">
+	            <button class="validate_device" data-juci="button"  data-bind="visible:$root.displayDeviceData" onclick = "displayDeviceData()">Validate Device</button>
+	         </div>
+	         <div id="device-section" class="Aadhar_section" data-bind="with:$root.deviceData,visible:$root.device_section">
+              	<div class="adhar_heading">Device Information</div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Device Id</div>
+	                 <div class="aadhar_data" data-bind="html:Device_ID"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Android Version Name and Number</div>
+	                 <div class="aadhar_data" data-bind="html:versionName"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Model Name</div>
+	                 <div class="aadhar_data" data-bind="html:deviceModel"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Model Number</div>
+	                 <div class="aadhar_data" data-bind="html:modelNumber"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">CPU Details</div>
+	                 <div class="aadhar_data" data-bind="html:cpuDetails"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Sap Code</div>
+	                 <div class="aadhar_data" data-bind="html:sapCode"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Mobile Os Version</div>
+	                 <div class="aadhar_info_name" data-bind="html:Android_Version"></div>
+	                 <div class="aadhar_data"><img id="android-version" src="images/tick-right.png"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">RAM Size</div>
+	                 <div class="aadhar_info_name" data-bind="html:RAM"></div>
+	                 <div class="aadhar_data"><img id="ram" src="images/tick-right.png"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">OTG Option Availability</div>
+	                 <div class="aadhar_info_name" data-bind="html:getotgInfo"></div>
+	                 <div class="aadhar_data"><img id="otg" src="images/tick-right.png"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Selfie Camera Availability</div>
+	                 <div class="aadhar_info_name" data-bind="html:Selfie_Camera"></div>
+	                 <div class="aadhar_data"><img id="selfie" src="images/tick-right.png"></div>
+	              </div>
+	              <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">GPS Option</div>
+	                 <div class="aadhar_info_name" data-bind="html:getGpsInfo"></div>
+	                 <div class="aadhar_data"><img id="get-gps" src="images/tick-right.png"></div>
+	              </div>
+	               <div class="aadhar_detail">
+	                 <div class="aadhar_info_name">Free Space</div>
+	                 <div class="aadhar_info_name" data-bind="html:Free_Space"> </div>
+	                 <div class="aadhar_data"><img id="free-space" src="images/tick-right.png"></div>
+	              </div>
+				</div>
+				<div class="pancard_data" id="validate-data" data-juci="form" data-bind="visible:deviceDataVisible,ref:saveDeviceData" onsubmit="onSaveDeviceCompatibilityInfo(event)" data-validation="all">
+					<div data-juci="tel" data-label="Mobile Number<span class='star'>*</span>" data-bind="visible:$root.alternateNumber,ref:AlternateNumber" pattern="^[1-9]{1}[0-9]{9}$"  onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')" maxlength="10" required></div>
+					<div data-bind="visible:$root.emailVisible">
+						<div data-juci="email" data-label="Email Id<span class='star'>*</span>" data-bind="ref:email" pattern="^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])" maxlength="50" required onvalidationfail="Utils.GetValidationMessage(event,'Email Id')" required></div>
+					</div>
+					<div data-juci="text" data-label="Address 1<span class='star'>*</span>" 
+	                   data-bind="disabled:$root.addressEnable1,ref:Address1" onvalidationfail="Utils.GetValidationMessage(event,'Address')" maxlength="30" 
+	                   pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$"  required></div>
+                   <div data-juci="text" data-label="Address 2<span class='star'>*</span>" 
+	                   data-bind="disabled:$root.addressEnable2,ref:Address2" onvalidationfail="Utils.GetValidationMessage(event,'Address')" maxlength="30" 
+	                   pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" minlength="3" required></div>
+                   <div data-juci="text" data-label="Address 3<span class='star'>*</span>" 
+	                   data-bind="disabled:$root.addressEnable3,ref:Address3" onvalidationfail="Utils.GetValidationMessage(event,'Address')" maxlength="30" 
+	                   pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" minlength="3" required></div>
+	                   <div data-juci="text"  data-label="State<span class='star'>*</span>" required data-bind="disabled:$root.stateEnable1,ref:state" 						data-trigger  pattern = "^[a-zA-Z ]*$" maxlength="30"></div>
+                     <div data-juci="text" data-label="City<span class='star'>*</span>" required data-bind="disabled:$root.cityEnable1,ref:City" pattern="^[a-zA-Z ]*$"  onvalidationfail="Utils.GetValidationMessage(event,'City')" required  maxlength="30" minlength="3"></div>
+                     <div id="Pin" data-juci="tel" data-label="Pincode<span class='star'>*</span>" data-bind="disabled:$root.pinCodeEnable1,ref:Pincode"  required pattern="^[0-9]{6}\s*$" onvalidationfail="Utils.GetValidationMessage(event,'Pincode')" maxlength="6"></div>
+                   <div id="checkAadhar" data-juci="checkbox" class="agrement"  data-label="Change Address" onafterchange="checkAadhaarValidation()"></div>	
+                   <div class="confirm" id="confirm" ata-bind="visible:$root.isconfirm" >
+                   		<div  class="confirm_labl">I hereby confirm that the candidates name on Aadhar card and Pan card belong to the same person. Any discrepancy if found later would be my responsibility.</div>
+                   		<div id="confirm-checkbox" data-juci="checkbox" class="agrement"  data-label="Yes" ></div>	
+                   	</div>
+                   	<div class="submit_button">
+	                   <button class="submit" data-juci="button" onClick="onSendEmail()">Email</button>
+                   </div>
+				<div class="juci_horizontal_bbar is_submit" data-bind="visible:$root.isSumitOrEmail">
+					<!--<button data-juci="button" class="validate_device" onClick="onSaveDeviceCompatibilityInfo()">Submit</button>-->
+					<button data-juci="button" class="validate_device"  type="submit">Submit</button>
+					<button data-juci="button" class="validate_device" onClick="$m.close()">Close</button>
+				</div>	
+			</div>
+			<!-- End of search!-->
+		</div>
+	</body>
+</html>

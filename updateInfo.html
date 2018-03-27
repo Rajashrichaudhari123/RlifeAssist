@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/updateInfo.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/updateInfo.js"></script>
+		<script src="scripts/header.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<div class="version_info_container" data-bind="with:versionInfo">
+				<div class="version_info_head">Application</div>
+				<div class="version_info_item">
+					<div class="app_version_row" data-bind="css:{'update_avaliable' : appUpdate}">
+						<div class="app_version_key">Android Version</div>
+						<div class="app_version_value" data-bind="html:appVersion"></div>
+					</div>
+					<div class="app_version_row">
+						<div class="app_version_key">Framework</div>
+						<div class="app_version_value" data-bind="html:frameworkVersion"></div>
+					</div>
+				</div>
+				<div class="version_info_head">System</div>
+				<div class="version_info_item">
+					<div class="app_version_row" data-bind="css:{'update_avaliable' : systemUpdate}">
+						<div class="app_version_key">System Version</div>
+						<div class="app_version_value" data-bind="html:systemVersion"></div>
+					</div>
+					<div class="app_version_row" >
+						<div class="app_version_key">System Build</div>
+						<div class="app_version_value" data-bind="html:systemBuild"></div>
+					</div>
+					<div class="app_version_row">
+						<div class="app_version_key">Updated on</div>
+						<div class="app_version_value" data-bind="html:getDate(systemInstalledOn)"></div>
+					</div>
+					<!--<div class="app_version_row">
+						<div class="app_version_key">Device Id</div>
+						<div class="app_version_value" data-bind="html:device_id"></div>
+					</div>-->
+				</div>
+			</div>
+			<div class="packs_version_details">
+				<div class="pack_header version_info_head">Packs</div>
+				<div class="packs_version_info" data-bind="foreach:packInfo">
+					<div class="pack_item" data-bind="css:{'update_avaliable' : updateAvaliable}">
+						<div class="pack_item_name" data-bind="html: name"></div>
+						<div class="pack_item_updatedon" data-bind="html: getDate(_modifiedon)"></div>
+					</div>
+				</div>
+				<div class="juci_vertical_bbar" data-bind="visible:showUpdate">
+					<button data-juci="button" onclick="updatePacks()">Update</button>
+				</div>
+			</div>
+			<div data-juci="switch" data-label="Force Updates" data-onvalue="true" data-offvalue="false" data-ontext="Yes" data-offtext="No" onafterchange="setForceUpdate(event)" data-bind="ref:updateStatus"></div>
+			<div class="infotext">
+				<div class="ontext" data-bind="visible:updateStatus">*Force update feature is disabled use the above switch to enable</div>
+				<div class="offtext" data-bind="visible:!updateStatus()">*Force update feature is enabled use the above switch to disable</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,268 @@
+
+input, textarea, select {
+	
+	width: 85%;
+    position: relative;
+    background: #9d9d9d;
+    font-family: Helvetica-medium;
+    font-size: 14px;
+    color: #fff;
+    height: 40px;
+    margin-left: 20px;
+    display: block;
+}
+
+.slct {
+	
+}
+
+.opt1 {
+	cursor: pointer;
+    color: #fff;
+    line-height: 40px;
+    display: block;
+    font-family: Helvetica-medium;
+    font-size: 14px;	
+}
+
+button.juci_button.search {
+    background: #0B4DAA none repeat scroll 0% 0%;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.57);
+    color: #FFF;
+    border-radius: 4px;
+    border: solid 1px #0B4DA1;
+    font-size: 11pt;
+    width: 45%;
+    min-height: 35px !important;
+    position: absolute;
+    margin-top: -57px;
+    margin-left: 15px;
+}
+.first {
+    background: white;
+    height: 113px;
+}
+
+.pstatus {
+	float: right;
+	color: #f9a840;
+	position : relative;
+	margin-right: 15px;
+}
+
+.astatus {
+	float: right;
+	color: #339933;
+	position : relative;
+	margin-right: 15px;
+}
+
+.rstatus {
+	float: right;
+	color: #D04949;
+	position : relative;
+	margin-right: 15px;
+}
+
+.ipstatus {
+	float: right;
+	color: #5db2de;
+	position : relative;
+	margin-right: 15px;
+}
+
+.bold {
+	font-weight:bold;
+}
+
+.juci_linker {
+    display: none;
+}
+
+.juci_panel.panel_shown {
+    background: #ebebeb;
+}
+
+.row {
+    border-bottom: #f2f2f2 1px solid;
+    margin-left: 5px;
+}
+
+.juci_searcher input {
+    font-size: 14pt;
+    padding: 0px 4px 0px 4px;
+    height: 23px;
+    color: black;
+}
+
+/*.tbtn {
+	display : inline-block;
+}
+.tbox {
+	display : inline-block;
+}*/
+
+.appno {
+	
+}
+
+.advisor {
+	display : none;
+}
+
+.customer{
+	display : none;	
+}
+
+.cell {
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.head {
+    width: 35%;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.titles {
+    color: #9d9d9d;
+    padding-bottom: 5px;
+   
+}
+
+.juci_xlist_item {
+    background: #fff;
+    margin-bottom: 10px;
+}
+
+.juci_vertical_list .juci_xlist_pane {
+    background: none;
+}
+
+@media screen and (max-width: 480px) {
+   .head {
+    width: 35%;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    display: block;
+    padding-top: 10px;
+}
+
+}
+
+/*Ali (20-04-2016) */
+
+.topheader {
+    background: white;
+    height: 122px;
+}
+
+.juci_basecontrol.juci_searchbox {
+    margin-top: 0px;
+    width: 65%;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+button.juci_button.tbtn {
+    float: right;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -35px;
+    margin-right: 25px;
+    background: #0B4DA1 none repeat scroll 0% 0%;
+    border: 1px solid transparent;
+    min-height: 35px;
+    font-size: 12pt;
+}
+
+.juci_searchbox_glass {
+    display: none;
+}
+
+.juci_searchbox_close {
+    display: none;
+}
+
+.midheader {
+	padding-top: 30px;
+}
+
+.juci_xlist_item.touch {
+    background: #fff;
+    color: #3B3B3B;
+}
+
+.juci_imagelist_container .juci_imagelist_imageContainer{
+	vertical-align: top !important;
+	width: 64px !important;
+	padding-left: 100px;
+	float: left;
+}
+
+.juci_imagelist_titlesContainer {
+    padding-top: 80px;
+    vertical-align: middle;
+    padding-left: 6px;
+}
+
+.juci_imagelist_image img{
+    height: 72px;
+    width: 72px;
+    margin: 0px;
+}
+
+@media screen and (min-width: 600px) {
+.selection {
+    width: 30%;
+    display: inline-block;
+}
+	
+.juci_basecontrol.juci_searchbox {
+    margin-top: 0px;
+    width: 45%;
+    margin-left: -12px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    border: 1px solid black;
+    border-radius: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    min-height: 39px;
+}
+
+button.juci_button.tbtn {
+	min-height: 39px !important;
+    display: inline-block;
+    /* vertical-align: top; */
+    margin-top: 1px;
+    margin-right: 25px;
+    background: #0B4DA1 none repeat scroll 0% 0%;
+    border: 1px solid transparent;
+    min-height: 35px;
+    font-size: 12pt;
+    margin-left: -5px;
+    float: none;
+}
+
+.juci_imagelist_container .juci_imagelist_imageContainer{
+	vertical-align: middle !important;
+	padding-left: 0px;
+	float: none;
+}
+
+.juci_imagelist_titlesContainer {
+    padding-top: 0px;
+    padding-left: 22px;
+}
+
+}
+
+/*Ali (20-04-2016) */
+

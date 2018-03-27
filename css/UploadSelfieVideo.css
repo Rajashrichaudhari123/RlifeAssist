@@ -1,0 +1,162 @@
+.customer_name{
+	min-width: 0;
+    width: 70%;
+    margin: 0;
+    min-height: 0;
+    height: 17px;
+    font-weight: bold;
+	border: none;
+}
+.application_no{
+	min-width: 0;
+    width: 20%;
+    min-height: 0;
+    margin: 0;
+    height: 26px;
+    line-height: 30px;
+    display: inline-block;
+    border: none;
+}
+.creation_date{
+    width: 25%;
+    margin: 0;
+    min-width: 0;
+    min-height: 0;
+    display: inline-block;
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    border: none;
+}
+.video_retrieval_list .juci_linker{
+	display: none;	
+}
+
+.video_retrieval_list  .juci_xlist_item {
+    background: white;
+    color: #3B3B3B;
+    border: 1px solid #EAEAEA;
+    margin: auto;
+    padding: 8px 5px;
+    margin-top: 10px;
+    padding-bottom: 0px;
+}
+.video_retrieval_list ul.juci_xlist_pane.juci_xlist_listPane{
+	background-color: transparent;	
+	padding: 0;
+    position: relative;
+    bottom: 10px;
+}
+
+.video_retrieval_list_title {
+    min-width: 0;
+    width: 95%;
+    min-height: 0;
+    height: 21px;
+    margin: auto;
+    line-height: 23px;
+    border: none;
+    margin-bottom: 8px;
+}
+.video_retrieval_list_title .juci_label_text {
+    color: #0b4daa;
+    font-weight: bold;
+    text-align: center;
+}
+.blank_space{
+	/* width:100%; */
+	/* height:50px; */
+}
+/*.juci_basecontrol.juci_display.next_ten_list_element{
+    background: none;
+    border-color: #CECECE;
+    color: #585858;
+    min-height: 0;
+    height: 24px;
+    min-width: 0;
+    width: 93%;
+    border: none;
+    margin: 0;
+}
+.next_ten_list_element .juci_ctrl_label {
+    color: #9C9C9C;
+    text-align: right;
+    max-width: 100%;
+    width: 100%;
+    text-decoration: underline;
+}*/
+.footerbar {
+    padding-top: 0%;
+    text-align: start;
+}
+.footerbar {
+    background: #0b4daa;
+    color: white;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 12px;
+    right: 0;
+    z-index: 4;
+}
+.previousbutContainer {
+    display: inline-block;
+    width: 32%;
+    vertical-align: middle;
+    /* padding-left: 30px; */
+}
+.pageCountcontainer {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 44%;
+    margin: auto;
+    font-size: 15px;
+}
+.nextbutContainer {
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+    padding-right: 30px;
+}
+.totalCount {
+    width: 50%;
+    text-align: left;
+    margin: 0;
+    display: inline-block;
+}
+.pagecount {
+    /* width: 32%; */
+    margin: 0;
+    display: inline-block;
+}
+/*------------------search----------------*/
+div.search_box {
+    background: #fff;
+    border-bottom: 0px;
+    min-height: 20px;
+    height: 35px;
+    border-radius: 3px;
+    color: black;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+.search_box input.juci_ctrl_box{
+	position : relative;
+	bottom: 20px;
+	
+	}
+	
+	.juci_xlist_search.juci_searchbox {
+    background: white;
+    width: 96%;
+    color: #1a1a1a;
+    font-weight: normal;
+    font-size: 11pt;
+    margin: 20px auto;
+}

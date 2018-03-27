@@ -1,0 +1,418 @@
+.juci_thinbar.welcome_text {
+    text-align: center;
+    height: 30px;
+    font-size: 12px;
+    padding-top: 12px;
+    color: #0b4da1;
+}
+
+
+.juci_basecontrol.juci_radiogroup.role_names {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.role_names li.juci_check.juci_option {
+    display: inline-block;
+    width: 32%;
+    font-size: 6px;
+    margin: 1px;
+}
+
+.role_names label {
+    font-size: 12px;
+    display: table;
+}
+
+.calculator_names li.juci_check.juci_option {
+    display: inline-block;
+    width: 50%;
+    font-size: 6px;
+    margin: 1px;
+}
+
+.calculator_names label {
+    font-size: 12px;
+    display: table;
+}
+
+button.juci_button.next {
+    background: #0b4da1;
+    border: #0b4da1;
+    min-height: 32px;
+    font-size: 13px;
+    width: 108px;
+    /* margin-left: auto; */
+    border-radius: 4px;
+    /* text-align: right; */
+    margin: 24px;
+    margin-bottom: 35px;
+    vertical-align: middle;
+    margin-top: 1px;
+    float: right;
+    margin-top: 28px;
+}
+
+button.juci_button.finish {
+    background: #0b4da1;
+    border: #0b4da1;
+    min-height: 32px;
+    font-size: 13px;
+    width: 108px;
+    /* margin-left: auto; */
+    border-radius: 4px;
+    /* text-align: right; */
+    margin: 24px;
+    vertical-align: middle;
+    margin-top: 1px;
+    margin-top: 28px;
+    margin-bottom: 35px;
+}
+
+.finished {
+	text-align:center;	
+}
+
+.Aadhar_section {
+    width: 90% !important;
+    margin: auto;
+    margin-top: 13px;
+    border: 1px solid #9d9d9d;
+    /* margin-top: 66px; */
+}
+
+.juci_text.touch, .juci_text.focussed {
+	background: transparent;
+}
+
+.user_details {
+    text-align: center;
+    font-size: 16px;
+    margin: 3px;
+    padding: 3px;
+    color: #0b4da1;
+    font-weight: 500;
+}
+
+.goals {
+    border-bottom-style: groove;
+    border-left-style: groove;
+    border-right-style: groove;
+    border-top-style: groove;
+    background-color: #FFF;
+    border: 1px solid #0b4daa;
+    margin-left: 10px;
+    margin-top: 13px;
+    height: auto;
+    padding: 5px;
+    border-radius: 3px;
+    width: 27%;
+    line-height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dismiss {
+    color: blue;
+    float: left;
+    margin-right:  12px !important;
+    opacity: .2;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 27%;
+    left: 29%;
+    margin-right: 15px;
+}
+
+label.juci_label_text {
+    /* display: table-cell; */
+    color: #0b4da1;
+    vertical-align: middle;
+    white-space: inherit;
+    line-height: 20px;
+}
+
+.juci_basecontrol.juci_tel.goals_Sec.juci_text {
+    display: table;
+    width:100%;
+    margin: 10px;
+    vertical-align: middle;
+    min-height: 40px;
+}
+
+.juci_basecontrol.juci_tel.income_Sec.juci_text {
+    display: table;
+    width: 74%;
+    margin: 10px;
+    vertical-align: middle;
+    min-height: 40px;
+}
+
+input.juci_ctrl_box {
+    display: inline-block;
+    border: 1px solid #0b4daa;
+    background: #FFF;
+    font-size: 11px;
+    margin-top: 10px;
+    vertical-align: middle;
+    text-align: center;
+    /* margin-top: 43px; */
+    height: 35px;
+    margin-left: 4%;
+    width: 89%;
+}
+
+.time_goal .juci_ctrl_label {
+    display: table-cell;
+    width: 20%;
+    padding-left: 3px;
+    width: 20%;
+    vertical-align: middle;
+    /* float: left; */
+}
+
+.juci_ctrl_label {
+    /* display: table-cell; */
+    width: 20%;
+    padding-left: 3px;
+    width: 100%;
+    vertical-align: middle;
+    /* float: left; */
+}
+
+.goals_section {
+    display: inline-block;
+    width: 100%;
+}
+
+p.total_goal_amount {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 7px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #0b4daa; 
+    background: #0b4daa;
+    background: #0b4daa;
+    width: 90%;
+}
+
+.goal_amount_txt {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    color: #FFF;
+    margin-left: 9%;
+    width: 45%;
+}
+
+.total_amount {
+    text-align: center;
+    font-size: 26px;
+    color: #0b4daa;
+    margin-top: 15px;
+}
+
+.time_goal {
+	margin-top: 5px;
+}
+
+.juci_basecontrol.juci_selectbox.time_goal.juci_parent {
+    margin: 20px;
+    padding-top: 10px;
+    width: 90%;
+    margin-left: 10px;
+    padding-left: 5px;
+}
+
+.role_names label.juci_label_text {
+    padding-left: 15px;
+    font-size: 13px;
+}
+
+.juci_panel.panel_shown {
+    overflow: hidden;
+}
+
+/*.juci_ctrl_box.juci_selectbox_box {
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}*/
+
+.cal_amount label.juci_label_text {
+	white-space: pre-wrap;
+	line-height: 21px;
+	padding: 5px;
+}
+
+.juci_basecontrol.juci_tel.cal_amount.juci_text {
+    display: table;
+    width: 95%;
+    margin: 10px;
+    vertical-align: middle;
+}
+
+.cal_amount input.juci_ctrl_box {
+    display: inline-block;
+    border: 1px solid #0b4daa;
+    background: #FFF;
+    font-size: 11px;
+    vertical-align: middle;
+    text-align: center;
+    /* margin-top: 43px; */
+    height: 35px;
+    width: 50%;
+}
+.table_section {
+    width: 60%;
+    margin: auto;
+    margin-top: 13px;
+    display: inline-block;
+    margin-left: 15px;
+    margin: 10px;
+}
+
+.table_header {
+    width: 100%;
+    margin: auto;
+    padding: 8px 0;
+    font-size: 14px;
+    /* font-weight: bold; */
+    text-align: center;
+    background: #0b4da1;
+    color: #FFF;
+    /* height: 3px; */
+}
+
+.table_detail {
+    display: block;
+    border: 1px solid #d8d8d8;
+    border-bottom: none;
+    /* height: 34px; */
+}
+
+.table_info_name {
+    width: 75%;
+    height: 34px;
+    border-right: 1px solid #d8d8d8;
+    line-height: 31px;
+    padding-left: 5px;
+    display: inline-block;
+    background: #f1f1f1;
+    color: #565656;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.table_data {
+    display: inline-block;
+    height: 34px;
+    line-height: 33px;
+    /* width: 50%; */
+    vertical-align: middle;
+}
+
+.inline {
+    margin-top: 10px;
+}
+
+.base_option {
+    /* text-align: center; */
+    margin: 5px;
+    font-size: 13px;
+    margin-top: 10px;
+    color: #0b4da1;
+    line-height: 20px;
+}
+
+.base_value {
+    margin: 5px;
+}
+
+.goals_Sec .juci_ctrl_label {
+    /* display: none; */
+    display: table-cell;
+    width: 41%;
+    vertical-align: middle;
+}
+
+.network_calculation {
+    margin: 5px;
+    line-height: 22px;
+    color: #0b4da1;
+}
+
+.juci_horizontal_bbar.options {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.or {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.aadhar_info_name {
+    width: 60%;
+    height: 5%;
+    text-align: justify;
+    max-width: 68%;
+}
+
+.options button.juci_button {
+    display: inline-block;
+    background: #0b4da1;
+    border-color: #0b4da1;
+    width: 38%;
+    font-size: 13px;
+    min-height: 32px;
+    border-radius: 5px;
+}
+
+span.income_class {
+    margin-left: 4px;
+}
+
+.your_options {
+    display: block;
+    border: 2px solid #d8d8d8;
+    margin-top: 14px;
+}
+
+.base_options_sum {
+    text-align: center;
+    font-weight: bold;
+}
+.your_options_sum {
+    text-align: left;
+    font-weight: bold;
+}
+
+.fisrt_content {
+    text-align: center;
+    margin-top: 9px;
+}
+
+.second_content {
+    text-align: center;
+    margin-top: 3px;
+}
+
+span.congratulation {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color:green;
+}
+
+span.estimatedConnection {
+    font-size: 14px;
+    font-weight: bold;
+}
+span.message {
+    display: inline-block;
+    text-align: justify;
+}

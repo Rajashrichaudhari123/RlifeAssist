@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+        <!-- Add your stylesheets here -->
+        <link rel="stylesheet" type="text/css" href="css/newhome.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/common.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+        <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+        <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+        <!-- Add your scripts here -->
+        <script src="scripts/home.js"></script>
+        <script src="scripts/constants.js"></script>
+        <script src="scripts/hardcode.js"></script>
+        <script src="scripts/header.js"></script>
+        <script src="scripts/rlifeservices.js"></script>
+    </head>
+    <body onclick="hideMenu()">
+        <div data-juci="panel" data-first-panel>
+            <!-- Enter your HTML content here -->
+            <div class="menu" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openProposal()">
+                        <span>New Proposal</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu arrow_box" id="profilelist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openProfile()">
+                        <div data-juci="form" data-bind="ref:profileDetail">
+                            <div class="name" data-bind="html:name"></div>
+                            <div class="id" data-bind="html:'ADV ID:'+id()"></div>
+                            <div class="id" data-bind="html:area"></div>
+                        </div>
+                    </li>
+                    <li class="item" onclick="openDashboard()">
+                        <div data-juci="form" data-bind="ref:goal">
+                            <!--	<span>Goal Summary</span> -->
+                            <div class="summary">
+                                <div class="titles">Target:</div>
+                                <div class="tar" data-bind="html:target"></div>
+                            </div>
+                            <div class="summary">
+                                <div class="titles">Achieved:</div>
+                                <div class="tar" data-bind="html:acheived"></div>
+                            </div>
+                            <div class="summary">
+                                <div class="titles">Pending :</div>
+                                <div class="tar" data-bind="html:pending"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item" onclick="openCustomers()">
+                        <img src="img/female.png"></img>
+                        <span>My Customers</span>
+                    </li>
+                    <li class="item" onclick="openAdvisors()">
+                        <img src="img/Folder_grey.png"></img>
+                        <span>My Advisors</span>
+                    </li>
+                    <li class="item" onclick="openHelpDesk()">
+                        <img src="img/Gallery_Grey.png"></img>
+                        <span>Help Desk</span>
+                    </li>
+                    <li class="item" onclick="doLogout()">
+                        <img src="img/power-blackgold.png"></img>
+                        <span>Logout</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="dialoguebg"></div>
+            <div id="menu_list" data-juci="xlist" data-bind="ref:allpacks" onListItemclick="openPack(event)">
+                <div data-juci="listitem" data-bind="css:{firstpck: name() === 'Dashboard',  scndpck: name() === 'Products', thirdpck : name() === 'Applications' , fourthpck : name() === 'Lead Managment', fifthpck : name() === 'Call For Requirement', sixthpck : name() === 'News and Updates',svnthpck : name() === 'Renewals' ,ninthpck : name() === 'Need Analysis'}" >
+                    <div class="appitem">
+                        <div class="appheaderholder">
+                            <div class="appheader" data-bind="html:name"></div>
+   
+                                <div class="calcltr" data-juci="xlist" data-bind="ref:subitems" data-titles data-subtitles data-new-item>
+                                    <div data-juci="listitem" class="subitem">
+                                        <div data-bind="html: subitem"></div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                          
+                           <div class="refresh">
+                                <div class="ref_icon"><img src="images/loop2.png" ></img></div>
+                                </div>
+                        <div  data-bind="visible:name()=='Dashboard'">
+                            <div class= "dash" data-bind="with:dash">
+                                <ul class="dashboard-list">
+                                    <p class="dtitle">Logins</p>
+                                    <li class="dboard">
+                                        <span class="dsname" data-bind="html:subdash1"></span>
+                                        <p class="dname">Target</p>
+                                    </li>
+                                    <li class="dboard2">
+                                        <span class="dsname" data-bind="html:subdash2"></span>
+                                        <p class="dname">Achieved</p>
+                                    </li>
+                                    <li class="dboard3">
+                                        <span class="dsname" data-bind="html:subdash3"></span>
+                                        <p class="dname">Shortfall</p>
+                                    </li>
+                                </ul>
+                                <ul class="dashboard-list2">
+                                    <p class="dtitle">Issuance</p>
+                                    <li class="dboard">
+                                        <span class="dsname" data-bind="html:subdash1"></span>
+                                        <p class="dname">Target</p>
+                                    </li>
+                                    <li class="dboard2">
+                                        <span class="dsname" data-bind="html:subdash2"></span>
+                                        <p class="dname">Achieved</p>
+                                    </li>
+                                    <li class="dboard3">
+                                        <span class="dsname" data-bind="html:subdash3"></span>
+                                        <p class="dname">Shortfall</p>
+                                    </li>
+                                </ul>
+                            </div>
+                          
+                        </div>
+                          
+                                 <div data-bind="visible:name()=='Call For Requirement'">
+                               <div class="next" data-bind="with:$root.cfr_count">
+                                <div class="count" data-bind="html:count"></div>
+                                <div class="pname" data-bind="html:pname"></div>
+                            </div>
+                             <div class="sync_time"  data-bind= "html:$root.synccfr" >
+                                </div>
+                              
+                            </div>
+                            
+                            
+                                 <div data-bind="visible:name()=='Renewals'">
+                               <div class="next" data-bind="with:$root.renl_count">
+                                <div class="count" data-bind="html:count"></div>
+                                <div class="pname" data-bind="html:pname"></div>
+                                </div>
+                                 <div class="sync_time"  data-bind= "html:$root.syncRenl" >
+                                </div>
+                            </div>
+                            
+                            
+                                 <div data-bind="visible:name()=='Applications'">
+                                   <div class="next" data-bind="with:$root.aptns_count">
+                                    <div class="count" data-bind="html:count"></div>
+                                     <div class="pname" data-bind="html:pname"></div>
+                               </div>
+                                <div class="sync_time"  data-bind= "html:$root.syncApp" >
+                                </div>
+                            </div>
+                          
+                        <div data-bind="visible:name()=='Need Analysis'">
+                            <p class="needanalysis">Life Planner | Retirement Corpus
+                                <br> Human Life Value | Tax App
+                                </p>
+                            </div>
+                            <div data-bind="visible:name()=='News and Updates'">
+                            <div  class="scroll" data-juci="imagelist" data-bind="ref:$root.newsupdate"  data-img="img" >
+										<div data-juci="listitem">
+											<div class="news_title" data-bind="html:$data.Title"></div>
+												<div class="news_title" data-bind="html:$data.TextPreview"></div>
+										</div> 
+									
+									<!-- <div data-juci="listcontent"></div> -->
+			           </div> 
+			           	<div class="sync_time"  data-bind= "html:$root.syncNews" >
+                                </div>
+                            </div>
+                            
+                    
+                            
+                            </div>
+                        </div>
+                              	<div class="footerbar">
+	          <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div><span> | </span>
+	          <div class="terms" onclick="openTerms()">Terms and Conditions</div><span> | </span>
+	          <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+	        </div>
+                        </div>
+                    </body>
+                </html>

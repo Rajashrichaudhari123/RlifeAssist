@@ -1,0 +1,228 @@
+.juci_panel_title .actionbutton{
+	display:none;
+}
+
+.juci_panel_title .actionbutton{
+	display:none
+}
+
+header.juci_panel_title{
+	background-image: none;
+    border: 0px;
+    display: none;
+}
+
+.juci_panel {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.first_panel {
+    height: 100%;
+    overflow: hidden;
+}
+
+.selfievideo_content {
+    margin: 5px;
+    padding: 5px;
+    font-size: 14px;
+    color: #0B4DA1;
+}
+
+.language_settings {
+    width: 35%;
+    float: right;
+}
+
+.juci_selectbox .juci_linker {
+    background-image: url(../images/down_arrow.png);
+    height: 12px !important;
+}
+
+.juci_ctrl_label {
+    display: none;
+}
+.video_content {
+    height: 250px;
+}
+
+.selfieData{
+	width: 100%;
+	margin: auto;
+	color: #444;
+	font-family: sans-serif;
+	margin-top: 13%;
+	background: rgba(140, 168, 222, 0.85);
+	height: 100%;
+}
+
+.juci_selectbox_popup{
+	background: #ffffff;
+    padding: 1px;
+    -webkit-transform: translate3d(0, 0, 0);
+    z-index: 1;
+    position: relative;
+    margin: auto;
+    /* margin-left: 5%; */
+    margin-top: 42px;
+    width: 35%;
+    max-height: 221px;
+    float: right;
+    margin-right: -133px;		
+}
+
+.questionaries_content {
+    margin-top: 30px;
+    height: 100%;
+    background: rgba(140, 168, 222, 0.85);
+}
+
+.question {
+	margin: 1px;
+}
+
+.selfie_content{
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    color: #444;
+    font-family: sans-serif;	
+}
+
+.juci_form.questionaries_data {
+    margin: 5px;
+    padding: 5px;
+    color: #0084BB;
+    font-family: sans-serif;
+    
+}
+
+.ques_data {
+    margin: 3px;
+    padding: 3px;
+    line-height: 20px;
+    color: #444;
+}
+
+.planner_content {
+    padding: 5px;
+    margin-top: 50px;
+    line-height: 20px;
+    color:  #444;
+    font-family: sans-serif;
+    background:  rgba(140, 168, 222, 0.85);
+    height: 100%;
+}
+
+.select_correntplan {
+    margin: 5px;
+    padding: 5px;
+    line-height: 20px;
+    color: #0084BB;
+    font-family: sans-serif;
+}
+
+.juci_dialog {
+    padding: 0px;
+    border-color: #0B4DA1;
+    left: 3%;
+    top: 65px;
+    right: 4%;
+    width: 65% !important;
+    min-height: 35px !important;
+    height: 180px;
+}
+.parent_btn{
+	text-align:center	
+}
+
+.final_data {
+    margin: 5px;
+    padding: 5px;
+    line-height: 20px;
+    color: #444;
+    font-family: sans-serif;
+}
+
+.final_content{
+	margin-top:30px;
+	background: rgba(140, 168, 222, 0.85);
+	height: 100%;
+	overflow: hidden;
+}
+
+.juci_ctrl_box.juci_selectbox_box {
+    font-size: 14px;
+    background: #0B4DA1;
+    color: #FFF;
+}
+
+.juci_panel.panel_shown {
+    background: transparent !important;
+    height: 100%;
+}
+
+.video_timer {
+    margin: 5px;
+    text-align: center;
+    padding: 5px;
+    color: #FFF;
+    font-size: 17px;
+}
+
+.submit_cls{
+	text-align:center	
+}
+
+body{
+	background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.juci_ctrl_box.juci_selectbox_box {
+    border-bottom: 1px solid #0B4DA1;
+}
+
+.parent_lifedetails {
+    display: table;
+}
+
+.lifeassured_details {
+    display: table-cell;
+    padding-left: 5px;
+}
+
+.juci_title {
+    font-size: 10pt;
+    display: inline-block;
+    vertical-align: middle !important;
+    width: 40%;
+}
+
+span#time {
+    font-weight: bold;
+    color: red;
+}
+
+.selfie_video_section {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+div#selfie-video {
+    height: 100%;
+}
+
+.questionaries {
+    height: 100%;
+}
+
+.plancontent_section {
+    height: 100%;
+}
+
+.finalcontent_section {
+    height: 100%;
+    overflow-y: hidden;
+}

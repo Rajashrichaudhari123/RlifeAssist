@@ -1,0 +1,39 @@
+.juci_date {
+    position: relative;
+}
+
+.juci_date_disabled{
+	color: #fff;
+}
+
+
+.events {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 13px;
+    margin: 3px;
+    /* color: #C3C3C3; */
+    /* width: 76px; */
+}
+
+.juci_day, .juci_date {
+	vertical-align: 0px !important;
+    background: #F7F7F7;
+    /* background: -webkit-gradient(linear, left top, left bottom, from(#F7F7F7), to(#F1F1F1)); */
+    border-right-color: #8bcce4;
+    border-top-color: #8bcce4;
+    border-left-color: #8bcce4;
+    border-bottom-color: #8bcce4;
+    background: #FFF;
+    /* margin-top: 22px; */
+    padding-top: 15px;
+}
+
+.juci_date_annotation_row_num {
+    font-size: 4px;
+}
+
+.juci_date_annotation_row {
+    text-align: center;
+    padding-left: 9px;
+}

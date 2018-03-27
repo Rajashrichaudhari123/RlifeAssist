@@ -1,0 +1,22 @@
+.juci_fail{
+	color: #F34A4A;
+    background-color: white;
+    padding: 6px 2px;
+}
+
+.juci_datepicker_box{
+	/*color:#9c9c9c;	*/
+}
+
+.switchclass{
+	background:#034da2;
+	color:white
+}
+
+.juci_switch_thumb {
+	background: #F3F1F1;
+}
+
+.juci_switch_scroller>*{
+	border-radius:16px;
+}

@@ -1,0 +1,24 @@
+.application {
+    margin-top: -109px;
+}
+span.notifctn {
+    padding-top: 20px;
+    color: #565656;
+    display: block;
+    font-size: 10pt;
+}
+div#tgl {
+    margin: 0px;
+    height: 76px;
+    width: 100%;
+    margin-left: -6px;
+    margin-right: 266px;
+}
+button.juci_button.btn1 {
+	height: 75px;
+    width: 24%;
+    font-size: 12pt;
+    vertical-align: middle;
+    background: #fff;
+    border: none;
+}

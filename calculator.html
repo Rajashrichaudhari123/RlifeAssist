@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/juci_rangeslider.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/juci_rangeslider2.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/calculator.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/juci-rangeslider.js"></script>
+		<script src="scripts/calculator.js"></script>
+		<script src="scripts/x2js library.js"></script>
+		<script src="scripts/bihomepage.js"></script>
+		<script src="scripts/bimapping.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/calculators.js"></script>
+		<script src="scripts/numbertoword.js"></script>
+		<script src="scripts/calcutils.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/hierarchy.js"></script>
+		<script src="scripts/hierarchyDatamanager.js"></script>
+		<script src="scripts/syncHierarchy.js"></script>
+	    <script src="scripts/teamhierarchy.js"></script>
+		<script src="scripts/SHDataPojo.js"></script>
+		
+		<!-- Add your scripts here -->
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+			<div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li> --> 
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li>
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+               <li class="item_list" onclick="openCustomers()">
+                    <img src="images/female.png"></img>
+                    <span>My Customers</span>
+                </li>
+                <li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li>
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+            </ul>
+         </div>
+         
+         <div id="dialog-teamlogin" data-juci="dialog">
+			<div class="heading_team">
+				<div class="dialogheader">Login As</div>
+				<div class="refresh_area">
+		         	<div class="refresh_img">	<img src="images/refresh.png" onclick="syncHierarchy()"></img></div>
+				<span class="close" onclick="hidebox()">X</span>
+				</div>
+			</div>
+			
+			<div class="content-body"> 
+				<div class="user_name_area">
+				<div class="info">Currently logged in as</div>
+				<div class="user" data-bind="html: $root.user().name()"></div>
+				<div class="sync_time" data-bind="html:$root.syncTeam"></div>
+				</div>
+			
+			<!--	<div data-juci="form" data-bind="ref:Hierarchy" >-->
+				<div id="zm" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format" onafterchange="drillDown(event)">
+				
+				</div>
+				<div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup"data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="am"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="bm"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format"    onafterchange="drillDown(event)" >
+				
+				</div>
+				
+				<div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm'),optionsList:$root.adlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" required  onvalidationfail="Utils.GetValidationMessage(event,'Team Login')">
+					</div>
+					
+					<div id="tpsm" class="Team_select_box" data-juci="selectbox" data-label="TPSM" data-mode="popup" data-bind="visible:gettype()== 'TPSM',optionsList:$root.tpsmlist,ref:name,optionsText:formatTPSM" data-formatter="formatTPSM"  onafterchange="confirmTeamUser(event)" >
+				</div>
+				<div id="tpadv" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="TPADV" data-bind="visible:gettype()== 'TPADV',optionsList:$root.tpadvlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" required  onvalidationfail="Utils.GetValidationMessage(event,'Team Login')">
+					</div>
+				<div id="tppar" class="Team_select_box" data-juci="selectbox" data-label="TPPR" data-mode="popup" data-bind="visible:gettype()== 'TPPR',optionsList:$root.tpparlist,ref:name,optionsText:formatTPSM" data-formatter="formatTPSM"  onafterchange="confirmTeamUser(event)" >
+				
+				</div>
+				<div id="agsm" class="Team_select_box" data-juci="selectbox" data-label="AGSM" data-mode="popup" data-bind="visible:gettype()== 'AGSM',optionsList:$root.agsmlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" >
+				</div>
+				<div id="agps" class="Team_select_box" data-juci="selectbox" data-label="AGPS" data-mode="popup" data-bind="visible:gettype()== 'AGPS',optionsList:$root.agpslist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" >
+				</div>
+				<div id="agadv" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="AGADV" data-bind="visible:gettype()== 'AGADV',optionsList:$root.agadvlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" required  onvalidationfail="Utils.GetValidationMessage(event,'Team Login')"></div>
+				<div id="tpbom" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="TPBOM" data-bind="visible:gettype()== 'TPBOM',optionsList:$root.tpbomlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)" required  onvalidationfail="Utils.GetValidationMessage(event,'Team Login')"></div>	
+				
+						</div> 
+				<div class="juci_thinbar team">
+					<button class="login" data-juci="button" onclick="openCallService()">Team Login</button>
+					<!--button class="loginas" data-juci="button" onclick="openProposal()">Login as Myself</button!-->
+			
+			</div>
+			</div>
+		
+			<div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+				<div class="togcount">
+					<button class="btn_hu" data-juci="button" data-toggle="1">
+						<div class="prod">
+							<img class="prod1" >
+							</>
+							<div class="hu_notifctn">Human Life Value</div>
+						</div>
+					</button>
+					<button class="btn1" data-juci="button" data-toggle="2">
+						<div class="prod">
+							<img class="prod2" >
+							</>
+							<div class="notifctn">Retirement Corpus Need</div>
+						</div>
+					</button>
+					<button class="btn_ch" data-juci="button" data-toggle="3">
+						<div class="prod">
+							<img class="prod3" >
+							</>
+							<div class="child_notifctn">Cost of Child's Future</div>
+						</div>
+					</button>
+					<button class="btn_lp" data-juci="button" data-toggle="4">
+						<div class="prod">
+							<img class="prod4" >
+							</>
+							<div class="notifctn">Life Planner</div>
+						</div>
+					</button>
+				</div>
+			</div>
+			<!--Human value-->
+			<div id="HumanValue">
+				<div class="human_container">
+					<div class="human_value_container">
+						<div class="life_heading">How much life insurance you should have?</div>
+						<div data-juci="form" data-bind="ref:HumanForm" onsubmit="CalculateHLV(event)">
+							<div class="scroll_section">
+							
+									  <div class="togg_button" id="togg" data-juci="togglebar" data-bind="ref:calculator_type" ontoggle="CalculatorTypeHlv(event)">
+                        <button class="b1"  data-juci="button" data-bind="" data-toggle="1"> <span class="but_text">Expense </span></button>
+                        <button class="b1"  data-juci="button" data-bind="" data-toggle="1"> <span class="but_text">Income</span> </button>
+                     </div>
+								<div class="text_section">
+									<div data-juci="tel" data-label="Your Current Age" data-bind="ref:Currerntage"  minlength="0" maxlength="3" onKeyUp="ChangeSliderValue(event)" ></div>
+									<div id="" data-juci="rangeslider" data-label=""  data-range-min="0", data-range-max="100" data-range-step="1" data-bind="ref:Currerntage" ></div>
+								</div>
+								<div class="text_section">
+									<div data-juci="tel" data-label="Annual Income" data-bind="ref:Annual_income" placeholder="0" pattern="[0-9]"  minlength="0" maxlength="7" onKeyUp="ChangeIncomeValue(event)"></div>
+									<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="1000000" data-range-step="1" data-bind="ref:Annual_income"></div>
+								</div>
+								<div class="text_section">
+									<div data-juci="tel" data-label="Annual Expenses" data-bind="ref:Annual_expense" pattern="[0-9]"   minlength="0"  maxlength="7" onKeyUp="ChangeExpenseValue(event)"></div>
+									<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="1000000" data-range-step="1" data-bind="ref:Annual_expense"></div>
+								</div>
+								
+							<div class="calcbutton">	<button class="calc" data-juci="button" type="submit">Calculate</button></div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="estimation section" data-bind="with:Estimate_LifeCover">
+						<div class="est_heading">Estimated Life Cover</div>
+						<div class="est_content">You should insure your life with</div>
+						<div class="est_value"  data-bind="html:total_savings"></div>
+						<div class="value_denom" data-bind="html:NumberToWord"></div>
+						<div class="est_content">This amount will ensure that your family for a period of 10-15 years in case of any unfortunate event</div>
+					</div>
+					
+						<div class="Plan_section">
+								<div class="plan_heading">Plan for you</div>
+							 <div id="human-list" data-juci="xlist" data-bind="ref:$root.humanlife">
+                      <div class="plan_detail" data-juci="listitem">
+                        <div class="paln_heading" data-bind="html:title"></div>
+                        <div class="plan_content" data-bind="display:content"></div>
+                        <div class="button">
+                            <button class="quote" data-juci="button" >Get Quote</button>
+                        </div>
+                        </div>
+                        </div>
+				<!--<div class="Plan_section">
+						<div class="plan_heading">Plan for you</div>
+						<div class="plan_detail">
+							<div class="paln_heading">Reliance Traditional Group Employee Benefit Plan</div>
+							<div class="plan_content">Dolor set amaret ipsum dolor set amare dolor set amaret ipsum dolor set amare</div>
+							<button class="quote" data-juci="button">Get Quote</button>
+						</div>
+						<div class="plan_detail">
+							<div class="paln_heading">Reliance Traditional Group Employee Benefit Plan</div>
+							<div class="plan_content">Dolor set amaret ipsum dolor set amare dolor set amaret ipsum dolor set amare</div>
+							<button class="quote" data-juci="button">Get Quote</button>
+						</div>
+					</div>-->
+				</div>
+			</div>
+			</div>
+			<!--retirement-->
+			<div id="Retirement">
+				<div class="human_container">
+					<div class="human_value_container">
+						<div class="life_heading">How much life insurance you should have?</div>
+						<div data-juci="form" data-bind="ref:RetirementForm" onsubmit="CalculateRetirement(event)">
+							<div class="scroll_section">
+							
+									  <div class="togg_button" id="togg" data-juci="togglebar" data-bind="ref:calculator_type" ontoggle="CalculatorTypeRe(event)">
+                        <button class="b1"  data-juci="button" data-bind="" data-toggle="1"> <span class="but_text">Help Me</span></button>
+                        <button class="b1"  data-juci="button" data-bind="" data-toggle="1"> <span class="but_text">I know</span></button>
+                     </div>
+								<div class="text_section">
+									<div data-juci="tel" data-label="Your Current Age" data-bind="ref:Currerntage" pattern="[0-9]" minlength="0" maxlength="4" onKeyUp="ChangeAgeValue(event)"></div>
+									<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="100" data-range-step="1" data-bind="ref:Currerntage"></div>
+								</div>
+								
+								<div class="text_section">
+									<div data-juci="tel" data-label="At what age do you plan to retire?" data-bind="ref:retireage" placeholder pattern="[0-9]" minlength="0" maxlength="3" onKeyUp="ChangeretireValue(event)"></div>
+									<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="100" data-range-step="1" data-bind="ref:retireage"></div>
+								</div>
+								<div class="text_section">
+									<div data-juci="tel" data-label="Expected Inflation rate" data-bind="ref:expect_inflation" placeholder pattern="^[0-9]{1,2}$" minlength="0" maxlength="2" onKeyUp="ChangeInfValue(event)"></div>
+									<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="10" data-range-step="1" data-bind="ref:expect_inflation"></div>
+								</div>
+								<div class="text_section">
+									<div data-juci="tel" data-label="Your Current Monthly Expenses" data-bind="ref:Monthlyexpense" placeholder="0"  pattern="[0-9]"   minlength="0" maxlength="7" onKeyUp="ChangeMonthlyValue(event)"></div>
+									<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="1000000" data-range-step="1" data-bind="ref:Monthlyexpense"></div>
+								</div>
+									<div class="text_section">
+										<div data-juci="tel" data-label="Investment Return" data-bind="ref:invest_return" placeholder pattern="^[0-9]{1,2}$" minlength="0" maxlength="2" onKeyUp="ChangeinvestValue(event)"></div>
+										<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="10" data-range-step="1" data-bind="ref:invest_return"></div>
+									</div>
+								<div class="text_section">
+									<div data-juci="tel" data-label="Your Retirement savings as on today" data-bind="ref:Monthlysavings" placeholder="0"  pattern="[0-9]"  minlength="0" maxlength="7" onKeyUp="ChangeTodayValue(event)"></div>
+									<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="1000000" data-range-step="1" data-bind="ref:Monthlysavings"></div>
+								</div>
+                                <div class="text_section">
+								<div data-juci="tel" data-label="Your monthly savings from today" data-bind="ref:Savings_FromToday" placeholder="0" pattern="[0-9]"  minlength="0"  maxlength="7" onKeyUp="ChangeFromValue(event)"></div>
+								<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="1000000" data-range-step="1" data-bind="ref:Savings_FromToday"></div>
+							</div>
+							<div class="calcbutton"><button class="calc" data-juci="button" type="submit">Calculate</button></div>
+						</div>
+					</div>
+					</div>
+					<div class="estimation section" data-bind="with:Retire_Estimate_Value">
+						<div class="est_heading">Estimated Retirement Corpus</div>
+							<div class="est_content" data-bind=" html:'Assuming a  ' +inflation_rate()+ ' % inflation you should have total savings of'"></div>
+						<div class="est_value"data-bind="html:total_savings"></div>
+						<div class="value_denom" data-bind="html:NumberToWord"></div>
+						<div class="est_content">Thus, extra monthly savings required</div>
+						<div class="est_value1" data-bind="html:total_required"></div>
+						<div class="value_content">month to cover the shortfall</div>
+					</div>
+					
+						<div class="Plan_section">
+								<div class="plan_heading">Plan for you</div>
+							 <div id="retire-list" data-juci="xlist" data-bind="ref:$root.retire">
+                      <div class="plan_detail" data-juci="listitem">
+                        <div class="paln_heading" data-bind="html:title"></div>
+                        <div class="plan_content" data-bind="display:content"></div>
+                        <div class="button">
+                            <button class="quote" data-juci="button" >Get Quote</button>
+                        </div>
+                        </div>
+                        </div>
+				<!--	<div class="Plan_section">
+						<div class="plan_heading">Plan for you</div>
+						<div class="plan_detail">
+							<div class="paln_heading">Reliance Traditional Group Employee Benefit Plan</div>
+							<div class="plan_content">Dolor set amaret ipsum dolor set amare dolor set amaret ipsum dolor set amare</div>
+							<button class="quote" data-juci="button">Get Quote</button>
+						</div>
+						<div class="plan_detail">
+							<div class="paln_heading">Reliance Traditional Group Employee Benefit Plan</div>
+							<div class="plan_content">Dolor set amaret ipsum dolor set amare dolor set amaret ipsum dolor set amare</div>
+							<button class="quote" data-juci="button">Get Quote</button>
+						</div>
+					</div>-->
+				</div>
+				</div>
+				</div>
+				<!--child-->
+				<div id="Child">
+					<div class="human_container">
+						<div class="human_value_container">
+							<div class="life_heading">How much will your child’s future cost?</div>
+							<div data-juci="form" data-bind="ref:childForm" onsubmit="CalculateChild(event)">
+								<div class="scroll_section">
+								<div class="but_heading">Plan to secure your child’s</div>
+								  <div class="togg_button" id="togg" data-juci="togglebar" data-bind="ref:calculator_type" ontoggle="CalculatorType(event)">
+                        <button class="b1"  data-juci="button" data-bind="" data-toggle="1"> <span class="but_text">Education </span><div class="tog_img1"></div></button>
+                        <button class="b1"  data-juci="button" data-bind="" data-toggle="1"> <span class="but_text">Marriage</span> <div class="tog_img2"></div></button>
+                     </div>
+									<div class="text_section">
+										<div data-juci="tel" data-label="In how many years you will need this money?" data-bind="ref:Total_Years" placeholder pattern="[0-9]" minlength="0" maxlength="3" onKeyUp="yearsValue(event)"></div>
+										<div id="" data-juci="rangeslider" data-label=""  id="range" data-range-min="0", data-range-max="100" data-range-step="1" data-bind="ref:Total_Years"></div>
+									</div>
+										<div class="text_section">
+										<div data-juci="tel" data-label="Expected Inflation rate
+" data-bind="ref:expect_inflation" placeholder pattern="^[0-9]{1,2}$"  minlength="0" maxlength="2" onKeyUp="ChangeexpectValue(event)"></div>
+										<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="10" data-range-step="1" data-bind="ref:expect_inflation"></div>
+									</div>
+									<div class="text_section">
+										<div data-juci="tel" data-label="Current cost " data-bind="ref:avgCost" placeholder data-triggerpattern="[0-9]"  minlength="0" maxlength="7" onKeyUp="CurrcostValue(event)"></div>
+										<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="1000000" data-range-step="1" data-bind="ref:avgCost"></div>
+									</div>
+										<div class="text_section">
+										<div data-juci="tel" data-label="Current Savings" data-bind="ref:TotalSavings_OnToday" placeholder pattern="[0-9]" minlength="0"   maxlength="7" onKeyUp="CurrSavingsValue(event)"></div>
+										<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="1000000" data-range-step="1" data-bind="ref:TotalSavings_OnToday"></div>
+									</div>
+									<div class="text_section">
+										<div data-juci="tel" data-label="Investment Return" data-bind="ref:invest_return" placeholder pattern="^[0-9]{1,2}$"  minlength="0" maxlength="2" onKeyUp="ChangeReturnValue(event)"></div>
+										<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="10" data-range-step="1" data-bind="ref:invest_return"></div>
+									</div>
+									<div class="text_section">
+										<div data-juci="tel" data-label="Monthly savings from today" data-bind="ref:MonthlySavings_FromToday" pattern="[0-9]"  minlength="0"  maxlength="7" onKeyUp="savingFromValue(event)"></div>
+										<div id="" data-juci="rangeslider" data-label="" onload="drawszlider(121, 56)" id="range" data-range-min="0", data-range-max="1000000" data-range-step="1" data-bind="ref:MonthlySavings_FromToday"></div>
+									</div>
+								
+									
+									<div class="calcbutton">	<button class="calc" data-juci="button" type="submit">Calculate</button></div>
+								</div>
+							</div>
+							</div>
+							<div class="estimation section" data-bind="with:Estimate_Value">
+								<div class="est_heading">Estimated Life Value</div>
+								<div class="est_content" data-bind=" html:'Assuming a  ' +inflation_rate()+ ' % inflation you should have total savings of'"></div>
+								<div class="est_value"  data-bind="html:total_savings"></div>
+								<div class="value_denom" data-bind="html:NumberToWord"></div>
+								<div class="est_content">Thus, extra monthly savings required</div>
+								<div class="est_value1" data-bind="html:total_required"></div>
+								<div class="value_content">month to cover the shortfall</div>
+							</div>
+							
+							
+							<div class="Plan_section">
+								<div class="plan_heading">Plan for you</div>
+							 <div id="child-list" data-juci="xlist" data-bind="ref:$root.child">
+                      <div class="plan_detail" data-juci="listitem">
+                        <div class="paln_heading" data-bind="html:title"></div>
+                        <div class="plan_content" data-bind="display:content"></div>
+                        <div class="button">
+                            <button class="quote" data-juci="button" >Get Quote</button>
+                        </div>
+                        </div>
+                        </div>
+							<!--<div class="Plan_section">
+								<div class="plan_heading">Plan for you</div>
+								<div class="plan_detail">
+									<div class="paln_heading">Reliance Traditional Group Employee Benefit Plan</div>
+									<div class="plan_content">Dolor set amaret ipsum dolor set amare dolor set amaret ipsum dolor set amare</div>
+									<button class="quote" data-juci="button">Get Quote</button>
+								</div>
+								<div class="plan_detail">
+									<div class="paln_heading">Reliance Traditional Group Employee Benefit Plan</div>
+									<div class="plan_content">Dolor set amaret ipsum dolor set amare dolor set amaret ipsum dolor set amare</div>
+									<button class="quote" data-juci="button">Get Quote</button>
+								</div>
+							</div>-->
+						</div>
+					</div>
+					<div class="footerbar">
+	          <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div><span> | </span>
+	          <div class="terms" onclick="">Terms and Conditions</div><span> | </span>
+	          <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+	        </div>
+				</div>
+				</div>
+			</body>
+		</html>

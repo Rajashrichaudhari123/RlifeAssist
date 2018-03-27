@@ -1,0 +1,74 @@
+.juci_slider input[type=range] {
+    -webkit-appearance: none
+}
+
+.juci_slider input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    border-radius: 1px;
+    height: 3px;
+    border: 3px solid #f1eded;
+    background-color: #f1eded;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+}
+
+
+.juci_slider input[type=range]::-moz-range-track {
+    border-radius: 8px;
+    height: 7px;
+    border: 1px solid #bdc3c7;
+    background-color: #f2b968;
+}
+.juci_slider input[type=range]::-moz-range-thumb {
+    background: #f2b968;
+    border: 1px solid #4A759D;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.juci_slider input[type='range']::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background-color: #43E5F7;
+	border: 1px solid #4A759D;
+	width: 30px;
+	height: 20px;
+	border-radius: 1px;
+	cursor: pointer;
+}
+
+
+.juci_slider input[type="range"]::-ms-fill-lower{
+		background: #f2b968;
+}
+
+.juci_slider input[type="range"]::-ms-fill-upper {
+Â Â Â Â background: #f2b968;
+}
+
+
+.juci_slider input[type=range]:focus::-ms-fill-lower {
+    background: #f2b968;
+}
+.juci_slider input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+.juci_slider input[type="range"]::-ms-track {
+Â Â Â Â border-radius: 8px;
+Â Â Â Â height: 7px;
+Â Â Â Â border: 1px solid #bdc3c7;
+Â Â Â Â background-color: #fff;
+}
+.juci_slider input[type="range"]::-ms-thumb {
+Â Â Â Â background-color: #f2b968;
+Â Â Â Â border: 1px solid #4A759D;
+Â Â Â Â width: 20px;
+Â Â Â Â height: 20px;
+Â Â Â Â border-radius: 10px;
+Â Â Â Â cursor: pointer;
+}
+
+

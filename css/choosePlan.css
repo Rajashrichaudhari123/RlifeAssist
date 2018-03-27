@@ -1,0 +1,101 @@
+.create_plan {
+    display: table;
+    width: 100%;
+}
+
+.plantitle {
+    margin: 17px 0 0 18px;
+    font-size: 22px;
+    color: #0b4daa;
+}
+
+.investmentObj {
+    margin: 4px 0 0 18px;
+    font-size: 18px;
+}
+.investment_obj{
+	display:inline-block;
+	margin: 21px 0 0 15px;
+	background: #f1f2f3;
+	height: 58px;
+	width: 44%;
+	border: 1px solid #cdcfd0;
+}
+.planName{
+	text-align: center;
+	padding-top: 18px;
+}
+
+.investment_obj.retiremen {
+    margin-top: 9px;
+}
+
+.lifeStage_div{
+	display: table;
+    width: 100%;
+}
+
+.investmentObj.need {
+    margin-top: 17px;
+}
+.reCal_row {
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+
+button.juci_button.seeplan {
+    display: table-cell;
+    border-radius: 7px;
+    margin-top: 12px;
+    background: #0b4daa;
+    border: 1px solid #0b4daa;
+    min-height: 41px;
+    font-size: 17px;
+}
+
+.investment_obj.active {
+    background: #00A5F0;
+    border: 1px solid #0b4daa;
+    color: white;
+}
+
+.investment_need{
+	display:inline-block;
+	margin: 21px 0 0 15px;
+	background: #f1f2f3;
+	height: 58px;
+	width: 44%;
+	border: 1px solid #cdcfd0;
+}
+
+.investment_need.active {
+    background: #00A5F0;
+    border: 1px solid #0b4daa;
+    color: white;
+}
+
+.investment_need.retiremen {
+    margin-top: 9px;
+}
+
+.juci_switch2_on {
+    border-right: 0;
+    text-align: left;
+    padding-left: 5px;
+    border-top-left-radius: 48%;
+    border-bottom-left-radius: 48%;
+    background: #0b4daa;
+    color: #FFF;
+}
+
+.juci_switch2_off {
+    border-left: 0;
+    text-align: right;
+    padding-right: 8px;
+    border-top-right-radius: 48%;
+    border-bottom-right-radius: 48%;
+    background: #0b4daa;
+    color: #FFF;
+}
+

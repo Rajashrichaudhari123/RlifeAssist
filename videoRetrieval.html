@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/proposal.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/videoRetrieval.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<style>
+			button.juci_button.submit_data {
+			    min-height: 35px;
+			    background: #0B4DA1;
+			    border-color: #0B4DA1;
+			    border-radius: 4px;
+			    font-size: 13px;
+			}
+			
+			button.juci_button.reset {
+			    min-height: 35px;
+			    background: #0B4DA1;
+			    border-color: #0B4DA1;
+			    border-radius: 4px;
+			    font-size: 13px;
+			}
+			.juci_horizontal_bbar {
+			    text-align: center;
+			    padding-top: 15px !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div id="application-no" data-juci="text" data-label="Application Number" data-bind="ref: appNumber" required></div>
+			<div class="juci_horizontal_bbar">
+				<button data-juci="button" class="submit_data" onClick="retriveVideoFromSd()">Retrieve Data</button>
+				<button data-juci="button" class="reset" onClick="onReset()" type="reset">Reset</button>
+			</div>
+		</div>
+	</body>
+</html>

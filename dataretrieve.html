@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1.0,initial-scale=1.0" />
+		<meta http-equiv="x-rim-auto-match" content="none" />
+        <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" href="css/system.css" type="text/css"/>
+		<link rel="stylesheet" type= "text/css" href="css/company.css"></style>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/systemutils.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/company.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/pdcCustomerDetailsPojo.js"></script>
+		<script src="scripts/pdcExistingPoliciesDetailsPojo.js"></script>
+		<script src="scripts/pdcFamilyHistoryDetailsPojo.js"></script>
+		<script src="scripts/pdcImageDetaisPojo.js"></script>
+		<script src="scripts/pdcLifeStyleDetailsPojo.js"></script>
+		<script src="scripts/pdcPlanDetailsPojo.js"></script>
+		<script src="scripts/pdcPaymentDetailsPojo.js"></script>
+		<script src="scripts/saveLeadPojo.js"></script>
+      	<script src="scripts/saveActivityPlanningPojo.js"></script>
+      	<script src="scripts/saveActivityResultPojo.js"></script>
+      	<script src="scripts/saveRunnerActivityPojo.js"></script>
+		<script src="scripts/data-retrieval.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<div class="juci_thinbar">Data Retrieval Tool</div>
+			<div data-juci="form" data-bind="ref: appDataForm" onSubmit="onDataRetrieve(event)">
+				<div id="application-no" data-juci="text" data-label="Application Number Or Lead Id Or Policy Number" data-bind="ref: appNumber,visible:$root.appNo" data-formatter="formatApplicationNumber" onafterchange="callTableOptions(event)" required></div>
+				<!--<div id="lead-no" data-juci="text" data-label="Lead Id" data-bind="ref: leadId,visible:$root.leadNo" placeholder="Enter Lead Id" onafterchange="callTableOptions(event)" required></div>-->
+				<div data-juci="selectbox" data-label="Table Names" data-bind="ref: tableName, optionsList: $root.tablesList, optionsText: function(item){ return item.name;}" data-comparator="complexComparator" data-formatter="formatTableName" required>
+					<div data-juci="optiontemplate">
+						<label data-bind="display: name"></label>
+					</div>
+				</div>
+				<div class="juci_horizontal_bbar">
+					<button data-juci="button" type="submit">Retrieve Data</button>
+					<button data-juci="button" type="reset">Reset</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

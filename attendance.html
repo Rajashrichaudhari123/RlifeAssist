@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="css/attendanceManagement.css"></link>
+	<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/attendance.css"></link>
+	<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+	<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOORHmf3m8sKdKs-2s5yHxrxTnVE3hkO0&libraries=geocode&libraries=places&language=en-US" async defer></script>
+    </script>
+    <script src="scripts/header.js"></script>
+    <script src="scripts/Utils.js"></script>
+    <script src="scripts/constants.js"></script>
+    <script src="scripts/messages.js"></script>
+    <script src="scripts/dbHelper.js"></script>
+    <script src="scripts/attendanceConnector.js"></script>
+    <script src="scripts/dailyAttendancePojo.js"></script>
+    <script src="scripts/messagedigest.js"></script>
+	<script src="scripts/attendance.js"></script>
+	<script src="scripts/network.js"></script>
+  </head>
+  <body onclick="hideMenu()">
+	  <div data-juci="panel" data-first-panel>
+		<!-- Enter your HTML content here -->
+		<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+		<div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li>	
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+                 <div>
+	               <li class="item_list" onclick="openVideoRetrieval()">
+	                    <img src="images/video.png"></img>
+	                    <span>Video Retrieval</span>
+	                </li>
+                </div>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li>
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openDeviceCompatibility()">
+                  <img src="images/tablet.png"></img>
+                  <span>Device Compatibility check</span>
+               </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Calculator</span>
+                </li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+            </ul>
+         </div>
+		<div id="map"></div>
+		<textarea class="addresstext" rows="2" cols="auto" id="searchInput" data-bind="html:searchInput" disabled></textarea>
+		<div class="footBar" id="foot-bar">
+			<div class="juci_horizontal_bbar">
+				<button class="check_in" id="checkin" data-juci="button" data-bind="enable:isCheckInEnable,css:{'check_intime':isCheckInEnable() == true}" onclick="callCheckIn()">Check In</button>
+				<button class="check_out" id="checkout" data-juci="button" data-bind="enable:isCheckOutEnable,css:{'check_outtime':isCheckOutEnable() == true}" onclick="callCheckOut()">Check Out</button>
+			</div>
+		</div>
+		</div>
+  </body>
+</html>

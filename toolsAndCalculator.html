@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/proposal.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/myDreamCalculator.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/datasets.js"></script>
+		<script src="scripts/Calculations.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/toolsAndCalculator.js"></script>
+		<script src="scripts/Utils.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<div class="network_calculator" id="network-calculator" style="display:none">
+				<div class="network-related-ques" data-bind="with:questionaries">
+					<div data-juci="selectbox" class="time_goal" data-label="How many relatives do you have in your family?" data-mode="popup"  data-bind="optionsList:relatives,ref:relativesCount" placeholder ></div>
+					<div data-juci="selectbox" class="time_goal" data-label="Do you have spouse?" data-mode="popup"  data-bind="optionsList:spouseOptions,ref:spouse" placeholder onafterchange="onChangeClick(event)"></div>
+					<div data-juci="selectbox" class="time_goal" data-label="How many relatives do u have in your in-laws family?" data-mode="popup"  data-bind="visible:spouse() == 'Yes',optionsList:inLawsoptions,ref:inLawsValue" placeholder></div>
+					<div data-juci="selectbox" class="time_goal" data-label="How many friends/followers do you have on Facebook, Twitter, Instagram, WhatsApp?" data-mode="popup"  data-bind="optionsList:socialMediaoptions,ref:socialMediaValue" placeholder></div>
+					<div data-juci="selectbox" class="time_goal" data-label="Do you have any business?" data-mode="popup"  data-bind="optionsList:businessOptions,ref:businessValue" placeholder onafterchange="onChangeBusinessClick(event)"></div>
+					<div data-juci="selectbox" class="time_goal" data-label="How many customers does your business have?" data-mode="popup"  data-bind="visible:businessValue() == 'Yes',optionsList:businessCustomerOptions,ref:businessCustomerValue" placeholder></div>
+					<div data-juci="selectbox" id = "policy-sold" class="time_goal" data-label="How many policies will you sell in a month?" data-mode="popup"  data-bind="optionsList:policyOptions,ref:policyValue" placeholder></div>
+					<div class="finished">
+						<button class="finish" data-juci="button" onClick="onSubmitClick()">Submit</button>
+					</div>
+				</div>
+				<div id="dialog-network-calculator" data-juci="dialog">
+		            <div class="network_output">
+		            	<div class="network_calculation" data-bind="html:networkCalci"></div>
+		            	<div class="finished">
+		            		<button class="finish" data-juci="button" onClick="onClose('dialog-network-calculator')">Ok</button>
+		            	</div>
+		            </div>
+            	</div>
+			</div>
+		</div>
+	</body>
+</html>

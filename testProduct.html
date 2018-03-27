@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+        <!-- Add your stylesheets here -->
+         <link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/products.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/common.css"></link>
+       
+        <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+        <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+        <!-- Add your scripts here -->
+        <script src="scripts/x2js library.js"></script>
+        <script src="scripts/testBIHomePage.js"></script>
+        <script src="scripts/bimapping.js"></script>
+        <script src="scripts/hierarchy.js"></script>
+         <script src="scripts/messages.js"></script>
+        <script src="scripts/constants.js"></script>
+        <script src="scripts/products.js"></script>
+        <script src="scripts/documentDownload.js"></script>
+        <script src="scripts/dbHelper.js"></script>
+        <script src="scripts/SHDataPojo.js"></script>
+        <script src="scripts/teamhierarchy.js"></script>
+        <script src="scripts/hierarchyDatamanager.js"></script>
+       
+    </head>
+    <body onclick="hideMenu()">
+        <div data-juci="panel" data-first-panel>
+            <!-- Enter your HTML content here -->
+            	<div class="menu arrow_box" id="profilelist" style="display:none;">
+                <ul class="items">
+                	<li class="item_list" onclick="openSyncContacts()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync Personal Contacts</span>
+	                </li>
+                   <li class="item_list" onclick="openSync()">
+                        <img src="images/Sync.png"></img>
+                        <span>Sync</span>
+                    </li>   
+                    
+                     <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+               		</li>-->
+              
+                     <li class="item_list" onclick="openProposal()">
+                        <img src="images/New-Proposal.png"></img>
+                        <span>New Proposal</span>
+                    </li>  
+                    
+                    <li class="item_list" onclick="openProfileContent()">
+                        <img src="images/Profile.png"></img>
+                        <span>Profile</span>
+                    </li>
+                 <div class="" id="profile-content" style="display: none;">
+	                <li class="item"    data-bind="with:profileDetail" onclick="openProfile()">
+		              <div class="name" data-bind="html:name"></div>
+		              <div class="id" data-bind="html:'ADV ID:'+ id()"></div>
+		              <div class="id" data-bind="html:area"></div>
+	              </li>
+	                <li class="item" data-bind="with:goal" onclick="openDashboard()">
+	             		<span>Goal Summary</span> 
+	             		<div class="Goal_summary">
+		             <div class="summary">		
+		             	<div class="titles">Target:</div>	
+			              <div class="tar" data-bind="html:target"></div>
+			          </div>  
+			          <div class="summary">
+			            <div class="titles">Achieved:</div> 
+			              <div class="tar" data-bind="html:acheived"></div>
+			          </div>    
+			          <div class="summary">   
+			            <div class="titles">Pending :</div> 
+			              <div class="tar" data-bind="html:pending"></div>
+			           </div>   
+			          </div>
+	               </li>
+	            </div>
+                    <li class="item_list" onclick="openLogs()">
+                        <img src="images/logs.png"></img>
+                        <span>Logs</span>
+                    </li>
+                    
+                   <li class="item" onclick="openCustomers()">
+                        <img src="images/female.png"></img>
+                        <span>My Customers</span>
+                   </li>
+                   <li class="item" onclick="openAdvisors()">
+                        <img src="images/Folder_grey.png"></img>
+                        <span class="my_advisors">My Advisors</span>
+                   </li>
+                    
+                     <!--<div data-bind="visible:gettype()!=='ADV'">
+                   <li class="item_list" onclick="openTeamLogin()">
+                        <img src="images/Profile.png"></img>
+                        <span>Team Login</span>
+                   </li>
+                </div>-->
+                    
+                    <li class="item_list" onclick="openHelpDesk()">
+                        <img src="images/Gallery_Grey.png"></img>
+                        <span class="help">Help Desk</span>
+                    </li>
+                    <li class="item_list" onclick="doLogout()">
+                        <img src="images/power-blackgold.png"></img>
+                        <span class="log">Logout</span>
+                    </li>
+                </ul>
+             </div>
+		
+            <div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+                <div class="togcount">
+                    <button class="btn1" data-juci="button" data-toggle="1">
+                        <div class="prod">
+                            <img class="prod1" >
+                            </>
+                            <div class="notifctn">Protection</div>
+                        </div>
+                    </button>
+                    <button class="btn1" data-juci="button" data-toggle="2">
+                        <div class="prod">
+                            <img class="prod2" >
+                            </>
+                            <div class="notifctn">Saving</div>
+                        </div>
+                    </button>
+                    <button class="btn1" data-juci="button" data-toggle="3">
+                        <div class="prod">
+                            <img class="prod3" >
+                            </>
+                            <div class="In_notifctn">Investment</div>
+                        </div>
+                    </button>
+                    <button class="btn1" data-juci="button" data-toggle="4">
+                        <div class="prod">
+                            <img class="prod4">
+                            </>
+                            <div class="notifctn">Health</div>
+                        </div>
+                    </button>
+                    <button class="btn1" data-juci="button" data-toggle="5">
+                        <div class="prod">
+                            <img class="prod5" >
+                            </>
+                            <div class="In_notifctn">Retirement</div>
+                        </div>
+                    </button>
+                    <button class="btn1" data-juci="button" data-toggle="6">
+                        <div class="prod">
+                            <img class="prod6" >
+                            </>
+                            <div class="notifctn">Child</div>
+                        </div>
+                    </button>
+                    <button class="btn1" data-juci="button" data-toggle="7">
+                        <div class="prod">
+                            <img class="prod7" >
+                            </>
+                            <div class="notifctn">Solutions for group</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+      		
+                			<!--<div id="dialog-teamlogin" data-juci="dialog">
+			<div class="heading_team">
+				<div class="dialogheader">Login As</div>
+				<div class="refresh_area">
+		         	<div class="refresh_img">	<img src="images/refresh.png"></img></div>
+				<span class="close" onclick="hidebox()">X</span>
+				</div>
+			</div>
+			
+			<div class="content-body"> 
+				<div class="user_name_area">
+				<div class="info">Currently logged in as</div>
+				<div class="user" data-bind="html: $root.user().name()"></div>
+				<div class="sync_time">Last Sync 13 Hours ago</div>
+				</div>
+				<div id="zm" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup"data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="am"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="bm"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format"    onafterchange="drillDown(event)" >
+				
+				</div>
+				
+				<div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm'),optionsList:$root.adlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)">
+				
+				</div>
+				
+			</div>
+				<div class="juci_thinbar team">
+					<button class="login" data-juci="button" onclick="openProducts()">Login as</button>
+					<button class="loginas" data-juci="button" onclick="openProposal()">Login as Myself</button>
+				</div> 
+			
+			</div>-->
+			
+            <div id ="protection">
+                <div class="listhead">Protection Plan</div>
+                <div id="products-list" data-juci="xlist" data-bind="ref:$root.protect">
+                    <div id="protect" data-juci="listitem" onclick="showfulllist(event)" data-bind="attr:{id: 'list-id' +$index()}">
+                        <div class="listtitle" data-bind="html:title"></div>
+                        <div class="content" data-bind="display:content"></div>
+                        <div class="button">
+                            <button class="listbutton" data-juci="button" class="benefitillustration">Benefit Illustration</button>
+                        </div>
+                        <div id="dialog-box" data-juci="dialog">
+                            <div class="heading">
+                                <div class="dialogheader">Assign To</div>
+                                <span class="close" onclick="hidebox()">X</span>
+                            </div>
+                        </div>
+                        <div class="show"  id="more" data-bind=attr:{'id':$index()} >
+                            <div class="showing" data-bind="attr:{id: 'SM' +$index()}" >Show more</div>
+                        </div>
+                        <div class="less" data-bind="attr:{id: 'less' + $index()}" style="display:none;">
+                            <div class="imgheading">
+                                <div class="header">Reliance Traditional Group Superannuation Plan (MBR-Par)</div>
+                                <div class="prodimg">
+                                    <div class="imgs">
+                                <!--  <iframe width="100%" height="100%" frameborder="0" allowfullscreen="" src="https://www.youtube.com/embed/BPNTC7uZYrI" frameborder="0" allowfullscreen></iframe>-->
+                                     <img src="images/RLIFE.png"></img>
+                                    </div>
+                                </div>
+                                <div class ="header">How this plan works</div>
+                                <div class="prodimg">
+                                    <div class= "imgs">
+                                        <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="broucherlist" data-bind="foreach:broucher">
+                                <div class="downloaditem">
+                                    <div class="listname" data-bind="display:Title"></div>
+                                    <div class="broucherimg">
+                                        <div class="iconimg">
+                                            <img src="images/send mail.png"></img>
+                                        </div>
+                                        <div class="iconimg2">
+                                            <img src="images/uploadicon.png"></img>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id ="saving">
+                <div class="listhead">Saving Plan</div>
+                <div id="savings-list" data-juci="xlist" data-bind="ref:$root.saving" >
+                    <div data-juci="listitem" onclick="showlist(event)" >
+                        <div class="listtitle" data-bind="html:title"></div>
+                        <div class="content" data-bind="display:content"></div>
+                        <div class="button">
+                            <button class="listbutton" data-juci="button" >Benefit Illustration</button>
+                        </div>
+                        <div id="dialog-box" data-juci="dialog">
+                            <div class="heading">
+                                <div class="dialogheader">Assign To</div>
+                                <span class="close" onclick="hidebox()">X</span>
+                            </div>
+                        </div>
+                        <div class="show"  id="more" data-bind=attr:{'id':$index()} >
+                            <div class="showing" data-bind="attr:{id: 'SMS' +$index()}" >Show more</div>
+                        </div>
+                        <div class="less" data-bind="attr:{id: 'lessS' + $index()}" style="display:none;">
+                            <div class="imgheading">
+                                <div class="header">Reliance Traditional Group Superannuation Plan (MBR-Par)</div>
+                                <div class="prodimg">
+                                    <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                                <div class ="header">How this plan works</div>
+                                <div class="prodimg">
+                                   <div class="imgs">
+                               <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="broucherlist" data-bind="foreach:broucher">
+                                <div class="downloaditem">
+                                    <div class="listname" data-bind="display:Title"></div>
+                                    <div class="broucherimg">
+                                        <div class="iconimg">
+                                            <img src="images/send mail.png"></img>
+                                        </div>
+                                        <div class="iconimg2">
+                                            <img src="images/uploadicon.png"></img>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id ="invest">
+                <div class="listhead">Investment Plan</div>
+                <div id="invest-list" data-juci="xlist" data-bind="ref:$root.invest" >
+                    <div data-juci="listitem" onclick="showdata(event)">
+                        <div class="listtitle" data-bind="html:title"></div>
+                        <div class="content" data-bind="display:content"></div>
+                        <div class="button">
+                            <button class="listbutton" data-juci="button" >Benefit Illustration</button>
+                        </div>
+                        <div id="dialog-box" data-juci="dialog">
+                            <div class="heading">
+                                <div class="dialogheader">Assign To</div>
+                                <span class="close" onclick="hidebox()">X</span>
+                            </div>
+                        </div>
+                        <div class="show"  id="more" data-bind=attr:{'id':$index()} >
+                            <div class="showing" data-bind="attr:{id: 'SMI' +$index()}" >Show more</div>
+                        </div>
+                        <div class="less" data-bind="attr:{id: 'lessi' + $index()}" style="display:none;">
+                            <div class="imgheading">
+                                <div class="header">Reliance Traditional Group Superannuation Plan (MBR-Par)</div>
+                                <div class="prodimg">
+                                   <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                                <div class ="header">How this plan works</div>
+                                <div class="prodimg">
+                                   <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="broucherlist" data-bind="foreach:broucher">
+                                <div class="downloaditem">
+                                    <div class="listname" data-bind="display:Title"></div>
+                                    <div class="broucherimg">
+                                        <div class="iconimg">
+                                            <img src="images/send mail.png"></img>
+                                        </div>
+                                        <div class="iconimg2">
+                                            <img src="images/uploadicon.png"></img>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id ="health">
+                <div class="listhead">Health Plan</div>
+                <div id="health-list" data-juci="xlist" data-bind="ref:$root.health" >
+                    <div data-juci="listitem"onclick="showHealth(event)" >
+                        <div class="listtitle" data-bind="html:title"></div>
+                        <div class="content" data-bind="display:content"></div>
+                        <div class="button">
+                            <button class="listbutton" data-juci="button" >Benefit Illustration</button>
+                        </div>
+                        <div id="dialog-box" data-juci="dialog">
+                            <div class="heading">
+                                <div class="dialogheader">Assign To</div>
+                                <span class="close" onclick="hidebox()">X</span>
+                            </div>
+                        </div>
+                        <div class="show"  id="more" data-bind=attr:{'id':$index()} >
+                            <div class="showing" data-bind="attr:{id: 'SMH' +$index()}" >Show more</div>
+                        </div>
+                        <div class="less" data-bind="attr:{id: 'lessh' + $index()}" style="display:none;">
+                            <div class="imgheading">
+                                <div class="header">Reliance Traditional Group Superannuation Plan (MBR-Par)</div>
+                                <div class="prodimg">
+                                   <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                                <div class ="header">How this plan works</div>
+                                <div class="prodimg">
+                                   <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="broucherlist" data-bind="foreach:broucher">
+                                <div class="downloaditem">
+                                    <div class="listname" data-bind="display:Title"></div>
+                                    <div class="broucherimg">
+                                        <div class="iconimg">
+                                            <img src="images/send mail.png"></img>
+                                        </div>
+                                        <div class="iconimg2">
+                                            <img src="images/uploadicon.png"></img>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id ="retirement">
+                <div class="listhead">Retirement Plan</div>
+                <div id="retirement-list" data-juci="xlist" data-bind="ref:$root.retirement" >
+                    <div data-juci="listitem" onclick="showretire(event)">
+                        <div class="listtitle" data-bind="html:title"></div>
+                        <div class="content" data-bind="display:content"></div>
+                        <div class="button">
+                            <button class="listbutton" data-juci="button" >Benefit Illustration</button>
+                        </div>
+                        <div id="dialog-box" data-juci="dialog">
+                            <div class="heading">
+                                <div class="dialogheader">Assign To</div>
+                                <span class="close" onclick="hidebox()">X</span>
+                            </div>
+                        </div>
+                        <div class="show"  id="more" data-bind=attr:{'id':$index()}>
+                            <div class="showing" data-bind="attr:{id: 'SMR' +$index()}" >Show more</div>
+                        </div>
+                        <div class="less" data-bind="attr:{id: 'lessr' + $index()}" style="display:none;">
+                            <div class="imgheading">
+                                <div class="header">Reliance Traditional Group Superannuation Plan (MBR-Par)</div>
+                                <div class="prodimg">
+                                     <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                                <div class ="header">How this plan works</div>
+                                <div class="prodimg">
+                                    <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="broucherlist" data-bind="foreach:broucher">
+                                <div class="downloaditem">
+                                    <div class="listname" data-bind="display:Title"></div>
+                                    <div class="broucherimg">
+                                        <div class="iconimg">
+                                            <img src="images/send mail.png"></img>
+                                        </div>
+                                        <div class="iconimg2">
+                                            <img src="images/uploadicon.png"></img>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id ="child">
+                <div class="listhead">Child Plan</div>
+                <div id="child-list" data-juci="xlist" data-bind="ref:$root.child" >
+                    <div data-juci="listitem" onclick="showchild(event)">
+                        <div class="listtitle" data-bind="html:title"></div>
+                        <div class="content" data-bind="display:content"></div>
+                        <div class="button">
+                            <button class="listbutton" data-juci="button" >Benefit Illustration</button>
+                        </div>
+                        <div id="dialog-box" data-juci="dialog">
+                            <div class="heading">
+                                <div class="dialogheader">Assign To</div>
+                                <span class="close" onclick="hidebox()">X</span>
+                            </div>
+                        </div>
+                        <div class="show"  id="more" data-bind=attr:{'id':$index()} >
+                            <div class="showing" data-bind="attr:{id: 'SMC' +$index()}" >Show more</div>
+                        </div>
+                        <div class="less" data-bind="attr:{id: 'lessc' + $index()}" style="display:none;">
+                            <div class="imgheading">
+                                <div class="header">Reliance Traditional Group Superannuation Plan (MBR-Par)</div>
+                                <div class="prodimg">
+                                    <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                                <div class ="header">How this plan works</div>
+                                <div class="prodimg">
+                                   <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <div  id="broucherlist" data-bind="foreach:broucher">
+                                <div class="downloaditem">
+                                    <div class="listname" data-bind="display:Title"></div>
+                                    <div class="broucherimg">
+                                        <div class="iconimg">
+                                            <img src="images/send mail.png"></img>
+                                        </div>
+                                        <div class="iconimg2">
+                                            <img src="images/uploadicon.png"></img>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id ="solutions">
+                <div class="listhead">Employers Liabilitys Solutions</div>
+                <div id="solutions-list" data-juci="xlist" data-bind="ref:$root.solutions" >
+                    <div data-juci="listitem" onclick="showsolutions(event)">
+                        <div class="listtitle" data-bind="html:title"></div>
+                        <div class="content" data-bind="display:content"></div>
+                        <div class="button">
+                            <button class="listbutton" data-juci="button" >Benefit Illustration</button>
+                        </div>
+                        <div id="dialog-box" data-juci="dialog">
+                            <div class="heading">
+                                <div class="dialogheader">Assign To</div>
+                                <span class="close" onclick="hidebox()">X</span>
+                            </div>
+                        </div>
+                        <div class="show"  id="more" data-bind=attr:{'id':$index()} >
+                            <div class="showing" data-bind="attr:{id: 'SMG' +$index()}" >Show more</div>
+                        </div>
+                        <div class="less" data-bind="attr:{id: 'lessg' + $index()}" style="display:none;">
+                            <div class="imgheading">
+                                <div class="header">Reliance Traditional Group Superannuation Plan (MBR-Par)</div>
+                                <div class="prodimg">
+                                    <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                                <div class ="header">How this plan works</div>
+                                <div class="prodimg">
+                                   <div class="imgs">
+                                <img src="images/RLIFE.png"></img> 
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="broucherlist" data-bind="foreach:broucher">
+                                <div class="downloaditem">
+                                    <div class="listname" data-bind="display:Title"></div>
+                                    <div class="broucherimg">
+                                        <div class="iconimg">
+                                            <img src="images/send mail.png"></img>
+                                        </div>
+                                        <div class="iconimg2">
+                                            <img src="images/uploadicon.png"></img>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+             	<div class="menu" id="menulist" style="display: none;">
+	          <ul class="items">
+	            <li class="item" onclick="openLead()">
+	              <span>New Lead</span>
+	            </li>
+	            <li class="item" onclick="openProducts()">
+	              <span>New Proposal</span>
+	            </li>
+	            </ul>
+	      </div>
+             	<div class="footerbar">
+	          <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div><span> | </span>
+	          <div class="terms" onclick="openTerms()">Terms and Conditions</div><span> | </span>
+	          <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+	        </div>
+        </div>
+    </body>
+</html>

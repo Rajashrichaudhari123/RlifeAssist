@@ -1,0 +1,44 @@
+.header{
+    font-weight: bold;
+}
+.ConsentForm {
+    overflow: scroll;
+    height: 300px;
+    margin: 8px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    padding-top: 9px;
+    line-height: 17px;
+}
+.check .juci_switch_label{
+    color: black;
+    line-height: 20px;
+    font-size: 14px;
+}
+.ConsentFormHeader{
+width: 100%;
+    margin: auto;
+    /* padding: 13px 0; */
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.submittConsent{
+width: 40%;
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    font-size: 14px;
+    min-height: 38px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 16px;
+    margin-right: 27% !important;
+    width: 44% !important;
+}
+.aadhar_detail{
+	background: #f1f1f1;
+    color: #565656;
+}

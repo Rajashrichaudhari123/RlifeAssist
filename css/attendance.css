@@ -1,0 +1,135 @@
+div#map {
+    display: block;
+    /* max-height: 518px; */
+    height: 767px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+#map{
+	position:relative;
+}
+
+.disable_text {
+    background: #E74C3C;
+}
+
+
+#searchInput{
+	position:absolute;
+}
+
+.addresstext {
+    padding: 8px 2px;
+}
+
+textarea#searchInput {
+    word-wrap: break-word;
+    /* padding-top: 3px; */
+    margin-left: 16px;
+    top: 69px;
+    width: 89%;
+    height: 30px;
+    text-align: justify;
+    background: #FFF;
+    /* color: #F0F3F4; */
+    border: 1px solid #D7DBDD;
+}
+
+.footBar{
+	background: #EEEEEE;
+	color: white;
+	text-align: center;
+	padding-top: 0%;
+	padding-bottom: 2%;
+	margin-bottom: 0;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	font-size: 12px;
+	z-index:4;
+	height: 49px;
+	vertical-align: middle;
+	border-top: 1px solid #A9A9A9;
+}
+
+button.check_in {
+	background: #A6ACAF;
+	border-color: #A6ACAF;
+	border-radius: 4px;
+	width: 43%;
+	color: #fff;
+}
+
+.juci_button.touch {
+	color: #FFF;
+	text-shadow: none;
+	background: #0B4DA1;
+}
+
+button.check_out {
+	background: #A6ACAF;
+	border-color: #A6ACAF;
+	border-radius: 4px;
+	width: 43%;
+	color: #fff;
+    height: 31px;
+}
+
+button.check_intime {
+	background: #0B4DA1;
+	border-color: #0B4DA1;
+	border-radius: 4px;
+	width: 43%;
+	color: #fff;
+}
+
+button.check_outtime {
+	background: #0B4DA1;
+	border-color: #0B4DA1;
+	border-radius: 4px;
+	width: 43%;
+	color: #fff;
+    height: 31px;
+}
+
+
+
+.juci_button {
+	min-width: 50px;
+	min-height: 43px;
+}
+
+.juci_horizontal_bbar, .juci_triple_bbar {
+	margin: 7px auto;
+}
+
+.arrow_box {
+	/* background: #88b7d5; */
+	/* border: 4px solid #c2e1f5; */
+}
+.arrow_box:after, .arrow_box:before {
+	bottom: 89%;
+	right: 14px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 1px;
+	position: fixed;
+	pointer-events: none;
+	top: 35px;
+}
+
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #FFF;
+	border-width: 9px;
+	margin-left: -30px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	/* border-bottom-color: #c2e1f5; */
+	/* border-width: 28px; */
+	/* margin-left: -36px; */
+}
+

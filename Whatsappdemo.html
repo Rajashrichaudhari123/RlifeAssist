@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<script src="scripts/header.js"></script>
+		<!-- Add your stylesheets here -->
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/whatsappdemo.js"></script>
+		<!-- Add your scripts here -->
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div class="juci_thinbar">Send Message Via Whats app</div>
+			<div data-juci="tel" id="mobile" data-label="Enter Mobile No" data-bind placeholder="9963840262" data-trigger></div>
+			<div data-juci="textarea" id="txtmsg" data-label="Enter text you would like send" data-bind placeholder="Say Hi to your friends" data-trigger></div>	
+			<div class="juci_horizontal_bbar">
+				<button data-juci="button" onclick="openFileChoose()">Add Attachment</button>
+				<button data-juci="button" onclick="sendMsg()">Send</button>
+			</div>
+			
+		</div>
+	</body>
+</html>

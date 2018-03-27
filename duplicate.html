@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div class="tab">
+					<div  class="juci_thinbar"><div class="naming">Photo ID</div>
+					<div class="collapse">
+						<div class="doctyp">Please select the documment type you would like to upload for your address Photo Id</div>
+						<div class="doc">Select Document Type</div><div class="star">*</div>
+						<select data-bind="options:$root.option1,optionsText:'value'"></select>
+						<p class="dismiss" onclick="hide()">x</p>
+						<p class="cross">Please ensure that the images that you upload are properly visible.</p>
+						<div class="stmnt">Choose one of the following option for uploading the photo ID :</div>
+						
+						<div data-bind="foreach:pidcontent">
+							<div class="h">
+								<div class="hl">
+									<div class="l">Images</div>
+								</div>
+								<div class="hr">
+									<img class="r"  data-bind="attr:{src:img}"></img>
+								</div>
+							</div>
+							<div class="h">
+								<div class="hl">
+									<div class="l">Category & Type</div>
+								</div>
+								<div class="hr">
+									<div class="r" data-bind="html:cat"></div>
+								</div>
+							</div>
+							<div class="h">
+								<div class="hl">
+									<div class="l">CFR ID</div>
+								</div>
+								<div class="hr">
+									<div class="r" data-bind="html:cfrid"></div>
+								</div>
+							</div>
+							<div class="h">
+								<div class="hl">
+									<div class="l">Upload Date</div>
+								</div>
+								<div class="hr">	
+									<div class="r" data-bind="html:udate"></div>
+								</div>
+							</div>
+							<div class="hb">
+								<div class="hl">
+									<div class="l">Action</div>
+								</div>
+								<div class="hr">
+									<img class="r" data-bind="attr:{src:act}"><img>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tab">
+					<div  class="juci_thinbar"><div class="naming">Extra Premium Payment</div>
+					<div class="collapse">
+						<div class="doctyp">Following are the details of the polecy selected by you which requires an extra premium</div>
+						<div class="doc">Select Document Type</div><div class="star">*</div>
+						<select data-bind="options:$root.option1,optionsText:'value'"></select>
+						<p class="dismiss" onclick="hide()">x</p>
+						<p class="cross">Please ensure that the images that you upload are properly visible.</p>
+						<div class="stmnt">Choose one of the following option for uploading the photo ID :</div>
+						<!--<div id="toogle" data-juci="togglebar" data-toggled="0">
+							<div class="toggle">
+							<button class="btn1" data-juci="button" data-toggle="1">
+								<div class="pic"><span class="notifctn">Capture</span></div>
+							</button>
+							<button class="btn1" data-juci="button" data-toggle="2">
+								<div class="pic"><span class="notifctn">Gallery</span></div>
+							</button>
+							<button class="btn1" data-juci="button" data-toggle="3">
+								<div class="pic"><span class="notifctn">Browse</span></div>
+							</button>
+							</div>	
+						</div>-->
+						<div data-bind="foreach:pidcontent">
+							<div class="h">
+								<div class="hl">
+									<div class="l">Images</div>
+								</div>
+								<div class="hr">
+									<img class="r"  data-bind="attr:{src:img}"></img>
+								</div>
+							</div>
+							<div class="h">
+								<div class="hl">
+									<div class="l">Category & Type</div>
+								</div>
+								<div class="hr">
+									<div class="r" data-bind="html:cat"></div>
+								</div>
+							</div>
+							<div class="h">
+								<div class="hl">
+									<div class="l">CFR ID</div>
+								</div>
+								<div class="hr">
+									<div class="r" data-bind="html:cfrid"></div>
+								</div>
+							</div>
+							<div class="h">
+								<div class="hl">
+									<div class="l">Upload Date</div>
+								</div>
+								<div class="hr">	
+									<div class="r" data-bind="html:udate"></div>
+								</div>
+							</div>
+							<div class="hb">
+								<div class="hl">
+									<div class="l">Action</div>
+								</div>
+								<div class="hr">
+									<img class="r" data-bind="attr:{src:act}"><img>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+				<div class="tab">
+				<div  class="juci_thinbar"><div class="naming">Age Proof</div>
+				<div class="collapse">
+					
+					<div class="doctyp">Please select the documment type you would like to upload for your age proof</div>
+					<div class="doc">Select Document Type</div><div class="star">*</div>
+					<select data-bind="options:$root.option1,optionsText:'value'"></select>
+					<div id="pop">
+					<p class="dismiss" onclick="hide()">x</p>
+						<p class="cross">Please ensure that the images that you upload are properly visible.</p>
+					</div>
+					<div class="stmnt">Choose one of the following option for uploading the photo ID :</div>
+					<!--<div id="toogle" data-juci="togglebar" data-toggled="0">
+						<div class="toggle">
+						<button class="btn1" data-juci="button" data-toggle="1">
+							<div class="pic"><span class="notifctn">Capture</span></div>
+						</button>
+						<button class="btn1" data-juci="button" data-toggle="2">
+							<div class="pic"><span class="notifctn">Gallery</span></div>
+						</button>
+						<button class="btn1" data-juci="button" data-toggle="3">
+							<div class="pic"><span class="notifctn">Browse</span></div>
+						</button>
+						</div>	
+					</div>-->
+					<div data-bind="foreach:agpcontent">
+						<div class="h">
+							<div class="hl">
+								<div class="l">Images</div>
+							</div>
+							<div class="hr">
+								<img class="r"  data-bind="attr:{src:img}"></img>
+							</div>
+						</div>
+						<div class="h">
+							<div class="hl">
+								<div class="l">Category & Type</div>
+							</div>
+							<div class="hr">
+								<div class="r" data-bind="html:cat"></div>
+							</div>
+						</div>
+						<div class="h">
+							<div class="hl">
+								<div class="l">CFR ID</div>
+							</div>
+							<div class="hr">
+								<div class="r" data-bind="html:cfrid"></div>
+							</div>
+						</div>
+						<div class="h">
+							<div class="hl">
+								<div class="l">Upload Date</div>
+							</div>
+							<div class="hr">	
+								<div class="r" data-bind="html:udate"></div>
+							</div>
+						</div>
+						<div class="hb">
+							<div class="hl">
+								<div class="l">Action</div>
+							</div>
+							<div class="hr">
+								<img class="r" data-bind="attr:{src:act}"><img>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+			<div class="tab">
+				<div  class="juci_thinbar"><div class="naming">Identity Proof</div>
+				<div class="collapse">
+					
+					<div class="doctyp">Please select the documment type you would like to upload for your identity proof</div>
+					<div class="doc">Select Document Type</div><div class="star">*</div>
+					<select data-bind="options:$root.option1,optionsText:'value'"></select>
+					<div id="pop">
+					<p class="dismiss" onclick="hide()">x</p>
+						<p class="cross">Please ensure that the images that you upload are properly visible.</p>
+					</div>
+					<div class="stmnt">Choose one of the following option for uploading the photo ID :</div>
+					<!--<div id="toogle" data-juci="togglebar" data-toggled="0">
+						<div class="toggle">
+						<button class="btn1" data-juci="button" data-toggle="1">
+							<div class="pic"><span class="notifctn">Capture</span></div>
+						</button>
+						<button class="btn1" data-juci="button" data-toggle="2">
+							<div class="pic"><span class="notifctn">Gallery</span></div>
+						</button>
+						<button class="btn1" data-juci="button" data-toggle="3">
+							<div class="pic"><span class="notifctn">Browse</span></div>
+						</button>
+						</div>	
+					</div>-->
+					<div data-bind="foreach:idpcontent">
+						<div class="h">
+							<div class="hl">
+								<div class="l">Images</div>
+							</div>
+							<div class="hr">
+								<img class="r"  data-bind="attr:{src:img}"></img>
+							</div>
+						</div>
+						<div class="h">
+							<div class="hl">
+								<div class="l">Category & Type</div>
+							</div>
+							<div class="hr">
+								<div class="r" data-bind="html:cat"></div>
+							</div>
+						</div>
+						<div class="h">
+							<div class="hl">
+								<div class="l">CFR ID</div>
+							</div>
+							<div class="hr">
+								<div class="r" data-bind="html:cfrid"></div>
+							</div>
+						</div>
+						<div class="h">
+							<div class="hl">
+								<div class="l">Upload Date</div>
+							</div>
+							<div class="hr">	
+								<div class="r" data-bind="html:udate"></div>
+							</div>
+						</div>
+						<div class="hb">
+							<div class="hl">
+								<div class="l">Action</div>
+							</div>
+							<div class="hr">
+								<img class="r" data-bind="attr:{src:act}"><img>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+			<div class="tab">
+				<div  class="juci_thinbar"><div class="naming">Income Proof</div>
+				<div class="collapse">
+					
+					<div class="doctyp">Please select the documment type you would like to upload for your identity proof</div>
+					<div class="doc">Select Document Type</div><div class="star">*</div>
+					<select data-bind="options:$root.option1,optionsText:'value'"></select>
+					<div id="pop">
+					<p class="dismiss" onclick="hide()">x</p>
+						<p class="cross">Please ensure that the images that you upload are properly visible.</p>
+					</div>
+					<div class="stmnt">Choose one of the following option for uploading the photo ID :</div>
+					<!--<div id="toogle" data-juci="togglebar" data-toggled="0">
+						<div class="toggle">
+						<button class="btn1" data-juci="button" data-toggle="1">
+							<div class="pic"><span class="notifctn">Capture</span></div>
+						</button>
+						<button class="btn1" data-juci="button" data-toggle="2">
+							<div class="pic"><span class="notifctn">Gallery</span></div>
+						</button>
+						<button class="btn1" data-juci="button" data-toggle="3">
+							<div class="pic"><span class="notifctn">Browse</span></div>
+						</button>
+						</div>	
+					</div>-->
+					<div data-bind="foreach:inpcontent">
+						<div class="h">
+							<div class="hl">
+								<div class="l">Images</div>
+							</div>
+							<div class="hr">
+								<img class="r"  data-bind="attr:{src:img}"></img>
+							</div>
+						</div>
+						<div class="h">
+							<div class="hl">
+								<div class="l">Category & Type</div>
+							</div>
+							<div class="hr">
+								<div class="r" data-bind="html:cat"></div>
+							</div>
+						</div>
+						<div class="h">
+							<div class="hl">
+								<div class="l">CFR ID</div>
+							</div>
+							<div class="hr">
+								<div class="r" data-bind="html:cfrid"></div>
+							</div>
+						</div>
+						<div class="h">
+							<div class="hl">
+								<div class="l">Upload Date</div>
+							</div>
+							<div class="hr">	
+								<div class="r" data-bind="html:udate"></div>
+							</div>
+						</div>
+						<div class="hb">
+							<div class="hl">
+								<div class="l">Action</div>
+							</div>
+							<div class="hr">
+								<img class="r" data-bind="attr:{src:act}"><img>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

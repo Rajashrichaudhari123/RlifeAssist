@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+      <link rel="stylesheet" type="text/css" href="css/dialog.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/rlifecss.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/newlead.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/dialog.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/proposalcolors.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/common.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/select-box.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/collapsible.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/juci-switch2-color.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/juci-switch2-layout.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/additionalswitch.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/select.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/jqueryui.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/colors.css">
+      </link>
+      <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+      <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+      <script src="scripts/constants.js"></script>
+      <script src="scripts/messages.js"></script>
+      <script src="scripts/Utils.js"></script>
+      <script src="scripts/CampaignGroupMaster.js"></script>
+      <script src="scripts/CampaignNames.js"></script>
+      <script src="scripts/cityTier.js"></script>
+      <script src="scripts/dbHelper.js"></script>
+      <script src="scripts/saveLeadPojo.js"></script>
+      <script src="scripts/bindingObjectInput.js"></script>
+      <script src="scripts/rlifeservices.js"></script>
+      <script src="scripts/newlead.js"></script>
+      <script src="scripts/SHDataPojo.js"></script>
+      <script src="scripts/dropdown.js"></script>
+      <script src="scripts/subdropdowns.js"></script>
+      <script src="scripts/header.js"></script>
+   </head>
+   <body onclick="hideMenu()">
+      <div data-juci="panel" data-first-panel>
+      <div class="menu arrow_add_box" id="menulist" style="display: none;">
+            <ul class="items">
+                <li class="item" onclick="openPlanning()">
+                    <span>Planning</span>
+                </li>
+            </ul>
+        </div>
+      	<div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li>  -->
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li-->
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <li class="item_list" onclick="openDeviceCompatibility()">
+                  <img src="img/tablet.png"></img>
+                  <span>Device Compatibility check</span>
+               </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <!--<li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li-->
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                 <div>
+	               <li class="item_list" onclick="openVideoRetrieval()">
+	                    <img src="images/video.png"></img>
+	                    <span>Video Retrieval</span>
+	                </li>
+                </div>
+                
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Calculator</span>
+        		</li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+                <li></li>
+            </ul>
+        </div>
+         <!-- Toggle Menu -->
+         <div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+            <div class="togcount" data-bind>
+               <button class="btn1 lftbrd" data-juci="button" data-toggle="1">
+                  <div class="inputs"><span class="notif" data-bind></span><span class="notifctn">New Lead</span></div>
+               </button>
+            </div>
+         </div>
+         <!-- New Lead Form -->
+         <div data-juci="form"  id="nLeadForm" data-bind="ref:newLeadForm"  onsubmit="SaveNewLeadDetails(event)" data-validation="all">
+            <!-- New Lead Details -->
+            <div class="life2assure">
+               <p class="form-heading1 life">Enter Details</p>
+               <div class="leadtype" id="lead-type" data-juci="selectbox" data-mode="popup" data-bind="visible: gettype() != 'FLS',optionsList:$root.lead_type,ref:Lead_Type,optionsText:getInputs,attr:{'data-novalidate':((gettype() == 'FLS'))}" data-label="Lead Type<span class='star'>*</span>" data-formatter="getInputs" data-comparator="inputComparator" onvalidationfail="Utils.GetValidationMessage(event,'Lead Type')" onafterchange="callLeadSubType(event)" required></div>
+               
+               <div class="leadtype" data-juci="selectbox" data-mode="popup" data-bind="visible: gettype() == 'FLS',optionsList:$root.leadType,ref:Lead_Type,optionsText:getInputs,attr:{'data-novalidate':((gettype() != 'FLS'))},disabled:$root.leadTypeFls" data-label="Lead Type<span class='star'>*</span>" data-formatter="getInputs" data-comparator="inputComparator" onvalidationfail="Utils.GetValidationMessage(event,'Lead Type')" onafterchange="callLeadSubType(event)" required></div>
+               <div class="advisor_list" data-juci="selectbox" data-mode="popup" data-bind="optionsList:$root.advisors_list,ref:Advisor_Code,optionsText:getInputsSubValue,visible:gettype() != 'FLS' && $root.advisors_visible,attr:{'data-novalidate':((Lead_Type.Description == 'Recruitment')||(gettype() == 'FLS') )}" data-label="Advisor Name<span class='star'>*</span>" data-formatter="getInputsSubValue" onvalidationfail="Utils.GetValidationMessage(event,'Advisor Name')"></div>
+               
+               <div class="advisor_list" data-juci="text" data-label="Advisor Name<span class='star'>*</span>" disabled data-bind="visible: gettype() == 'FLS',ref:Advisor_Code,attr:{'data-novalidate':((gettype() != 'FLS'))}" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Advisor Name')"></div>
+               
+               <div class="leadsubtype" id="lead-subtype" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS' && $root.Subtype,optionsList:$root.lead_subtype,ref:Lead_Sub_Type,optionsText:getInputsSubValue,attr:{'data-novalidate':((Lead_Type() == '') || (Lead_Type().Description() == 'Exisiting Customer') || (Lead_Type().Description() == 'Renewal') || (gettype() == 'FLS'))}" data-label="Lead Subtype<span class='star'>*</span>" data-formatter="getInputsSubValue" onvalidationfail="Utils.GetValidationMessage(event,'Lead Subtype')" data-comparator="inputSubComparator" required></div>
+               <div class="leadsubtype" id="lead-subtypefls" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS' && $root.Subtype,optionsList:$root.lead_subtype,ref:Lead_Sub_Type,optionsText:getInputsSubValue,attr:{'data-novalidate':((Lead_Type() == '') || (Lead_Type().Description() == 'Exisiting Customer' || gettype() != 'FLS') || (Lead_Type().Description() == 'Renewal'))},disabled:$root.leadTypeFls" data-label="Lead Subtype<span class='star'>*</span>" data-formatter="getInputsSubValue" onvalidationfail="Utils.GetValidationMessage(event,'Lead Subtype')" data-comparator="inputSubComparator" required></div>
+               <div class="lead_source" id="lead-source" data-juci="selectbox" data-mode="popup" data-bind="visible: gettype() != 'FLS',optionsList: $root.lead_source,ref:Lead_Type,optionsText: getInputs,attr:{'data-novalidate':gettype() == 'FLS'}" data-label="Lead Source<span class='star'>*</span>" data-formatter="getInputs"  onvalidationfail="Utils.GetValidationMessage(event,'Lead Source')" data-comparator="inputComparator" onafterchange="callLeadSubSource(event)"  ></div>
+               <!--<div class="lead_source" id="lead-sourceFls" data-juci="selectbox" data-mode="popup" data-bind="visible: gettype() == 'FLS',optionsList: $root.lead_source,ref:Lead_Type,optionsText: getInputs" data-label="Lead Source<span class='star'>*</span>" data-formatter="getInputs"  onvalidationfail="Utils.GetValidationMessage(event,'Lead Source')" data-comparator="inputComparator" onafterchange="callLeadSubSource(event)" required ></div>-->
+               <div class="lead_sub_source" id="lead-subsource" data-juci="selectbox" data-mode="popup" data-bind="visible:$root.SubSource && gettype() != 'FLS',optionsList:$root.lead_subsource,ref:Lead_Sub_Source,optionsText:getInputsSubValue,attr:{'data-novalidate':Lead_Type() == ''||(Lead_Type() == 'Exisiting Customer' || gettype() == 'FLS')}" data-label="Lead Source Suboptions<span class='star'>*</span>" data-formatter="getInputsSubValue" onvalidationfail="Utils.GetValidationMessage(event,'Lead Sub Source ')"	data-comparator="inputSubComparator" required></div>
+               <!--<div class="lead_sub_source" id="lead-subsourcefls" data-juci="selectbox" data-mode="popup" data-bind="visible:$root.SubSource && gettype() == 'FLS',optionsList:$root.lead_subsource,ref:Lead_Sub_Source,optionsText:getInputsSubValue,attr:{'data-novalidate':Lead_Source() == ''||(Lead_Source().Description() == 'Exisiting Customer')}" data-label="Lead Source Suboptions<span class='star'>*</span>" data-formatter="getInputsSubValue" onvalidationfail="Utils.GetValidationMessage(event,'Lead Sub Source ')"	data-comparator="inputSubComparator" required></div>-->
+               <div class="lead_source" data-juci="selectbox" data-mode="popup" data-bind="visible: gettype() == 'FLS',optionsList: $root.campaign_group,ref:Lead_Source,optionsText: getInputDescription,attr:{'data-novalidate':gettype() != 'FLS'},disabled:$root.leadTypeFls" data-label="Campaign Group<span class='star'>*</span>" data-formatter="getInputDescription"  onvalidationfail="Utils.GetValidationMessage(event,'Campaign Group')"	data-comparator="inputDescComparator" onafterchange="getCampaignNames(event)"  required ></div>
+               <div class="lead_sub_source" data-juci="selectbox" data-mode="popup" data-bind="visible:$root.campaign_names_flag || gettype() == 'FLS',optionsList:$root.campaign_names,ref:Lead_Sub_Source,optionsText:getInputDescription,attr:{'data-novalidate':Lead_Source() == ''},disabled:$root.leadTypeFls" data-label="Campaign Names<span class='star'>*</span>" data-formatter="getInputDescription" onvalidationfail="Utils.GetValidationMessage(event,'Campaign Names')" data-comparator="inputDescComparator" required></div>
+               <!--div class="aadhar_no" data-juci="tel" data-label="Aadhar Card Number" maxlength="12" minlength="12" data-bind="ref:Aadhaar" onvalidationfail="Utils.GetValidationMessage(event,'Aadhar')"  pattern="^(?!0)[0-9]{12}$" maxlength="12" data-trigger></div!-->
+               <div class="leadName" data-juci="text" data-label="Name<span class='star'>*</span>" data-bind="visible: gettype() != 'FLS',ref:Name,attr:{'data-novalidate':gettype() == 'FLS'}" pattern="^[a-z\.?\s\'?A-Z]*$" maxlength="30" minlength="3" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'LeadName')" data-formatter="formatValue"></div>
+               <div class="leadName" data-juci="text" data-label="Name<span class='star'>*</span>" data-bind="visible: gettype() == 'FLS',ref:Name,attr:{'data-novalidate':gettype() != 'FLS'}" pattern="^[a-z\.?\s\'?A-Z]*$" maxlength="30" minlength="3" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'LeadName')"></div>
+               <p class="label">Gender<span class='star'>*</span></p>
+               <!--  <div  class="gender" data-juci="togglebar" data-bind="ref:PR_Gender" ontoggle="toggleProposerSalutations(event)"> -->
+               <!--<div class="toggbutton" >
+                  <button id="tog" class="b1" data-juci="button" onclick="setGender('Male')" data-bind = "css:{'toggled' : Gender() == 'M' }"> Male <img id="male" src="images/male.png" ></></button>
+                  <button id="tog1" class="b1" data-juci="button" onclick="setGender('Female')" data-bind = "css:{'toggled': Gender() == 'F' }"> Female <img id="female" src="images/female.png"></></button>
+               </div>-->
+               <div  class="gender" id ="Lead_gender"  data-juci="togglebar" data-bind="ref:Gender" ontoggle="setLeadGender(event)" >
+                   <button   class="b1" data-juci="button" > <span class="but_text">Male </span><div class="tog_img1"></div></button>
+                   <button  class="b1" data-juci="button" > <span class="but_text">Female </span><div class="tog_img2"></div></button>
+                </div>
+               <div id="newLead-dob" class="dob" data-juci="datepicker" data-picker="dob" data-label="DOB<span class='star'>*</span>" data-bind="ref:DOB"   
+                  data-formatter="dobValidation" required onvalidationfail="Utils.GetValidationMessage(event,'DOB')" onafterchange="checkTodayDate()"></div>
+               <div class="occupation" id="occupation-list" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS',optionsList: $root.Occupation,ref:Occupation,optionsText: getInputs,attr:{'data-novalidate':gettype() == 'FLS'}" data-label="Occupation<span class='star'>*</span>" data-formatter="getInputs" 	data-comparator="inputComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Occupation')" ></div>
+               <div class="occupation" id="occupation-listFls" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS',optionsList: $root.OccupationFls,ref:Occupation,optionsText: getInputs,attr:{'data-novalidate':gettype() != 'FLS'}" data-label="Occupation<span class='star'>*</span>" data-formatter="getInputs" 	data-comparator="inputComparatorNew" required onvalidationfail="Utils.GetValidationMessage(event,'Occupation')" ></div>
+               <div class="income" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS',optionsList: $root.Income,ref:Income,optionsText: getInputs,attr:{'data-novalidate':gettype() == 'FLS'}" data-label="Income<span class='star'>*</span>" data-formatter="getInputs" 	data-comparator="inputComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Income')"></div>
+               <div class="income" data-juci="selectbox" data-mode="popup" data-bind="visible: gettype() == 'FLS',optionsList: $root.IncomeFls,ref:Income,optionsText: getDescription,attr:{'data-novalidate':gettype() != 'FLS'}" data-label="Income<span class='star'>*</span>" data-formatter="getDescription" 	data-comparator="inputComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Income')"></div>
+               <div class="income" id="marital" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS',optionsList: $root.marital_stat,ref:Marital_Status,optionsText: getInputs,attr:{'data-novalidate':gettype() == 'FLS'}" data-label="Marital Status<span class='star'>*</span>" data-formatter="getInputs" 	data-comparator="inputComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Marital Status')"></div>
+               <div class="income" id="maritalfls" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS',optionsList: $root.MaritalFls,ref:Marital_Status,optionsText: getInputs,attr:{'data-novalidate':gettype() != 'FLS'}" data-label="Marital Status<span class='star'>*</span>" data-formatter="getInputs" 	data-comparator="inputComparatorNew" required onvalidationfail="Utils.GetValidationMessage(event,'Marital Status')"></div>
+               <!--div class="dependents" data-juci="selectbox" data-mode="popup" data-bind="optionsList:$root.dependents,ref:Dependents,optionsText: getInputs" data-label="# of dependents<span class='star'>*</span>" data-formatter="getInputs" 	data-comparator="inputComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Dependents')"></div!-->
+               <div class="edu_background" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS',optionsList: $root.education,ref:Educational_Background,optionsText: getInputs,attr:{'data-novalidate':gettype() == 'FLS'}" data-label="Educational Background<span class='star'>*</span>" data-formatter="getInputs" 	data-comparator="inputComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Educational Background')"></div>
+               <div class="edu_background" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS',optionsList: $root.educationFls,ref:Educational_Background,optionsText: getInputs,attr:{'data-novalidate':gettype() != 'FLS'}" data-label="Educational Background<span class='star'>*</span>" data-formatter="getInputs" 	data-comparator="inputComparatorNew" required onvalidationfail="Utils.GetValidationMessage(event,'Educational Background')"></div>
+               <div class="mobile_no" data-juci="tel" data-label="Mobile Number<span class='star'>*</span>" data-bind="ref:Mobile" pattern="^[1-9]{1}[0-9]{9}$" maxlength="10" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')"></div>
+               <div class="alternate_no" data-juci="tel" data-label="Alternate Number" data-bind="ref:Alternate_Number" pattern="^[1-9]{1}[0-9]{9}$" maxlength="10" onvalidationfail="Utils.GetValidationMessage(event,'Alternate Number')"></div>
+               <div class="landline" data-juci="tel" data-label="Landline" data-bind="ref:Landline" pattern="^[0-9]{1}[0-9]{10}$" maxlength="11"  onvalidationfail="Utils.GetValidationMessage(event,'Landline No.')"></div>
+               <div class="address1" data-juci="text" data-label="Address" data-bind="visible:gettype() != 'FLS',ref:Address_1,attr:{'data-novalidate':gettype() == 'FLS'}" maxlength="30" 
+                  pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" placeholder data-trigger onvalidationfail="Utils.GetValidationMessage(event,'Address Line1')"></div>
+              <div class="address1" data-juci="text" data-label="Address 1" data-bind="visible:gettype() == 'FLS',ref:Address_1,attr:{'data-novalidate':gettype() != 'FLS'}" maxlength="30" 
+                 pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" placeholder data-trigger onvalidationfail="Utils.GetValidationMessage(event,'Address Line1')"></div>
+               <div class="address2" data-juci="text" data-label="Address 2" data-bind="visible:gettype() == 'FLS',ref:Address_2,attr:{'data-novalidate':gettype() != 'FLS'}" maxlength="30" 
+                  pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" placeholder data-trigger onvalidationfail="Utils.GetValidationMessage(event,'Address Line2')" ></div>
+               <div class="address3" data-juci="text" data-label="Address 3" data-bind="visible:gettype() == 'FLS',ref:Address_3,attr:{'data-novalidate':gettype() != 'FLS'}" maxlength="30" 
+                  pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" placeholder data-trigger onvalidationfail="Utils.GetValidationMessage(event,'Address Line3')"></div>
+               <div class="state" data-juci="selectbox" data-mode="popup" data-bind="optionsList:$root.state,ref:State" data-label="State<span class='star'>*</span>" required onvalidationfail="Utils.GetValidationMessage(event,'State')" onafterchange="getCityList(event)"></div>
+               <div class="city" id="City" data-juci="selectbox" data-mode="popup" data-label="City<span class='star'>*</span>" data-bind="ref:City,optionsList:$root.cityList,optionsText:getInputsSubValue" data-formatter="getInputsSubValue" data-comparator="inputSubComparator"  maxlength="30" minlength="3"  placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'City')"></div>
+               <!--div class="pincode" data-juci="tel" data-label="PinCode<span class='star'>*</span>" maxlength="6" minlength="6" data-bind="ref:Pin_Code" pattern="^[0-9]{6}\s*$" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Pincode')" ></div!-->
+               <!--div class="city" data-juci="selectbox" data-mode="popup" data-bind="optionsList:$root.commuteTime,ref:Commute_Time,optionsText:getInputsSubValue" data-label="Commute time to BO(Mins)<span class='star'>*</span>" data-formatter="getInputsSubValue" 	data-comparator="inputSubComparator" required onvalidationfail="Utils.GetValidationMessage(event,'City')"></div!-->
+               <div class="email_id" data-juci="email" data-label="Email ID" data-bind="ref:Email_ID"  pattern="^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])" onvalidationfail="Utils.GetValidationMessage(event,'Email Id')"></div>
+               <div class="leadtype_campaign" id="campaign" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS' && $root.campaignDrop,optionsList:$root.campaign_drop,ref:Campaign,optionsText:getInputsSubValue,attr:{'data-novalidate':((Lead_Type.Description == 'Recruitment') || (Lead_Type.Description == 'Exisiting Customer') || (gettype() == 'FLS') || getCampaignDetails($root.campaignDrop))}" data-trigger data-label="Campaign<span class='star'>*</span>" data-formatter="getInputsSubValue" onvalidationfail="Utils.GetValidationMessage(event,'Campaign')" data-comparator="inputSubComparator" ></div>
+               
+               <div class="address1" data-juci="text" data-label="Policy Number" data-bind="visible:gettype() != 'FLS',ref:policyNumber,attr:{'data-novalidate':gettype() == 'FLS'}" maxlength="30" pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" placeholder data-trigger onvalidationfail="Utils.GetValidationMessage(event,'Policy Number')" onafterchange="SetLeadType(event)"></div>
+               
+                 <div class="leadtype_campaign" data-juci="selectbox" data-mode="popup" data-bind="disabled:$root.leadTypeFls,visible:gettype() == 'FLS' && $root.campaignDrop,optionsList:$root.campaign_names,ref:Lead_Sub_Source,optionsText:getInputDescription,attr:{'data-novalidate':((Lead_Type.Description == 'Recruitment') || (Lead_Type.Description == 'Exisiting Customer') || (gettype() != 'FLS') || getCampaignDetails($root.campaignDrop))}" data-trigger data-label="Campaign<span class='star'>*</span>" data-formatter="getInputDescription" onvalidationfail="Utils.GetValidationMessage(event,'Campaign')" data-comparator="inputDescComparator" ></div>
+               
+               <div data-juci="textarea" class="remarks" data-label="Remarks" data-bind="visible:gettype() == 'FLS',ref:LeadInfo_Remarks,attr:{'data-novalidate':gettype() != 'FLS' || Lead_Source().DESCRIPTION != 'NATURAL MARKETING'},disabled:$root.leadTypeFlsRemarks" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Remarks')"></div>
+               <div class="btn">
+                  <button class="save" data-juci="button" type="submit" >Submit</button>
+                  <button class="save" data-juci="button" class="btntxt" onclick="utils.ClosePage()">Cancel</button>
+               </div>
+            </div>
+         </div>
+         <div class="footerbar">
+            <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+            <span> | </span>
+            <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+            <span> | </span>
+            <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+         </div>
+      </div>
+   </body>
+   </html

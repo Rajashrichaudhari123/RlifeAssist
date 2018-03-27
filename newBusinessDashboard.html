@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/newBusinessDashboard.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+    	<link rel="stylesheet" type="text/css" href="css/Dashboard.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/jqueryui.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select2.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select2Custom.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/newBusinessDashborad.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<div class="wrapper">
+				<div class="heading_container">
+					<div data-juci="display" data-label="New Business" ></div>
+				</div>
+				<!-- dropdwons of period and customer name-->
+				<!--div class="labels" >
+					<div class="periodAndName">
+						<div class="period_dropdown_container">
+							<div data-juci="selectbox" class="time_period" data-mode="popup" 
+							data-bind="optionsList: $root.timePeriod, ref: $root.selectedPeriod" placeholder="Month to Date" ></div>
+						</div>
+						<div class="customer_name_container">
+							<div data-juci="selectbox" class="customer_name_drop" data-mode="popup" 
+							data-bind="optionsList: $root.customerName, ref: $root.selectedCustomerName" placeholder="Ashoke M"></div>
+			 			</div>
+			 		</div>
+				</div!-->
+				<!-- graph and their labels -->
+				<div class="data_container">
+					<div class="customer_name" data-juci="display" data-bind="text: $root.Customer_name"></div>
+					<div data-juci="xlist" id="new" data-bind="ref:$root.graph">
+						<div data-juci="listitem">
+							<div  data-juci="display" data-bind="text: type,attr: {class: getClassName(type)+'_lable lable'}"></div>
+							<div class="block">
+								<div data-juci="display" data-bind="text:dataValue,attr: {class: getClassName(type)+'_block value'}" ></div>
+							</div>
+						</div>
+					</div>
+						<!-- dotted saprator  line between-->
+					<div class="intersection">
+						<div class="lables_intersection"></div>
+						<div class="graph_intersection"></div>
+					</div>
+				<!--bottom section -->
+					<div class="footer" >
+						<div data-juci="xlist"  id="list"data-bind="ref: $root.footerGraph" >
+							<div data-juci="listitem">
+								<div  data-juci="display" class="lable" data-bind="text: type" data-istext></div>
+								<div class="block">
+									<div   data-juci="display" class="value"  data-bind="text: value" ></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

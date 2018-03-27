@@ -1,0 +1,46 @@
+.cusotmoerForm {
+   background: #fff;
+   width: 95%;
+   margin-left: 8px;
+   margin-top: 20px;
+   padding-bottom: 5px;
+}
+button.juci_button.add {
+   background: #0B4DA1;
+   border-color: #0B4DA1;
+   min-height: 40px;
+   border-radius: 6px;
+   margin-top: 10px;
+}
+
+div#occupation-list ,div#newLead-dob{
+   border: none;
+   border-bottom: 1px solid;
+   border-bottom-color: #CECECE;
+}
+
+.Form_lable {
+   top: 14px;
+   text-align: left;
+   color: #0b4daa;
+   padding: 10px;
+   font-size: 20px;
+}
+.juci_basecontrol {
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+.juci_horizontal_bbar {
+   min-height: inherit;
+   width: inherit;
+   background-color: inherit;
+   margin-left: inherit;
+   overflow-y: inherit;
+   text-align: inherit;
+   padding-top: inherit;
+   text-align: center;
+}
+.juci_basecontrol.juci_selectbox.state.juci_parent.juci_placeholder,.juci_basecontrol.juci_selectbox.state.juci_parent.juci_validated.juci_validated_pass {
+    border: none;
+    border-bottom: 1px solid #cecece;
+}

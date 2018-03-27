@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/terms.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/disclaimer.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/header.js"></script>
+		<!-- Add your scripts here -->
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+		
+		 <div class="menu arrow_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+            </div>
+			<div class="menu arrow_box" id="profilelist" style="display:none;">
+                <ul class="items">
+                	<li class="item_list" onclick="openSyncContacts()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync Personal Contacts</span>
+	                </li>
+                   <li class="item_list" onclick="openSync()">
+                        <img src="images/Sync.png"></img>
+                        <span>Sync</span>
+                    </li>   
+                    
+                     <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+               		</li>--> 
+              
+                     <li class="item_list" onclick="openProposal()">
+                        <img src="images/New-Proposal.png"></img>
+                        <span>New Proposal</span>
+                    </li>  
+                    
+                    <li class="item_list" onclick="openProfileContent()">
+                        <img src="images/Profile.png"></img>
+                        <span>Profile</span>
+                    </li>
+                 <div class="" id="profile-content" style="display: none;">
+	                <li class="item_list"    data-bind="with:profileDetail" onclick="openProfile()">
+		              <div class="name" data-bind="html:name"></div>
+		              <div class="id" data-bind="html:'ADV ID:'+ id()"></div>
+		              <div class="id" data-bind="html:area"></div>
+	              </li>
+	                <li class="item_list" data-bind="with:goal" onclick="openDashboard()">
+	             		<span>Goal Summary</span> 
+	             		<div class="Goal_summary">
+		             <div class="summary">		
+		             	<div class="titles">Target:</div>	
+			              <div class="tar" data-bind="html:target"></div>
+			          </div>  
+			          <div class="summary">
+			            <div class="titles">Achieved:</div> 
+			              <div class="tar" data-bind="html:acheived"></div>
+			          </div>    
+			          <div class="summary">   
+			            <div class="titles">Pending :</div> 
+			              <div class="tar" data-bind="html:pending"></div>
+			           </div>   
+			          </div>
+	               </li>
+	            </div>
+                    <li class="item_list" onclick="openLogs()">
+                        <img src="images/logs.png"></img>
+                        <span>Logs</span>
+                    </li>
+                    <li class="item_list" onclick="openDataRetrieve()">
+	                    <img src="images/database.png"></img>
+	                    <span>Data Retrieve</span>
+	                </li>
+					<li class="item_list" onclick="openForceUpdate()">
+	                    <img src="images/app.png"></img>
+	                    <span>Force Update</span>
+	                </li>
+                   <div data-bind="visible:gettype()!='TPADV' && gettype()!='TPSM'"> 
+	                   <li class="item_list" onclick="openCustomers()">
+	                        <img src="images/female.png"></img>
+	                        <span>My Customers</span>
+	                   </li>
+                   </div>
+                   <li class="item_list" onclick="openAdvisors()">
+                        <img src="images/Folder_grey.png"></img>
+                        <span class="my_advisors">My Advisors</span>
+                   </li>
+                    
+                     <!--<div data-bind="visible:gettype()!=='ADV'">
+                   <li class="item_list" onclick="openTeamLogin()">
+                        <img src="images/Profile.png"></img>
+                        <span>Team Login</span>
+                   </li>
+                </div>-->
+                    <li class="item_list" onclick="openVersion()">
+	                    <img src="images/Folder_grey.png"></img>
+	                    <span class="my_advisors">Version</span>
+	                </li>
+	                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Selfie PIVC Retrieval</span>
+	        		</li>
+                    <li class="item_list" onclick="openHelpDesk()">
+                        <img src="images/Gallery_Grey.png"></img>
+                        <span class="help">Help Desk</span>
+                    </li>
+                    <li class="item_list" onclick="openConfirmUpdate()">
+	                    <img src="images/Gallery_Grey.png"></img>
+	                    <span class="help">Confirm Update</span>
+                	</li>
+                    <li class="item_list" onclick="openCalculator()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Calculator</span>
+	        		</li>
+                    <li class="item_list" onclick="doLogout()">
+                        <img src="images/power-blackgold.png"></img>
+                        <span class="log">Logout</span>
+                    </li>
+                </ul>
+             </div>
+		
+			<!-- Enter your HTML content here -->
+				<div class="content_section">
+				<div class="dis_head">Disclaimer</div>
+				<div class="terms_content">
+					<p class="terms_p">VISITORS TO THIS WEB SITE ARE BOUND BY DICLAIMER GIVEN BELOW. THERFORE, YOU ARE REQUESTED TO READ THE FOLLOWING DISCLAIMER BEFORE CONTINUING TO USE THIS SITE. IF YOU DO NOT AGREE WITH ANY OF THESE TERMS OF DISCLAIMER, PLEASE DO NOT USE THIS SITE.</p>
+                    <p class="term_phead"><strong>DISCLAIMER OF WARRANTIES, INACCURACIES OR ERRORS</strong></p>
+                    <ol class="nrml_txt_list">
+                      <li> Although Reliance Life Insurance Company Ltd. (hereinafter referred to as "RLIC") tries to ensure that all information and recommendations, whether in relation to the products, services, facilities, offerings or otherwise (hereinafter "Information") provided as part of this website is correct at the time of inclusion on the web site, it does not guarantee the accuracy of the Information. RLIC makes no representations or warranties as to the completeness or accuracy of Information </li>
+                      <li> RLIC makes no commitment to update or correct any Information that appears on the Internet or on this web site. </li>
+                      <li> Information is supplied upon the condition that the persons receiving the same will make their own determination as to its suitability for their purposes prior to use or in connection with the making of any decision. No Information at this web site shall constitute an invitation to invest in RLIC or any of its affiliates. Any use of this website or the Information is at your own risk. Neither RLIC and its affiliates, nor their officers, employees or agents shall be liable for any loss, damage or expense arising out of any access to, use of, or RLIC upon, this website or the Information, or any website linked to this website. </li>
+                    </ol>
+				</div>
+			</div>
+				<div class="footerbar">
+	          <div class="disclaimer" onclick="">Disclaimer</div><span> | </span>
+	          <div class="terms" onclick="openTerms()">Terms and Conditions</div><span> | </span>
+	          <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+	        </div>
+		</div>
+	</body>
+</html>

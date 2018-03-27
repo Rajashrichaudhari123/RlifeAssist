@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/jqueryui.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/select2.css"></link>
+    	<link rel="stylesheet" type="text/css" href="css/select2Custom.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/inputManagement.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/collapsible.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/managerAlerts.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/jquery.js"></script>
+		<script src="scripts/jqueryui.js"></script>
+		<script src="scripts/select2.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/managerAlertsDatasets.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/managerAlerts.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/sticky.js"></script>
+		<script src="scripts/collapsible.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+	            <div class="togcount" data-bind="with:alertsCount">
+	               <button class="btn1" data-juci="button" data-toggle="1">
+	                  <div class="inputs"><span class="notif" data-bind></span><span class="notifctn">Attendance</span><span id="attendanceCount"class="alertCount" data-bind="html:attendanceCount,visible: attendanceCount() !='0'"></span></div>
+	               </button>
+	               <button class="btn1 Meetingsbtn" data-juci="button" data-toggle="2" data-bind>
+	                  <div class="inputs"><span class="notif" data-bind></span><span class="notifctn">Leads</span><span id="leadsCount" class="alertCount" data-bind="html:leadsCount,visible: leadsCount() !='0' "></span></div>
+	               </button>
+	               <button class="btn1" data-juci="button" data-toggle="3" data-bind>
+	                  <div class="inputs"><span class="notif" data-bind></span><span class="notifctn">Meetings</span><span id="meetingsCount" class="alertCount" data-bind="html:meetingsCount, visible: meetingsCount() !='0' "></span></div>
+	               </button></br>
+	               <button class="btn1 btn2 loginstoggle" data-juci="button" data-toggle="4" data-bind>
+	                  <div class="inputs logins"><span class="notif" data-bind></span><span class="notifctn">Logins</span><span id="loginsCount" class="alertCount" data-bind="html:loginsCount,visible: loginsCount() !='0' "></span></div>
+	               </button>
+	                <button class="btn1 btn2 renuwalstoggle" data-juci="button" data-toggle="5" data-bind>
+	                  <div class="inputs renewals"><span class="notif" data-bind></span><span class="notifctn">Renewals</span><span id="renewalsCount" class="alertCount" data-bind="html:renewalsCount,visible: renewalsCount() !='0'"></span></div>
+	               </button>
+	            </div>
+	         </div>
+	        <div class ="viewarea">
+	         <!-- Attendance Alerts !-->
+	       	<div id="attendance" data-bind="visible: $root.attendance">
+	         	<div class="header">
+					<div class="version_info_head" data-bind>ARDM</div>
+					<div class="version_info_head_bar" data-bind>No. of days OD <br/> application was made</div>
+				</div>
+				<div class="version_info_item" data-bind="foreach:attendanceAlerts">
+					<div class="app_version_row">
+						<div class="app_version_key" data-bind="html:SM_Name"></div>
+						<div class="app_version_value" data-bind="html:Attd_NoDays"></div>
+					</div>
+				</div>
+			</div>
+			<!-- leads Alerts !-->
+				<div id="leadsalert" data-bind="visible: $root.lead">
+					<div class="meetings_sub">
+						<div class="meetings_next newbusiness" onClick="shownewBusinessdata()" data-bind=",css:{meetings_meeting3 :$root.newBusiness() == '0'}">New business</div>
+						<div class="meetings_rescheduled" onClick="showrecruitmentsdata()" data-bind="css:{meetings_meeting3 :$root.recruitment() == '0'}">Recruitment </div>
+					</div>
+					<table class="leadsalertNewBusiness" style="width:100%">
+					  <tr>
+					    <th class="headers" rowspan="2">ARDM</th>
+					    <th class="headers" colspan="3">Lead ageing</th>
+					  </tr>
+					  <tr>
+					    <td class="headers">> 5 days</td>
+					    <td class="headers">> 8 days</td>
+					    <td class="headers">> 21 days</td>
+					  </tr> 
+					  <tbody data-bind="foreach: leadsDataNewBusiness" >
+						  <tr >
+							<th> <div data-bind="html:SM_Name"></div></th>
+							<th> <div id="LeadCnt5" data-bind="html:LeadCnt5, click: showProspectData,style: { color: IR_LeadCnt5() == 0 ? 'red' : 'black' }" ></div></th>
+							<th> <div id="LeadCnt8" data-bind="html:LeadCnt8, click: showProspectData, style: { color: IR_LeadCnt8() == 0 ? 'red' : 'black' }"></div></th>
+							<th> <div id="LeadCnt21" data-bind="html:LeadCnt21, click: showProspectData, style: { color: IR_LeadCnt21() == 0 ? 'red' : 'black' }"></div></th>
+						  </tr>
+						</tbody>
+					</table>
+					<div class="prospectData" data-bind="visible: $root.prospectData">
+						<table class="leadsalertRecruitment" style="width:100%">
+						  <tr>
+						    <th class="headers" >Prospect</th>
+						    <th class="headers" >Contact No.</th>
+						    <th  class="headers" >Advisor</th>
+						    <th  class="headers" >Lead entered date</th>
+						  </tr>
+					  	  <tbody data-bind="foreach: leadsProspectData" >
+							<tr>
+								<th> <div data-bind="html:ProspectName"></div></th>
+								<th> <div data-bind="html:ContactNo"></div></th>
+								<th> <div data-bind="html:AdvisorName"></div></th>
+								<th> <div data-bind="html:EnteredDate"></div></th>
+							</tr>
+						 </tbody>						 
+						</table> 
+					</div>
+				</div>
+				
+			<!-- Meetings !-->
+				<div class="meetings" data-bind="visible: $root.meetings">
+					<div class="meetings_sub">
+						<div class="meetings_next" onclick="onNextMeetingsClick()" data-bind="css:{meetings_meeting3 : $root.nextflag() == '0'}">Next 3 days <span class="alertCountmeeting" data-bind="html:$root.meetingsAlertCount"></span></div>
+						<div class="meetings_rescheduled" onclick="onMeetingsRescheduledClick()" data-bind="css:{meetings_meeting3 :$root.rescheduledflag() == '0'}">Rescheduled <span class="alertCountmeeting" data-bind="html:$root.meetingsScheduledCount"></span></div>
+						<div class="meetings_authenticated" data-bind="css:{meetings_meeting3 :$root.authenticatedflag() == '0'}" onclick="onMeetingsAuthenticateClick()">Ageing <span class="alertCountmeeting" data-bind="html:$root.meetingsAuthenticatedCount"> </span></div>
+					</div>	
+					<!-- Meetings Next 3 days !-->
+					<div data-bind="visible:$root.meetingsNext3">
+						<table class="leadsalertNewBusiness" style="width:100%">
+							<tr>
+								<th class="headers" rowspan="2">ARDM</th>
+								<th class="headers" colspan="3">No. of meetings cancelled/rescheduled/missed WTD</th>
+							</tr>
+							<tr>
+								<td class="headers">NB</td>
+								<td class="headers">REC</td>
+							</tr>
+							   <tbody data-bind="foreach: meetings3" >
+								<tr>
+									<th> <div data-bind="html:SM_Name"></div></th>
+									<th class="meetins_business"> <div data-bind="html:NewBusiness,click:showProspectDataMeetingsNext3Days,style: { color: ReIR_cntMD() == '0' ? 'red' : 'black' }"></div></th>
+									<th class="meetins_recruitment"> <div data-bind="html:Recruitment,click:showProspectDataMeetingsNext3DaysRecruitment,style: { color: ReIR_cntMD() == '0' ? 'red' : 'black' }"></div></th>
+									<th class="ARDM"> <div class="discussedARDM" data-bind="visible:IR_cnt_MD_btn() == '0',html:ARDM"></div></th>
+								</tr>
+							 </tbody>
+						</table>
+					</div>
+					
+					<div class="prospectData" data-bind="visible: $root.meetingsProspectInfoNext3days">
+						<table class="leadsalertRecruitment" style="width:100%">
+						  <tr>
+						    <th class="headers" >Prospect</th>
+						    <th class="headers" >Contact No.</th>
+						    <th  class="headers" >Advisor</th>
+						    <th  class="headers" >Lead entered date</th>
+						  </tr>
+					  	  <tbody data-bind="foreach: meetingsProspectInfoNext3daysData" >
+							<tr>
+								<th> <div data-bind="html:ProspectName"></div></th>
+								<th> <div data-bind="html:ContactNo"></div></th>
+								<th> <div data-bind="html:AdvisorName"></div></th>
+								<th> <div data-bind="html:EnteredDate"></div></th>
+							</tr>
+							</tbody>						 
+						</table> 
+					</div>
+					
+					<div class="prospectData" data-bind="visible: $root.meetingsProspectInfoNext3daysRecruitmentFlag">
+						<table class="leadsalertRecruitment" style="width:100%">
+						  <tr>
+						    <th class="headers" >Prospect</th>
+						    <th class="headers" >Contact No.</th>
+						    <th  class="headers" >Advisor</th>
+						    <th  class="headers" >Lead entered date</th>
+						  </tr>
+					  	  <tbody data-bind="foreach: meetingsProspectInfoNext3daysRecruitmentData" >
+							<tr>
+								<th> <div data-bind="html:ProspectName"></div></th>
+								<th> <div data-bind="html:ContactNo"></div></th>
+								<th> <div data-bind="html:AdvisorName"></div></th>
+								<th> <div data-bind="html:EnteredDate"></div></th>
+							</tr>
+							</tbody>						 
+						</table> 
+					</div>
+					
+					<!-- Meetings Rescheduled !-->
+					<div data-bind="visible:$root.meetingsRescheduled">
+						<table class="leadsalertNewBusiness" style="width:100%">
+							<tr>
+								<th class="headers" rowspan="2">ARDM</th>
+								<th class="headers" colspan="3">No. of meetings cancelled/rescheduled/missed WTD</th>
+							</tr>
+							<tr>
+								<td class="headers">NB</td>
+								<td class="headers">REC</td>
+							</tr>
+							   <tbody data-bind="foreach: meetingsScheduled" >
+								<tr>
+									<th> <div data-bind="html:SM_Name"></div></th>
+									<th> <div data-bind="html:NewBusiness,click:showProspectDataMeetingsReschedule,style: { color: NBIR_cntMR() == '0' ? 'red' : 'black' }"></div></th>
+									<th> <div data-bind="html:Recruitment,click:showProspectDataRecruitmentReshedule,style: { color: ReIR_cntMR() == '0' ? 'red' : 'black' }"></div></th>
+									<th class="ARDM"> <div class="discussedARDM" data-bind="visible:IR_cnt_MR_btn() == '0',html:ARDM,click:dicussedArdmMeetingsReschedule"></div></th>
+								</tr>
+							 </tbody>
+						</table>	
+					</div>
+					
+					<div class="prospectData" data-bind="visible: $root.meetingsProspectRescheduled">
+						<table class="leadsalertRecruitment" style="width:100%">
+						  <tr>
+						    <th class="headers" >Prospect</th>
+						    <th class="headers" >Contact No.</th>
+						    <th  class="headers" >Advisor</th>
+						    <th  class="headers" >Lead entered date</th>
+						  </tr>
+					  	  <tbody data-bind="foreach: meetingsProspectResheduledData" >
+							<tr>
+								<th> <div data-bind="html:ProspectName"></div></th>
+								<th> <div data-bind="html:ContactNo"></div></th>
+								<th> <div data-bind="html:AdvisorName"></div></th>
+								<th> <div data-bind="html:EnteredDate"></div></th>
+							</tr>
+							</tbody>						 
+						</table> 
+					</div>
+					
+					<div class="prospectData" data-bind="visible: $root.meetingsProspectScheduledRecruitment">
+						<table class="leadsalertRecruitment" style="width:100%">
+						  <tr>
+						    <th class="headers" >Prospect</th>
+						    <th class="headers" >Contact No.</th>
+						    <th  class="headers" >Advisor</th>
+						    <th  class="headers" >Lead entered date</th>
+						  </tr>
+					  	  <tbody data-bind="foreach: meetingsProspectSheduledRecruitmentData" >
+							<tr>
+								<th> <div data-bind="html:ProspectName"></div></th>
+								<th> <div data-bind="html:ContactNo"></div></th>
+								<th> <div data-bind="html:AdvisorName"></div></th>
+								<th> <div data-bind="html:EnteredDate"></div></th>
+							</tr>
+						 </tbody>						 
+						</table> 
+					</div>
+					
+					<!-- Meetings Authenticated !-->
+					<div class="meetings_sub">
+						<div class="meetings_next newbusiness" onClick="showNewBusinessMeetingsAuthenticatedData()" data-bind="visible:$root.meetingsAuthenticate,css:{meetings_meeting3 :$root.newBusinessMeetingsAuthencatedFlag() == true}">New business</div>
+						<div class="meetings_rescheduled" onClick="showRecruitmentMeetingsAuthenticatedData()" data-bind="visible:$root.meetingsAuthenticate,css:{meetings_meeting3 :$root.recruitmentsMeetingsAuthencatedFlag() == true}">Recruitment </div>
+					</div>
+					<div data-bind="visible:meetingsAuthenticatedNewBusinessFlag">
+						<div data-bind="visible:$root.meetingsAuthenticate">
+							<table class="leadsalertNewBusiness" style="width:100%">
+								<tr>
+									<th class="headers" rowspan="2">ARDM</th>
+									<th class="headers" colspan="3">Meeting Pending</th>
+								</tr>
+								<tr>
+									<td class="headers"> > 7 days</td>
+									<td class="headers"> > 15 days</td>
+									<td class="headers"> > 30 days</td>
+								</tr>
+								   <tbody data-bind="foreach: meetingsAuthenticatedNewBusiness" >
+									<tr>
+										<th> <div data-bind="html:SM_Name"></div></th>
+										<th> <div data-bind="html:MeetingCnt7,click:meetingsAuthenticatedCnt7,style: { color: IR_MeetingCnt7() == 0 ? 'red' : 'black' },attr: { id:'IR_MeetingCnt7 '+SM_Name() }"></div></th>
+										<th> <div data-bind="html:MeetingCnt15,click:meetingsAuthenticatedCnt15,style: { color: IR_MeetingCnt15() == 0 ? 'red' : 'black' },attr: { id:'IR_MeetingCnt15 '+SM_Name() }"></div></th>
+										<th> <div data-bind="html:MeetingCnt30,click:meetingsAuthenticatedCnt30,style: { color: IR_MeetingCnt30() == 0 ? 'red' : 'black' },attr: { id:'IR_MeetingCnt30 '+SM_Name() }"></div></th>
+									</tr>
+								 </tbody>
+							</table>
+						</div>
+					</div>
+					
+					<div data-bind="visible:meetingsAuthenticatedRecruitmentFlag">
+						<div data-bind="visible:$root.meetingsAuthenticate">
+							<table class="leadsalertNewBusiness" style="width:100%">
+								<tr>
+									<th class="headers" rowspan="2">ARDM</th>
+									<th class="headers" colspan="3">Meeting Pending</th>
+								</tr>
+								<tr>
+									<td class="headers"> > 7 days</td>
+									<td class="headers"> > 15 days</td>
+									<td class="headers"> > 30 days</td>
+								</tr>
+								   <tbody data-bind="foreach: meetingsAuthenticatedRecruitment" >
+									<tr>
+										<th> <div data-bind="html:SM_Name"></div></th>
+										<th> <div data-bind="html:MeetingCnt7,click:meetingsAuthenticatedCnt7,style: { color: IR_MeetingCnt7() == 0 ? 'red' : 'black' },attr: { id:'IR_MeetingCnt7 '+SM_Name() }"></div></th>
+										<th> <div data-bind="html:MeetingCnt15,click:meetingsAuthenticatedCnt15,style: { color: IR_MeetingCnt15() == 0 ? 'red' : 'black' },attr: { id:'IR_MeetingCnt15 '+SM_Name() }"></div></th>
+										<th> <div data-bind="html:MeetingCnt30,click:meetingsAuthenticatedCnt30,style: { color: IR_MeetingCnt30() == 0 ? 'red' : 'black' },attr: { id:'IR_MeetingCnt30 '+SM_Name() }"></div></th>
+									</tr>
+								 </tbody>
+							</table>
+						</div>
+					</div>
+				
+					<div class="prospectData" data-bind="visible: $root.meetingsAuthenticatedCnt7">
+						<table class="leadsalertRecruitment" style="width:100%">
+						  <tr>
+						    <th class="headers" >Prospect</th>
+						    <th class="headers" >Contact No.</th>
+						    <th  class="headers" >Advisor</th>
+						    <th  class="headers" >Lead entered date</th>
+						  </tr>
+					  	  <tbody data-bind="foreach: meetingsAutenticatedCnt7Data" >
+							<tr>
+								<th> <div data-bind="html:ProspectName"></div></th>
+								<th> <div data-bind="html:ContactNo"></div></th>
+								<th> <div data-bind="html:AdvisorName"></div></th>
+								<th> <div data-bind="html:EnteredDate"></div></th>
+							</tr>
+						 </tbody>						 
+						</table> 
+					</div>
+				
+					<div class="prospectData" data-bind="visible: $root.meetingsAuthenticatedCnt15">
+						<table class="leadsalertRecruitment" style="width:100%">
+						  <tr>
+						    <th class="headers" >Prospect</th>
+						    <th class="headers" >Contact No.</th>
+						    <th  class="headers" >Advisor</th>
+						    <th  class="headers" >Lead entered date</th>
+						  </tr>
+					  	  <tbody data-bind="foreach: meetingsAutenticatedCnt15Data" >
+							<tr>
+								<th> <div data-bind="html:ProspectName"></div></th>
+								<th> <div data-bind="html:ContactNo"></div></th>
+								<th> <div data-bind="html:AdvisorName"></div></th>
+								<th> <div data-bind="html:EnteredDate"></div></th>
+							</tr>
+						 </tbody>						 
+						</table> 
+					</div>
+					
+					<div class="prospectData" data-bind="visible: $root.meetingsAuthenticatedCnt30">
+						<table class="leadsalertRecruitment" style="width:100%">
+						  <tr>
+						    <th class="headers" >Prospect</th>
+						    <th class="headers" >Contact No.</th>
+						    <th  class="headers" >Advisor</th>
+						    <th  class="headers" >Lead entered date</th>
+						  </tr>
+					  	  <tbody data-bind="foreach: meetingsAutenticatedCnt30Data" >
+							<tr>
+								<th> <div data-bind="html:ProspectName"></div></th>
+								<th> <div data-bind="html:ContactNo"></div></th>
+								<th> <div data-bind="html:AdvisorName"></div></th>
+								<th> <div data-bind="html:EnteredDate"></div></th>
+							</tr>
+						 </tbody>						 
+						</table> 
+					</div>
+				</div>
+					
+				<!-- Logins !-->
+				<div class="loginsalert" data-bind="visible: $root.loginsalert">				
+					<div class="meetings_sub">
+						<span class="meetings_next" onclick="onLoginsAgingClick()" data-bind="css:{meetings_meeting3 : $root.aging() == '0'}" >Ageing</span><span class="alertCountlead" data-bind="html:$root.agingCnt(),visible: $root.agingCnt() > '0'" ></span>
+						<span class="meetings_next" onclick="onLoginsnonSELoginClick()" data-bind="css:{meetings_meeting3 : $root.nonSELogin() == '0'}">Non Super-Express</span><span class="alertCountlead" data-bind="html:$root.nonSELoginCnt(),visible: $root.nonSELoginCnt() > '0'" ></span>
+					</div>
+					<div class="agingData" data-bind="visible: $root.aging() == '0'">
+						<table class="leadsalertNewBusiness" style="width:100%">
+						  <tr>
+						    <th class="headers" rowspan="2">ARDM</th>
+						    <th class="headers" colspan="3">Lead ageing</th>
+						   <!-- <th  class="headers" rowspan="2">Classified “Not</br>interested” by</br>ARDM</th>-->
+						  </tr>
+						  <tr>
+						    <td class="headers">> 2 days</td>
+						    <td class="headers">> 4 days</td>
+						    <td class="headers">> 7 days</td>
+						  </tr> 
+						  <tbody data-bind="foreach: loginsAging" >
+							  <tr >
+								<th> <div data-bind="html:SM_Name"></div></th>
+								<th> <div  data-bind="html:LoginCnt2, click: showProspectData,style: { color: IR_LoginCnt2() == 0 ? 'red' : 'black' },attr: { id:'LoginCnt2 '+SM_Name() }" ></div></th>
+								<th> <div  data-bind="html:LoginCnt4, click: showProspectData, style: { color: IR_LoginCnt4() == 0 ? 'red' : 'black' },attr: { id:'LoginCnt4 '+SM_Name() }"></div></th>
+								<th> <div  data-bind="html:LoginCnt7, click: showProspectData, style: { color: IR_LoginCnt7() == 0 ? 'red' : 'black' },attr: { id:'LoginCnt7 '+SM_Name() }"></div></th>
+							  </tr>
+							</tbody>
+						</table>
+						<div class="prospectData" data-bind="visible: $root.prospectData">
+							<table class="leadsalertRecruitment" style="width:100%">
+							  <tr>
+							    <th class="headers" >Prospect</th>
+							    <th class="headers" >Contact No.</th>
+							    <th  class="headers" >Advisor</th>
+							    <th  class="headers" >Lead entered date</th>
+							  </tr>
+						  	  <tbody data-bind="foreach: leadsProspectData" >
+								<tr>
+									<th> <div data-bind="html:ProspectName"></div></th>
+									<th> <div data-bind="html:ContactNo"></div></th>
+									<th> <div data-bind="html:AdvisorName"></div></th>
+									<th> <div data-bind="html:EnteredDate"></div></th>
+								</tr>
+							 </tbody>						 
+							</table> 
+						</div>
+					</div>
+						<div class="NonSELogin" data-bind="visible: $root.nonSELogin() == '0'">
+							<table class="leadsalertRecruitment" style="width:100%">
+							  <tr>
+							    <th class="headers" >ARDM</th>
+							    <th class="headers" >Logins</th>
+							    <th  class="headers" >Non Super Express <br/>logins</th>
+							    <th  class="headers" >Non Super Express <br/>login share (%)</th>
+							  </tr>
+						  	  <tbody data-bind="foreach: LoginsNonSE" >
+								<tr>
+									<th> <div data-bind="html:SM_Name"></div></th>
+									<th> <div data-bind="html:Logins"></div></th>
+									<th> <div id="NonSELogin"data-bind="html:NonSuperExpresslogins, click: showProspectData,style: { 'background-color': IR_NonSELogin() == 0 ? 'red':'transparent' },attr: { id:'NonSELogin '+SM_Name() }"></div></th>
+									<th> <div data-bind="html:NonSuperExpressloginshare()+'%'"></div></th>
+								</tr>
+							 </tbody>						 
+							</table> 
+							<div class="prospectData" data-bind="visible: $root.prospectData" >
+								<table class="leadsalertRecruitment" style="width:100%">
+								  <tr>
+								    <th class="headers" >Customer</th>
+								    <th class="headers" >Product</th>
+								    <th  class="headers" >Policy No.</th>
+								    <th  class="headers" >Login date</th>
+								  </tr>
+							  	  <tbody data-bind="foreach: leadsProspectData" >
+									<tr>
+										<th> <div data-bind="html:ProspectName"></div></th>
+										<th> <div data-bind="html:Product"></div></th>
+										<th> <div data-bind="html:PolicyNo"></div></th>
+										<th> <div data-bind="html:EnteredDate"></div></th>
+									</tr>
+								 </tbody>						 
+							</table> 
+						</div>
+					</div>
+				</div>
+				<!-- Renuwals-->
+				<div id="Renuwalslert" data-bind="visible:$root.Renuwals">
+					<div class="viewing_area">Viewing Area</div>
+						<table  style="width:550px">
+							<tr>
+								<th class="headers" >ARDM</th>
+								<th class="headers" >customer</th>
+								<th class="headers" >Due Date</th>
+								<th class="headers" >Policy No</th>
+								<th class="headers" ></th>
+							</tr>
+						   <tbody data-bind="foreach: renewalsData" >
+							<tr>
+								<th> <div data-bind="html:SM_Name"></div></th>
+								<th> <div data-bind="html:ClntName"></div></th>
+								<th> <div data-bind="html:PaidToDate"></div></th>
+								<th> <div data-bind="html:PolicyNo"></div></th>
+								<th class="ARDM"> <div class="discussedARDM" data-bind="visible:IR_Renewal_btn() == '0',html:ARDM,attr: { id:'discussedARDM '+$index() },click :ondiscussedARDMClick " ></div></th>
+							</tr>
+						 </tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

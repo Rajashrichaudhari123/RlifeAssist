@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/jqueryui.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/lifeplannerCommon.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/source.css"></link>
+		<link href="css/table.css" rel="stylesheet" >
+		<link href="css/goals.css" rel="stylesheet" >
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/jquery.js"></script>
+    	<script src="scripts/jqueryui.js"></script>
+    	<script src="scripts/Utils.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/translations.js"></script>
+		<script src="scripts/dictionaries.js"></script>
+		<script src="scripts/getblob.js"></script>
+		<script src="scripts/jqueryLifePlanner.js"></script>
+		<script src="scripts/html2canvas.js"></script>
+		<script src="scripts/lifeplannerConstants.js"></script>
+		<script src="scripts/goals.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+		<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+         <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li> --> 
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li>
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li>
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                 <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Calculator</span>
+                </li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+            </ul>
+         </div>
+			<div id="disc-pop">
+	            <div class="pop">
+	                <div class="box">
+	                    <h2>Disclaimer</h2>
+	                    <a href="#" class="close" onclick="document.getElementById('disc-pop').style.display='none';">X</a>
+	                    <div class="disc">
+							<div>Reliance Nippon Life Insurance Company Limited (formerly known as Reliance Life Insurance Company Limited) - IRDAI Reg. No 121. Registered Office: H Block, 1st Floor, Dhirubhai Ambani Knowledge City, Navi Mumbai, Maharashtra 400 710. Call us on our Toll free no. 1800 300 08181 (between 9 am to 6 pm, Monday to Saturday). Trade logo displayed above belongs to Anil Dhirubhai Ambani ventures Private Limited and used by Reliance Life under license. Reliance Nippon Life Insurance Company is only the name of the Insurance Company, and following are the names of the life insurance products. Reliance's Guaranteed Money Back Plan -121N084V02 | Reliance Fixed Savings -121N101V01 | Reliance's Super Endowment Plan - 121N088V02 | Reliance Increasing Income Insurance Plan:121N108V01 | Reliance Life Insurance Super Money Back Plan: 121N098V01 | Reliance Education Plan:121N106V01 | Reliance Life Classic Plan II: 121L085V02 | Reliance Pay Five :121L082V02 | Reliance Smart Cash Plus Plan:121N096V01 | Reliance Smart Pension:121L090V02 | Reliance Smart Pension:121L090V02 | Reliance Lifelong Savings:121N110V01. For more details on risk factors, terms and conditions please read sales brochure carefully before concluding a sale. Subject to provisions as per Income Tax Act, 1961. Tax Laws are subject to change. Please consult your tax advisor for more details.</div>
+							<div>BEWARE OF SPURIOUS PHONE CALLS AND FICTITIOUS/FRAUDULENT OFFERS IRDA clarifies to public that: (i) IRDA or its officials do not involve in activities like sale of any kind of insurance or financial products nor invest premiums. (ii)IRDA does not announce any bonus. Public receiving such phone calls are requested to lodge a police complaint along with details of phone call, number.</div>
+							<div>CIN: U66010MH2001PLC167089</div>
+						</div>
+	                </div>
+	            </div>
+	        </div>
+			<div class="main">
+				<div class="content">		 
+					<div class="titleContent" style="padding-top:0;" data-bind="display: getTranslatedLabel(Strings.goalsTitle, juci.currentLanguage())">Apart from your day-to-day expenses on household and health, there are important goals that can put a strain on your finances and need advance planning</div>
+				 	<div class="graphscroll">
+						<img class="life_stage_graph" id="life_stage" src="" />
+					</div> 
+	                	<div class="footer" data-bind="display: getTranslatedLabel(Strings.goalsFooter, juci.currentLanguage())">Source: Nielsen Life 2013 study, primary and secondary research</div>
+					<div class="btns2-row">
+	                        <button class="next" data-juci="button" onclick="goToPlanPage()">Next</button>
+	                </div>
+				</div>
+			</div>
+			<!--<div id="cover"></div>-->
+		</div>
+	</body>
+</html>

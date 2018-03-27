@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/Mybusiness.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="scripts/juci-0.2.js"></script>
+		<script src="scripts/dropdown.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/Mybusiness.js"></script>
+	
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<div class="wrapper">
+				<div class="heading">
+					<div data-juci="display" class="my_business_lable" data-label="My Business" ></div>
+				</div>
+				<div class-"periodAndARDM">
+					<div class="period_dropdown_container">
+						<div data-juci="selectbox" class="time_period" id="time_period" data-mode="popup" 
+						data-bind="optionsList: $root.timePeriod, ref: $root.selectedPeriod" placeholder="Month to Date" >
+					</div>
+					<div class="date_container" id="date_container">
+						<div class="from_date_picker">
+							<div data-juci="datepicker"id="from_date" class="from_date"	data-bind="$root.todaysDate" ></div>
+						</div>
+						<div class="to_date_picker">
+							<div data-juci="datepicker"  class="to_date" id="to_date"  ></div>
+						</div>
+					</div>
+					<div class="ARDM_container">
+						<div data-juci="selectbox" class="ARDM" id="ARDM" data-mode="popup" 
+						data-bind="optionsList: $root.ARDM, ref: $root.selectedARDM" placeholder="Select All ARDM">
+					</div>
+		 		</div>
+					</div>
+				</div>
+				<div class="ligents_container">
+					<div class="action ligents">
+						<div class="action_ligents_image"></div>
+						<div data-juci="display" class="ligents_lable" data-bind="text: 'Action'" ></div>
+					</div>
+					<div class="target ligents">
+						<div class="target_ligents_image"></div>
+						<div data-juci="display" class="ligents_lable" data-bind="text: 'Target'" ></div>
+					</div>
+					<div class="achivement ligents">
+						<div class="achivement_ligents_image"></div>
+						<div data-juci="display" class="ligents_lable achivement_lable" data-bind="text: 'Achivement'" ></div>
+					</div>
+				</div>
+				<div class="scorecard_list_container">
+					<div data-juci="list" class="scorecard_list" data-bind="ref:$root.scorecardList" >
+						<div data-juci="listitem">
+							<div data-juci="display" class="customer_name" data-bind="text: Data" ></div>
+							<div class="name_and_vale">
+								<div class="action_image"></div>
+								<div data-juci="display" class="percentage_value" data-bind="text: DataValues" ></div>
+							</div>
+							<div class="yoy_growth">
+								<div data-juci="display"class="yoy_growth_lable" data-bind="text: 'YOY Growth'" ></div>
+								<div class="yoygrowth_image_holder" > <img class="yoygrowth_image" src="images/growthup.png"></img></div>
+								<div data-juci="display"class="yoy_growth_value" data-bind="text: YoY_Growth" ></div>
+							</div>
+							<div class="target_data">
+								<div class="target_image"></div>
+								<div data-juci="display"class="target_value" data-bind="text: Target" ></div>
+							</div>
+							<div class="achivement_data">
+								<div class="achivement_image"></div>
+								<div data-juci="display"class="achivement_value" data-bind="text: Achievement" ></div>
+							</div>
+						</div>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

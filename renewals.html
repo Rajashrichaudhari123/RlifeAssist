@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+      <link rel="stylesheet" type="text/css" href="css/jqueryui.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/select2.css"></link>
+    	<link rel="stylesheet" type="text/css" href="css/select2Custom.css"></link>
+	<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+	<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/renewals.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/collapsible.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/common.css"></link>
+      <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+      <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+      <script src="scripts/jquery.js"></script>
+    <script src="scripts/jqueryui.js"></script>
+      <script src="scripts/select2.js"></script>
+      <script src="scripts/messages.js"></script>
+      <script src="scripts/header.js"></script>
+      <script src="scripts/Utils.js"></script>
+      <script src="scripts/constants.js"></script>
+      <script src="scripts/rlifeservices.js"></script>
+      <script src="scripts/renewals.js"></script>
+      <script src="scripts/collapsible.js"></script>
+      <script src="scripts/commonRenewals.js"></script>
+      <script src="scripts/dbHelper.js"></script>
+      <script src="scripts/teamhierarchy.js"></script>
+      <script src="scripts/rlifeservices.js"></script>
+      <script src="scripts/hierarchyDatamanager.js"></script>
+      <script src="scripts/hierarchy.js"></script>
+      <script src="scripts/SHDataPojo.js"></script>
+      <script src="scripts/sticky.js"></script>
+   </head>
+   <body onclick="hideMenu()">
+      <div data-juci="panel" data-first-panel>
+      <div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+         <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li> --> 
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                <li class="item_list" onclick="openDeviceCompatibility()">
+                  <img src="images/tablet.png"></img>
+                  <span>Device Compatibility check</span>
+               </li>
+                
+                <li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li>
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li>
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                <li class="item_list" onclick="openPIVC()">
+                  <img src="images/Folder_grey.png"></img>
+                  <span>PIVC option</span>
+               </li>
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Calculator</span>
+                </li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+            </ul>
+         </div>
+         <!--<div id="dialog-teamlogin" data-juci="dialog">
+            <div class="heading_team">
+               <div class="dialogheader">Login As</div>
+               <div class="refresh_area">
+                  <div class="refresh_img">	<img src="images/refresh.png" onclick="syncHierarchy()()"></img></div>
+                  <span class="close" onclick="hidebox()">X</span>
+               </div>
+            </div>
+            <div class="content-body">
+               <div class="user_name_area">
+                  <div class="info">Currently logged in as</div>
+                  <div class="user" data-bind="html: $root.user().name()"></div>
+                  <div class="sync_time" data-bind="html:$root.syncTeam"></div>
+               </div>
+               <div id="zm" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format" onafterchange="drillDown(event)" >
+               </div>
+               <div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup"data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+               </div>
+               <div id="am"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+               </div>
+               <div id="bm"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+               </div>
+               <div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format"    onafterchange="drillDown(event)" >
+               </div>
+               <div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm'),optionsList:$root.adlist,ref:name,optionsText:format" required  data-formatter="format"  onafterchange="confirmTeamUser(event)"  onvalidationfail="Utils.GetValidationMessage(event,'advisor')" >
+               </div>
+            </div>
+            <div class="juci_thinbar team">
+               <button class="login" data-juci="button" onclick="openProducts()">Login as</button>
+               <button class="loginas" data-juci="button" onclick="openProposal()">Login as Myself</button>
+            </div>
+         </div>-->
+         <div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+            <div class="togcount" data-bind="with:renewals">
+               <button class="btn1 lftbrd" data-juci="button" data-toggle="1">
+                  <div class="renewal"><span class="notif" data-bind="html:TotalCount"></span><span class="notifctn">All</span></div>
+               </button>
+               <button class="btn1" data-juci="button" data-toggle="2">
+                  <div class="renewal"><span class="notif" data-bind="html:InForceCount"></span><span class="notifctn">In Force</span></div>
+               </button>
+               <button class="btn1" data-juci="button" data-toggle="3">
+                  <div class="renewal"><span class="notif" data-bind="html:LapseCount"></span><span class="notifctn">Lapsed</span></div>
+               </button>
+               <button class="btn1" data-juci="button" data-toggle="4">
+                  <div class="renewal"><span class="notif" data-bind="html:SurrenderCount"></span><span class="notifctn">Surrendered</span></div>
+               </button>
+            </div>
+         </div>
+         <!--  Filters  -->
+         <div id="sticky-anchor"></div>
+         <div id="filter_scroll" class="filter_scroll">
+            <div class="filters">
+               <button class="search" data-juci="button" onclick="scrollToTop()"><img class="flag" src="images/Flag.png"></></button>
+               <button class="search" data-juci="button" onclick="searchby()">Search</button>
+               <button class="search" data-juci="button" onclick="sort()">Sort By</button>
+               <button class="search nobrd" data-juci="button" onclick="filter()">Filters</button>
+            </div>
+            <div class="display" id="searchbox" style="display: none;">
+               <div class="select_box sortoption">
+                    <select id="getSelectedoption" class="custome_selectbox" data-bind="options: options1"></select>
+                </div>
+                <div class="sortoption1">
+                	<div data-juci="text" id="search-text" class="custome_text" data-label="" placeholder="Search" data-bind="ref:searchtext,event:{'keyup':showApplications}" data-trigger="keydown"></div>
+                    <!--select id="getSelectedoption" class="custome_selectbox" data-bind="options: options1,ref:searchbyoption"></select-->
+                </div>
+			</div>
+            <div class="display" id="sort" style="display: none;">
+               <div class="select_box sortoption">
+                    <select id="filterList-sort" class="custome_selectbox" data-bind="options: options2" onChange="getselectedoption(event)"></select>
+                </div>
+                <div class="select_box sortoption1">
+                    <select id="getsortedList" class="custome_selectbox nobrd" data-bind="options: options3" onChange="getselectedCategory(event)"></select>
+                </div>
+            </div>
+            <div class="display" id="filter" style="display: none;">
+               <select  id="filterlist" class="fltroption"    data-bind="options:options4" onChange = "getfilteroption(event)"> </select>
+               <div id="dateranger" data-juci="daterange" data-bind="ref:dateranged"  data-from-placeholder="From" data-to-placeholder="To" onafterchange= "getDateRange(event)" style="display: none;"></div>
+            </div>
+         </div>
+         <!-- All Renewals -->
+         <div id="totalrenewals">
+            <div id="allrenewal" data-juci="xlist" data-bind="ref:totalrenewals">
+               <div data-juci="listitem" data-bind="attr:{id:'showlist'+$index()}" onclick="showlistitem(event)">
+                  <div class="pendingbox" data-bind="attr:{id: 'menuBox' + $index()}" style="display: none;">
+                     <div class="email">
+                        <img src="images/email.png"></img>
+                        <div class="elements">Email</div>
+                     </div>
+                     <div class="call">
+                        <img src="images/phone.png"></img>
+                        <div class="elements">Call</div>
+                     </div>
+                     <div class="sms">
+                        <img src="images/bubbles2.png"></img>
+                        <div class="elements">SMS</div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="cell bold" data-bind="html:ClientName"></div>
+                     <div class="sidemenu" data-bind=attr:{'id':$index()}><img class="vertical" src="images/dots-three-vertical.png"></></div>
+                     <div class="nxtcell" data-bind="html:ContractNumber"></div>
+                     <div class="nxtcell cid" data-bind="html:ProductName"></div>
+                    
+   <div class="nxtcell lstcell" data-bind="html:ContractStatus,css:{juc_green: ContractStatus() === 'In Force',juc_cornflowerblue:ContractStatus() ==='Contract Lapsed',juc_red:ContractStatus() ==='Contract Surrendered',purple: ContractStatus() ==='Paid Up Contract',orange:ContractStatus() ==='Discontinued'}"></div>
+                  </div>
+                  <div class="oneline">
+                     <div class="head">
+                        <div class="titles">Due Amount</div>
+                        <div class="data" data-bind="html:getSymbol(AmountPayable())"></div>
+                     </div>
+                     <p class="break" data-bind="attr:{id: 'break' +$index()}" >View Break-up</p>
+                     <div class="head right">
+                        <div class="titles">Due Date</div>
+                        <div class="data" data-bind="html:PremiumDueDate"></div>
+                     </div>
+                  </div>
+                  <div class="breakup" data-bind="attr:{id: 'breakupBox' + $index()}" style="display:none">
+                     <div class="tophead">
+                        <div class="topheading">
+                           <div class="firstheading">Installment Premium</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(Premium())"></div>
+                        </div>
+                        <span>X</span>
+                        <div class="topheading">
+                           <div class="firstheading">No. of Installment</div>
+                           <div class="premiumdata" data-bind="html:DueCount"></div>
+                        </div>
+                        <span>+</span>
+                        <div class="topheading">
+                           <div class="firstheading">Interest</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(Interest())"></div>
+                        </div>
+                        <span>-</span>
+                        <div class="topheading">
+                           <div class="firstheading">Suspense Amount</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(SuspenseAmount())"></div>
+                        </div>
+                        <span>=</span>
+                        <div class="topheading">
+                           <div class="firstheading">Net Premium Payable</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(AmountPayable())"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="show" data-bind=attr:{'id':$index()}>
+                     <div class="showing" data-bind="attr:{id: 'SM' +$index()}">Show more</div>
+                  </div>
+                  <div class="less" data-bind="attr:{id: 'less' + $index()}" style="display:none;">
+                     <div data-juci="form" data-bind="ref:$root.customerinfo">
+                        <div class="profile">
+                           <div class="imagecell">
+                              <img class="profcell" data-bind="attr:{src:ProfileImage}"></>	
+                           </div>
+                           <div class="rightcontent">
+                              <div class="cellname" data-bind="html:ClientName"></div>
+                              <div class="titles pay">PROPENSITY TO PAY</div>
+                              <div class="data stat" data-bind="html:PayPropensity"></div>
+                           </div>
+                        </div>
+                        <div class="info">
+                           <div class="policydata" data-bind="html:'ID: '+ClientID()"></div>
+                           <div class="policydata" data-bind="html:'DOB: '+DateOfBirth()"></div>
+                           <div class="policydata" data-bind="html:'City: '+City()"></div>
+                           <div class="policydata" data-bind="html:'State: '+State()"></div>
+                           <div class="policydata mnumber" data-bind="html:'Mobile: '+MobileNumber()"></div>
+                           <img class="phone" data-bind="visible:MobileNumber()!=''"</>
+                           <div class="policydata eaddrs" data-bind="html:'Email: '+EmailAddress()"></div>
+                           <img class="emailid" data-bind="visible:EmailAddress()!=''"</>
+                        </div>
+                        <div class="tab">
+                           <div class="juci_thinbar" >Policy Details</div>
+                           <div class="collapse">
+                              <div class="policydata" data-bind="html:'Policy No.: '+PolicyNumber()"></div>
+                              <div class="policydata" data-bind="html:'Issued on: '+IssuedDate()"></div>
+                              <div class="policydata" data-bind="html:'Policy Term: '+PolicyTerm()"></div>
+                              <div class="policydata" data-bind="html:'Premium Paying Term: '+PremiumTerm()"></div>
+                              <div class="policydata" data-bind="html:'Add Frequency: '+Frequency()"></div>
+                              <div class="policydata" data-bind="html:'Premium Type: '+PremiumType()"></div>
+                              <div class="policydata" data-bind="html:'ECS Active: '+EcsActive()"></div>
+                              <div class="policydata" data-bind="html:'Last Premium Paid On: '+LastPremiumPaidDate()"></div>
+                              <div class="policydata" data-bind="html:'Mode of Payment: '+PaymentMode()"></div>
+                              <div class="policydata" data-bind="html:'Next Premium Date: '+PremiumDueDate()"></div>
+                              <div class="policydata" data-bind="html:'Grace End Date: '+GraceEndDate()"></div>
+                           </div>
+                        </div>
+                        <div class="tab">
+                           <div  class="juci_thinbar">
+                              <div class="naming">Advisor Details</div>
+                           </div>
+                           <div class="collapse ad">
+                              <div class="advdata" data-bind="html:AdvisorName"></div>
+                              <div class="advdata" data-bind="html:'Advisor Code: '+AdvisorCode()"></div>
+                              <div class="advdata mob" data-bind="html:'Mobile.: '+AdvisorMobileNumber()"></div>
+                              <img class="phone" data-bind="visible:AdvisorMobileNumber()!=''"</>	
+                              <div class="advdata mob" data-bind="html:'Email: '+AdvisorEmailAddress()"></div>
+                              <img class="emailid" data-bind="visible:AdvisorEmailAddress()!=''"</>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- In Force  -->
+         <div id="inforcedrenewals">
+            <div id="forcerenewal" data-juci="xlist" data-bind="ref:inforcerenewals">
+               <div data-juci="listitem" data-bind="attr:{id:'showlistforce'+$index()}" onclick="showlistitemforforce(event)">
+                  <div class="pendingbox" data-bind="attr:{id: 'menuBoxinforce' + $index()}" style="display: none;">
+                     <div class="email">
+                        <img src="images/email.png"></img>
+                        <div class="elements">Email</div>
+                     </div>
+                     <div class="call">
+                        <img src="images/phone.png"></img>
+                        <div class="elements">Call</div>
+                     </div>
+                     <div class="sms">
+                        <img src="images/bubbles2.png"></img>
+                        <div class="elements">SMS</div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="cell bold" data-bind="html:ClientName"></div>
+                     <div class="sidemenu" data-bind=attr:{'id':$index()}><img class="vertical" src="images/dots-three-vertical.png"></></div>
+                     <div class="nxtcell" data-bind="html:ContractNumber"></div>
+                     <div class="nxtcell" data-bind="html:ProductName"></div>
+                   
+                     <div class="nxtcell lstcellf" data-bind="html:ContractStatus,css:{juc_green: ContractStatus() === 'In Force',juc_cornflowerblue:ContractStatus() ==='Contract Lapsed',juc_red:ContractStatus() ==='Contract Surrendered',purple: ContractStatus() ==='Paid Up Contract',orange:ContractStatus() ==='Discontinued'}"></div>
+                  </div>
+                  <div class="oneline">
+                     <div class="head">
+                        <div class="titles">Due Amount</div>
+                        <div class="data" data-bind="html:getSymbol(AmountPayable())"></div>
+                     </div>
+                     <p class="break" data-bind="attr:{id: 'bforce' +$index()}" >View Break-up</p>
+                     <div class="head right">
+                        <div class="titles">Due Date</div>
+                        <div class="data" data-bind="html:PremiumDueDate"></div>
+                     </div>
+                  </div>
+                  <div class="breakup" data-bind="attr:{id: 'breakupBoxinforce' + $index()}" style="display:none">
+                     <div class="tophead">
+                        <div class="topheading">
+                           <div class="firstheading">Installment Premium</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(Premium())"></div>
+                        </div>
+                        <span>X</span>
+                        <div class="topheading">
+                           <div class="firstheading">No. of Installment</div>
+                           <div class="premiumdata" data-bind="html:DueCount"></div>
+                        </div>
+                        <span>+</span>
+                        <div class="topheading">
+                           <div class="firstheading">Interest</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(Interest())"></div>
+                        </div>
+                        <span>-</span>
+                        <div class="topheading">
+                           <div class="firstheading">Suspense Amount</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(SuspenseAmount())"></div>
+                        </div>
+                        <span>=</span>
+                        <div class="topheading">
+                           <div class="firstheading">Net Premium Payable</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(AmountPayable())"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="show"  data-bind=attr:{'id':$index()}>
+                     <div class="showing" data-bind="attr:{id: 'SMF' +$index()}">Show more</div>
+                  </div>
+                  <div class="less" data-bind="attr:{id: 'lessf' + $index()}" style="display:none;">
+                     <div data-juci="form" data-bind="ref:$root.customerinfo">
+                        <div class="profile">
+                           <div class="imagecell">
+                              <img class="profcell" data-bind="attr:{src:ProfileImage}"></>	
+                           </div>
+                           <div class="rightcontent">
+                              <div class="cellname" data-bind="html:ClientName"></div>
+                              <div class="titles pay">PROPENSITY TO PAY</div>
+                              <div class="data stat" data-bind="html:PayPropensity"></div>
+                           </div>
+                        </div>
+                        <div class="info">
+                           <div class="policydata" data-bind="html:'ID: '+ClientID()"></div>
+                           <div class="policydata" data-bind="html:'DOB: '+DateOfBirth()"></div>
+                           <div class="policydata" data-bind="html:'City: '+City()"></div>
+                           <div class="policydata" data-bind="html:'State: '+State()"></div>
+                           <div class="policydata mnumber" data-bind="html:'Mobile: '+MobileNumber()"></div>
+                           <img class="phone" data-bind="visible:MobileNumber()!=''"</>
+                           <div class="policydata eaddrs" data-bind="html:'Email: '+EmailAddress()"></div>
+                           <img class="emailid" data-bind="visible:EmailAddress()!=''"</>
+                        </div>
+                        <!--div class="tab"!-->
+                           <div  class="juci_thinbar in_force" data-bind="click:onPolicyDetailsClick">Policy Details</div>
+	                           <div class="collapse">
+	                           		<div id="policy-details">
+			                          <div class="policydata" data-bind="html:'Policy No.: '+PolicyNumber()"></div>
+			                          <div class="policydata" data-bind="html:'Issued on: '+IssuedDate()"></div>
+			                          <div class="policydata" data-bind="html:'Policy Term: '+PolicyTerm()"></div>
+			                          <div class="policydata" data-bind="html:'Premium Paying Term: '+PremiumTerm()"></div>
+			                          <div class="policydata" data-bind="html:'Add Frequency: '+Frequency()"></div>
+			                          <div class="policydata" data-bind="html:'Premium Type: '+PremiumType()"></div>
+			                          <div class="policydata" data-bind="html:'ECS Active: '+EcsActive()"></div>
+			                          <div class="policydata" data-bind="html:'Last Premium Paid On: '+LastPremiumPaidDate()"></div>
+			                          <div class="policydata" data-bind="html:'Mode of Payment: '+PaymentMode()"></div>
+			                          <div class="policydata" data-bind="html:'Next Premium Date: '+PremiumDueDate()"></div>
+			                          <div class="policydata" data-bind="html:'Grace End Date: '+GraceEndDate()"></div>
+		                        	</div>
+		                       </div>
+                        <!--/div!-->
+                        <div class="tab">
+                           <div  class="juci_thinbar">Advisor Details</div>
+                           <div class="collapse ad">
+                              <div class="advdata" data-bind="html:AdvisorName"></div>
+                              <div class="advdata" data-bind="html:'Advisor Code: '+AdvisorCode()"></div>
+                              <div class="advdata mob" data-bind="html:'Mobile: '+AdvisorMobileNumber()"></div>
+                              <img class="phone" data-bind="visible:AdvisorMobileNumber()!=''"</>	
+                              <div class="advdata mob" data-bind="html:'Email: '+AdvisorEmailAddress()"></div>
+                              <img class="emailid" data-bind="visible:AdvisorEmailAddress()!=''"</>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Lapsed  -->
+         <div id="lapserenewals">
+            <div id="laprenewal" data-juci="xlist" data-bind="ref:lapsedrenewals">
+               <div data-juci="listitem" data-bind="attr:{id:'showlist'+$index()}" onclick="showlistitemforlapse(event)">
+                  <div class="pendingbox" data-bind="attr:{id: 'menuBoxlapse' + $index()}" style="display: none;">
+                     <div class="email">
+                        <img src="images/email.png"></img>
+                        <div class="elements">Email</div>
+                     </div>
+                     <div class="call">
+                        <img src="images/phone.png"></img>
+                        <div class="elements">Call</div>
+                     </div>
+                     <div class="sms">
+                        <img src="images/bubbles2.png"></img>
+                        <div class="elements">SMS</div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="cell bold" data-bind="html:ClientName"></div>
+                     <div class="sidemenu" data-bind=attr:{'id':$index()}><img class="vertical" src="images/dots-three-vertical.png"></></div>
+                     <div class="nxtcell" data-bind="html:ContractNumber"></div>
+                     <div class="nxtcell" data-bind="html:ProductName"></div>
+                 
+    <div class="nxtcell lstcell" data-bind="html:ContractStatus,css:{juc_green: ContractStatus() === 'In Force',juc_cornflowerblue:ContractStatus() ==='Contract Lapsed',juc_red:ContractStatus() ==='Contract Surrendered',purple:ContractStatus() =='Paid Up Contract',orange:ContractStatus() ==='Discontinued'}"></div>
+                  </div>
+                  <div class="oneline">
+                     <div class="head">
+                        <div class="titles">Due Amount</div>
+                        <div class="data" data-bind="html:getSymbol(AmountPayable())"></div>
+                     </div>
+                     <p class="break" data-bind="attr:{id: 'blapse' +$index()}">View Break-up</p>
+                     <div class="head right">
+                        <div class="titles">Due Date</div>
+                        <div class="data" data-bind="html:PremiumDueDate"></div>
+                     </div>
+                  </div>
+                  <div class="breakup" data-bind="attr:{id: 'breakupBoxlapse' + $index()}" style="display:none">
+                     <div class="tophead">
+                        <div class="topheading">
+                           <div class="firstheading">Installment Premium</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(Premium())"></div>
+                        </div>
+                        <span>X</span>
+                        <div class="topheading">
+                           <div class="firstheading">No. of Installment</div>
+                           <div class="premiumdata" data-bind="html:DueCount"></div>
+                        </div>
+                        <span>+</span>
+                        <div class="topheading">
+                           <div class="firstheading">Interest</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(Interest())"></div>
+                        </div>
+                        <span>-</span>
+                        <div class="topheading">
+                           <div class="firstheading">Suspense Amount</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(SuspenseAmount())"></div>
+                        </div>
+                        <span>=</span>
+                        <div class="topheading">
+                           <div class="firstheading">Net Premium Payable</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(AmountPayable())"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="show"  id="more" data-bind=attr:{'id':$index()}>
+                     <div class="showing" data-bind="attr:{id: 'SML' +$index()}" >Show more</div>
+                  </div>
+                  <div class="less" data-bind="attr:{id: 'lessl' + $index()}" style="display:none;">
+                     <div data-juci="form" data-bind="ref:$root.customerinfo">
+                        <div class="profile">
+                           <div class="imagecell">
+                              <img class="profcell" data-bind="attr:{src:ProfileImage}"></>	
+                           </div>
+                           <div class="rightcontent">
+                              <div class="cellname" data-bind="html:ClientName"></div>
+                              <div class="titles pay">PROPENSITY TO PAY</div>
+                              <div class="data stat" data-bind="html:PayPropensity"></div>
+                           </div>
+                        </div>
+                        <div class="info">
+                           <div class="policydata" data-bind="html:'ID: '+ClientID()"></div>
+                           <div class="policydata" data-bind="html:'DOB: '+DateOfBirth()"></div>
+                           <div class="policydata" data-bind="html:'City: '+City()"></div>
+                           <div class="policydata" data-bind="html:'State: '+State()"></div>
+                           <div class="policydata mnumber" data-bind="html:'Mobile: '+MobileNumber()"></div>
+                           <img class="phone" data-bind="visible:MobileNumber()!=''"</>
+                           <div class="policydata eaddrs" data-bind="html:'Email: '+EmailAddress()"></div>
+                           <img class="emailid" data-bind="visible:EmailAddress()!=''"</>
+                        </div>
+                        <div class="tab">
+                           <div  class="juci_thinbar">Policy Details</div>
+                           <div class="collapse">
+                              <div class="policydata" data-bind="html:'Policy No.: '+PolicyNumber()"></div>
+                              <div class="policydata" data-bind="html:'Issued on: '+IssuedDate()"></div>
+                              <div class="policydata" data-bind="html:'Policy Term: '+PolicyTerm()"></div>
+                              <div class="policydata" data-bind="html:'Premium Paying Term: '+PremiumTerm()"></div>
+                              <div class="policydata" data-bind="html:'Add Frequency: '+Frequency()"></div>
+                              <div class="policydata" data-bind="html:'Premium Type: '+PremiumType()"></div>
+                              <div class="policydata" data-bind="html:'ECS Active: '+EcsActive()"></div>
+                              <div class="policydata" data-bind="html:'Last Premium Paid On: '+LastPremiumPaidDate()"></div>
+                              <div class="policydata" data-bind="html:'Mode of Payment: '+PaymentMode()"></div>
+                              <div class="policydata" data-bind="html:'Next Premium Date: '+PremiumDueDate()"></div>
+                              <div class="policydata" data-bind="html:'Grace End Date: '+GraceEndDate()"></div>
+                           </div>
+                        </div>
+                        <div class="tab">
+                           <div  class="juci_thinbar">Advisor Details</div>
+                           <div class="collapse ad">
+                              <div class="advdata" data-bind="html:AdvisorName"></div>
+                              <div class="advdata" data-bind="html:'Advisor Code: '+AdvisorCode()"></div>
+                              <div class="advdata mob" data-bind="html:'Mobile: '+AdvisorMobileNumber()"></div>
+                              <img class="phone" data-bind="visible:AdvisorMobileNumber()!=''"</>	
+                              <div class="advdata mob" data-bind="html:'Email: '+AdvisorEmailAddress()"></div>
+                              <img class="emailid" data-bind="visible:AdvisorEmailAddress()!=''"</>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Surrendered  -->
+         <div id="surrenderrenewals">
+            <div id="surrdrenewal" data-juci="xlist" data-bind="ref:surrenderedrenewals">
+               <div data-juci="listitem" data-bind="attr:{id:'showlist'+$index()}" onclick="showlistitemforsurrender(event)">
+                  <div class="pendingbox" data-bind="attr:{id: 'menuBoxsurrender' + $index()}" style="display:none;">
+                     <div class="email">
+                        <img src="images/email.png"></img>
+                        <div class="elements">Email</div>
+                     </div>
+                     <div class="call">
+                        <img src="images/phone.png"></img>
+                        <div class="elements">Call</div>
+                     </div>
+                     <div class="sms">
+                        <img src="images/bubbles2.png"></img>
+                        <div class="elements">SMS</div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="cell bold" data-bind="html:ClientName"></div>
+                     <div class="sidemenu" data-bind=attr:{'id':$index()}><img class="vertical" src="images/dots-three-vertical.png"></></div>
+                     <div class="nxtcell" data-bind="html:ContractNumber"></div>
+                     <div class="nxtcell" data-bind="html:ProductName"></div>
+                    
+                     <div class="nxtcell lstcells" data-bind="html:ContractStatus,css:{juc_green: ContractStatus() === 'In Force',juc_cornflowerblue:ContractStatus() ==='Contract Lapsed',juc_red:ContractStatus() ==='Contract Surrendered',purple: ContractStatus() ==='Paid Up Contract',orange:ContractStatus() ==='Discontinued'}"></div>
+                  </div>
+                  <div class="oneline">
+                     <div class="head">
+                        <div class="titles">Due Amount</div>
+                        <div class="data" data-bind="html:getSymbol(AmountPayable())"></div>
+                     </div>
+                     <p class="break" data-bind="attr:{id: 'bsurrd' +$index()}">View Break-up</p>
+                     <div class="head right">
+                        <div class="titles">Due Date</div>
+                        <div class="data" data-bind="html:PremiumDueDate"></div>
+                     </div>
+                  </div>
+                  <div class="breakup" data-bind="attr:{id: 'breakupBoxsurrender' + $index()}" style="display:none">
+                     <div class="tophead">
+                        <div class="topheading">
+                           <div class="firstheading">Installment Premium</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(Premium())"></div>
+                        </div>
+                        <span>X</span>
+                        <div class="topheading">
+                           <div class="firstheading">No. of Installment</div>
+                           <div class="premiumdata" data-bind="html:DueCount"></div>
+                        </div>
+                        <span>+</span>
+                        <div class="topheading">
+                           <div class="firstheading">Interest</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(Interest())"></div>
+                        </div>
+                        <span>-</span>
+                        <div class="topheading">
+                           <div class="firstheading">Suspense Amount</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(SuspenseAmount())"></div>
+                        </div>
+                        <span>=</span>
+                        <div class="topheading">
+                           <div class="firstheading">Net Premium Payable</div>
+                           <div class="premiumdata" data-bind="html:getSymbol(AmountPayable())"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="show"  id="more" data-bind="attr:{'id':$index()}" >
+                     <div class="showing" data-bind="attr:{id: 'SMS' +$index()}">Show more</div>
+                  </div>
+                  <div class="less" data-bind="attr:{id: 'lesss' + $index()}" style="display:none;">
+                     <div data-juci="form" data-bind="ref:$root.customerinfo">
+                        <div class="profile">
+                           <div class="imagecell">
+                              <img class="profcell" data-bind="attr:{src:ProfileImage}"></>	
+                           </div>
+                           <div class="rightcontent">
+                              <div class="cellname" data-bind="html:ClientName"></div>
+                              <div class="titles pay">PROPENSITY TO PAY</div>
+                              <div class="data stat" data-bind="html:PayPropensity"></div>
+                           </div>
+                        </div>
+                        <div class="info">
+                           <div class="policydata" data-bind="html:'ID: '+ClientID()"></div>
+                           <div class="policydata" data-bind="html:'DOB: '+DateOfBirth()"></div>
+                           <div class="policydata" data-bind="html:'City: '+City()"></div>
+                           <div class="policydata" data-bind="html:'State: '+State()"></div>
+                           <div class="policydata mnumber" data-bind="html:'Mobile: '+MobileNumber()"></div>
+                           <img class="phone" data-bind="visible:MobileNumber()!=''"</>
+                           <div class="policydata eaddrs" data-bind="html:'Email: '+EmailAddress()"></div>
+                           <img class="emailid" data-bind="visible:EmailAddress()!=''"</>
+                        </div>
+                        <div class="tab">
+                           <div  class="juci_thinbar">Policy Details</div>
+                           <div class="collapse">
+                              <div class="policydata" data-bind="html:'Policy No.: '+PolicyNumber()"></div>
+                              <div class="policydata" data-bind="html:'Issued on: '+IssuedDate()"></div>
+                              <div class="policydata" data-bind="html:'Policy Term: '+PolicyTerm()"></div>
+                              <div class="policydata" data-bind="html:'Premium Paying Term: '+PremiumTerm()"></div>
+                              <div class="policydata" data-bind="html:'Add Frequency: '+Frequency()"></div>
+                              <div class="policydata" data-bind="html:'Premium Type: '+PremiumType()"></div>
+                              <div class="policydata" data-bind="html:'ECS Active: '+EcsActive()"></div>
+                              <div class="policydata" data-bind="html:'Last Premium Paid On: '+LastPremiumPaidDate()"></div>
+                              <div class="policydata" data-bind="html:'Mode of Payment: '+PaymentMode()"></div>
+                              <div class="policydata" data-bind="html:'Next Premium Date: '+PremiumDueDate()"></div>
+                              <div class="policydata" data-bind="html:'Grace End Date: '+GraceEndDate()"></div>
+                           </div>
+                        </div>
+                        <div class="tab">
+                           <div  class="juci_thinbar">Advisor Details</div>
+                           <div class="collapse ad">
+                              <div class="advdata" data-bind="html:AdvisorName"></div>
+                              <div class="advdata" data-bind="html:'Advisor Code: '+AdvisorCode()"></div>
+                              <div class="advdata mob" data-bind="html:'Mobile.: '+AdvisorMobileNumber()"></div>
+                              <img class="phone" data-bind="visible:AdvisorMobileNumber()!=''"</>	
+                              <div class="advdata mob" data-bind="html:'Email: '+AdvisorEmailAddress()"></div>
+                              <img class="emailid" data-bind="visible:AdvisorEmailAddress()!=''"</>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="footerbar">
+            <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+            <span> | </span>
+            <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+            <span> | </span>
+            <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+         </div>
+      </div>
+   </body>
+</html>

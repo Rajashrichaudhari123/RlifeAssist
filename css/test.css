@@ -1,0 +1,377 @@
+.juci_panel_title .actionbutton {
+    background: #0b4daa;
+    color: #ffffff;
+}
+.juci_panel_title .abtnholder {
+    width: 100%;
+}
+.juci_panel_title .abtnholder {
+    display: table-cell;
+    height: 45px;
+    width: 30px;
+    vertical-align: middle;
+    horizontal-align:right;
+    padding: 0px 2px;
+    background-color: #0b4daa;
+    color:white;
+}
+.juci_panel_title .title {
+    display: table-cell;
+    margin: 0px;
+    max-width: 100%;
+    right: 65px;
+    vertical-align: middle;
+    background-color: #0b4daa;
+}
+
+div#tgl {
+    margin: 0px;
+    height: 100px;
+    margin-left: -6px;
+    margin-right: 266px;
+    background: #fff;
+}
+
+button.juci_button.btn1 {
+    height: 100px;
+    width: 24%;
+    font-size: 12pt;
+    vertical-align: top;
+    background: #fff;
+    border: none;
+}
+
+button.juci_button.btn2 {
+    height: 54px;
+    width: 32%;
+    font-size: 12pt;
+    vertical-align: middle;
+    background: #0b4daa;
+    border: none;
+    margin-top: 17px;
+    color: white;
+}
+
+
+.juci_togglebar .juci_button.toggled {
+    background: #fff;
+    border-bottom: 4px solid #0B4DA1;
+}
+
+.application {
+ /*   font-size: 45px;
+    color: #9D9D9D;
+    text-align: center;*/
+    margin-top: -40px;
+}
+
+span.pending {
+	font-size: 27pt;
+    display: block;
+    color: #9D9D9D;
+}
+span.approved {
+	font-size: 27pt;
+    display: block;
+    color: #9D9D9D;
+}
+span.rejected {
+	font-size: 27pt;
+    display: block;
+    color: #9D9D9D;
+}
+span.inprocess {
+	font-size: 27pt;
+    display: block;
+    color: #9D9D9D;
+}
+span.all {
+	font-size: 27pt;
+    display: block;
+   color: #9D9D9D;
+}
+
+span.notifctn {
+	padding-top: 20px;
+	color:#565656;
+	display: block;
+}
+.adisplay {
+	display:none;
+}
+.rdisplay {
+	display:none;
+}
+.ipdisplay {
+	display:none;
+}
+.pdisplay {
+	display:none;
+}
+
+.cell {
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.pstatus {
+	color: #f9a840;
+	position : relative;
+	margin-right: 15px;
+	margin-top: 6px;
+}
+
+.astatus {
+	color: #339933;
+	position : relative;
+	margin-right: 15px;
+	margin-top: 6px;
+}
+
+.rstatus {
+	color: #D04949;
+	position : relative;
+	margin-right: 15px;
+	margin-top: 6px;
+}
+
+.ipstatus {
+	color: #5db2de;
+	position : relative;
+	margin-right: 15px;
+	margin-top: 6px;
+}
+
+.bold {
+	font-weight:bold;
+}
+
+.juci_linker {
+    display: none;
+}
+
+.juci_panel.panel_shown {
+    background: #ebebeb;
+}
+
+.row {
+    border-bottom: #f2f2f2 1px solid;
+    margin-left: 5px;
+}
+
+
+.head {
+   width: 35%;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.titles {
+    color: #9d9d9d;
+    padding-bottom: 5px;
+   
+}
+
+.scroll {
+    overflow-x: scroll;
+}
+
+.juci_xlist_item {
+    background: #fff;
+    margin-bottom: 10px;
+}
+
+.juci_vertical_list .juci_xlist_pane {
+    background: none;
+}
+
+img.flag {
+    margin-left: 6px;
+    display: inline-block;
+}
+
+.heading {
+    display: block;
+    padding: 5px;
+}
+
+.incell {
+    padding-bottom: 5px;
+}
+
+.green {
+	color: #339933;
+}
+
+.red {
+	color:#D04949;
+}
+
+.toggled span.pending {
+	color: #0B4DA1;
+}
+.toggled span.approved {
+	color: #0B4DA1;
+}
+.toggled span.rejected {
+	color: #0B4DA1;
+}
+.toggled span.inprocess {
+	color: #0B4DA1;
+}
+.toggled span.all {
+	color: #0B4DA1;
+}
+
+.juci_xlist_item.touch {
+    background: #fff;
+    color: #3B3B3B;
+}
+
+@media screen and (max-width: 480px) {
+   .head {
+    width: 35%;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    display: inline-block;
+    padding-top: 10px;
+    
+}
+.application {
+    margin-top: -109px;
+}
+span.notifctn {
+    padding-top: 20px;
+    color: #565656;
+    display: block;
+    font-size: 10pt;
+}
+div#tgl {
+    margin: 0px;
+    height: 76px;
+    width: 100%;
+    margin-left: -6px;
+    margin-right: 266px;
+    background: #fff;
+}
+button.juci_button.btn1 {
+	height: 75px;
+    width: 24%;
+    font-size: 12pt;
+    vertical-align: middle;
+    background: #fff;
+    border: none;
+}
+
+}
+@media screen and (min-width: 750px) {
+   .head {
+    width: 35%;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+
+
+}
+.show {
+	text-align: center;
+    padding: 4px;
+    border-top: 1px solid #d8d8d8;
+    color: #565656;
+    background-color: #f8f8f8;
+    margin-top: 10px;
+}
+.showing {
+	    color: #0B4DAA;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.less {
+	display:none;
+}
+
+.searchby {
+	position: relative;
+    display: inline-block;
+    padding: 6px 15px;
+    color: #9d9d9d;
+    width: 23%;
+}
+.sort {
+	position: relative;
+    display: inline-block;
+    padding: 6px 15px;
+    color: #9d9d9d;
+    width: 22%;
+}
+
+.filter {
+	position: relative;
+    display: inline-block;
+    padding: 6px 15px;
+    color: #9d9d9d;
+    width: 16%;
+}
+.bar {
+	margin-top: 10px;
+    width: 100%;
+}
+
+.selection {
+	color: #565656;
+    display:none;
+}
+button.juci_button.btn2 {
+    height: 27px;
+    width: 32%;
+    font-size: 9pt;
+    vertical-align: middle;
+    background: #0b4daa;
+    border: none;
+    margin-top: 17px;
+    color: white;
+}
+.selection2 {
+	color: #565656;
+    display:inline-block;
+    margin-right:10px;
+}
+.selection3 {
+	color: #565656;
+    display:inline-block;
+}
+.selection4 {
+    display:none;
+}
+.setting {
+	display:none;
+	width:100%;
+}
+.spacing {
+	display:inline-block;
+	width:100%;
+}
+.select {
+	display:inline-block;
+	width:50%;
+}
+.select1 {
+	display:inline-block;
+	width:50%;
+}
+	
+.box {
+	display:inline-block;
+}
+.box1 {
+	display:inline-block;
+}
+.innerbox {
+	display:none;
+}

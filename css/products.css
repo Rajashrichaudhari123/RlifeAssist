@@ -1,0 +1,347 @@
+div#toogle {
+  margin: 0px;
+  height: 100px;
+  width: 100%;
+  background: white;
+}
+
+body {
+  background: #ebebeb;
+}
+
+.togcount {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.prod {
+	    margin-top: -55px;
+	    max-width: 110px;
+
+ 
+}
+
+::-webkit-scrollbar {
+  /* background: #695a5a; */
+  overflow: visible;
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: solid rgba(189, 186, 186, 0.92);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* background: rgba(0, 0, 0, 0.8); */
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  border-width: 4px 6px;
+  min-width: 5px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  border-width: 6px 4px;
+  min-height: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+ 
+}
+
+::-webkit-scrollbar-corner {
+  /* background: transparent; */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ADADAD;
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,0.10),inset 0 -1px 0 rgba(0,0,0,0.07);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* background-color: #999; */
+}
+
+button.juci_button.btn1 {
+  height: 100px;
+  width: 120px;
+  font-size: 12pt;
+  vertical-align: top;
+  background: #fff;
+  border: none;
+  line-height : 17px;
+}
+
+.prod1 {
+  content: url("../images/Secure_G.png");
+}
+
+.prod2 {
+  content: url("../images/Savings_G.png");
+}
+
+.prod3 {
+  content: url("../images/Linked_G.png");
+}
+
+.prod4 {
+  content: url("../images/Health_G.png");
+}
+
+.prod5 {
+  content: url("../images/Retirement_g.png");
+}
+
+.prod6 {
+  content: url("../images/Child Plan_G.png");
+}
+
+.prod7 {
+  content: url("../images/Group_Icon_G.png");
+}
+
+.toggled .prod1 {
+  content: url("../images/Secure_B.png");
+}
+
+.toggled .prod2 {
+  content: url("../images/Savings_B.png");
+}
+
+.toggled .prod3 {
+  content: url("../images/Linked_B.png");
+}
+
+.toggled .prod4 {
+  content: url("../images/Health_B.png");
+}
+
+.toggled .prod5 {
+  content: url("../images/Retirement_b.png");
+}
+
+.toggled .prod6 {
+  content: url("../images/Child Plan_B.png");
+}
+
+.toggled .prod7 {
+  content: url("../images/Group_Icon_B.png");
+}
+
+span.notifctn {
+  padding-top: 0px;
+  color: #565656;
+  display: block;
+}
+
+.toggled .prod .notif {
+  color: black;
+}
+
+.juci_togglebar .juci_button.toggled {
+  background: #fff;
+  border-bottom: 4px solid #0B4DA1;
+}
+
+.juci_linker {
+  display: none;
+}
+.notifctn{
+	margin-top: -24px;
+	padding-top: 0px;
+  color: #565656;
+  display: block;
+}
+.In_notifctn{
+	margin-top: -30px;
+	padding-top: 0px;
+  color: #565656;
+  display: block;
+}
+.button .listbutton {
+  margin-top: 10px;
+  min-height: 29px;
+  background-color: white;
+  color: #0B4DA1;
+  border-radius: 3px;
+  font-size: 12px;
+  border-color: #0B4DA1;
+  margin-right: 3%;
+  border-width: thin;
+  margin-bottom: 4%;
+}
+
+.listhead {
+  margin-top: 29px;
+  margin-left: 3%;
+  font-size: 16px;
+  margin-bottom: -7px;
+}
+
+.button {
+  text-align: right;
+}
+
+#dialog-box {
+  height: 250px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.heading {
+  overflow: hidden;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  background: #0B4DA1;
+  color: #fff;
+  font-weight: bold;
+}
+
+.dialogheader {
+  padding: 10px;
+  display: inline-block;
+}
+
+.juci_xlist_item {
+  background: #fff;
+  margin-bottom: 10px;
+  padding-bottom: 0px;
+  border-bottom: 12px solid #EAEAEA;
+}
+
+.listtitle {
+  font-weight: bold;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #ddd;
+  padding-left: 2%;
+  padding-bottom: 3%;
+}
+
+.span_title {
+  margin-left: 2%;
+}
+
+.content {
+  font-size: 14px;
+  line-height: 15pt;
+  padding-left: 2%;
+}
+
+.juci_xlist_item.touch {
+  background: none;
+}
+
+.juci_button.touch {
+  color: #fff;
+  background: #0B4DA1;
+  border-color: #0B4DA1;
+  text-shadow: none;
+  /* background: white; */
+}
+
+.show {
+  text-align: center;
+  padding: 4px;
+  border-top: 1px solid #d8d8d8;
+  color: #0B4DAA;
+  background-color: #f8f8f8;
+  margin-top: 10px;
+  height: 20px;
+  width: 98%;
+}
+
+#less {
+  background: #fff;
+  width: 95%;
+  margin-left: 7px;
+}
+
+.header {
+ 
+  font-size: 14px;
+  font-weight: bold;
+  margin: 7px;
+}
+
+.prodimg {
+  text-align: center;
+}
+
+.broucherimg {
+  position: absolute;
+}
+
+.iconimg {
+  position: relative;
+  bottom: 13px;
+}
+
+.iconimg2 {
+  position: relative;
+  left: 27px;
+  bottom: 31px;
+}
+
+.listname {
+  padding-left: 57px;
+  color: blue;
+}
+
+.juci_xlist_item.juci_xlist_item.downloaditem {
+  border-bottom: 1px solid #ddd;
+  padding-left: 2px;
+}
+
+.juci_parent.touch {
+  background: none;
+}
+
+.juci_xlist_item.touch {
+  background: none;
+  color:#3B3B3B;
+}
+div#palyer.full-frame{
+	    width: 100%;
+    height: 100%;
+}
+.container{
+	overflow-x:hidden;
+}
+@media only screen and (max-width: 320px) {
+    .imgs img {
+        width: 95%;
+        height: 155px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 340px) and (max-width:480px) {
+    .imgs img {
+        width: 96%;
+        height: 227px;
+        margin: 0 auto;
+    }
+}
+@media only screen and (min-width: 481px) and (max-width:600px) {
+    .imgs img {
+        width: 97%;
+        height: 253px;
+        margin: 0 auto;
+    }
+}
+
+.downloaditem {
+    height: 22px;
+    padding: 5px;
+    font-size: 14px;
+    border-bottom: 1px solid #DDD;
+}
+
+.teamscroll{
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+	

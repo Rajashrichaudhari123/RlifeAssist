@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/dialog.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/rlifecss.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/saveRunnerActivity.css"></link>
+	      <link rel="stylesheet" type="text/css" href="css/dialog.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/proposalcolors.css">
+	     </link>
+	      <link rel="stylesheet" type="text/css" href="css/common.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/select-box.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/collapsible.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/juci-switch2-color.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/juci-switch2-layout.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/additionalswitch.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/select.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/jqueryui.css">
+	      </link>
+	      <link rel="stylesheet" type="text/css" href="css/colors.css">
+	      </link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/constants.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOORHmf3m8sKdKs-2s5yHxrxTnVE3hkO0&libraries=geocode&libraries=places&language=en-US" async defer></script>
+	      <script src="scripts/messages.js"></script>
+	      <script src="scripts/Utils.js"></script>
+	      <script src="scripts/x2js library.js"></script>
+	      <script src="scripts/messagedigest.js"></script>
+	      <script src="scripts/dbHelper.js"></script>
+	      <script src="scripts/bindingObject.js"></script>
+	      <script src="scripts/rlifeservices.js"></script>
+	      <script src="scripts/saveRunnerActivity.js"></script>
+	      <script src="scripts/saveRunnerActivityPojo.js"></script>
+	      <script src="scripts/aadharPojo.js"></script>
+    	  <script src="scripts/fingerPrintscan.js"></script>
+	      <script src="scripts/aadharUtils.js"></script>
+      	  <script src="scripts/AadharIntegration.js"></script>
+	      <script src="scripts/header.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+         <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li>  -->
+          		<div data-bind="visible:gettype()!=='RRB'">
+	                 <li class="item_list" onclick="openProposal()">
+	                    <img src="images/New-Proposal.png"></img>
+	                    <span>New Proposal</span>
+	                </li>  
+                </div>
+                <div data-bind="visible:gettype()!=='RRB'">
+	                <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/Profile.png"></img>
+	                    <span>Profile</span>
+	                </li>
+                </div>
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+                <div data-bind="visible:gettype()!=='RRB'">
+					<li class="item_list" onclick="openDataRetrieve()">
+	                    <img src="images/database.png"></img>
+	                    <span>Data Retrieve</span>
+	                </li>
+                </div>
+                <div data-bind="visible:gettype()!=='RRB'">
+					<li class="item_list" onclick="openForceUpdate()">
+	                    <img src="images/app.png"></img>
+	                    <span>Force Update</span>
+	                </li>
+                </div>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM' && gettype()!=='RRB'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <div data-bind="visible:gettype()!=='RRB'">
+	                <li class="item_list" onclick="openAdvisors()">
+	                    <img src="images/Folder_grey.png"></img>
+	                    <span class="my_advisors">My Advisors</span>
+	                </li>
+                </div>
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <div data-bind="visible:gettype()!=='RRB'">
+	                <li class="item_list" onclick="openHelpDesk()">
+	                    <img src="images/Gallery_Grey.png"></img>
+	                    <span class="help">Help Desk</span>
+	                </li>
+                </div>
+                <div data-bind="visible:gettype()!=='RRB'">
+	                <li class="item_list" onclick="openConfirmUpdate()">
+	                    <img src="images/Gallery_Grey.png"></img>
+	                    <span class="help">Confirm Update</span>
+	                </li>
+                </div>
+                <div data-bind="visible:gettype()!=='RRB'">
+	                <li class="item_list" onclick="openCalculator()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Calculator</span>
+	        		</li>
+        		</div>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+            </ul>
+         </div>
+			 <div id="authentication" data-juci="dialog">
+            <div class="heading_otp">
+               <div class="dialogheader">Aadhaar Authentication</div>
+               <div class="exit" onclick="closeAuthenticate()">X</div>
+            </div>
+            <div class="content_body">
+               <div class="aadhar_content">
+                  <div class="aadhar_key">Aadhaar No :</div>
+                  <div class="aadhar_value" data-bind="html:$root.Aadharno()"></div>
+               </div>
+               <div class="Aadhar_image_area">
+                  <button class="authenticationBtn" data-bind="visible:gettype() !=='AGPS' && gettype() !=='AGSM'" data-juci="button" onclick = "openOtp()">
+                  	<div class="image_section">
+                    	<img class="aadharicon" src="images/mobile.png" ></img>
+                     	<div class="icon_label">OTP Verification</div>
+                 	</div>
+                  </button>
+                  <button class="authenticationBtn" data-juci="button" onclick = "openBiometric()">
+                  	<div class="image_section">
+                    	<img class="aadharicon" src="images/Finger print.png" ></img>
+                     	<div class="icon_label">Biometric</div>
+                  	</div>
+                  </button>
+               </div>
+            </div>
+         </div>
+         <div id="dialog-otp" data-juci="dialog">
+            <div class="heading_otp">
+               <div class="dialogheader">Confirm OTP</div>
+               <div class="exit" onclick="closebox()">X</div>
+            </div>
+            <div class="col-xs-12">
+               <div class="form-group"> A One Time Password (OTP) has been sent to the mobile number associated with Aadhaar No.<span class="value" data-bind="html:$root.Aadharno()"></span> </div>
+            </div>
+            <div data-juci="form" data-bind="ref:otp" onsubmit="sendOtp(event)" onreset="closebox()">
+               <div id="otpNo" data-juci="number" data-label="Enter OTP<span class='star'>*</span>" data-bind placeholder data-trigger></div>
+               <button class="resndotp" data-juci="button" onclick="resendOtp()">Resend OTP</button>
+               <div class="juci_horizontal_bbar">
+                  <button data-juci="button" class="cancel" type="reset">Cancel</button>
+                  <button data-juci="button" class="submitotp" onclick="sendOtp()">Submit</button>
+               </div>
+            </div>
+         </div>
+         <div id="dialog-fingerprint" data-juci="dialog">
+            <div class="heading_otp">
+               <div class="dialogheader">Finger Print</div>
+               <div class="exit" onclick="closeAuthenticate()">X</div>
+            </div>
+             <div class="image_container">
+            	<div class="image_box">
+            	<img class="img_fingerprint" data-bind="attr:{src:fingerPrint}"></img>
+            	</div>
+            </div>
+               <div class="juci_horizontal_bbar">
+                  <button data-juci="button" class="cancel" onclick="closeAuthenticate()">Cancel</button>
+                  <button data-juci="button" class="submitotp" onclick="callBiometricService()">Submit</button>
+               </div>
+            </div>
+			<div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+	            <div class="togcount" >
+	               <button class="btn1 lftbrd" data-juci="button" data-toggle="1">
+	                  <div class="inputs"><span class="notif" ></span><span class="notifctn">Runner<br>Activity</span></div>
+	               </button>
+	            </div>
+	        </div>
+			<div class="life2assure" id="search-details">
+				<p class="form-heading1 life">Activity Details</p>
+				<div data-juci="form" id="runnerForm" data-bind="ref:saveRunnerForm" onsubmit="onSearchDetailsClick(event)" data-validation="all">
+				<div class="runner_activity_search_details">
+					<div data-juci="text" data-label="Customer Name" data-bind="ref:Customer_Name,disabled:$root.disabledField" placeholder data-trigger></div>
+					<div data-juci="text" data-label="Date of Birth" data-bind="ref:DOB,disabled:$root.disabledField" placeholder data-trigger></div>
+					<div data-juci="text" data-label="Renewal premium to be paid" data-bind="ref:Renewal_Premium,disabled:$root.disabledField" placeholder data-trigger></div>
+					<div data-juci="text" data-label="Policy Status" data-bind="ref:Policy_Status,disabled:$root.disabledField" placeholder data-trigger></div>
+					<div class="runner" id="meeting-status" data-juci="selectbox" data-mode="popup" data-bind="optionsList:$root.meeting_status,ref:Met_NotMet,optionsText:getDescription" data-label="Meeting Status<span class='star'>*</span>" data-formatter="getDescription" data-comparator="laComparator" onafterchange="checkAadhar(event)" required onvalidationfail="Utils.GetValidationMessage(event,'Meeting Status')" ></div>
+					<div class="aadharDetails" id="aadhar-details">
+						<div class="life_header">Life To Be Assured</div>
+		               <div class="adhar" id="Aadhar" data-juci="tel"  data-label="Aadhaar Card Details" data-bind="disabled:$root.hasAuthenticated,ref:$root.Aadharno" maxlength="12" placeholder="Aadhaar Card Number"  onvalidationfail="Utils.GetValidationMessage(event,'Aadhaar Card')"></div>
+		               <div class="btn_section"><button class="btn_auth" data-juci="button"  data-bind="disabled:$root.hasAuthenticated" onclick ="openauthentication()">Authenticate</button></div>
+		                <!--<div id="checkAadhar" data-juci="checkbox" class="agrement"  data-label="I agree with the conditions" onafterchange="checkAadhaarValidation()"></div>-->
+		               <div id="adhar-section" class="Aadhar_section" data-bind="with:$root.Aadhar,visible:$root.aadhar_section">
+		                  <div class="adhar_heading">Aadhaar Card Details</div>
+		                  <div class="aadhar_detail">
+		                     <div class="aadhar_info_name">Name</div>
+		                     <div class="aadhar_data" data-bind="html:Name"></div>
+		                  </div>
+		                  <div class="aadhar_detail">
+		                     <div class="aadhar_info_name">Date of Birth</div>
+		                     <div class="aadhar_data" data-bind="html:DateofBirth"></div>
+		                  </div>
+		                  <div class="aadhar_detail">
+		                     <div class="aadhar_info_name">Gender</div>
+		                     <div class="aadhar_data" data-bind="html:Gender"></div>
+		                  </div>
+		                  <div class="aadhar_detail">
+		                     <div class="aadhar_info_name">Phone</div>
+		                     <div class="aadhar_data" data-bind="html:Phone"></div>
+		                  </div>
+		                  <div class="aadhar_detail">
+		                     <div class="aadhar_info_name">Email ID</div>
+		                     <div class="aadhar_data" data-bind="html:EmailID"></div>
+		                  </div>
+		                  <div class="aadhar_detail_last">
+		                     <div class="aadhar_info_name_last">Address</div>
+		                     <div class="aadhar_data_last" data-bind="html:Address"> </div>
+		                  </div>
+		               </div>
+               		</div>
+					<div class="btn">
+                        <button class="save" data-juci="button" type="submit">Submit</button>
+                        <button class="save" data-juci="button"  onclick="$m.close()">Cancel</button>
+                     </div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</body>
+</html>

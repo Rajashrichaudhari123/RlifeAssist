@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/syncContacts.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/dropdown.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/inputPojo.js"></script>
+      	<script src="scripts/saveLeadPojo.js"></script>
+      	<script src="scripts/rlifeservices.js"></script>
+      	<script src="scripts/bindingObjectInput.js"></script>
+		<script src="scripts/syncContacts.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div class="menu arrow_add_box" id="menulist" style="display: none;">
+	            <ul class="items">
+	                <li class="item" onclick="openLead()">
+	                    <span>New Lead</span>
+	                </li>
+	            </ul>
+	        </div>
+	      	<div class="menu arrow_box" id="profilelist" style="display:none;">
+	            <ul class="items">
+	               <li class="item_list" onclick="openSync()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync</span>
+	                </li>             
+	                 <li class="item_list" onclick="openProposal()">
+	                    <img src="images/New-Proposal.png"></img>
+	                    <span>New Proposal</span>
+	                </li>                
+	                <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/Profile.png"></img>
+	                    <span>Profile</span>
+	                </li>
+	                <li class="item_list" onclick="openDeviceCompatibility()">
+	                  <img src="images/tablet.png"></img>
+	                  <span>Device Compatibility check</span>
+	               </li>
+					<li class="item_list" onclick="openLogs()">
+	                    <img src="images/logs.png"></img>
+	                    <span>Logs</span>
+	                </li>
+					<li class="item_list" onclick="openDataRetrieve()">
+	                    <img src="images/database.png"></img>
+	                    <span>Data Retrieve</span>
+	                </li>
+					<li class="item_list" onclick="openForceUpdate()">
+	                    <img src="images/app.png"></img>
+	                    <span>Force Update</span>
+	                </li>
+	                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+		               <li class="item_list" onclick="openCustomers()">
+		                    <img src="images/female.png"></img>
+		                    <span>My Customers</span>
+		                </li>
+	                </div>
+	                <li class="item_list" onclick="openAdvisors()">
+	                    <img src="images/Folder_grey.png"></img>
+	                    <span class="my_advisors">My Advisors</span>
+	                </li>
+					<li class="item_list" onclick="openVersion()">
+	                    <img src="images/Folder_grey.png"></img>
+	                    <span class="my_advisors">Version</span>
+	                </li>
+	                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Selfie PIVC Retrieval</span>
+	        		</li>
+	                <li class="item_list" onclick="openHelpDesk()">
+	                    <img src="images/Gallery_Grey.png"></img>
+	                    <span class="help">Help Desk</span>
+	                </li>
+	                <li class="item_list" onclick="openConfirmUpdate()">
+	                    <img src="images/Gallery_Grey.png"></img>
+	                    <span class="help">Confirm Update</span>
+	                </li>
+	                <li class="item_list" onclick="openCalculator()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Calculator</span>
+	        		</li>
+	                <li class="item_list" onclick="doLogout()">
+	                    <img src="images/power-blackgold.png"></img>
+	                    <span class="log">Logout</span>
+	                </li>
+	                <li></li>
+	            </ul>
+	        </div>
+			
+			<!--CheckboxGroup-->
+			<div class="listContainer" id="list_Container" data-bind="visible:showListContainer">
+				<div class="topContainer">
+					<!--<div calss="selectAllcb" id="selectAll_cb" data-juci="checkbox" data-bind = "ref:selectAll" data-label="Select All" onafterchange="selectAllcheckBox()" data-checked data-unchecked></div>-->
+					<div class="createLead_section">
+						<button class="trigger_msg" data-juci="button" onclick = "onTriggerMessage()">Message Trigger</button>
+						<button class="create_lead" data-juci="button" onclick = "createLead()">Create Lead</button>
+					</div>
+				</div>
+				<div class="search_Container">
+					<div id="searchbox" class="search_box" data-juci="text" data-label="" data-bind placeholder="Search" onKeyUp="getSearchedItem()"></div>
+				</div>	
+				<div class="Note_class">Note:Please click Create lead button once submited the details</div>
+				<div class="ContactListContainer">
+					<div class="contactList" data-bind="foreach:contactList">
+						<div class="checkDetCont">
+							<div class="contactDetails">
+								<div class="name" data-bind="html:Name"></div>
+								<div class="number" data-bind="html:phone1"></div>	
+								<div class="less" data-bind="attr:{id: 'less' + $index()}" style="display:none;">
+									<!--img class="call_button" src="images/mobileBlack.png"></img!-->
+									<div class="email" data-bind="html:email"></div>
+			                    	<div class="address" data-bind="html:address"></div>
+			                    </div> 
+							</div>
+							<div class="checkboxContainer">
+								<img class="call_button" src="images/phone32.png"  data-bind="click:onCallClick,attr:{id : 'id'+$index()}"></img>
+								<img class="message_button" src="images/message32.png"  data-bind="click:onMessageClick,attr:{id : 'id'+$index()}"></img>
+								<input type="checkbox" name="check_box" class="checkBox" data-bind="checked:selectValue" onclick = "showPopUp(this)"/> 
+							</div>
+							<div class="show" data-bind=attr:{'id':$index()}>
+	                        	<div class="showing" data-bind="attr:{id: 'SM' +$index()}" onclick="showlistitem(event)">Show more</div>
+		                    </div>
+						</div>
+					</div>
+					<!--<div class="load_more_section">
+						<button class="load_button" data-juci="button" data-bind="visible:$root.showLoadMore" onclick = "showContactList()">Load More</button>
+					</div>-->
+				</div>
+			</div>
+			
+			<!--Dailog -->
+			<div id="message-inbox" data-juci="dialog">
+				<div class="exit_dialog">
+					<div class="exit" onclick="closedialog('message-inbox')">X</div>
+				</div>
+				<div class="display_name" data-juci="text" data-label="Name" data-bind="html:'To : '+$root.displayName()"></div>
+				<div data-juci="textarea" data-label="New Message" data-bind="ref:new_message" placeholder data-trigger max-length="150" required onvalidationfail="Utils.GetValidationMessage(event,'New Message')"></div>
+				<button class="submit" data-juci="button" data-bind="click:onSendMessage">Send<img class="send_img" src="images/send.png"></img></button>
+			</div>
+			
+			<!--Pagination-->
+			<div class="footerbar" data-bind="with:pageCounter">
+				<div class="previousbutContainer" onclick="previous()">
+					<img class="previousButton" src="images/left_arrow.png"></img>
+				</div>
+				<div class="pageCountcontainer">
+					<div class="pagecount" data-bind="html:currentpage() + ' of' "></div>
+					<div class="totalCount" data-bind="html:totalpage"></div>
+				</div>
+				<div class="nextbutContainer" onclick="next()">
+					<img class="nextButton" src="images/right_arrow.png"></img>
+				</div>
+			</div>
+			
+			<!--Dailog Pop Up-->			
+			<div id="lead-info" data-juci="dialog">
+	            <div class="heading_otp">
+	               <div class="dialogheader">Lead Details</div>
+	               <div class="exit" onclick="closeAuthenticate()">X</div>
+	            </div>
+	            <div class="content_body">
+	               <div id="age-group" class="ageGroup" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Age Group" data-bind="optionsList:$root.ageGroup,optionsText:getInputs" data-formatter="getInputs" onafterchange="getAgeGropuValue(event)"></div>
+					<div id="occupation-value" class="ageGroup" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Occupation" data-bind="optionsList:$root.Occupation,optionsText:getInputs" data-formatter="getInputs" onafterchange="getOccupationValue(event)"></div>
+					<div id="annual-income" class="ageGroup" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Annual Income" data-bind="optionsList:$root.Income,optionsText:getInputs" data-formatter="getInputs" onafterchange="getAnnualIncome(event)"></div>
+					<div class="juci_thinbar team">
+						<button class="submit" data-juci="button" onclick ="submitLeadValue()">Ok</button>
+					</div>
+	            </div> 
+	         </div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+.juci_xlist_item {
+    background: #fff;
+    margin-bottom: 10px;
+    padding-bottom: 0px;
+    border-bottom: 5px solid #eee;
+}
+
+.juci_xlist_item {
+    position: relative;
+}
+
+.juci_linker{
+	background-image: none;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+}
+.touch .juci_linker{
+	background-image: none;
+}
+
+.juci_xlist_item.juci_xlist_item.juci_parent.touch {
+    background: none;
+    color:black;
+}
+
+ul.juci_xlist_pane.juci_xlist_listPane {
+    padding: 6px 0px 0px 0px;
+}
+
+.ContactList {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 7px;
+    color: rgb(11, 77, 170);
+    padding-left: 4px;
+    margin-top: 17px;
+    padding-right: 3px;
+}
+
+.ContactOfList {
+    display: block;
+    font-size: 20px;
+    /* margin-bottom: 1px; */
+    color: rgb(11, 77, 170);
+    padding-left: 4px;
+    margin-top: 11px;
+}
+
+
+.mobileNumber {
+    padding-left: 9px;
+}
+
+.callImages {
+    display: inline-block;
+    float: right;
+    position: absolute;
+    right: 5px;
+}
+
+img.imgForCall {
+    margin-top: -7px;
+    width: 31px;
+    margin-right: 6px;
+    position: relative;
+}
+
+.numberSection {
+    color: #0b4daa;
+    display: inline-block;
+    width: 50%;
+}
+
+.numberPad {
+    background: #ffffff;
+    height: 44px;
+    width: 98%;
+    /* margin-top: 7px; */
+    padding-top: 20px;
+    padding-left: 9px;
+    /* padding-right: 12px; */
+    margin-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+}

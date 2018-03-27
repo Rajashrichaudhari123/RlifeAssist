@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/juci-switch2-color.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/juci-switch2-layout.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/additionalswitch.css">
+		<link rel="stylesheet" type="text/css" href="css/select.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/colors.css"> </link>
+		<link rel="stylesheet" type="text/css" href="css/optionalPIVC.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/dropdown.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/optionalPIVC.js"></script>
+	    <script src="scripts/juci-switch2.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+      <div data-juci="panel" data-first-panel>
+      <div class="menu arrow_add_box" id="menulist" style="display: none;">
+            <ul class="items">
+                <li class="item" onclick="openPlanning()">
+                    <span>Planning</span>
+                </li>
+            </ul>
+        </div>
+      	<div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li>  -->
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li-->
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <li class="item_list" onclick="openDeviceCompatibility()">
+                  <img src="img/tablet.png"></img>
+                  <span>Device Compatibility check</span>
+               </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <!--<li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li-->
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                 <div>
+	               <li class="item_list" onclick="openVideoRetrieval()">
+	                    <img src="images/video.png"></img>
+	                    <span>Video Retrieval</span>
+	                </li>
+                </div>
+                
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Calculator</span>
+        		</li>
+                <li class="item_list" onclick="doLogoutfromPIVC()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+                <li></li>
+            </ul>
+        </div>
+			 <div data-juci="form"  data-bind="ref:customerForm" onsubmit="nextPIVCPage()" data-validation="all">
+			 	<div class="cusotmoerForm">
+			 		<div class ="Form_lable">Optional PIVC Form</div>
+			 		<div class="sapcode"  data-juci="tel" data-bind="ref: sapCode" data-label="SapCode<span class='star'>*</span>"  maxlength="8" minlength="0" pattern="^[0-9]+$" placeholder data-trigger required onvalidationfail="getValidationMessageforPIVC(event,'SapCode')" ></div>
+			 		<div class="Application_No" data-juci="text" data-bind="ref: ApplicationNo" data-label="Application Number<span class='star'>*</span>"  maxlength="8" minlength="3" pattern="[a-zA-Z]{2}\d{6}" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Application Number')"></div>
+					<div class="customer_name" data-juci="text" data-bind="ref: customerName" data-label="Name<span class='star'>*</span>" pattern="^[a-z\.?\s\'?A-Z]*$" maxlength="30" minlength="3" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Name')"></div>
+					<div id="newLead-dob" class="dob" data-juci="datepicker" data-picker="dob" data-label="DOB<span class='star'>*</span>" data-bind="ref:DOB" data-formatter="dobValidation" required onvalidationfail="Utils.GetValidationMessage(event,'DOB')" onafterchange="checkTodayDate()"></div>
+					 <div class="address1" data-juci="text" data-label="Address 1<span class='star'>*</span>" data-bind="ref:LA_AddressLine1" maxlength="30" 
+                 pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" placeholder data-trigger onvalidationfail="Utils.GetValidationMessage(event,'Address Line1')"></div>
+				<div class="address2" data-juci="text" data-label="Address 2<span class='star'>*</span>" data-bind="ref:LA_AddressLine2" maxlength="30" 
+                  pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" placeholder data-trigger onvalidationfail="Utils.GetValidationMessage(event,'Address Line2')" ></div>
+               <div class="address3" data-juci="text" data-label="Address 3<span class='star'>*</span>" data-bind="ref:LA_AddressLine3" maxlength="30" 
+                  pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" placeholder data-trigger onvalidationfail="Utils.GetValidationMessage(event,'Address Line3')"></div>
+				<div class="state" data-juci="selectbox" data-mode="popup" data-bind="optionsList:$root.state,ref:LA_State" data-label="State<span class='star'>*</span>" required onvalidationfail="Utils.GetValidationMessage(event,'State')" ></div>
+                     <div data-juci="text" data-label="City<span class='star'>*</span>" required data-bind="ref:LA_City" pattern="^[a-zA-Z ]*$" 
+                        onvalidationfail="Utils.GetValidationMessage(event,'City')" required  maxlength="30" minlength="3"></div>
+					 <div data-juci="tel"   data-label="Pincode<span class='star'>*</span>" required data-bind="ref:LA_Pincode"data-trigger  pattern = "^[0-9]{6}\s*$" maxlength="6" onvalidationfail="Utils.GetValidationMessage(event,'Pincode')"></div>
+					<div class="mobile_no" data-juci="tel" data-label="Mobile Number<span class='star'>*</span>" data-bind="ref:mobile" pattern="^[1-9]{1}[0-9]{9}$" maxlength="10" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')"></div>
+					<div class="email_id" data-juci="email" data-label="Email ID<span class='star'>*</span>" data-bind="ref:emailID" required  pattern="^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])" onvalidationfail="Utils.GetValidationMessage(event,'Email Id')"></div>
+				<div class="customer_name" data-juci="text" data-bind="ref: Occupation" data-label="Occupation<span class='star'>*</span>" pattern="^[a-z\.?\s\'?A-Z]*$" maxlength="30" minlength="3" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Occupation')"></div>
+					<div  class="switch"  data-juci="switch2" data-label="Current taking any medicine other than cold and flue?<span class='star'>*</span>"
+					data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-bind="ref:medicine"
+					data-onclass="switchclass" data-offclass="switchclass" onafterchange=""required></div>                 
+					<div  class="switch"  data-juci="switch2" data-label="Suffering from any medical ailments like diabetes, high blood pressure, heart problema etc?<span class='star'>*</span>" data-bind="ref:medical_ailments" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No"  data-onclass="switchclass" data-offclass="switchclass" onafterchange=""required></div>                  
+					<div  class="switch"  data-juci="switch2" data-label="Undergone any surgery in last year or do you have any surgery planed?<span class='star'>*</span>" data-bind="ref:surgery" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass"  required></div>
+					<div class="basicsum" data-juci="tel" data-label="Sum Assured <span class='star'>*</span>" id="basicsa"  required pattern="^[0-9]+$" data-bind="ref: sumassured" onvalidationfail="Utils.GetValidationMessage(event,'Basic Sum Assured')" maxlength="10" minlength="1" ></div>
+					<div class="basicsum" data-juci="tel" data-label="Policy Term <span class='star'>*</span>"  required pattern="^[0-9]+$" data-bind="ref: policyterm"  maxlength="10"  onvalidationfail="Utils.GetValidationMessage(event,'policy Term')" maxlength="10" minlength="1"></div>
+					<div class="basicsum" data-juci="tel" data-label="Premium Frequency <span class='star'>*</span>"   required pattern="^[0-9]+$" data-bind="ref: PremiumFrequency" onvalidationfail="Utils.GetValidationMessage(event,'Premium Frequency')" maxlength="10" minlength="1"></div>
+					<div class="plan_name" data-juci="text" data-bind="ref: ProductName" data-label="Plan Name<span class='star'>*</span>"  maxlength="30" minlength="3" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'plane Name')"></div>	
+					<div class="customer_name" data-juci="tel" data-bind="ref: PremiumPayingTerm" data-label="Premium Paying Term<span class='star'>*</span>"  maxlength="10" minlength="0" placeholder data-trigger required pattern="^[0-9]+$" onvalidationfail="Utils.GetValidationMessage(event,'PremiumPayingTerm')" ></div>
+					<div class="policyterm" id ="InstallmentPremium"data-juci="tel" data-bind="ref: InstallmentPremium_W_ST"  type="tel" data-label="Installment Premium <span class='star'>*</span>" pattern="^[0-9]+$" maxlength="8" minlength="0" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Installment Premium')" onKeyUp="checkAllFields()"></div>
+					<div class="juci_horizontal_bbar">
+                        <button data-juci="button" class="add" id="Initiate_PIVC"  type= "submit" >Initiate PIVC</button>
+                     </div>
+                 </div>
+                    
+			 </div>	 
+		</div>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+.content_section {
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: justify;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.terms_head {
+    font-size: 15px;
+    color: #0B4DA1;
+    font-weight: bold;
+    border-bottom: 3px solid #0B4DA1;
+    width: 170px;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+.terms_content {
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+    line-height: 18px;
+    margin-bottom: 40px;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+
+ol.nrml_txt_list {
+    width: 90%;
+    margin: auto;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+
+p.terms_p {
+    margin-top: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.dis_head {
+    color: #0b4ad1;
+    border-bottom: 4px solid #0b4ad1;
+    width: 70px;
+    padding-top: 10px;
+    margin-left: 8px;
+}
+
+p.term_phead {
+    padding-top: 10px;
+}
+
+.pri_head{
+	   font-size: 15px;
+	   color: #0B4DA1;
+	   font-weight: bold;
+	   border-bottom: 3px solid #0B4DA1;
+	   width: 115px;
+	   margin-left: 10px;
+	   padding-top: 10px;
+	}
+	button.juci_button.confirmUpdate{
+		width: 155px;
+		margin: 10px auto;
+	}
+.confirmUpdate{
+	display: block;
+    width: 100%;
+    margin: auto;
+    background: #0b4daa;
+    border-color: #0b4daa;
+    width: 137px;
+    min-height: 37px;
+    font-size: 16px;
+    border-radius: 5px;
+	}
+.application_no{
+	width: 76%;
+    min-height: 40px;
+    margin-top: 0px;	
+	}

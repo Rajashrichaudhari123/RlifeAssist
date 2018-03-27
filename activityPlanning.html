@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+      <link rel="stylesheet" type="text/css" href="css/dialog.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/rlifecss.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/newlead.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/dialog.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/proposalcolors.css">
+     </link>
+      <link rel="stylesheet" type="text/css" href="css/common.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/select-box.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/collapsible.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/juci-switch2-color.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/juci-switch2-layout.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/additionalswitch.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/select.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/jqueryui.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/colors.css">
+      </link>
+      <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+      <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+   	  <script src="scripts/constants.js"></script>
+      <script src="scripts/messages.js"></script>
+      <script src="scripts/Utils.js"></script>
+      <script src="scripts/dbHelper.js"></script>
+      <script src="scripts/saveActivityPlanningPojo.js"></script>
+      <script src="scripts/SHDataPojo.js"></script>
+      <script src="scripts/CampaignNames.js"></script>
+      <script src="scripts/bindingObjectInput.js"></script>
+      <script src="scripts/dropdown.js"></script>
+      <script src="scripts/subdropdowns.js"></script>
+      <script src="scripts/rlifeservices.js"></script>
+      <script src="scripts/activityPlanning.js"></script>
+      <script src="scripts/header.js"></script>
+   </head>
+   <body onclick="hideMenu()">
+      <div data-juci="panel" data-first-panel>
+       <div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                </ul>
+            </div>
+      	<div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li>  -->
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li-->
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                 <div>
+	               <li class="item_list" onclick="openVideoRetrieval()">
+	                    <img src="images/video.png"></img>
+	                    <span>Video Retrieval</span>
+	                </li>
+                </div>
+                <li class="item_list" onclick="openDeviceCompatibility()">
+                  <img src="images/tablet.png"></img>
+                  <span>Device Compatibility check</span>
+               </li>
+                <!--<li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li-->
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Calculator</span>
+        		</li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+                <li></li>
+            </ul>
+        </div>
+      <!-- Toggle Menu -->
+      	 <div id="toogle" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+            <div class="togcount" >
+               <button class="btn1 lftbrd" data-juci="button" data-toggle="1">
+                  <div class="inputs"><span class="notif" ></span><span class="notifctn">Planning</span></div>
+               </button>
+            </div>
+        </div>
+      <!-- New Lead Form -->
+           
+              <!-- New Lead Details -->
+               	 <div class="life2assure">
+                    <p class="form-heading1 life">Enter Details</p>
+                    <div data-juci="form"  id ="planningForm" data-bind="ref:newPlanningForm" onsubmit="SavePlanningDetails(event)" data-validation="all">          
+                   <div class="activity" id="activity-type" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS',optionsList:$root.activity,ref:Activity,optionsText:getDescription,attr:{'data-novalidate':(gettype() == 'FLS')}" data-label="Activity Type<span class='star'>*</span>" data-formatter="getDescription" data-comparator="laComparator" onafterchange="callActivitySubType(event)" required onvalidationfail="Utils.GetValidationMessage(event,'Activity')" ></div>
+                   <div class="activity" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS', optionsList:$root.activity_data,ref:Activity,optionsText:getDescription,attr:{'data-novalidate':(gettype() != 'FLS')}" data-label="Activity Type<span class='star'>*</span>" data-formatter="getDescription" data-comparator="laComparator" onafterchange="callActivitySubType(event)" required onvalidationfail="Utils.GetValidationMessage(event,'Activity')" ></div>
+                   <div class="activitysubtype" id="activity-subtype" data-juci="selectbox" data-mode="popup" data-bind="visible:$root.Subtype && gettype() != 'FLS',optionsList:$root.activity_subtype,ref:Sub_Activity,optionsText:getInputsSubValue,attr:{'data-novalidate':((Activity() == '') || (gettype() == 'FLS'))}" data-label="Activity Subtype<span class='star'>*</span>" data-formatter="getInputsSubValue" required onafterchange="callActivitySubOption(event)" onvalidationfail="Utils.GetValidationMessage(event,'Activity Subtype')"></div>
+                   
+                    <!--<div class="activitysubtype"  data-juci="selectbox" data-mode="popup" data-bind="optionsList:$root.AdvisorStatus,ref:Advisor_Status" data-label="Advisor Status<span class='star'>*</span>"   required onvalidationfail="Utils.GetValidationMessage(event,'Advisor Status')"></div>-->
+                   <div class="activitysubtypeOption" id="activity-subtype-opt" data-juci="selectbox" data-mode="popup"  data-bind="visible:$root.Subtype && gettype() == 'FLS',optionsList:$root.subDropDown,ref:Sub_Activity_Options,optionsText:getInputsSubValue,attr:{'data-novalidate':((Activity() == '') || (gettype() != 'FLS'))}" data-label="Activity Subtype Option<span class='star'>*</span>"  required onvalidationfail="Utils.GetValidationMessage(event,'Activity Subtype Option')" ></div>
+                     <div class="activitysubtypeOption" data-juci="selectbox" data-mode="popup"  data-bind="visible:$root.SubtypeOption && gettype() != 'FLS',optionsList: $root.activity_option,ref:Sub_Activity_Options,optionsText:getInputsSubValue,attr:{'data-novalidate':((Sub_Activity() == '') || (gettype() == 'FLS'))}" data-label="Activity Subtype Option<span class='star'>*</span>"  required onvalidationfail="Utils.GetValidationMessage(event,'Activity Subtype Option')" ></div>
+                   <div class="activitysubtypeOption" data-juci="text" data-mode="popup"  data-bind="visible:gettype() == 'FLS',ref:Advisor_Name,attr:{'data-novalidate':gettype() != 'FLS'}" disabled data-label="Advisor Name<span class='star'>*</span>" required onvalidationfail="Utils.GetValidationMessage(event,'Advisor Name')" ></div>
+                   
+                   <div class="with_whom" id="with-whom" data-juci="text" pattern ="" maxlength="30" pattern="^[a-z\.?\s\'?A-Z]*$" data-bind="ref:With_Whom,attr:{'data-novalidate':Activity() == 'Exisiting Advisor'}" data-label="With Whom<span class='star'>*</span>" onvalidationfail="Utils.GetValidationMessage(event,'With Whom')"></div>
+              <div id="activity-dob" class="dob" data-juci="datepicker" data-picker="dob" data-label="Activity Date<span class='star'>*</span>" data-bind="ref:Activity_Date" 
+                       data-formatter="dobValidation" required onvalidationfail="Utils.GetValidationMessage(event,'Activity Date')" onafterchange="assignDate(event)"></div>
+                   <div class="activity_time" data-juci="timepicker" data-mode="popup" data-bind="ref:Activity_Time" data-label="Activity Time<span class='star'>*</span>" required onvalidationfail="Utils.GetValidationMessage(event,'Activity Time')" onafterchange="checkTimeValidation(event)">
+                   </div>
+          <!--<div class="activity_loc" id="activity-loc" data-juci="text" data-label="Where<span class='star'>*</span>" maxlength="100" pattern="^[a-z\.?\s\'?A-Z]*$"  data-bind="ref:Activity_Location"   required onvalidationfail="Utils.GetValidationMessage(event,'Where')">
+          </div>-->
+                   <!--div class="leadtype" id="campaign" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() != 'FLS',optionsList:$root.campaign_drop,ref:Special_Campaign,attr:{'data-novalidate':Activity() == '' || Activity() == 'Exisiting Advisor' || Activity() == 'Recruitment'|| gettype() == 'FLS'}" data-label="Special Campaign<span class='star'>*</span>" onvalidationfail="Utils.GetValidationMessage(event,'Campaign')"></div!-->
+                  <!--<div class="leadtype" data-juci="selectbox" data-mode="popup" data-bind="visible:gettype() == 'FLS',optionsList:$root.campaignNames,ref:Special_Campaign,optionsText:getInputDescription,attr:{'data-novalidate':Activity() == '' || Activity() == 'Exisiting Advisor' || Activity() == 'Recruitment' || gettype() != 'FLS'}" data-label="Special Campaign<span class='star'>*</span>" onvalidationfail="Utils.GetValidationMessage(event,'Campaign')" data-formatter="getInputDescription" data-comparator="inputDescComparator"></div>-->
+                   <div data-juci="textarea" class="remarks" data-label="Remarks" data-bind="visible:gettype() == 'FLS',ref:Planning_Remarks,attr:{'data-novalidate':gettype() != 'FLS' || Special_Campaign() == 'Self Sourced lead'},disabled:$root.leadTypeFlsRemarks" placeholder data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Remarks')"></div>
+                    <div class="btn">
+                        <button class="save" data-juci="button" type="submit">Submit</button>
+                        <button class="save" data-juci="button"  onclick="$m.close()">Cancel</button>
+                     </div>
+           		</div>
+           </div>
+           <div class="footerbar">
+	            <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+	            <span> | </span>
+	            <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+	            <span> | </span>
+	            <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+         	</div>
+        </div>
+   </body>
+</html>

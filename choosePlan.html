@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/lifeplannerCommon.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/source.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/table.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/choosePlan.css" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<link rel="stylesheet" type="text/css" href="css/juci-switch2-color.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/juci-switch2-layout.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/additionalswitch.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/jqueryLifePlanner.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/juci-switch2.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/lifeplannerConstants.js"></script>
+		<script src="scripts/translations.js"></script>
+		<script src="scripts/dictionaries.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/getblob.js"></script>
+		<script src="scripts/finalSheet.js"></script>
+		<script src="scripts/finalSheetnl.js"></script>
+		<script src="scripts/html2canvas.js"></script>
+		<script src="scripts/expenseMatrix.js"></script>
+		<script src="scripts/incomeBand.js"></script>
+		<script src="scripts/inflation.js"></script>
+		<script src="scripts/lifeStage.js"></script>
+		<script src="scripts/likelyAgeOfOccurance.js"></script>
+		<script src="scripts/priorityOrder.js"></script>
+		<script src="scripts/sheet3.js"></script>
+		<script src="scripts/productRecomendation.js"></script>
+		<script src="scripts/productMaster.js"></script>
+		<script src="scripts/choosePlan.js"></script>
+		<script src="scripts/cityTier.js"></script>
+		<script src="scripts/chart2.js"></script>
+		<script src="scripts/chart3.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+		<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+         <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+	            <li class="item_list" onclick="openSyncContacts()">
+	                <img src="images/Sync.png"></img>
+	                <span>Super Sync</span>
+	            </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li> --> 
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li>
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li>
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Calculator</span>
+                </li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+            </ul>
+         </div>
+	        <div class="content">
+	        	<div class="create_plan">
+	        		<div class="plantitle" data-bind="display: getTranslatedLabel(Strings.createAPlan, juci.currentLanguage())">Create a Plan</div>
+	        		<div class="investmentObj" data-bind="display: getTranslatedLabel(Strings.investObjective, juci.currentLanguage())">Choose your investment Objective</div>
+	        			<div id="investment-obj" class="investment_obj active" onclick="setInvestor(event,'chidlEducation'); return false;">
+	        				<div class="planName" data-bind="display: getTranslatedLabel(Strings.childEdu, juci.currentLanguage()),css:{'tamil_font':$root.juci_language() =='Tamil'}">Child Education</div>
+        				</div>
+        				<div id="investment-obj1" class="investment_obj" onclick="setInvestor(event,'wealthCreation'); return false;">
+	        				<div class="planName"  data-bind="display: getTranslatedLabel(Strings.wealthCreation, juci.currentLanguage()),css:{'tamil_font':$root.juci_language() =='Tamil'}">Wealth Creation</div>
+        				</div>
+        				<div id="investment-obj2" class="investment_obj retiremen" onclick="setInvestor(event,'retirement'); return false;">
+	        				<div class="planName" data-bind="display: getTranslatedLabel(Strings.retirement, juci.currentLanguage()),css:{'tamil_font':$root.juci_language() =='Tamil'}">Retirement</div>
+        				</div>
+	        	</div>
+	        	<div class="lifeStage_div">
+	        		<div class="investmentObj need" data-bind="display: getTranslatedLabel(Strings.lifeStageNeed, juci.currentLanguage())">Choose your life stage need</div>
+		        		<div id="investment-need" class="investment_need active" onclick="setNeed(event,'EarlyCareer'); return false;">
+		        			<div class="planName"  data-bind="display: getTranslatedLabel(Strings.careFreeTitle, juci.currentLanguage()),css:{'tamil_font':$root.juci_language() =='Tamil'}">Early career</div>
+	    				</div>
+	    				<div id="investment-need1" class="investment_need need" onclick="setNeed(event,'Married'); return false;">
+		        			<div class="planName" data-bind="display: getTranslatedLabel(Strings.planningTitle, juci.currentLanguage()),css:{'tamil_font':$root.juci_language() =='Tamil'}" >Married</div>
+	    				</div>
+	    				<div id="investment-need2" class="investment_need retiremen"  onclick="setNeed(event,'Child'); return false;">
+		        			<div class="planName" data-bind="display: getTranslatedLabel(Strings.responsibleTitle, juci.currentLanguage()),css:{'tamil_font':$root.juci_language() =='Tamil'}">Married with young children</div>
+	    				</div>
+	    				<div id="investment-need3" class="investment_need retiremen need" onclick="setNeed(event,'GrownUp'); return false;">
+		        			<div class="planName" data-bind="display: getTranslatedLabel(Strings.settlementTitle, juci.currentLanguage()),css:{'tamil_font':$root.juci_language() =='Tamil'}">Married with grown up children</div>
+	    				</div>
+	    				<div id="investment-need4" class="investment_need retiremen" onclick="setNeed(event,'PreRetirement'); return false;">
+		        			<div class="planName" data-bind="display: getTranslatedLabel(Strings.relaxedTitle, juci.currentLanguage()),css:{'tamil_font':$root.juci_language() =='Tamil'}" >Pre-retirement</div>
+	    				</div>
+	        	</div>
+	        	<div class="reCal_row">
+	        		<!--<div  class="switch" id="isLaPrSame" data-juci="switch2" data-label="Is Proposer and Life to be Assured the same?"
+                        data-bind="ref:is_La_Pr_Same" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                        data-onclass="switchclass" data-offclass="switchclass" onafterchange="onNoClick(event)"></div>
+                        <div  class="switch" data-juci="switch2" data-label="Is Proposer and Lead details are same?"
+                        data-bind="visible:is_La_Pr_Same() != 'Y',ref:is_La_ld_Same" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                        data-onclass="switchclass" data-offclass="switchclass" onafterchange="onLeadYesClick(event)"></div>-->
+					<button class="seeplan" data-juci="button" onclick="getPlan()">See Plans</button>
+				</div>
+	        </div>
+      	</div>
+	</body>
+</html>

@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="HandheldFriendly" content="True" />
+      <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0" />
+      <meta http-equiv="x-rim-auto-match" content="none" />
+      <meta name="msapplication-tap-highlight" content="no" />
+      <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+      <link rel="stylesheet" type="text/css" href="css/dialog.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/rlifecss.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/proposal.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/dialog.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/proposalcolors.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/common.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/select-box.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/collapsible.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/juci-switch2-color.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/juci-switch2-layout.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/additionalswitch.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/select.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/jqueryui.css">
+      </link>
+      <link rel="stylesheet" type="text/css" href="css/colors.css">
+      </link>
+      <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+      <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+      <script src="scripts/messages.js"></script>
+      <script src="scripts/constants.js"></script>
+      <script src="scripts/teamhierarchy.js"></script>
+      <script src="scripts/dbHelper.js"></script>
+      <script src="scripts/SHDataPojo.js"></script>
+      <script src="scripts/hierarchy.js"></script>
+      <script src="scripts/hierarchyDatamanager.js"></script>
+      <script src="scripts/basic.js"></script>
+      <script src="scripts/x2js library.js"></script>
+      <script src="scripts/bindingObject.js"></script>
+      <script src="scripts/dropdown.js"></script>
+      <script src="scripts/collapsible.js"></script>
+      <script src="scripts/master.js"></script>
+      <script src="scripts/pdcPlanDetailsPojo.js"></script>
+      <script src="scripts/pdcCustomerDetailsPojo.js"></script>
+      <script src="scripts/pdcFamilyHistoryDetailsPojo.js"></script>
+      <script src="scripts/pdcExistingPoliciesDetailsPojo.js"></script>
+      <script src="scripts/pdcLifeStyleDetailsPojo.js"></script>
+      <script src="scripts/pdcPaymentDetailsPojo.js"></script>
+      <script src="scripts/pdcImageDetailsPojo.js"></script>
+      <script src="scripts/proposal.js"></script>
+      <script src="scripts/personalDetails.js"></script>
+      <script src="scripts/nomineeAppointeeDetails.js"></script>
+      <script src="scripts/familyHistory.js"></script>
+      <script src="scripts/lifeInsurance.js"></script>
+      <script src="scripts/lifeStyleAndMedical.js"></script>
+      <script src="scripts/vernacularDetails.js"></script>
+      <script src="scripts/declarationAndSignature.js"></script>
+      <script src="scripts/confidentialReport.js"></script>
+      <script src="scripts/prepaymentreview.js"></script>
+      <script src="scripts/paymentoptions.js"></script>
+      <script src="scripts/uploaddocuments.js"></script>
+      <script src="scripts/juci-switch2.js"></script>
+      <script src="scripts/header.js"></script>
+   </head>
+   <body onclick="hideMenu()">
+      <div data-juci="panel" data-first-panel>
+      <div class="menu arrow_box" id="profilelist" style="display:none;">
+         <ul class="items">
+         	<li class="item_list" onclick="openSyncContacts()">
+                <img src="images/Sync.png"></img>
+                <span>Sync Personal Contacts</span>
+            </li>
+            <li class="item_list" onclick="openSync()">
+               <img src="images/Sync.png"></img>
+               <span>Sync</span>
+            </li>
+            <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+               		</li>-->
+            <li class="item_list" onclick="openProposal()">
+               <img src="images/New-Proposal.png"></img>
+               <span>New Proposal</span>
+            </li>
+            <li class="item_list" onclick="openProfileContent()">
+               <img src="images/Profile.png"></img>
+               <span>Profile</span>
+            </li>
+            <div class="" id="profile-content" style="display: none;">
+               <li class="item"    data-bind="with:profileDetail" onclick="openProfile()">
+                  <div class="name" data-bind="html:name"></div>
+                  <div class="id" data-bind="html:'ADV ID:'+ id()"></div>
+                  <div class="id" data-bind="html:area"></div>
+               </li>
+               <li class="item" data-bind="with:goal" onclick="openDashboard()">
+                  <span>Goal Summary</span> 
+                  <div class="Goal_summary">
+                     <div class="summary">
+                        <div class="titles">Target:</div>
+                        <div class="tar" data-bind="html:target"></div>
+                     </div>
+                     <div class="summary">
+                        <div class="titles">Achieved:</div>
+                        <div class="tar" data-bind="html:acheived"></div>
+                     </div>
+                     <div class="summary">
+                        <div class="titles">Pending :</div>
+                        <div class="tar" data-bind="html:pending"></div>
+                     </div>
+                  </div>
+               </li>
+            </div>
+            <li class="item_list" onclick="openLogs()">
+               <img src="images/logs.png"></img>
+               <span>Logs</span>
+            </li>
+            <li class="item" onclick="openCustomers()">
+               <img src="images/female.png"></img>
+               <span>My Customers</span>
+            </li>
+            <li class="item" onclick="openAdvisors()">
+               <img src="images/Folder_grey.png"></img>
+               <span class="my_advisors">My Advisors</span>
+            </li>
+            <!--<div data-bind="visible:gettype()!=='ADV'">
+               <li class="item_list" onclick="openTeamLogin()">
+                  <img src="images/Profile.png"></img>
+                  <span>Team Login</span>
+               </li>
+            </div>--> 
+            <li class="item_list" onclick="openHelpDesk()">
+               <img src="images/Gallery_Grey.png"></img>
+               <span class="help">Help Desk</span>
+            </li>
+            <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+            </li>
+            <li class="item_list" onclick="doLogout()">
+               <img src="images/power-blackgold.png"></img>
+               <span class="log">Logout</span>
+            </li>
+         </ul>
+      </div>
+      <!--<div id="dialog-teamlogin" data-juci="dialog">
+         <div class="heading_team">
+            <div class="dialogheader">Login As</div>
+            <div class="refresh_area">
+               <div class="refresh_img">	<img src="images/refresh.png"></img></div>
+               <span class="close" onclick="hidebox()">X</span>
+            </div>
+         </div>
+         <div class="content-body">
+            <div class="user_name_area">
+               <div class="info">Currently logged in as</div>
+               <div class="user" data-bind="html: $root.user().name()"></div>
+               <div class="sync_time">Last Sync 13 Hours ago</div>
+            </div>
+            <div id="zm" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format" data-comparator="compare" onafterchange="drillDown(event)" >
+            </div>
+            <div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup"data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+            </div>
+            <div id="am"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+            </div>
+            <div id="bm"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+            </div>
+            <div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format"    onafterchange="drillDown(event)" >
+            </div>
+            <div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm'),optionsList:$root.adlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)">
+            </div>
+         </div>
+         <div class="juci_thinbar team">
+            <button class="login" data-juci="button" onclick="openProducts()">Login as</button>
+            <button class="loginas" data-juci="button" onclick="openProposal()">Login as Myself</button>
+         </div>
+      </div>-->
+      <div id="dialog-box2" data-juci="dialog">
+         <div class="heading">
+            <div class="dialogheader">Confirm OTP</div>
+            <div class="exit" onclick="exit()">X</div>
+         </div>
+         <div class="col-xs-12">
+            <p class="form-group">A One Time Password (OTP) has been sent to the mobile number associated with Aadhar No. AYWWM3444M</p>
+         </div>
+         <div data-juci="form" data-bind="ref:otp" onsubmit="sendOtp(event)" onreset="closebox()">
+            <div data-juci="number" data-label="Enter OTP<span class='star'>*</span>" data-bind placeholder data-trigger></div>
+            <button class="resndotp" data-juci="button">Resend OTP</button>
+            <div class="juci_horizontal_bbar">
+               <button data-juci="button" class="cancel" type="reset">Cancel</button>
+               <button data-juci="button" class="submitotp" type="submit">Submit</button>
+            </div>
+         </div>
+      </div>
+      <!-- Toggle bar for proposal page -->
+      <div class="toglediv">
+         <div id="toogle" data-juci="togglebar" data-toggled="1" ontoggle="toggleView(event)">
+            <div class="info" data-bind="with:proposaldetails" style="display: none;">
+               <div class="juci_title" data-bind="html:plan()+'|'"></div>
+               <div class="juci_title" data-bind="html:name"></div>
+               |
+               <div class="juci_titl" data-bind="html:'Cust ID : '+custid()"></div>
+            </div>
+            <button id="togbtn1" class="btn1" data-juci="button" data-toggle="1">
+               <div class="proposals"><span class="cont">1</span><span class="prop">Benefit<br>Illustrator</span></div>
+            </button>
+            <button id="togbtn2" class="btn1" data-juci="button" data-toggle="2">
+               <div class="proposals"><span class="cont">2</span><span class="prop">Proposal<br>Fulfilment</span></div>
+            </button>
+            <button id="togbtn3" class="btn1" data-juci="button" data-toggle="3">
+               <div class="proposals"><span class="cont">3</span><span class="prop">Pre-Payment<br>Review</span></div>
+            </button>
+            <button id="togbtn4" class="btn1" data-juci="button" data-toggle="4">
+               <div class="proposals"><span class="cont">4</span><span class="prop">Payment<br>Options</span></div>
+            </button>
+            <button id="togbtn5" class="btn1" data-juci="button" data-toggle="5">
+               <div class="proposals"><span class="cont">5</span><span class="prop">Documents<br>Upload</span></div>
+            </button>
+         </div>
+      </div>
+      <!-- Proposal form -->
+      <div id="proposalFulfilment">
+         <!-- Personal Details View -->	
+         <div id="proposalView">
+            <div data-juci="form" id="pdForm" data-bind="ref:personalForm" onsubmit="openNext(event)" data-validation="all">
+               <div class="propos">
+                  <div  class="switch" data-juci="switch2" data-label="Is Proposer and Life to be Assured the same?<span class='star'>*</span>"
+                     data-bind="ref:IS_LA_PR_SAME" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                     data-onclass="switchclass" data-offclass="switchclass" required></div>
+               </div>
+               <div class="life2assure">
+                  <p class="form-heading1 life">Life To Be Assured</p>
+                  <div class="adhar" data-juci="number" data-label="Aadhar Card Details" data-bind placeholder="Aadhar Card Number"></div>
+                  <button class="submit" data-juci="button" onclick="openOtp()">Submit</button>
+                  <!-- Toogle View for displaying languages -->
+                  <div id="lang" data-juci="togglebar" data-toggled ontoggle="toggleLangView(event)">
+                     <button class="langb" data-juci="button" data-toggle="1">English</button>
+                     <button class="langb" data-juci="button" data-toggle="2">हिंदी</button>
+                     <button class="langb" data-juci="button" data-toggle="3">தமிழ௿</button>
+                  </div>
+                  <div class="form-heading2 consent">Consent for Aadhar Authentication</div>
+                  <div id="english">
+                     I, the holder of Aadhar number xxxxxxxx, hereby give my consent to Reliance Nippon Life Insurance to obtain my Aadhar Number,
+                     Name and Fingerprints/Iris details for authentication with UIDAI. Reliance Nippon Life Insurance has informed me that my identity
+                     information would only be used for life insurance proposal and also informed that my biometrics will not be stored/shared and
+                     will be submitted to CIDR only for the purpose of authentication.
+                  </div>
+                  <div id="hindi">
+                     ैं, आधार संखॿया के धारक xxxxxxxx, इसके दॿवारा रिलायंस निपॿपॉन ला
+                     इफ इंशॿयोरेंस के लिि अपनी सहमति 	यूआईडीिआई के साथ पॿरमाणीकरण के लिि अपने आधार नंबर, नाम और उंगलियों के निशान / आइरिस
+                     विवरण पॿरापॿत करने के लिि दे। रिलायंस निपॿपॉन लाइफ इंशॿयोरेंस ने मॿिे सूचित किया है कि मेरी पहचान जानकारी केव
+                     ल जीवन बीमा पॿरसॿताव के लिि इसॿतेमाल किया जािगा और यह भी बताया कि मेरी बॉयोमीटॿरिकॿस संगॿरहीत नहीं होगा / सािा और
+                     केवल पॿरमाणीकरण के पॿरयोजन के लिि सीआईडीआर को पॿरसॿतॿत किया जािगा।
+                  </div>
+                  <div id="tamil">
+                     நான௿, ஆதார௿ எண௿ வைத௿திர௿ப௿பவர௿ xxxxxxxx  இதனைப௿ இந௿திய தனித௿த௿வ அடையாள ஆணையம௿ கொண௿ட௿ அங௿கீகரிப௿பதன௿ என௿ ஆதார௿ எண௿, பெயர௿ மற௿ற௿ம௿
+                     கைரேகைகள௿ / ிரிஸ௿ விவரங௿கள௿ பெற ரிலையன௿ஸ௿ நிப௿பான௿ லைப௿ இன௿ஷ௿யூரன௿ஸ௿ என௿ ஒப௿ப௿தல௿ கொட௿க௿க. ரிலையன௿ஸ௿ நிப௿பான௿ ல
+                     ைஃப௿ இன௿சூரன௿ஸ௿ என௿ அடையாளத௿தை தகவல௿ மட௿ட௿மே ஆய௿ள௿ காப௿பீட௿ திட௿டத௿தை பயன௿பட௿த௿த வேண௿ட௿ம௿ என௿ற௿ மேல௿ம௿ என௿ செய௿யக௿கூடிய உயிரிய
+                     ளவ௿கள௿ / சேமிக௿கப௿பட௿ம௿ ம௿டியாத௿ என௿ற௿ பகிர௿வ௿ மற௿ற௿ம௿ அங௿கீகார நோக௿கத௿திற௿காக CIDR உடனே சமர௿ப௿பிக௿க வேண௿ட௿ம௿ தகவல௿ எனக௿க௿ 
+                     தகவல௿ வந௿தத௿.
+                  </div>
+                  <div data-juci="checkbox" class="agrement" data-label="I agree with the consent mentioned above"></div>
+                  <div class="form-heading2">Personal Details</div>
+                  <div class="salutation" data-juci="selectbox" data-mode="popup" data-label="Title<span class='star'>*</span>" data-bind ="optionsList:$root.personalsalutation,ref:LA_Salutation,optionsText:getDescription" placeholder='Dame' required onvalidationfail="Utils.GetValidationMessage(event,'Title')" data-formatter="getDescription" data-comparator="laComparator" ></div>
+                  <!--  <div class="select_box">
+                     <div class="select_text">Title : </div>
+                              <div class="select_cont" >
+                                 <select  style="display:block !important"data-bind ="options:$root.personalsalutation,ref:LA_Salutation,optionsText:getDescription,optionsValue:'Description'" data-formatter="getDescription" data-comparator="laComparator">
+                                  </select>
+                                  </div>
+                                  </div>-->
+                  <div class="name"  data-juci="text" data-label="Full Name<span class='star'>*</span>" data-bind="ref:LA_Name" required  onvalidationfail="Utils.GetValidationMessage(event,'Full Name')" disabled></div>
+                  <div class="name" data-juci="text" data-label="Father's Full Name<span class='star'>*</span>"  data-bind="ref:LA_FatherName" 
+                     required pattern="^[a-z\.?\s\'?A-Z]*$" maxlength="30" onvalidationfail="Utils.GetValidationMessage(event,'Father Name')" ></div>
+                  <p class="label">Gender<span class="star">*</span></p>
+                  <div class="gender" id="Gender" data-juci="togglebar" data-bind="ref:LA_Gender" disabled>
+                     <button class="b1" id="Gender_m" data-juci="button" data-bind="css:{'toggled' : LA_Gender() === 'M' }"> Male <img src="images/male.png"></></button>
+                     <button class="b1" id="Gender_f" data-juci="button" data-bind="css:{'toggled' : LA_Gender() === 'F' }"> Female <img src="images/female.png"></></button>
+                  </div>
+                  <div class="maritalstatus" data-juci="selectbox" data-mode="popup" data-mode="popup" data-label="Marital Status<span class='star'>*</span>" 
+                     data-bind="optionsList:$root.maritalStatus,ref:LA_MaritalStatus,optionsText:getDescription" required
+                     data-formatter="getDescription" data-comparator="laComparator" onvalidationfail="Utils.GetValidationMessage(event,'Marital Status')"></div>
+                  <div class="dob" data-juci="datepicker" data-picker="dob" data-label="Date of Birth<span class='star'>*</span>"
+                     data-bind="ref:LA_DOB,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" required  data-formatter="dobValidation" disabled></div>
+                  <div class="nationality" data-juci="selectbox" data-mode="popup" data-label="Nationality<span class='star'>*</span>" 
+                     data-bind="optionsList:$root.nationality,ref:LA_Nationality,optionsText:getDescription" required 
+                     data-formatter="getDescription" data-comparator="laComparator" onvalidationfail="Utils.GetValidationMessage(event,'Nationality')" onafterchange="onNationalityChange(event)"></div>
+                  <div class="education" data-juci="selectbox" data-mode="popup" data-label="Education<span class='star'>*</span>" 
+                     data-bind="optionsList:$root.education,ref:LA_Education,optionsText:getDescription" 
+                     data-formatter="getDescription" data-comparator="laComparator" onvalidationfail="Utils.GetValidationMessage(event,'Education')" required></div>
+                  <div class="sourceofincome" data-juci="text" data-label="Source Of Income<span class='star'>*</span>" 
+                     data-bind="ref:LA_INCOMESOURCE" pattern="^[a-zA-Z ]{2,30}$" required onvalidationfail="Utils.GetValidationMessage(event,'Source Of Income')"  maxlength="30"></div>
+                  <div class="annualincome" id="alincome" data-juci="tel" data-label="Annual Income<span class='star'>*</span>" 
+                     data-bind="ref:LA_AnnualIncome" required pattern="(?!0)[0-9\,?]{1}" 
+                     onvalidationfail="Utils.GetValidationMessage(event,'Annual Income')" data-formatter="formatValue" minlength="6" 
+                     maxlength="12"></div>
+                  <div class="purposeofinsurance" data-juci="text" data-label="Purpose Of Insurance<span class='star'>*</span>"
+                     data-bind="ref:LA_INSURANCEPURPOSE"  pattern="^[a-zA-Z ]{2,30}$"
+                     onvalidationfail="Utils.GetValidationMessage(event,'Purpose Of Insurance')" required  maxlength="30"></div>
+                  <div data-juci="selectbox" data-mode="popup" data-label="Occupation<span class='star'>*</span>" 
+                     data-bind="optionsList:$root.occupation,ref:LA_Occupation,optionsText:getDescription" data-formatter="getDescription"
+                     data-comparator="laComparator" required  onvalidationfail="Utils.GetValidationMessage(event,'Occupation')"></div>
+                  <div data-juci="text" data-label="Job Description<span class='star'>*</span>" data-bind="ref:LA_JOBDESC" pattern="^[a-zA-Z ]*$"
+                     onvalidationfail="Utils.GetValidationMessage(event,'Job Description')" required  maxlength="30" ></div>
+                  <!--	<div data-juci="text" data-bind="ref:PR_JOBDESC" data-label="Nature Of Duties<span class='star'>*</span>"  pattern="^[a-zA-Z ]*$"
+                     onvalidationfail="Utils.GetValidationMessage(event,'Nature Of Duties')" required  maxlength="30"></div> -->
+                  <div class="switch" data-juci="switch2" data-label="Are you Reliance Group employee?<span class='star'>*</span>" 
+                     data-bind="ref:LA_IsRelianceEmp" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                     data-onclass="switchclass" data-offclass="switchclass" required></div>
+                  <div data-bind="visible:LA_IsRelianceEmp() == 'Y'">
+                     <div class="employeeno" data-juci="tel" data-label="Employee No<span class='star'>*</span>" 
+                        data-bind="ref: LA_EMPLOYEECODE,attr:{'data-novalidate':LA_IsRelianceEmp() == 'N'}" required 
+                        pattern="^[0-9]*$"  onvalidationfail="Utils.GetValidationMessage(event,'Employee No')" maxlength="10"></div>
+                  </div>
+                  <div class="switch" id="nach" data-juci="switch2" data-label="Enter NACH<span class='star'>*</span>" data-bind="ref:PR_ECSFORM_YN" 
+                     data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" 
+                     data-offclass="switchclass" onafterchange="onoptclick(event)" required></div>
+                  <div class="pancardno" data-juci="text" data-label="PAN Card No<span class='star'>*</span>" 
+                     data-bind="ref:LA_PANCardNumber,attr:{'data-novalidate': ($root.LA_Check_Premium() < 50000  && validatePAN($data.LA_PANCardNumber()))}" required pattern="^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]$" onvalidationfail="Utils.GetValidationMessage(event,'Pan Card No.')" maxlength="10"></div>
+                  <div class="form-heading2">Bank Details</div>
+                  <div class="bankdetails_mandatory_label">(Mandatory only in case if premium is >= 25000)</div>
+                  <div class="name" data-juci="tel" required  data-label="Bank Account No<span class='star'>*</span>" 
+                     data-bind="ref:LA_BankAccountNumber,attr: {'data-novalidate':  IS_LA_PR_SAME() != 'Y' || IS_LA_PR_SAME() == 'Y'&& $root.LA_Check_Premium() < 25000 }"  required pattern="[0-9]" onvalidationfail="Utils.GetValidationMessage(event,'Bank Account No.')" maxlength="20" onafterchange="doCheckBankAcntNum(event)"></div>
+                  <div data-juci="tel"  id="MICR" data-label="MICR Code<span class='star'>*</span>" data-bind="visible:$root.opt() == 'Y',ref:MICR_Code,attr: {'data-novalidate': getValidate($data.PR_ECSFORM_YN)}" required pattern="^[0-9]{9}$" onvalidationfail="Utils.GetValidationMessage(event,'MICR_Code')" minlength="9" maxlength="9" onafterchange="ecsval(event)"></div>
+                  <div class="ifsccode" data-juci="text" data-label="IFSC Code<span class='star'>*</span>" 
+                     data-bind="ref:LA_IFSCCode,attr: {'data-novalidate':  IS_LA_PR_SAME() != 'Y' || IS_LA_PR_SAME() == 'Y'&& ($root.LA_Check_Premium() < 25000  && validateIFSC($data.LA_IFSCCode())) }" required pattern="^[A-Z|a-z]{4}[0][a-z|A-Z|0-9]{6}\s*$" onvalidationfail="Utils.GetValidationMessage(event,'IFSC Code')" maxlength="11"></div>
+                  <div class="bank" data-juci="text" data-label="Bank Name<span class='star'>*</span>" required 
+                     data-bind="ref:LA_Bank,attr: {'data-novalidate': IS_LA_PR_SAME() != 'Y' || IS_LA_PR_SAME() == 'Y' && ($root.LA_Check_Premium() < 25000  && validateBankName($data.LA_Bank()))}" onvalidationfail="Utils.GetValidationMessage(event,'Bank Name')" maxlength="30" pattern = "^[a-zA-Z ]*$"></div>
+                  <div class="branch" data-juci="text" data-label="Bank Branch<span class='star'>*</span>" 
+                     data-bind="ref:LA_Branch,attr: {'data-novalidate':  IS_LA_PR_SAME() != 'Y'|| IS_LA_PR_SAME() == 'Y'&& ($root.LA_Check_Premium() < 25000  && validateBranchName($data.LA_Branch()))  }" required onvalidationfail="Utils.GetValidationMessage(event, 'Branch')" pattern = "^[a-zA-Z ]*$" maxlength="30"></div>
+                  <div data-juci="selectbox" data-mode="popup" data-bind="optionsList:$root.bankAccountProof,ref:LA_BANKACCPROOF,optionsText:getDescription,attr: {'data-novalidate':  IS_LA_PR_SAME() != 'Y' || IS_LA_PR_SAME() == 'Y'  && $root.LA_Check_Premium() < 25000}" data-label="Bank Account Proof<span class='star'>*</span>" required  onvalidationfail="Utils.GetValidationMessage(event,'Bank Account Proof')"  data-formatter="getDescription" data-comparator="laComparator"></div>
+                  <div class="form-heading2">Mailing Address</div>
+                  <div id="ad1" data-juci="text" data-label="Address Line1<span class='star'>*</span>" data-bind="ref:LA_AddressLine1" required
+                     onvalidationfail="Utils.GetValidationMessage(event,'Address Line1')" pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$"
+                     maxlength="30" data-formatter="formatText" minlength="3"></div>
+                  <div data-juci="text" data-label="Address Line2<span class='star'>*</span>" data-bind="ref:LA_AddressLine2" required
+                     onvalidationfail="Utils.GetValidationMessage(event,'Address Line2')" pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" 
+                     maxlength="30" data-formatter="formatText" minlength="3"></div>
+                  <div data-juci="text" data-label="Address Line3<span class='star'>*</span>"  data-bind="ref:LA_AddressLine3"
+                     onvalidationfail="Utils.GetValidationMessage(event,'Address Line3')" required  pattern="^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$"
+                     maxlength="30" data-formatter="formatText" minlength="3"></div>
+                  <div data-juci="selectbox" data-mode="popup" data-label="State<span class='star'>*</span>" required 
+                     data-bind="visible:getNationality(LA_Nationality()) == 'Indian',optionsList:$root.state,ref:LA_State,attr: {'data-novalidate': getNationality(LA_Nationality()) != 'Indian'}" onvalidationfail="Utils.GetValidationMessage(event,'State')"></div>
+                  <div data-juci="text"  data-label="State<span class='star'>*</span>" required data-bind="visible:getNationality(LA_Nationality()) != 'Indian',attr: {'data-novalidate': getNationality(LA_Nationality()) == 'Indian'},ref:LA_State" data-trigger  pattern = "^[a-zA-Z ]*$" maxlength="30"></div>
+                  <div data-juci="text" data-label="City<span class='star'>*</span>" required data-bind="ref:LA_City" pattern="^[a-zA-Z ]*$" 
+                     onvalidationfail="Utils.GetValidationMessage(event,'City')" required  maxlength="30" minlength="3"></div>
+                  <div data-juci="tel" data-label="Pincode<span class='star'>*</span>" data-bind="ref:LA_Pincode"  required
+                     pattern="^[0-9]{6}\s*$" onvalidationfail="Utils.GetValidationMessage(event,'Pincode')" maxlength="6"  
+                     onvalidationfail="Utils.GetValidationMessage(event,'Pincode')"></div>
+                  <div data-juci="email"data-label="Email ID<span class='star'>*</span>" data-bind="ref:LA_EmailId" required 
+                     pattern="^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])" 
+                     onvalidationfail="Utils.GetValidationMessage(event,'Email Id')" placeholder maxlength="50"></div>
+                  <div data-juci="tel" data-label="MobileNo<span class='star'>*</span>" data-bind="ref:LA_Mobileno" required 
+                     pattern="^[0-9]{10,11}$" onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')" minlength="10" maxlength="11"></div>
+                  <div data-juci="tel" data-label="Landline No.<span class='star'>*</span>" data-bind="ref:LA_LandLineno" pattern="^[0-9]{1}[0-9]{10}$"
+                     onvalidationfail="Utils.GetValidationMessage(event,'Landline No.')" placeholder data-trigger maxlength="11"></div>
+                  <div class="form-heading2">Permanent Address</div>
+                  <div  class="switch" data-juci="switch2" data-label="Is your permanent address same as mailing address?<span class='star'>*</span>"
+                     data-bind="ref:LA_Perm_Add_Indicator" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No"
+                     data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <div data-bind="visible:LA_Perm_Add_Indicator() != 'Y'">
+                     <div data-juci="text" data-label="Address Line1<span class='star'>*</span>" 
+                        data-bind="ref:LA_Prem_AddressLine1,attr:{'data-novalidate':LA_Perm_Add_Indicator() == 'Y'}" required
+                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line1')" 
+                        pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" maxlength="30" data-formatter="formatText" minlength="3"></div>
+                     <div data-juci="text" data-label="Address Line2<span class='star'>*</span>" 
+                        data-bind="ref:LA_Prem_AddressLine2,attr:{'data-novalidate':LA_Perm_Add_Indicator() == 'Y'}" required
+                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line2')" 
+                        pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" maxlength="30" data-formatter="formatText" minlength="3"></div>
+                     <div data-juci="text" data-label="Address Line3<span class='star'>*</span>"  
+                        data-bind="ref:LA_Prem_AddressLine3,attr:{'data-novalidate':LA_Perm_Add_Indicator() == 'Y'}" 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line3')" required 
+                        pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" maxlength="30" data-formatter="formatText" minlength="3"></div>
+                     <div data-juci="text" data-label="City<span class='star'>*</span>" required 
+                        data-bind="ref:LA_Prem_City,attr:{'data-novalidate':LA_Perm_Add_Indicator() == 'Y'}" pattern="^[a-zA-Z ]*$"
+                        onvalidationfail="Utils.GetValidationMessage(event,'City')" required  maxlength="30" minlength="3"></div>
+                     <div data-juci="selectbox" data-label="State<span class='star'>*</span>" 
+                        data-bind="visible:getNationality(LA_Nationality()) == 'Indian',optionsList:$root.perState,ref:LA_Prem_State,attr:{'data-novalidate':LA_Perm_Add_Indicator() == 'Y'}"  onvalidationfail="Utils.GetValidationMessage(event,'State')"></div>
+                     <div data-juci="tel" data-label="Pincode<span class='star'>*</span>" 
+                        data-bind="ref:LA_Prem_Pincode,attr:{'data-novalidate':LA_Perm_Add_Indicator() == 'Y'}"  required
+                        pattern="^[0-9]{6}\s*$" onvalidationfail="Utils.GetValidationMessage(event,'Pincode')" maxlength="6"></div>
+                  </div>
+               </div>
+               <!-- Proposer Details -->
+               <div data-bind="visible:IS_LA_PR_SAME() != 'Y'">
+                  <div class="life2assure">
+                     <p class="form-heading1 life">Proposer Details</p>
+                     <div class="adhar" data-juci="number" data-label="Aadhar Card Details" data-bind placeholder="Aadhar Card Number"></div>
+                     <button class="submit" data-juci="button" onclick="openOtp()">Submit</button>
+                     <!-- Toogle View for displaying languages -->
+                     <div id="language" data-juci="togglebar" data-toggled ontoggle="toggleLanguageView(event)">
+                        <button class="langb" data-juci="button" data-toggle="1">English</button>
+                        <button class="langb" data-juci="button" data-toggle="2">हिंदी</button>
+                        <button class="langb" data-juci="button" data-toggle="3">தமிழ௿</button>
+                     </div>
+                     <div class="form-heading2 consent">Consent for Aadhar Authentication</div>
+                     <div id="englishlang">
+                        I, the holder of Aadhar number xxxxxxxx, hereby give my consent to Reliance Nippon Life Insurance to obtain my Aadhar Number,
+                        Name and Fingerprints/Iris details for authentication with UIDAI. Reliance Nippon Life Insurance has informed me that my identity
+                        information would only be used for life insurance proposal and also informed that my biometrics will not be stored/shared and
+                        will be submitted to CIDR only for the purpose of authentication.
+                     </div>
+                     <div id="hindilang">
+                        ैं, आधार संखॿया के धारक xxxxxxxx, इसके दॿवारा रिलायंस निपॿपॉन ला
+                        इफ इंशॿयोरेंस के लिि अपनी सहमति 	यूआईडीिआई के साथ पॿरमाणीकरण के लिि अपने आधार नंबर, नाम और उंगलियों के निशान / आइरिस
+                        विवरण पॿरापॿत करने के लिि दे। रिलायंस निपॿपॉन लाइफ इंशॿयोरेंस ने मॿिे सूचित किया है कि मेरी पहचान जानकारी केव
+                        ल जीवन बीमा पॿरसॿताव के लिि इसॿतेमाल किया जािगा और यह भी बताया कि मेरी बॉयोमीटॿरिकॿस संगॿरहीत नहीं होगा / सािा और
+                        केवल पॿरमाणीकरण के पॿरयोजन के लिि सीआईडीआर को पॿरसॿतॿत किया जािगा।
+                     </div>
+                     <div id="tamillang">
+                        நான௿, ஆதார௿ எண௿ வைத௿திர௿ப௿பவர௿ xxxxxxxx  இதனைப௿ இந௿திய தனித௿த௿வ அடையாள ஆணையம௿ கொண௿ட௿ அங௿கீகரிப௿பதன௿ என௿ ஆதார௿ எண௿, பெயர௿ மற௿ற௿ம௿
+                        கைரேகைகள௿ / ிரிஸ௿ விவரங௿கள௿ பெற ரிலையன௿ஸ௿ நிப௿பான௿ லைப௿ இன௿ஷ௿யூரன௿ஸ௿ என௿ ஒப௿ப௿தல௿ கொட௿க௿க. ரிலையன௿ஸ௿ நிப௿பான௿ ல
+                        ைஃப௿ இன௿சூரன௿ஸ௿ என௿ அடையாளத௿தை தகவல௿ மட௿ட௿மே ஆய௿ள௿ காப௿பீட௿ திட௿டத௿தை பயன௿பட௿த௿த வேண௿ட௿ம௿ என௿ற௿ மேல௿ம௿ என௿ செய௿யக௿கூடிய உயிரிய
+                        ளவ௿கள௿ / சேமிக௿கப௿பட௿ம௿ ம௿டியாத௿ என௿ற௿ பகிர௿வ௿ மற௿ற௿ம௿ அங௿கீகார நோக௿கத௿திற௿காக CIDR உடனே சமர௿ப௿பிக௿க வேண௿ட௿ம௿ தகவல௿ எனக௿க௿ 
+                        தகவல௿ வந௿தத௿.
+                     </div>
+                     <div data-juci="checkbox" class="agrement" data-label="I agree with the consent mentioned above"></div>
+                     <div class="form-heading2">Personal Details</div>
+                     <div data-juci="selectbox" data-bind="visible:IS_LA_PR_SAME() != 'Y',optionsList:$root.proposerSalutation,ref:PR_Salutation,optionsText:getDescription,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" data-label="Title<span class='star'>*</span>"  data-formatter="getDescription" 
+                        data-comparator="laComparator" required  onvalidationfail="Utils.GetValidationMessage(event,'Salutation')"></div>
+                     <div class="name" data-juci="text"  data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_Name,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" pattern="^[a-zA-Z ]{2,30}$|.|" onvalidationfail="Utils.GetValidationMessage(event,'Full Name')" required  maxlength="30" 
+                        data-label="Full Name<span class='star'>*</span>"></div>
+                     <div class="name" data-juci="text" data-label="Father's Name<span class='star'>*</span>"  data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_FatherName,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}"  required pattern="^[a-z\.?\s\'?A-Z]*$" 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Fathers Name')" maxlength="30"></div>
+                     <p class="label">Gender<span class="star">*</span></p>
+                     <div class="gender" data-juci="togglebar" data-bind="ref:PR_Gender">
+                        <button class="b1" data-juci="button" data-toggle="1"> Male <img src="images/male.png"></></button>
+                        <button class="b1" data-juci="button" data-toggle="1"> Female <img src="images/female.png"></></button>
+                     </div>
+                     <div class="maritalstatus" data-juci="selectbox" data-mode="popup" data-bind="visible:IS_LA_PR_SAME() != 'Y',optionsList:$root.maritalStatus,ref:PR_MaritalStatus,optionsText:getDescription,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" required data-label="Marital Status<span class='star'>*</span>" data-formatter="getDescription" 	data-comparator="laComparator" onvalidationfail="Utils.GetValidationMessage(event,'Marital Status')"></div>
+                     <div class="dob" data-juci="datepicker" data-picker="dob" data-label="DOB<span class='star'>*</span>" data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_DOB,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" required  onvalidationfail="Utils.GetValidationMessage(event,'Date Of Birth')"
+                        data-formatter="dobValidation"></div>
+                     <div class="nationality" data-juci="selectbox" data-mode="popup" required data-bind="visible:IS_LA_PR_SAME() != 'Y',optionsList:$root.nationality,ref:PR_Nationality,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'},optionsText:getDescription" data-label="Nationality<span class='star'>*</span>" 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Nationality')" data-formatter="getDescription" 
+                        data-comparator="laComparator"></div>
+                     <div class="education" data-juci="selectbox" data-mode="popup" data-bind="visible:IS_LA_PR_SAME() != 'Y',optionsList:$root.education,ref:PR_Education,optionsText:getDescription,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" required data-label="Education<span class='star'>*</span>"
+                        data-formatter="getDescription" data-comparator="laComparator"  
+                        onvalidationfail="Utils.GetValidationMessage(event,'Education')"></div>
+                     <div class="sourceofincome" data-juci="text" data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_INCOMESOURCE,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" data-label="source Of Income<span class='star'>*</span>" pattern="^[a-zA-Z ]{2,30}$" 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Source Of Income')" required  maxlength="30"></div>
+                     <div class="annualincome"  data-juci="tel" data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_AnnualIncome,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" required pattern="(?!0)[0-9\,?]{1}" onvalidationfail="Utils.GetValidationMessage(event,'Annual Income')"
+                        data-label="Annual Income<span class='star'>*</span>" data-formatter="formatValue" minlength="6" maxlength="12"></div>
+                     <div class="purposeofinsurance" data-juci="text" data-label="Purpose of Insurance<span class='star'>*</span>"
+                        data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_INSURANCEPURPOSE,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" required  
+                        onvalidationfail="Utils.GetValidationMessage(event,'Purpose Of Insurance')"   maxlength="30"></div>
+                     <div data-juci="selectbox" data-mode="popup" data-label="Occupation<span class='star'>*</span>" data-bind="visible:IS_LA_PR_SAME() != 'Y',optionsList:$root.occupation,ref:PR_Occupation,optionsText:getDescription,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" data-formatter="getDescription" 
+                        data-comparator="laComparator" required  onvalidationfail="Utils.GetValidationMessage(event,'Occupation')"></div>
+                     <div  class="switch" data-juci="switch2" data-label="Are you Reliance Group employee ?<span class='star'>*</span>"
+                        data-bind="ref:PR_IsRelianceEmp" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Y" data-offtext="N" 
+                        data-onclass="switchclass" data-offclass="switchclass" required></div>
+                     <div data-bind="visible:PR_IsRelianceEmp() == 'Y'">
+                        <div class="employeeno" data-juci="tel" data-label="Employee No<span class='star'>*</span>" 
+                           data-bind="ref: PR_EMPLOYEECODE,attr:{'data-novalidate':PR_IsRelianceEmp() == 'N'}" required placeholder
+                           pattern="^[0-9]*$" data-trigger  onvalidationfail="Utils.GetValidationMessage(event,'Employee No')" maxlength="10"></div>
+                     </div>
+                     <div class="pancardno" data-juci="text" data-label="PAN Card No<span class='star'>*</span>" 
+                        data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_PANCardNumber,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'|| ($root.LA_Check_Premium() < 50000 && validatePAN($data.LA_PANCardNumber()))}"
+                        required pattern="^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]$"
+                        onvalidationfail="Utils.GetValidationMessage(event,'Pan Card No.')"	maxlength="10"></div>
+                     <div data-juci="selectbox" data-mode="popup" data-bind="visible:IS_LA_PR_SAME() != 'Y',optionsList:$root.relationOfTheProposer,ref:PR_LA_Relationship,optionsText:getDescription,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" 
+                        data-label="Relationship of the Proposer with Life to be Assured<span class='star'>*</span>"
+                        data-formatter="getDescription" data-comparator="laComparator" required 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Relationship of the Proposer with Life to be Assured')" ></div>
+                     <!--		<div data-juci="text" data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_JOBDESC" data-label="Nature Of Duties<span class='star'>*</span>"pattern="^[a-zA-Z ]*$" onvalidationfail="Utils.GetValidationMessage(event,'Nature Of Duties')" required  maxlength="30"></div>-->
+                     <!--Bank Details -->
+                     <div class="form-heading2">Bank Details</div>
+                     <div class="bankdetails_mandatory_label">(Mandatory only in case if premium is >= 25000)</div>
+                     <div class="name" data-juci="tel" data-label="Bank Account No<span class='star'>*</span>"
+                        data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_BankAccountNumber,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}"
+                        required pattern="[0-9]" onvalidationfail="Utils.GetValidationMessage(event,'Bank Account No.')" maxlength="20" ></div>
+                     <div class="bank" data-juci="text" data-label="Bank<span class='star'>*</span>"
+                        required data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_Bank,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}"
+                        onvalidationfail="Utils.GetValidationMessage(event,'Bank Name')" maxlength="30" pattern = "^[a-zA-Z0-9 ]*$"></div>
+                     <div class="branch" data-juci="text" data-label="Branch<span class='star'>*</span>" 
+                        required data-bind="visible:IS_LA_PR_SAME() != 'Y',ref:PR_Branch,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}"
+                        onvalidationfail="Utils.GetValidationMessage(event,'Branch')" maxlength="50" pattern = "^[a-zA-Z0-9 ]*$"></div>
+                     <div class="ifsccode" data-juci="text" data-label="IFSC Code<span class='star'>*</span>" 
+                        data-bind="visible:IS_LA_PR_SAME() !== 'Y',ref:PR_IFSCCode,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'}" 
+                        required pattern="^[A-Z|a-z]{4}[0][a-z|A-Z|0-9]{6}\s*$"
+                        onvalidationfail="Utils.GetValidationMessage(event,'IFSC Code')" maxlength="11"></div>
+                     <div data-juci="selectbox" data-mode="popup" data-bind="visible:IS_LA_PR_SAME() != 'Y',optionsList:$root.bankAccountProof,ref:PR_BANKACCPROOF,attr:{'data-novalidate': $root.LA_Check_Premium() < 25000 || IS_LA_PR_SAME() == 'Y'},optionsText:getDescription"
+                        data-label="Bank Account Proof<span class='star'>*</span>"
+                        data-formatter="getDescription" data-comparator="laComparator" required 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Bank Account Proof')"></div>
+                     <!--Details for Communication -->
+                     <div  class="switch" data-juci="switch2" data-label="Is Proposer address is same as life assured address ?<span class='star'>*</span>" 
+                        data-bind="ref:PR_LA_AddressSame" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Y" data-offtext="N" 
+                        data-onclass="switchclass" data-offclass="switchclass"></div>
+                     <div data-juci="text" data-label="Address Line1<span class='star'>*</span>" data-bind="visible:IS_LA_PR_SAME() != 'Y' && PR_LA_AddressSame()!='Y',ref:PR_AddressLine1,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y' || PR_LA_AddressSame() =='Y'}"  required data-trigger 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line1')"
+                        pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" maxlength="30" minlength="3"></div>
+                     <div data-juci="text" data-label="Address Line2<span class='star'>*</span>" data-bind="visible:IS_LA_PR_SAME() != 'Y' && PR_LA_AddressSame()!='Y',ref:PR_AddressLine2,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'|| PR_LA_AddressSame() =='Y'}"  required data-trigger
+                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line2')" pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$"
+                        maxlength="30" data-formatter="formatText" minlength="3"></div>
+                     <div data-juci="text" data-label="Address Line3<span class='star'>*</span>" data-bind="visible:IS_LA_PR_SAME() != 'Y' && PR_LA_AddressSame()!='Y',ref:PR_AddressLine3,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y'|| PR_LA_AddressSame() =='Y'}"  required data-trigger 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line3')" pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$"
+                        maxlength="30" data-formatter="formatText" minlength="3"></div>
+                     <div data-juci="text" data-label="City<span class='star'>*</span>" required data-bind="visible:IS_LA_PR_SAME() != 'Y' && PR_LA_AddressSame()!='Y',ref:PR_City,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y' || PR_LA_AddressSame() =='Y'}" pattern="^[a-zA-Z ]*$" data-trigger
+                        onvalidationfail="Utils.GetValidationMessage(event,'City')" maxlength="30" minlength="3"></div>
+                     <div data-juci="tel" data-label="Pincode<span class='star'>*</span>" data-bind="visible:IS_LA_PR_SAME() != 'Y' && PR_LA_AddressSame()!='Y',ref:PR_Pincode,attr:{'data-novalidate':IS_LA_PR_SAME() == 'Y' || PR_LA_AddressSame() =='Y'}"  required 
+                        pattern="^[0-9]{6}\s*$" onvalidationfail="Utils.GetValidationMessage(event,'Pincode')" maxlength="6"></div>
+                  </div>
+               </div>
+               <!--	</div> -->
+               <div class="btn">
+                  <div class="prev" id="prev" onclick="back()">Previous</div>
+                  <button class="save btntxt" data-juci="button" onclick="clearAndSubmit()" type="submit">Sync and proceed</button>
+               </div>
+            </div>
+         </div>
+         <!-- Nominee or Appointee View -->
+         <div id="AppointeeOrnomineeView">
+            <div data-juci="form" id="pdForm2" data-bind="ref:nomineeOrAppointeeDetailsForm" onsubmit="openNext2()" data-validation="all">
+               <div class="life2assure">
+                  <p class="form-heading1">Nominee Details</p>
+                  <p class="form-heading2">Nominee for Plan 1 </p>
+                  <p class="label">Gender<span class="star">*</span></p>
+                  <div id="uneditablegd" class="gender gender_label" data-juci="togglebar" data-bind="ref:NOM_Gender" ontoggle="tooglegender(event)" >
+                     <button class="b1" data-juci="button" data-toggle="1"> Male <img src="images/male.png"></></button>
+                     <button class="b1" data-juci="button" data-toggle="1"> Female <img src="images/female.png"></></button>
+                  </div>
+                  <div id="uneditablesal" class="salutation" data-juci="selectbox" data-mode="popup"
+                     data-bind="optionsList:$root.salutation,ref:NOM_Salutation,optionsText:getDescription" 
+                     data-label="Title<span class='star'>*</span>"  data-formatter="getDescription" data-comparator="laComparator" required
+                     onvalidationfail="Utils.GetValidationMessage(event,'Salutation')"></div>
+                  <div id="uneditablenn" class="nomineename" data-juci="text" data-bind="ref:NOM_Name" pattern="^[a-z\.?\sA-Z ]{2,30}$" 
+                     onvalidationfail="Utils.GetValidationMessage(event,'Nominee Name')" data-label="Nominee Name<span class='star'>*</span>" 
+                     required data-trigger maxlength="30"></div>
+                  <div id="uneditabledob" class="dateofbirth" id="dob" data-juci="datepicker" data-picker="dob" data-bind="ref:NOM_DOB" 
+                     onafterchange="assigndate(event)"  data-label="Date Of Birth<span class='star'>*</span>" required 
+                     onvalidationfail="Utils.GetValidationMessage(event,'Date Of Birth')"></div>
+                  <div id="uneditablerel" class="relationofnominee" data-juci="selectbox" data-mode="popup"
+                     data-label="Relationship of nominee with LA<span class='star'>*</span>" 
+                     data-bind="optionsList:$root.relationOfTheNominee,ref:NOM_LA_Relationship,optionsText:getDescription" required
+                     data-formatter="getDescription" data-comparator="laComparator"  
+                     onvalidationfail="Utils.GetValidationMessage(event,'Relationship of nominee with LA')"></div>
+                  <div data-juci="tel" data-label="MobileNo<span class='star'>*</span>" 
+                     data-bind="ref:NOM_Mobileno,attr:{'data-novalidate':NOM_LA_AddressSame() == 'Y'}" required pattern="^[0-9]{10,11}$" 
+                     onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')" minlength="10" maxlength="11"></div>
+                  <div data-juci="email" data-label="Email Id<span class='star'>*</span>" 
+                     data-bind="ref:NOM_EmailId,attr:{'data-novalidate':NOM_LA_AddressSame() == 'Y'}" 
+                     pattern="^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])" 
+                     onvalidationfail="Utils.GetValidationMessage(event,'Email Id')" required maxlength="50" ></div>
+                  <div class="form-heading2">Nominee Address Details</div>
+                  <div  class="switch" data-juci="switch2" data-label="Is nominee address same of LA?<span class='star'>*</span>" 
+                     data-bind="ref:NOM_LA_AddressSame" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                     data-onclass="switchclass" data-offclass="switchclass" required></div>
+                  <div data-bind="visible:NOM_LA_AddressSame() != 'Y'">
+                     <div data-juci="text" data-label="Address Line1<span class='star'>*</span>" 
+                        data-bind="ref:NOM_AddressLine1,attr:{'data-novalidate':NOM_LA_AddressSame() == 'Y'}" required
+                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line1')" maxlength="30" 
+                        pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&,#%./\-]*$" data-formatter="formatText" minlength="3"></div>
+                     <div data-juci="text" data-label="Address Line2<span class='star'>*</span>" 
+                        data-bind="ref:NOM_AddressLine2,attr:{'data-novalidate':NOM_LA_AddressSame() == 'Y'}" required
+                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line2')"  maxlength="30" 
+                        pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" data-formatter="formatText" minlength="3"></div>
+                     <div data-juci="text" data-label="Address Line3<span class='star'>*</span>" 
+                        data-bind="ref:NOM_AddressLine3,attr:{'data-novalidate':NOM_LA_AddressSame() == 'Y'}"   
+                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line3')" required  maxlength="30" 
+                        pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" data-formatter="formatText" minlength="3"></div>
+                     <div data-juci="selectbox" data-mode="popup" data-label="State<span class='star'>*</span>" 
+                        data-bind="optionsList:$root.state,ref:NOM_State,attr:{'data-novalidate':NOM_LA_AddressSame() == 'Y'}" required
+                        onvalidationfail="Utils.GetValidationMessage(event,'State')"></div>
+                     <div data-juci="text" data-label="City<span class='star'>*</span>" required 
+                        data-bind="ref:NOM_City,attr:{'data-novalidate':NOM_LA_AddressSame() == 'Y'}"  pattern="^[a-zA-Z ]*$"
+                        onvalidationfail="Utils.GetValidationMessage(event,'City')" required  maxlength="30" minlength="3"></div>
+                     <div data-juci="tel" data-label="Pincode<span class='star'>*</span>" 
+                        data-bind="ref:NOM_Pincode,attr:{'data-novalidate':NOM_LA_AddressSame() == 'Y'}"  required pattern="^[0-9]{6}\s*$"
+                        onvalidationfail="Utils.GetValidationMessage(event,'Pincode')" maxlength="6"></div>
+                     <div data-juci="tel" data-label="Mobile No.<span class='star'>*</span>" data-bind="ref:NOM_Mobileno,attr:{'data-novalidate':NOM_LA_AddressSame() == 'Y'}" required pattern="^[0-9]{10,11}$" onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')" minlength="10" maxlength="11"></div>
+                     <div data-juci="tel" data-label="Landline No<span class='star'>*</span>" 
+                        data-bind="ref:NOM_LandLineno,attr:{'data-novalidate':NOM_LA_AddressSame() == 'Y'}" maxlength="11" 
+                        pattern="^[0-9]{1}[0-9]{10}$" onvalidationfail="Utils.GetValidationMessage(event,'Landline No.')"></div>
+                  </div>
+                  
+                  
+                  
+                  
+                  <div  class="switch" data-juci="switch2" data-label="Is nominee details same for both proposals(Y/N)?<span class='star'>*</span>"
+                     data-bind="ref:NOM_PR_SAME" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                     data-onclass="switchclass" data-offclass="switchclass" required></div>
+                  <div data-bind="visible:NOM_PR_SAME() != 'Y'">
+	                  <div id="uneditablesal" class="salutation" data-juci="selectbox" data-mode="popup"
+	                     data-bind="optionsList:$root.salutation,ref:NOM_Salutation_1,optionsText:getDescription,attr:{'data-novalidate':NOM_PR_SAME() == 'Y'}" 
+	                     data-label="Title<span class='star'>*</span>"  data-formatter="getDescription" data-comparator="laComparator" required
+	                     onvalidationfail="Utils.GetValidationMessage(event,'Salutation')"></div>
+	                  <div id="uneditablenn" class="nomineename" data-juci="text" data-bind="ref:NOM_Name_1,attr:{'data-novalidate':NOM_PR_SAME() == 'Y'}" pattern="^[a-z\.?\sA-Z ]{2,30}$" 
+	                     onvalidationfail="Utils.GetValidationMessage(event,'Nominee Name')" data-label="Nominee Name<span class='star'>*</span>" 
+	                     required data-trigger maxlength="30"></div>
+	                  <div id="uneditabledob" class="dateofbirth" id="dob" data-juci="datepicker" data-picker="dob" data-bind="ref:NOM_DOB_1,attr:{'data-novalidate':NOM_PR_SAME() == 'Y'}" 
+	                     onafterchange="assigndate(event)"  data-label="Date Of Birth<span class='star'>*</span>" required 
+	                     onvalidationfail="Utils.GetValidationMessage(event,'Date Of Birth')"></div>
+	                  <div id="uneditablerel" class="relationofnominee" data-juci="selectbox" data-mode="popup"
+	                     data-label="Relationship of nominee with LA<span class='star'>*</span>" 
+	                     data-bind="optionsList:$root.relationOfTheNominee,ref:NOM_LA_Relationship_1,optionsText:getDescription,attr:{'data-novalidate':NOM_PR_SAME() == 'Y'}" required
+	                     data-formatter="getDescription" data-comparator="laComparator"  
+	                     onvalidationfail="Utils.GetValidationMessage(event,'Relationship of nominee with LA')"></div>
+	                  <div data-juci="tel" data-label="MobileNo<span class='star'>*</span>" 
+	                     data-bind="ref:NOM_Mobileno_1,attr:{'data-novalidate':NOM_LA_AddressSame_1() == 'Y'||NOM_PR_SAME() == 'Y'}" required pattern="^[0-9]{10,11}$" 
+	                     onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')" minlength="10" maxlength="11"></div>
+	                  <div data-juci="email" data-label="Email Id<span class='star'>*</span>" 
+	                     data-bind="ref:NOM_EmailId_1,attr:{'data-novalidate':NOM_LA_AddressSame_1() == 'Y'||NOM_PR_SAME() == 'Y'}" 
+	                     pattern="^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])" 
+	                     onvalidationfail="Utils.GetValidationMessage(event,'Email Id')" required maxlength="50" ></div>
+	                  <div class="form-heading2">Nominee Address Details</div>
+	                  <div  class="switch" data-juci="switch2" data-label="Is nominee address same of LA?<span class='star'>*</span>" 
+	                     data-bind="ref:NOM_LA_AddressSame_1,attr:{'data-novalidate':NOM_PR_SAME() == 'Y'}" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+	                     data-onclass="switchclass" data-offclass="switchclass" required></div>
+	                  <div data-bind="visible:NOM_LA_AddressSame_1() != 'Y'">
+	                     <div data-juci="text" data-label="Address Line1<span class='star'>*</span>" 
+	                        data-bind="ref:NOM_AddressLine1_1,attr:{'data-novalidate':NOM_LA_AddressSame_1() == 'Y'||NOM_PR_SAME() == 'Y'}" required
+	                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line1')" maxlength="30" 
+	                        pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&,#%./\-]*$" data-formatter="formatText" minlength="3"></div>
+	                     <div data-juci="text" data-label="Address Line2<span class='star'>*</span>" 
+	                        data-bind="ref:NOM_AddressLine2_1,attr:{'data-novalidate':NOM_LA_AddressSame_1() == 'Y'||NOM_PR_SAME() == 'Y'}" required
+	                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line2')"  maxlength="30" 
+	                        pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" data-formatter="formatText" minlength="3"></div>
+	                     <div data-juci="text" data-label="Address Line3<span class='star'>*</span>" 
+	                        data-bind="ref:NOM_AddressLine3_1,attr:{'data-novalidate':NOM_LA_AddressSame_1() == 'Y'||NOM_PR_SAME() == 'Y'}"   
+	                        onvalidationfail="Utils.GetValidationMessage(event,'Address Line3')" required  maxlength="30" 
+	                        pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" data-formatter="formatText" minlength="3"></div>
+	                     <div data-juci="selectbox" data-mode="popup" data-label="State<span class='star'>*</span>" 
+	                        data-bind="optionsList:$root.state,ref:NOM_State_1,attr:{'data-novalidate':NOM_LA_AddressSame_1() == 'Y'||NOM_PR_SAME() == 'Y'}" required
+	                        onvalidationfail="Utils.GetValidationMessage(event,'State')"></div>
+	                     <div data-juci="text" data-label="City<span class='star'>*</span>" required 
+	                        data-bind="ref:NOM_City_1,attr:{'data-novalidate':NOM_LA_AddressSame_1() == 'Y'||NOM_PR_SAME() == 'Y'}"  pattern="^[a-zA-Z ]*$"
+	                        onvalidationfail="Utils.GetValidationMessage(event,'City')" required  maxlength="30" minlength="3"></div>
+	                     <div data-juci="tel" data-label="Pincode<span class='star'>*</span>" 
+	                        data-bind="ref:NOM_Pincode_1,attr:{'data-novalidate':NOM_LA_AddressSame_1() == 'Y'||NOM_PR_SAME() == 'Y'}"  required pattern="^[0-9]{6}\s*$"
+	                        onvalidationfail="Utils.GetValidationMessage(event,'Pincode')" maxlength="6"></div>
+	                     <div data-juci="tel" data-label="Mobile No.<span class='star'>*</span>" data-bind="ref:NOM_Mobileno_1,attr:{'data-novalidate':NOM_LA_AddressSame_1() == 'Y'}" required pattern="^[0-9]{10,11}$" onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')" minlength="10" maxlength="11"></div>
+	                     <div data-juci="tel" data-label="Landline No<span class='star'>*</span>" 
+	                        data-bind="ref:NOM_LandLineno_1,attr:{'data-novalidate':NOM_LA_AddressSame_1() == 'Y'}" maxlength="11" 
+	                        pattern="^[0-9]{1}[0-9]{10}$" onvalidationfail="Utils.GetValidationMessage(event,'Landline No.')"></div>
+	                  </div>
+	               </div>
+                  
+                     
+                  <!--Appointee Details-->
+                  <div class="life2assure" id="appointee-section">
+                     <p class="form-heading1 appointe">Appointee Details</p>
+                     <p class="label">Gender<span class="star">*</span></p>
+                     <div class="gender gender_label"  id="appointeeGender" data-juci="togglebar" data-bind="ref:APP_Gender" ontoggle="tooglegender(event)">
+                        <button class="b1" data-juci="button" data-toggle="1"> Male <img src="images/male.png"></></button>
+                        <button class="b1" data-juci="button" data-toggle="1"> Female <img src="images/female.png"></></button>
+                     </div>
+                     <div class="salutation" data-juci="selectbox" data-mode="popup" data-bind="optionsList:$root.appointeeSalutation,ref:APP_Salutation,optionsText:getDescription,attr:{'data-novalidate':$root.appAge}" data-label="Title<span class='star'>*</span>"  data-formatter="getDescription" data-comparator="laComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Salutation')"></div>
+                     <div class="appointeesname" data-juci="text" data-label="Appointee's Name<span class='star'>*</span>" 
+                        data-bind="ref:APP_Name,attr:{'data-novalidate':$root.appAge}"  pattern="^[a-z\.?\sA-Z ]{2,30}$" 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Appointee Name')" required  maxlength="30"></div>
+                     <div class="appointeesdob" data-juci="datepicker" data-picker="dob" 
+                        data-bind="ref:APP_DOB,attr:{'data-novalidate':$root.appAge}" data-label="Date of Birth<span class='star'>*</span>" required
+                        onvalidationfail="Utils.GetValidationMessage(event,'Appointee dob')" data-formatter="dobValidation"
+                        onafterchange="checkAppointeeAge(event)"></div>
+                     <div class="relationofnominee" data-juci="selectbox" data-mode="popup" data-label="Relationship of Appointee with Nominee<span class='star'>*</span>"
+                        data-bind="optionsList:$root.appointeeRelationship,ref:APP_NOM_Relationship,optionsText:getDescription,attr:{'data-novalidate':$root.appAge}" data-formatter="getDescription" data-comparator="laComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Relationship of Appointee with Nominee')"></div>
+                     <p class="form-heading2">Appointee Address Details</p>
+                     <div  class="switch" data-juci="switch2" data-label="Is the Appointee address same as Nominee?<span class='star'>*</span>" 
+                        data-bind="ref:APP_NOM_AddressSame" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                        data-onclass="switchclass" data-offclass="switchclass" required></div>
+                     <div data-bind="visible:APP_NOM_AddressSame() != 'Y'" >
+                        <div data-juci="text" data-label="Address Line1<span class='star'>*</span>" 
+                           data-bind="ref:APP_AddressLine1,attr:{'data-novalidate':APP_NOM_AddressSame() == 'Y' || $root.appAge }" required
+                           onvalidationfail="Utils.GetValidationMessage(event,'Address Line1')"  maxlength="30" 
+                           pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" data-formatter="formatText" minlength="3"></div>
+                        <div data-juci="text" data-label="Address Line2<span class='star'>*</span>" 
+                           data-bind="ref:APP_AddressLine2,attr:{'data-novalidate':APP_NOM_AddressSame() == 'Y' || $root.appAge }" required 
+                           onvalidationfail="Utils.GetValidationMessage(event,'Address Line2')"  maxlength="30" 
+                           pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&,#%./\-]*$" data-formatter="formatText" minlength="3"></div>
+                        <div data-juci="text" data-label="Address Line3<span class='star'>*</span>" 
+                           data-bind="ref:APP_AddressLine3,attr:{'data-novalidate':APP_NOM_AddressSame() == 'Y' || $root.appAge }" 
+                           onvalidationfail="Utils.GetValidationMessage(event,'Address Line3')" required  maxlength="30"
+                           pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" data-formatter="formatText" minlength="3"></div>
+                        <div data-juci="selectbox" data-mode="popup" data-label="State<span class='star'>*</span>" 
+                           data-bind="optionsList:$root.perState,ref:APP_State,attr:{'data-novalidate':APP_NOM_AddressSame() == 'Y' || $root.appAge}"
+                           required onvalidationfail="Utils.GetValidationMessage(event,'State')"></div>
+                        <div data-juci="text" data-label="City<span class='star'>*</span>" 
+                           data-bind="ref:APP_City,attr:{'data-novalidate':APP_NOM_AddressSame() == 'Y'  || $root.appAge}" 
+                           pattern="^[a-zA-Z ]*$" onvalidationfail="Utils.GetValidationMessage(event,'City')" required  maxlength="30"
+                           minlength="3"></div>
+                        <div data-juci="tel" data-label="Pincode<span class='star'>*</span>" 
+                           data-bind="ref:APP_Pincode,attr:{'data-novalidate':APP_NOM_AddressSame() == 'Y' || $root.appAge}"  
+                           pattern="^[0-9]{6}\s*$" onvalidationfail="Utils.GetValidationMessage(event,'Pincode')" maxlength="6" required></div>
+                        <div data-juci="email"data-label="Email Id<span class='star'>*</span>" 
+                           data-bind="ref:APP_EmailId,attr:{'data-novalidate':APP_NOM_AddressSame() == 'Y' || $root.appAge}" 
+                           pattern="^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])" required 
+                           onvalidationfail="Utils.GetValidationMessage(event,'Email Id')" maxlength="50"></div>
+                        <div data-juci="tel" data-label="MobileNo<span class='star'>*</span>" 
+                           data-bind="ref:APP_Mobileno,attr:{'data-novalidate':APP_NOM_AddressSame() == 'Y' || $root.appAge}"
+                           pattern="^[0-9]{10,11}$"onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')" maxlength="10" required></div>
+                        <div data-juci="tel" data-label="Landline No<span class='star'>*</span>" 
+                           data-bind="ref:APP_LandLineno,attr:{'data-novalidate':APP_NOM_AddressSame() == 'Y' ||$root.appAge}" maxlength="11" 
+                           pattern="^[0-9]{1}[0-9]{10}$" onvalidationfail="Utils.GetValidationMessage(event,'Landline No.')"></div>
+                     </div>
+                  </div>
+                  <div class="life2assure">
+                     <p class="form-heading1">Advisor Details</p>
+                     <div data-juci="text" data-label="Advisor Place<span class='star'>*</span>" data-bind="ref:Advisor_Place"
+                        pattern="^[a-zA-Z ]*$" onvalidationfail="Utils.GetValidationMessage(event,'Advisor Place')" required  maxlength="30" minlength="3"></div>
+                  </div>
+                  <div class="btn">
+                     <div class="prev" onclick="backToProposal()">Previous</div>
+                     <button class="save" data-juci="button" type="submit"  class="btntxt">Sync and proceed</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Dailbox view for adding family member -->
+         <div id="familyhistory">
+            <div id="dialog-boxFamily" data-juci="dialog">
+               <div class="heading_family">
+                  <div class="dialogheader">Add Family Member Details</div>
+               </div>
+               <div class="addFamily" data-juci="form" data-bind="ref:addDiseaseDetailsTable" onsubmit="addFamilyMember(event)" onreset="removeFamily()">
+                  <div class="modal_body">
+                     <div  class="switch" data-juci="switch2" data-label="Is The Person alive?*" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Y"
+                        data-offtext="N" data-onclass="switchclass" data-offclass="switchclass" data-bind="ref:aliveOrNot"  required 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Is The Person alive')"></div>
+                     <div data-juci="selectbox" data-mode="popup" data-label="Relation*" class="relation"
+                        data-bind="optionsList:$root.familyMember,ref:familyMember,optionsText:getDescription" data-formatter="getDescription" 
+                        data-comparator="laComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Family Member')" 
+                        onafterchange="checkMemberAlreadySelected(event)" ></div>
+                     <div data-bind="visible:aliveOrNot() == 'Y'">
+                        <div data-juci="tel" data-bind="ref:currentage, attr: {'data-novalidate': aliveOrNot() == 'N'}" pattern="^(?!0)[0-9]*$" 
+                           required onvalidationfail="Utils.GetValidationMessage(event,'Current Age')" data-label="Current Age*" maxlength="3" 
+                           id="memberCurrentAge"></div>
+                        <div data-juci="text" data-bind="ref:diseaseSuffering, attr: {'data-novalidate': aliveOrNot() == 'N'}" required 
+                           data-label="Disease Suffering*" onvalidationfail="Utils.GetValidationMessage(event,'Disease Suffering')" 
+                           pattern="^[a-zA-Z ]*$"    maxlength="30"></div>
+                        <div data-juci="tel" data-bind="ref:ageOfDiagnosis, attr: {'data-novalidate': aliveOrNot() == 'N'}" 
+                           data-label="Age Of Diagnosis*" required onvalidationfail="Utils.GetValidationMessage(event,'Age Of Diagnosis')" 
+                           onafterchange="checkAgeOfDiagnosis(event)" pattern="^(?!0)[0-9]*$"  maxlength="10"></div>
+                     </div>
+                     <div data-bind="visible:aliveOrNot() != 'Y'">
+                        <div data-juci="selectbox" data-mode="popup" data-label="cause of death*" 
+                           data-bind="optionsList:$root.causeOfDeath,ref:causeOfDeath,optionsText:getDescription, attr: {'data-novalidate': aliveOrNot() == 'Y'}" 						required data-formatter="getDescription" data-comparator="laComparator" 
+                           onvalidationfail="Utils.GetValidationMessage(event,'Cause of Death')" ></div>
+                        <div data-juci="tel" data-label="Age at death*" 
+                           data-bind="ref:ageatdeath, attr: {'data-novalidate': aliveOrNot() == 'Y'}"  required pattern="^(?!0)[0-9]*$" 
+                           onvalidationfail="Utils.GetValidationMessage(event,'Age at Death')" maxlength="3"></div>
+                     </div>
+                  </div>
+                  <div class="juci_horizontal_bbar">
+                     <button data-juci="button" class="cancel" type="reset">Cancel</button>
+                     <button data-juci="button" class="add" type="submit">Add</button>
+                  </div>
+               </div>
+            </div>
+            <!-- Family history view -->
+            <!--		<div id="familyhistory">  -->
+            <div data-juci="form" id="fhForm" data-bind="ref:familyHistoryForm"  onsubmit="openNext3()" data-validation="all">
+               <div class="life2assure">
+                  <p class="form-heading1 det">Family History Details</p>
+                  <div id="firsthalf" class="juci_Q123">Have either of your parents or any brother or sister suffered from or died under the age of 60 due to the following conditions:Heart problem, diabetes, stroke, hypertension, raised, cholestrol, cancer or any hereditary disease ?</div>
+                  <div class="juci_Q4">
+                     <div  class="switch" data-juci="switch2" data-label required data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" 
+                        data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" data-bind="ref:illnessConditions" 
+                        onafterchange="removeExsistingMembers(event)"></div>
+                  </div>
+                  <div  data-bind="visible:illnessConditions()=='Y'">
+                     <button class="addmember" data-juci="button" onclick="addMember()">(+) Add Family Member Details</button>
+                  </div>
+                  <div data-juci="xlist" id="familyHistory" data-bind="ref:$root.diseaseDetailsTable"  data-delete="" onDeleteClick="">
+                     <div data-juci="listitem" class="familymemberdetails">
+                        <div class="row">
+                           <div class="cell bold">Age</div>
+                           <div class="cell" data-bind="html:changeage(currentage,ageatdeath)"></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Relation</div>
+                           <div class="cell"  data-bind="html:familyMember().Description" ></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Problem</div>
+                           <div class="cell" data-bind="html:changeProblem(diseaseSuffering,causeOfDeath)"></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Status</div>
+                           <div class="cell" data-bind="html:changeStatus(aliveOrNot)"></div>
+                        </div>
+                        <div class="row last">
+                           <div class="cell bold">Action</div>
+                           <div class="cell" data-bind="ref:currentage"><img class="edit" src="images/pencil-icon.png"></img></div>
+                           <div class="cell"> <img class="delete" src="images/Delete_Blue.png"></img></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="btn">
+                  <div class="prev" onclick="backToNominee()">Previous</div>
+                  <button class="save" data-juci="button" type="submit"  class="btntxt" >Sync and proceed</button>
+               </div>
+            </div>
+         </div>
+         <!-- Dailog box for adding existing life insurance -->
+         <div id="dialog-boxExistingInsuranceForm" data-juci="dialog">
+            <div class="heading_family">
+               <div class="dialogheader">Add Existing Life Insurance Details</div>
+            </div>
+            <div data-juci="form" data-bind="ref:addExistingInsurance" onsubmit="saveInsurance(event)" onreset="closeInsuranceform()">
+               <div class="modal_body">
+                  <div class="companyname" data-juci="selectbox" data-mode="popup" data-label="Name of the company*" 
+                     data-bind="optionsList:$root.companyName,ref:companyName,optionsText:getDescription" data-formatter="getDescription" 
+                     data-comparator="laComparator" required onvalidationfail="Utils.GetValidationMessage(event,'Name Of The Company')"></div>
+                  <div class="contrtno" data-juci="text" data-label="Contract/Proposal No.*" data-bind="ref:contractproposalno" required  
+                     pattern="^[a-zA-Z0-9]+$" onvalidationfail="Utils.GetValidationMessage(event,'Contract/Proposal No')" maxlength="30"></div>
+                  <div class="basicsum" data-juci="tel" data-label="Basic Sum Assured*" id="basicsa" data-bind="ref:basicsumassured" required 
+                     pattern="^[0-9]+$" 
+                     onvalidationfail="Utils.GetValidationMessage(event,'Basic Sum Assured')" maxlength="30"></div>
+                  <div class="sumassur" data-juci="tel" data-label="Sum Assured Under Rider" data-bind="ref:sumassuredunderrisk" pattern="^[0-9]+$" 
+                     onvalidationfail="Utils.GetValidationMessage(event,'Sum assured')" onafterchange="checkIfLessThanBaseSA(event)" maxlength="30"></div>
+                  <div class="riskdate" data-juci="datepicker" data-label="Risk commencement date*" data-picker="dob" required 
+                     data-bind="ref:riskcommencementdate" onvalidationfail="Utils.GetValidationMessage(event,'Risk Commencement Date')" 
+                     data-formatter="dateValidation"></div>
+                  <div class="pstats" data-juci="selectbox" data-mode="popup" data-label="Present status*" 
+                     data-bind="optionsList:$root.presentStatus,ref:presentStatus,optionsText:getDescription" required 
+                     data-formatter="getDescription" data-comparator="laComparator" onvalidationfail="Utils.GetValidationMessage(event,'Present Status')"></div>
+               </div>
+               <div class="juci_horizontal_bbar">
+                  <button data-juci="button" class="cancel" type="reset">Cancel</button>
+                  <button data-juci="button" class="add" type="submit">Save</button>
+               </div>
+            </div>
+         </div>
+         <!-- Life Insurance View -->
+         <div id="insuranceDetails">
+            <div data-juci="form" id="pdForm4" data-bind="ref:lifeInsuranceForm" onsubmit="openNext4()" data-validation="all">
+               <div class="life2assure">
+                  <p class="form-heading1 detail">Life Insurance Details</p>
+                  <div class="juci_group">
+                     <div id="firsthalf" class="juci_Q123">
+                        Are you currently insured or applying for Life insurance cover, Critical illness cover, Accident benefit cover, not covered above?
+                     </div>
+                     <div class="juci_Q4">
+                        <div  class="switch" data-juci="switch2" data-label data-bind="ref:insurancePolicyHeld" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" onafterchange="removeExsistingDetails(event)"></div>
+                     </div>
+                  </div>
+                  <div data-bind="visible:insurancePolicyHeld()=='Y'">
+                     <button class="addmember" data-juci="button" onclick="openExistingInsurancaForm()">(+) Add Existing Life Insurance Details</button>
+                  </div>
+                  <div data-juci="xlist" id="lifeInsuranceDetails" data-bind="ref:$root.lifeInsuranceTable"  data-delete="" onDeleteClick="">
+                     <div data-juci="listitem" class="existingpolicydetails">
+                        <div class="row">
+                           <div class="cell bold">Company Name</div>
+                           <div class="cell" data-bind="html:companyName().Description" required  pattern="^[a-zA-Z0-9]+$" onvalidationfail="Utils.GetValidationMessage(event,'Contract/Proposal No')" maxlength="30"></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Basic Sum Assured</div>
+                           <div class="cell"  data-bind="html:basicsumassured" ></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Present Status</div>
+                           <div class="cell" data-bind="html:presentStatus().Description"></div>
+                        </div>
+                        <div class="row last">
+                           <div class="cell bold">Action</div>
+                           <div class="cell"><img class="insuranceedit" src="images/pencil-icon.png"></img></div>
+                           <div class="cell"> <img class="delete" src="images/Delete_Blue.png"></img></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="life2assure">
+                  <p class="form-heading1 insur"> Parent/Husband Insurance Details</p>
+                  <!--<div data-juci="tel" data-label="Parent's Insurance Details" id="parentinsurance" data-bind="ref:parentsInsurance"></div>-->
+                  <div data-juci="text" data-label="Name of parent/spouse" 
+                     data-bind="ref:nameOfTheHusbandOrParent,attr: {'data-novalidate':$root.genderForParentOrHusband() != 'F'}" required 
+                     pattern="^[a-z\.?\s\'?A-Z]*$" onvalidationfail="Utils.GetValidationMessage(event,'Name of parent')" maxlength="30"></div>
+                  <div data-juci="tel" data-label="Total sum assured on life of parent/<br>spouse" 
+                     data-bind="ref:totalSAOnLifeOfHusbandOrParent,attr: {'data-novalidate':$root.genderForParentOrHusband() != 'F'}" 
+                     pattern="^[0-9]+$" onvalidationfail="Utils.GetValidationMessage(event,'Sum assured')" required ></div>
+               </div>
+               <div class="btn">
+                  <div class="prev" onclick="backToFamilyhistory()">Previous</div>
+                  <button class="save" data-juci="button" type="submit"  class="btntxt">Sync and proceed</button>
+               </div>
+            </div>
+         </div>
+         <!-- Life Style Details -->
+         <div id="lifestyledetails">
+            <div data-juci="form" id="pdForm5" data-bind="ref:lifeStyleQuestionsForm" onsubmit="openNext5()" data-validation="all">
+               <div class="life2assure">
+                  <p class="form-heading1 style">Life Style And Medical</p>
+                  <!-- Question 1-->
+                  <div  class="switch" data-juci="switch2" data-label=" 1) Are you currently or Do you intend engaging in any hazardous occupation or hobbies, eg. Working at heights, underground or offshore, using	explosives, flying other than as fare-paying passenger, diving, mountaineering or any other dangerous activity?<span class='star'>*</span>" data-bind="ref:QsLS_26_HazardousOccupation_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <div data-juci="text" data-bind="visible:QsLS_26_HazardousOccupation_YN()=='Y',ref:QsLS_26_HazardousOccupation_Remarks,attr:{'data-novalidate': QsLS_26_HazardousOccupation_YN()=='N'}" data-label="Remarks<span class='star'>*</span>" data-trigger required onvalidationfail="getValidationMessage(event,'Remarks')"></div>
+                  <!-- Question 2-->
+                  <div  class="switch" data-juci="switch2" data-label="2) Are you currently or do you intend to live or travel outside of India for more than 6 months? If yes, please provide full details of countries to be visited and purpose of visit and duration<span class='star'>*</span>" data-bind="ref:QsLS_27_TravelOutsideIndia_YN"  data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <div data-bind = "visible: QsLS_27_TravelOutsideIndia_YN() == 'Y'">
+                     <div data-juci="selectbox" data-mode="popup" data-label="Purpose Of Visit<span class='star'>*</span>" data-bind="optionsList:$root.purposeOfVisit,ref:QsLS_27_TravelOutsideIndia_Purpose,optionsText:getDescription ,attr:{'data-novalidate': QsLS_27_TravelOutsideIndia_YN()=='N'}" data-formatter="getDescription" data-comparator="laComparator" required></div>
+                     <div  data-juci="selectbox" data-mode="popup" data-label="Country Of Visit<span class='star'>*</span>" data-bind="optionsList:$root.countryList,ref:QsLS_27_TravelOutsideIndia_Country ,attr:{'data-novalidate': QsLS_27_TravelOutsideIndia_YN()=='N'},optionsText:getDescription" required data-formatter="getDescription" data-comparator="laComparator"></div>
+                     <div data-juci="tel" data-label="Duration Of Visit<span class='star'>*</span>" data-bind="ref:QsLS_27_TravelOutsideIndia_Duration,attr:{'data-novalidate': QsLS_27_TravelOutsideIndia_YN()=='N'}" pattern = "^[1-9]*$" maxlength="2"  onvalidationfail="getValidationMessage(event, 'Duration Of Visit')" required maxlength="30"></div>
+                  </div>
+                  <!-- Question 3 -->
+                  <div class="switch" data-juci="switch2" data-label="	3) Habits: Do you smoke or have you smoked more than 5 cigarettes/e-Cigarettes or beedis or 3 Pouches of Gutka or Chewable Tobacco per day<span class='star'>*</span>" data-bind="ref:QsLS_28a_Smoke_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass"  onafterchange="markSubQuestions(event)"></div>
+                  <div data-bind="visible: QsLS_28a_Smoke_YN() == 'Y',ref:QsLS_28a_Smoke_Remarks">
+                     <div class="switch" data-juci="switch2" data-label="01) Cigarette<span class='star'>*</span>" data-bind="ref:QsLS_28a_Smoke_Cigarettes_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                     <div data-bind="visible:QsLS_28a_Smoke_Cigarettes_YN()=='Y'">
+                        <div  data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_Cigarettes_Duration, attr: {'data-novalidate':QsLS_28a_Smoke_Cigarettes_YN()=='N'} " pattern = "^[1-9]*$" required  data-label="Duration<span class='star'>*</span>" onvalidationfail="getValidationMessage(event, 'Duration')"></div>
+                        <div data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_Cigarettes_Qty, attr: {'data-novalidate':QsLS_28a_Smoke_Cigarettes_YN()=='N'}" required data-label="Quantity Per Day<span class='star'>*</span>" pattern = "^[1-9]*$" data-trigger onvalidationfail="getValidationMessage(event, 'Quantity Per Day')" maxlength="30"></div>
+                     </div>
+                     <div class="switch" data-juci="switch2" data-label="02) E-Cigarette<span class='star'>*</span>" data-bind="ref:QsLS_28a_Smoke_ECigarettes_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                     <div data-bind="visible:QsLS_28a_Smoke_ECigarettes_YN()=='Y'">
+                        <div  data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_ECigarettes_Duration, attr: {'data-novalidate':QsLS_28a_Smoke_ECigarettes_YN()=='N'}" pattern = "^[1-9]*$" required data-label="Duration<span class='star'>*</span>" maxlength="30" onvalidationfail="getValidationMessage(event, 'Duration')"></div>
+                        <div data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_ECigarettes_Qty, attr: {'data-novalidate':QsLS_28a_Smoke_ECigarettes_YN()=='N'}" required pattern = "^[1-9]*$" data-label="Quantity Per Day<span class='star'>*</span>" data-trigger onvalidationfail="getValidationMessage(event, 'Quantity Per Day')" maxlength="30"></div>
+                     </div>
+                     <div class="switch" data-juci="switch2" data-label="03) Beedi<span class='star'>*</span>" data-bind="ref:QsLS_28a_Smoke_Beedi_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                     <div data-bind="visible:QsLS_28a_Smoke_Beedi_YN()=='Y'">
+                        <div  data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_Beedi_Duration, attr: {'data-novalidate':QsLS_28a_Smoke_Beedi_YN()=='N'}" pattern = "^[1-9]*$" required data-label="Duration<span class='star'>*</span>" onvalidationfail="getValidationMessage(event, 'Duration')" maxlength="3"></div>
+                        <div data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_Beedi_Qty, attr: {'data-novalidate':QsLS_28a_Smoke_Beedi_YN()=='N'}" required pattern = "^[1-9]*$" data-label="Quantity Per Day<span class='star'>*</span>" onvalidationfail="getValidationMessage(event, 'Quantity Per Day')" data-trigger maxlength="3"></div>
+                     </div>
+                     <div class="switch" data-juci="switch2" data-label="04) Chew<span class='star'>*</span>" data-bind="ref:QsLS_28a_Smoke_Chew_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass"></div>
+                     <div data-bind="visible:QsLS_28a_Smoke_Chew_YN()=='Y'">
+                        <div  data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_Chew_Duration, attr: {'data-novalidate':QsLS_28a_Smoke_Chew_YN()=='N'}" required pattern = "^[1-9]*$" data-label="Duration<span class='star'>*</span>" onvalidationfail="getValidationMessage(event, 'Duration')" maxlength="3"></div>
+                        <div data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_Chew_Qty, attr: {'data-novalidate':QsLS_28a_Smoke_Chew_YN()=='N'}" required 
+                           data-label="Quantity Per Day<span class='star'>*</span>" pattern = "^[1-9]*$" onvalidationfail="getValidationMessage(event, 'Quantity Per Day')" data-trigger maxlength="3"></div>
+                     </div>
+                     <div class="switch" data-juci="switch2" data-label="05) Gutka<span class='star'>*</span>" data-bind="ref:QsLS_28a_Smoke_Gutka_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                     <div data-bind="visible:QsLS_28a_Smoke_Gutka_YN()=='Y'">
+                        <div  data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_Gutka_Duration, attr: {'data-novalidate':QsLS_28a_Smoke_Gutka_YN()=='N'}"  data-label="Duration<span class='star'>*</span>" required onvalidationfail="getValidationMessage(event, 'Duration')" pattern = "^[1-9]*$" maxlength="3"></div>
+                        <div data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_Gutka_Qty, attr: {'data-novalidate':QsLS_28a_Smoke_Gutka_YN()=='N'}"  data-label="Quantity Per Day<span class='star'>*</span>" pattern = "^[1-9]*$" onvalidationfail="getValidationMessage(event, 'Quantity Per Day')" required data-trigger maxlength="3"></div>
+                     </div>
+                     <div class="switch" data-juci="switch2" data-label="06) Other<span class='star'>*</span>" data-bind="ref:QsLS_28a_Smoke_OTH_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                     <div data-bind="visible:QsLS_28a_Smoke_OTH_YN()=='Y'">
+                        <div  data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_OTH_Duration, attr: {'data-novalidate':QsLS_28a_Smoke_OTH_YN()=='N'}"  data-label="Duration<span class='star'>*</span>" required onvalidationfail="getValidationMessage(event, 'Duration')" pattern = "^[1-9]*$" maxlength="3"></div>
+                        <div data-juci="tel"  data-bind="ref:QsLS_28a_Smoke_OTH_QTY, attr: {'data-novalidate':QsLS_28a_Smoke_OTH_YN()=='N'}"  data-label="Quantity Per Day<span class='star'>*</span>" pattern = "^[1-9]*$" data-trigger onvalidationfail="getValidationMessage(event, 'Quantity Per Day')" required maxlength="3"></div>
+                     </div>
+                  </div>
+                  <!-- Question 4 -->
+                  <div class="switch" data-juci="switch2" data-label="	4) Do you consume or have you consumed any form of alcohol / liquor exceeding 90ml or 3 Pegs of Hard Liquor or 2 glasses of beer / wine per week<span class='star'>*</span>" data-bind="ref:QsLS_28b_Alcohol_Consume_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" onafterchange="markSubQuestions(event)"></div>
+                  <div data-bind="visible: QsLS_28b_Alcohol_Consume_YN() == 'Y'">
+                     <div class="switch" data-juci="switch2" data-label="01) Beer<span class='star'>*</span>" data-bind="ref:QsLS_28b_Alcohol_Beer_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                     <div data-bind="visible:QsLS_28b_Alcohol_Beer_YN()=='Y'">
+                        <div  data-juci="tel"  data-bind="ref:QsLS_28b_Alcohol_Beer_Duration, attr: {'data-novalidate':QsLS_28b_Alcohol_Beer_YN()=='N'}"  data-label="Duration<span class='star'>*</span>" pattern = "^[1-9]*$" required onvalidationfail="getValidationMessage(event, 'Duration')" maxlength="3"></div>
+                        <div data-juci="tel"  data-bind="ref:QsLS_28b_Alcohol_Beer_Qty, attr: {'data-novalidate':QsLS_28b_Alcohol_Beer_YN()=='N'}"  data-label="Quantity Per Day<span class='star'>*</span>" pattern = "^[1-9]*$" data-trigger onvalidationfail="getValidationMessage(event, 'Quantity Per Day')" required></div>
+                     </div>
+                     <div class="switch" data-juci="switch2" data-label="02) Wine<span class='star'>*</span>" data-bind="ref:QsLS_28b_Alcohol_Wine_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                     <div data-bind="visible:QsLS_28b_Alcohol_Wine_YN()=='Y'">
+                        <div  data-juci="tel"  data-bind="ref:QsLS_28b_Alcohol_Wine_Duration, attr: {'data-novalidate':QsLS_28b_Alcohol_Wine_YN()=='N'}"  data-label="Duration<span class='star'>*</span>" pattern = "^[1-9]*$" onvalidationfail="getValidationMessage(event, 'Duration')" required maxlength="3"></div>
+                        <div data-juci="tel"  data-bind="ref:QsLS_28b_Alcohol_Wine_Qty, attr: {'data-novalidate':QsLS_28b_Alcohol_Wine_YN()=='N'}"  data-label="Quantity Per Day <span class='star'>*</span>" pattern = "^[1-9]*$" data-trigger onvalidationfail="getValidationMessage(event, 'Quantity Per Day')" required></div>
+                     </div>
+                     <div class="switch" data-juci="switch2" data-label="03) Hard Liquor<span class='star'>*</span>" data-bind="ref:QsLS_28b_Alcohol_HardLiquor_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                     <div data-bind="visible:QsLS_28b_Alcohol_HardLiquor_YN()=='Y'">
+                        <div  data-juci="tel"  data-bind="ref:QsLS_28b_Alcohol_HardLiquor_Duration, attr: {'data-novalidate':QsLS_28b_Alcohol_HardLiquor_YN()=='N'}"  data-label="Duration<span class='star'>*</span>" pattern = "^[1-9]*$" onvalidationfail="getValidationMessage(event, 'Duration')" required maxlength="3"></div>
+                        <div data-juci="tel"  data-bind="ref:QsLS_28b_Alcohol_HardLiquor_Qty, attr: {'data-novalidate':QsLS_28b_Alcohol_HardLiquor_YN()=='N'}"  data-label="Quantity Per Day<span class='star'>*</span>" pattern = "^[1-9]*$" data-trigger onvalidationfail="getValidationMessage(event, 'Quantity Per Day')" required></div>
+                     </div>
+                     <div class="switch" data-juci="switch2" data-label="04) Other Alcohol<span class='star'>*</span>" data-bind="ref:QsLS_28b_Alcohol_OTH_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                     <div data-bind="visible:QsLS_28b_Alcohol_OTH_YN()=='Y'">
+                        <div  data-juci="tel"  data-bind="ref:QsLS_28b_Alcohol_OTH_Duration, attr: {'data-novalidate':QsLS_28b_Alcohol_OTH_YN()=='N'}" required data-label="Duration<span class='star'>*</span>" pattern = "^[1-9]*$" onvalidationfail="getValidationMessage(event, 'Duration')"></div>
+                        <div data-juci="tel"  data-bind="ref:QsLS_28b_Alcohol_OTH_QTY, attr: {'data-novalidate':QsLS_28b_Alcohol_OTH_YN()=='N'}" required  data-label="Quantity Per Day<span class='star'>*</span>" pattern = "^[1-9]*$" onvalidationfail="getValidationMessage(event, 'Quantity Per Day')" data-trigger maxlength="3"></div>
+                     </div>
+                  </div>
+                  <!-- Question 5 -->
+                  <div class = "ques-height"> 5) Height/Weight</div>
+                  <div data-juci="selectbox" data-mode="popup" data-label="Height In Feet<span class='star'>*</span>" data-bind="optionsList:$root.heightInCm,ref:QsLS_29_Height_Feet,attr: {'data-novalidate':getAnnuityValidate()}" required onafterchange="checkHeightorWeight(event)" onvalidationfail="getValidationMessage(event, 'Height in feet')"></div>
+                  <div data-juci="selectbox" data-mode="popup" data-label="Height In Inches<span class='star'>*</span>" data-bind="optionsList:$root.heightInInches,ref:QsLS_29_Height_Inches,attr: {'data-novalidate':getAnnuityValidate()}" required  onvalidationfail="getValidationMessage(event, 'Height in inches')"></div>
+                  <div data-juci="tel" data-bind="ref:QsLS_29_Weight_Kg,attr: {'data-novalidate':getAnnuityValidate()}" data-label="Weight In Kg<span class='star'>*</span>" pattern="^[0-9]+$" maxlength="3" data-trigger required onafterchange="checkHeightorWeight(event)" onvalidationfail="getValidationMessage(event, 'Weight')"></div>
+                  <!-- Question 6 -->
+                  <div class="switch" data-juci="switch2" data-label="	 6) Are you currently taking any medication or drugs, other than minor conditions, (e.g. colds and flu), either prescribed or not prescribed by a doctor,or have you suffered from any illness, disorder, disability or injury during the past 5 years which has required any form of medical or specialized examination (including chest x-rays, gynecological investigations, pap smear, or blood tests), consultation, hospitalization or surgery?<span class='star'>*</span>" data-bind="ref:QsLS_30_Medication_Drug_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                  <div data-juci="text" data-label="Remarks<span class='star'>*</span>" data-bind="visible:QsLS_30_Medication_Drug_YN()=='Y',ref:QsLS_30_Medication_Drug_Remarks, attr: {'data-novalidate':QsLS_30_Medication_Drug_YN()=='N'}" required></div>
+                  <!--Question 7-->
+                  <div class="switch" data-juci="switch2" data-bind="ref:QsLS_31_CongenitalBirthDefect_YN" data-label="	7) Do you have : congenital/birth defects, pain or problems in the back, spine, muscles or joint, arthritis, gout, severe injury or other physical disabilityand have you been incapable of working/attending the school during the last 2 years for more than 5 days or are you currently incapable ofworking/attending school?<span class='star'>*</span>" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                  <div data-juci="text" data-label="Reason<span class='star'>*</span>" data-bind="visible:QsLS_31_CongenitalBirthDefect_YN()=='Y',ref:QsLS_31_CongenitalBirthDefect_Remarks, attr: {'data-novalidate':QsLS_31_CongenitalBirthDefect_YN()=='N'}" required></div>
+                  <!--Group 8-->
+                  <div class="switch" data-juci="switch2" data-bind="ref:QsLS_32_MedicalAilgment_YN" data-label="
+                     8) Do you suffer from any medical ailments eg: diabetes,high blood pressure,cancer,respiratory disease (including asthma), Kidney, Liver Disease,Stroke, any blood disorder, Heart Problems, Hepatitis B, Tuberculosis, Psychiatric Disorder, Depression, HIV AIDS or a related infection?<span class='star'>*</span>" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                  <div data-juci="text" data-label="Remarks<span class='star'>*</span>" data-bind="visible:QsLS_32_MedicalAilgment_YN()=='Y',ref:QsLS_32_MedicalAilgment_Remarks, attr: {'data-novalidate':QsLS_32_MedicalAilgment_YN()=='N'}" required></div>
+                  <!--Question 9-->
+                  <div class="switch" data-juci="switch2" data-bind="ref:QsLS_33_SurgeryPlanned_YN" data-label="	9) Is any surgery planned or are you currently aware or have been advised, that you may need to seek medical advice within the near future? (Other than for medical examinations that may arise from this application)<span class='star'>*</span>" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                  <div data-juci="text" data-label="Reason<span class='star'>*</span>" data-bind="visible:QsLS_33_SurgeryPlanned_YN()=='Y',ref:QsLS_33_SurgeryPlanned_Remarks, attr: {'data-novalidate':QsLS_33_SurgeryPlanned_YN()=='N'}" required></div>
+                  <!--Question 10-->
+                  <div class="switch" data-juci="switch2" data-bind="ref:QsLS_34_SufferedDrugsAlcohol_YN" data-label="10) Have you ever suffered from drug or alcohol addiction or been advised by a doctor to reduce your alcohol / drug intake?<span class='star'>*</span>" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                  <div data-juci="text" data-label="Reason<span class='star'>*</span>" data-bind="visible:QsLS_34_SufferedDrugsAlcohol_YN()=='Y',ref:QsLS_34_SufferedDrugsAlcohol_Remarks, attr: {'data-novalidate':QsLS_34_SufferedDrugsAlcohol_YN()=='N'}" required></div>
+                  <!--Question 11-->
+                     <div data-bind="visible:$root.genderForPregnant() != 'M'">
+                     	<div  class="switch" data-juci="switch2" data-bind="ref:QsLS_35_Pregnant_YN" data-label="11) Are you currently pregnant? "  data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Y" data-offtext="N" data-onclass="switchclass" data-offclass="switchclass" onafterchange="onPregnantYesOrNo(event)"></div>
+                     	<div  class="dateofbirth" id="delivery-date" data-juci="datepicker" data-picker="dob" data-bind="visible:QsLS_35_Pregnant_YN()=='Y',ref:QsLS_35_Pregnant_ExpDeliveryDT, attr: {'data-novalidate':QsLS_35_Pregnant_YN()=='N'}" required placeholder="Expected Delivery Date" onafterchange="onDeliveryDateChanged(event)"></div>
+                     	<div  data-juci="tel"  id="pregnant-months" placeholder="No of months" data-bind="visible:QsLS_35_Pregnant_YN()=='Y',ref:QsLS_35_Pregnant_Duration, attr: {'data-novalidate':QsLS_35_Pregnant_YN()=='N'}" required  pattern="^(1|2|3|4|5|6|7|8|9)$" onvalidationfail="Utils.GetValidationMessage(event,'Pregnant months')" maxlength="1"></div>
+                     </div>
+                     
+                  <!-- Question 12-->
+                  <div  class="switch" data-juci="switch2" data-bind="ref:PoliticallyExposedPerson_YN" data-label="11) Whether the Life Assured / Proposer / Nominee(s) is/are Politically Exposed Person(s)<span class='star'>*</span>" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="N0" 
+                     data-onclass="switchclass" data-offclass="switchclass" ></div>
+               </div>
+               <div class="btn">
+                  <div class="prev" onclick="backToLifeinsurance()">Previous</div>
+                  <button class="save" data-juci="button" type="submit"  class="btntxt">Sync and proceed</button>
+               </div>
+            </div>
+         </div>
+         <!-- Vernacular Details -->
+         <div id="vernacularDetails">
+            <div data-juci="form" id="pdForm6"  data-bind="ref:vernacularOrUneducatedForm" onsubmit="openNext6()" data-validation="all">
+               <div class="life2assure">
+                  <p class="form-heading1 ver">Vernacular Details</p>
+                  <div class="switch" data-juci="switch2" data-label="Reliance Life Insurance Company Limited requires that this proposal is completed by the Proposer. (If the Proposer does not read , write, or speak English, then this proposal may be completed by anotherperson as per item 2 in guidelines of page 1 of this proposal. As such person need to complete this declaration.)I have explained the contents of this proposal to the Proposer and endeavoured to ensure that the contents have been fully understood. I have accurately recorded the responses to the information sought by the proposal form and I have read the responses back to the Proposer and confirmed that they are correct" data-bind="ref:Vernacular_declaration_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass" ></div>
+                  <div data-bind="visible: Vernacular_declaration_YN() =='Y'">
+                     <p class="form-heading1 dec"> Details of the Declarant</p>
+                     <div data-juci="text" data-label="Name<span class='star'>*</span>" 
+                        data-bind="ref:Declarant_Name, attr:{'data-novalidate': Vernacular_declaration_YN() != 'Y'}" required 
+                        onvalidationfail="Utils.GetValidationMessage(event,'Declarant Name')"></div>
+                     <div data-juci="text" data-label="Place<span class='star'>*</span>" 
+                        data-bind="ref:Declarant_Place, attr:{'data-novalidate': Vernacular_declaration_YN() != 'Y'}" required></div>
+                     <div class="dateofbirth" data-juci="datepicker" required data-picker="dob" 
+                        data-bind="ref:Declarant_Date, attr:{'data-novalidate': Vernacular_declaration_YN() != 'Y'}" 
+                        data-label="Date<span class='star'>*</span>"></div>
+                  </div>
+               </div>
+               <div class="life2assure">
+                  <p class="form-heading1 ver">Details of Witness</p>
+                  <div data-juci="text" data-label="Name<span class='star'>*</span>" data-bind="ref:Witness_Name" required pattern="^[a-zA-Z ]{2,30}$"  
+                     onvalidationfail="Utils.GetValidationMessage(event,'Declarant Name')"  maxlength="30"></div>
+                  <div data-juci="tel" data-label="Mobile No.<span class='star'>*</span>" data-bind="ref:Witness_MobileNO" required 
+                     pattern="^[0-9]{10,11}$" onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')" minlength="10" maxlength="11"></div>
+                  <div class="dateofbirth" data-juci="datepicker" required data-picker="dob" data-bind="ref:Witness_Date" 
+                     data-label="Date<span class='star'>*</span>"></div>
+                  <div data-juci="text" data-label="Address Line1<span class='star'>*</span>" data-bind="ref:Witness_Address_Line1" required  
+                     onvalidationfail="Utils.GetValidationMessage(event,'Address Line1')"  maxlength="30" 
+                     pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" data-formatter="formatText" minlength="3"></div>
+                  <div data-juci="text" data-label="Address Line2<span class='star'>*</span>" data-bind="ref:Witness_Address_Line2" required 
+                     onvalidationfail="Utils.GetValidationMessage(event,'Address Line2')"  maxlength="30" 
+                     pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" data-formatter="formatText" minlength="3"></div>
+                  <div data-juci="text" data-label="Address Line3<span class='star'>*</span>"  data-bind="ref:Witness_Address_Line3"
+                     onvalidationfail="Utils.GetValidationMessage(event,'Address Line3')" required  maxlength="30" 
+                     pattern = "^[A-Za-z0-9][A-Za-z0-9\'-( )&#,%./\-]*$" data-formatter="formatText" minlength="3"></div>
+                  <div data-juci="selectbox" data-mode="popup" data-label="State<span class='star'>*</span>" required 
+                     data-bind="optionsList:$root.state,ref:Witness_Address_State"></div>
+                  <div data-juci="text" data-label="City<span class='star'>*</span>" required data-bind="ref:Witness_Address_City" data-trigger 
+                     pattern="^[a-zA-Z ]*$" onvalidationfail="Utils.GetValidationMessage(event,'City')" required  maxlength="30" minlength="3"></div>
+                  <div data-juci="tel" data-label="Pincode<span class='star'>*</span>" data-bind="ref:Witness_Address_PinCode"  required 
+                     pattern="^[0-9]{6}\s*$" onvalidationfail="Utils.GetValidationMessage(event,'Pincode')" maxlength="6"  
+                     onvalidationfail="Utils.GetValidationMessage(event,'Pincode')"></div>
+               </div>
+               <div class="btn">
+                  <div class="prev" onclick="backToLifestyle()">Previous</div>
+                  <button class="save" data-juci="button" type="submit"  class="btntxt" >Sync and proceed</button>
+               </div>
+            </div>
+         </div>
+         <!-- Declarations Details -->
+         <div id="declarationdetails">
+            <div data-juci="form" id="pdForm7"  data-bind="ref:signatureForm" onsubmit="openNext7()">
+               <div class="life2assure">
+                  <p class="form-heading1 decl">Declaration by Life to be Assured / Proposer</p>
+                  <div class="display" data-bind>
+                     I understand and agree that the statements in this proposal form shall be the basis of the contract between me and Reliance Life Insurance Company Limited ('the Company'). I agree that I will inform the Company if between the date of this proposal and the date of issuance of the policy about any change in my general health, occupation, financial position or if any other proposal or application to any other Insurance Company on my life is declined / postponed or accepted other than the standard terms so that the Company may consider the terms of acceptance. I understand that if I fail to disclose the information sought by the Company, then the Company may void the contract at its sole discretion without giving any further explanation and the consequence thereof shall follow. I agree that the Insurance protection shall only be provided effective from the date of acceptance of risk by the Company. I further declare that the statements in this proposal are true and I have disclosed all information which might be material to the Company while issuing the policy contract. I declare that I have read the sales literature of the proposed plan and understood the terms and conditions of the plan along with the associated risks and benefits which I propose to take. I declare that the premiums paid have not been generated from the proceeds of any criminal activities/ offences and I shall abide by and conform to the Prevention of Money Laundering Act, 2002 or any other applicable laws. I declare that the Company has disclosed and explained all the information related to this product and riders to me and I declare that I have understood the same before signing this proposal form. In case of fraud the policy contract shall be cancelled immediately by forfeiture of all premiums paid or in case of misrepresentation the policy contract shall be cancelled immediatelyby refund of all premiums paid, subject to the fraud or misrepresentation being established by the insurer in accordance with Section 45 of the Insurance Act, 1938 as ammended from time to time.
+                  </div>
+                  <div data-juci="checkbox" id="declarationla" data-label="I Agree" data-checked data-unchecked></div>
+               </div>
+               <div class="life2assure">
+                  <p class="form-heading1 decl">Authorization by life to be assured / Proposer</p>
+                  <div class="display" data-bind>
+                     I hereby authorize the Company to charge any occupation / residential / age extra or reduce the sum assured on my proposal based on the information provided by me and the supporting documents submitted with this proposal form. I hereby authorize the Company to conduct screening/confirmation/ reconfirmation of overall status of the Life to be Assured including the health status through medical examinations, if required, which may include Laboratory tests, Cardiac, Radiological investigations and other medical tests including blood tests to detect bacterial / viral / fungal infections. I hereby give my consent to undergo HIV1/2 test by ELISA method. I am aware that this test is only for screening purposes and not confirmatory for HIV/AIDS. In order to enable the Company to assess the risk under this proposal and any time thereafter, I hereby, authorize the past and present employer(s)/business associates / medical practitioner / hospital and medical source/any life and non-life insurance Company / organization or Life Insurance Association to release to the Company the records of employment / business or other details as may be considered relevant for acceptance or otherwise of this proposal form. I agree that to underwrite the policy effectively, Reliance Life Insurance Company may need to share my personnel information with a specialist service provider, who would keep the said information in secure and confidential manner. Payments will be made to the provided bank a/c, unless the bank a/c particulars are changed/modified by my written communication to RLIC. I also hereby agree and authorized the Company to access my data maintained by the Unique Identification Authority of India (UIDAI) for KYC verification purpose.
+                  </div>
+                  <div  class="switch" data-juci="switch2" data-label="In order to support Reliance Life Insurance Company in its 'Go-Green' initiative, I agree to receive policy documents by electronic mail instead of physical form.<span class='star'>*</span>"data-bind="ref:Receive_Electronic_Communication_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <div  class="switch" data-juci="switch2" data-label="I am aware that in order to enable the Company to assess the risk, I need to undergo medicals as per Reliance Life Insurance Company Ltd. requirements and the same has been explained to me by the Advisor / Sales Manager<span class='star'>*</span>" data-bind="ref:Undergo_Medical_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <div  class="switch" data-juci="switch2" data-label="I authorize Reliance Life Insurance Company Limited and/or its representative to call us/me for all policy service related calls.<span class='star'>*</span>" data-bind="ref:Authorize_RLIC_Calls_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <div data-juci="checkbox" id="declarationpr" data-label="I Agree" data-checked data-unchecked></div>
+               </div>
+               <div class="life2assure">
+                  <p class="form-heading1 rebate">Prohibition of rebate</p>
+                  <div class="display" data-bind>
+                     1.No person shall allow or offer to allow, either directly on indirectly , as an inducement to any person to take or renew or continue an insurance in respect of any kinds of risk relating to lives or property in india, any rebate of the whole or part of the commission payable or any rebate of the premium shown on the policy, nor shall any person taking out or renewing or continuing a Policy accept any rebate, except such rebate as may be allowed in accordance with the published prospectuses or tabes of the insurer.<br>
+                     2.Any person making the default in complying with the provisions of this section shall be liable for a penalty which may extend to ten lakh rupees.Please refer to our website or contact our office for the details under the above mentioned Sectioned 41.
+                  </div>
+                  <div data-juci="checkbox" id="prohibition" data-label="I Agree" data-checked data-unchecked></div>
+               </div>
+               <div class="life2assure">
+                  <p class="form-heading1 policy">Policy not be called in question after three years</p>
+                  <div class="display"  data-bind>
+                     1)No policy of life insurance shalle be called in question on any ground whatsoever after the expiry of three years from the date of the policy i.e., from the date of insurance of the policy or the date of commencement of risk or the date of revival of the policy or the date of the rider to the policy, whichever is later.<br/>
+                     2)A policy of life insurance may be called in question at anytime within three years from the date of insurance of the policy or the date of commencement of risk or the date of revival of the policy or the date of the rider to the policy, whichever is later, on the ground of fraud : provided that the insurer shall have to communicate in writing to the insure or the legal representatives or nominees or assigners of the insured the grounds and materials on which such decisions is based.<br/> 
+                     3)Notwithstanding anything contained in subsection(2), No insurer shall repudiate a life insurance policy on the ground of fraud if the insured can prove that the mis-statement of supression of material fact was true to the best of his knowledge and belief or that there was no deliberate intention to supress the fact or that such mis-statement of supression of the material fact or within the knowledge of the insurer-provided that in case of fraud, the onus of disproving lies upon the beneficiaries, in case the policy holder is not alive.<br/>
+                     4)A policy of life insurance may be called in question at any time within three years from the date of insurance of the policy or the date of commencement of risk or the date of revival of the policy or the date of the rider to the policy ,whichever is later, on the ground that any statement or supression of the fact material to the expectancy of the life of the insured was incorrectly made in the proposal or other document on the basis of which the policy was issued or revived or rider issued; Provided that the insurer shall have to communicate in writing to the insured the grounds and materials on which such decision to repudiate the policy of life insurance is based; Provided further that in case of repudation of the policy on the ground of misstatement or supression of material fact, and not on the ground of fraud, the premiums collected on the policy till the date of repudation shall be paid to the insured or legal representatives or nominees or assignees of the insured within a period of ninety days from the date of such repudation. Mis-statement or supression of shall not be considered material unless it has a direct bearing on the risk undertaken by the insurer. the onus is on the insurer to show that had the insurer been aware of the said fact no life insurance policy would have been issued to the insured.
+                     Nothing in this section shall prevent the insurer from calling for proof of age at any time if if entitled to do so, and no policy shall be deemed to be called in question merely because the term of the policy are adjusted on subsequent proof that the age of the life insured was incorrectly stated in the proposal.
+                  </div>
+                  <div data-juci="checkbox" id="policydetails" data-label="I Agree" data-checked data-unchecked></div>
+               </div>
+               <div class="life2assure">
+                  <p class="form-heading1 repos">Insurance Repository</p>
+                  <div  class="switch" data-juci="switch2" class="eInsuranceFreeAccount" data-label="I would like to convert this policy into an e-policy with the free e-insurance account with <span style='color:black' id='insuranceDropDown'>CAMS Insurance Repository.</span>." data-bind="ref:EInsurance_Free" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Y" data-offtext="N" data-onclass="switchclass" data-offclass="switchclass" onafterchange></div>
+                  <div data-bind="visible: EInsurance_Free() =='Y'">
+                     <div class="blue" id="click" onclick="clickHere()">Click here to change the e-insurance repository</div>
+                     <div  data-juci="selectbox" data-mode="popup" id="insuranceRepository" data-label="Select E-Insurance Repository" data-bind="optionsList:$root.insuranceRepository,ref:Ins_Repository_Type,attr:{'data-novalidate': EInsurance_Free() == 'N'},optionsText:getDescription" data-formatter="getDescription" data-comparator="laComparator" required onafterchange="insuranceRepositoryChange(event)" onvalidationfail="getValidationMessage(event, 'Insurance Repository')"></div>
+                     <div data-juci="radiogroup" id="id-proofs" data-label="ID Proof"  data-bind="optionsList: $root.idProofs,ref: idvalue,optionsText: function(item){return item.idvalue},attr:{'data-novalidate': EInsurance_Free() == 'N'}"  required onvalidationfail="getValidationMessage(event, 'Identity Proof')" data-formatter="getDescription" data-comparator="complexcomparator"></div>
+                  </div>
+                  <div data-bind="visible: EInsurance_Free() !='Y'">
+                     <div  class="switch" data-juci="switch2" id="eInsuranceAccount" data-label="Do you have E-Insurance Account? " data-bind="ref:Ins_Repository_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Y" data-offtext="N" data-onclass="switchclass" data-offclass="switchclass" onafterchange="eInsuranceAccountQues(event)"></div>
+                     <div class="display" id="insuranceAccount">E-insurance is a safe and convenient way to manage all your policies with any insurer in one single account Do you want to convert this policy into e-policy with free e-insurance account?</div>
+                  </div>
+                  <div data-bind="visible: Ins_Repository_YN() =='Y'">
+                     <div data-juci="tel" id="eInsuranceAccountNumber" data-label="E-Insurance Account No." data-bind="ref:Ins_Repository_AccountNumber,attr:{'data-novalidate': Ins_Repository_YN() == 'N'}" pattern = "^(1|2|4|5){1}[0-9]{12}$" onvalidationfail="getValidationMessage(event, 'Enter E-Insurance Account Number')" required maxlength="13"></div>
+                  </div>
+                  <div data-juci="checkbox" id="insurence" data-label="I Agree" data-checked data-unchecked></div>
+               </div>
+               <div class="btn">
+                  <div class="prev" onclick="backToVernacular()">Previous</div>
+                  <button class="save" data-juci="button" type="submit"  class="btntxt" >Sync and proceed</button>
+               </div>
+            </div>
+         </div>
+         <!-- Confidentail Report -->
+         <div id="confidentailreport">
+            <div data-juci="form" id="pdForm8"  data-bind="ref:cfrSectionForm" onsubmit="openNext8()" data-validation="all">
+               <div class="life2assure">
+                  <p class="form-heading1 conf">Confidential Rreport</p>
+                  <!-- Question 1 -->
+                  <div  class="switch" data-juci="switch2"  data-label="1) Have you met the Proposer & the Life to be Assured?" 
+                     data-bind="ref:CFReport_1_Met_PR_LA_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                     data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <!-- Question 2 -->	
+                  <div  class="switch" data-juci="switch2"  data-label="2) Confidential Rreport Are you (Advisor / SM) related to the Life to be Assured? If Yes, to whom and what is the relationship?" data-bind="ref:CFReport_2_Relatedto_LA_YN" data-onvalue='"Y"' data-offvalue='"N"' 
+                     data-ontext="Yes" data-offtext="No" data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <div data-bind="visible:CFReport_2_Relatedto_LA_YN() == 'Y'">
+                     <div data-juci="selectbox" data-mode="popup" data-label="Relation" 
+                        data-bind="optionsList:$root.familyMember,ref:CFReport_2_Relatedto_LARelationship,optionsText:getDescription" 
+                        data-formatter="getDescription" data-comparator="laComparator"  
+                        onvalidationfail="Utils.GetValidationMessage(event,'Relation')" ></div>
+                  </div>
+                  <!-- Question 3 -->
+                  <div  class="switch" data-juci="switch2"  
+                     data-label="3) Do you notice any disability, mental or physical deformity for Life to be Assured?" 
+                     data-bind="ref:CFReport_3_LADisability_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                     data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <div data-bind="visible:CFReport_3_LADisability_YN() == 'Y'">
+                     <div class="name" data-juci="text" data-label="Disability" data-bind="ref:CFReport_3_LADisability_Remarks,CFReport_3_LADisability_Remarks,attr: {'data-novalidate': CFReport_3_LADisability_YN()!='Y'}"></div>
+                  </div>
+                  <!-- Question 4 -->
+                  <div  class="switch" data-juci="switch2"  data-label="4) Are you personally satisfied with the financial standing of the Proposer & Life to be Assured in relation to the proposed insurance? Please estimate the income of the Proposer." data-bind="ref:CFReport_4_FinancialStanding_YN" 
+                     data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" data-onclass="switchclass" 
+                     data-offclass="switchclass"></div>
+                  <div data-bind="visible:CFReport_4_FinancialStanding_YN() == 'Y'">
+                     <div data-juci="tel" data-label="Income of Proposal<span class='star'>*</span>" data-bind="ref:CFReport_4_FinancialStanding_Income,attr: {'data-novalidate': CFReport_4_FinancialStanding_YN()!='Y'}" pattern="(?!0)[0-9\,?]{1}" required	onvalidationfail="Utils.GetValidationMessage(event,'Annual Income')" 
+                        data-formatter="formatValue" minlength="6" maxlength="12"></div>
+                  </div>
+                  <!-- Question 5 -->
+                  <div  class="switch" data-juci="switch2"  
+                     data-label="5) Is the income proof verified by you? What is the type of income proof verified?" 
+                     data-bind="ref:CFReport_5_IncomeVerified_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                     data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <div data-bind="visible:CFReport_5_IncomeVerified_YN() == 'Y'">
+                     <div data-juci="selectbox" data-mode="popup" data-label="Type of Income Proof<span class='star'>*</span>" 
+                        data-bind="optionsList:$root.typeOfIncomeProof,ref:CFReport_5_IncomeVerified_Type,optionsText:getDescription,,attr: {'data-novalidate': CFReport_5_IncomeVerified_YN()!='Y'}" data-formatter="getDescription" data-comparator="laComparator" required	onvalidationfail="Utils.GetValidationMessage(event,'Type of Income Proof')"></div>
+                  </div>
+                  <!-- Question 6 -->
+                  <div  class="switch" data-juci="switch2"  data-label="6) Is the age proof verified by you for all Life to be Assured?" 
+                     data-bind="ref:CFReport_6_AgeProofVerified_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No"
+                     data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <!-- Question 7 -->	
+                  <div  class="switch" data-juci="switch2"  data-label="7) Is the Life to be Assured, presently, in good health? if no, give details."
+                     data-bind="ref:CFReport_7_LAGoodHealth_YN" data-onvalue='"Y"' data-offvalue='"N"' data-ontext="Yes" data-offtext="No" 
+                     data-onclass="switchclass" data-offclass="switchclass"></div>
+                  <div data-bind="visible:CFReport_7_LAGoodHealth_YN() != 'Y'">
+                     <div data-juci="text" data-bind="ref:CFReport_7_LAGoodHealth_Remarks,attr: {'data-novalidate': CFReport_7_LAGoodHealth_YN()=='Y'}"	data-label="Details of Health"  pattern="^[a-zA-Z ]*$" required  maxlength="30"></div>
+                  </div>
+                  <!-- Question 8 -->
+                  <div class = "ques-long"> 8) How long have you konwn the Life to be assured?</div>
+                  <div data-juci="tel" data-bind="ref:CFReport_8_LongKnown_Years" data-label="Years<span class='star'>*</span>" 
+                     pattern="^[0-9]+$" maxlength="3"  required onvalidationfail="Utils.GetValidationMessage(event,'Years')" ></div>
+                  <div data-juci="tel" data-bind="ref:CFReport_8_LongKnown_Mnths" data-label="Months<span class='star'>*</span>"
+                     pattern="^[0-9]+$" maxlength="3" required onvalidationfail="Utils.GetValidationMessage(event,'Months')" ></div>
+                  <div data-juci="tel" data-bind="ref:SM_FLS_MobileNo" data-label="SM / FLS Mobile No.<span class='star'>*</span>" pattern="^[0-9]+$"
+                     maxlength="10" data-trigger required onvalidationfail="Utils.GetValidationMessage(event,'Mobile no')"></div>
+               </div>
+               
+               <div class="btn">
+                  <div class="prev" onclick="backToDeclaration()">Previous</div>
+                  <button class="save" data-juci="button" type="submit"  class="btntxt">Sync and proceed</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- PrePayment Review -->
+      <div id="prepaymentReview">
+         <div class="firstreview">
+            <div class="heading1">
+               <p class="form-heading1 assu">Life Assured Details</p>
+               <p class="edit" onclick="editproposer()">Edit</p>
+            </div>
+            <div class="lifeassuredetails" data-bind="with:lifeassuredetails">
+               <div class="juci_title assuredetails" data-bind="html:'Name : '+ LA_Name()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'DOB : '+ formatDate(LA_DOB())"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Gender: '+LA_Gender()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Employee No. : '+LA_EMPLOYEECODE()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Mobile No. : '+LA_Mobileno()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Email : '+LA_EmailId()"></div>
+            </div>
+         </div>
+         <div class="secondreview">
+            <div class="heading1">
+               <p class="form-heading1 prop">Proposer Details</p>
+               <p class="edit" onclick="editproposer()">Edit</p>
+            </div>
+            <div class="lifeassuredetails" data-bind="with:proposerdetails">
+               <div class="juci_title assuredetails" data-bind="html:'Name : '+ LA_Name()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'DOB : '+formatDate(LA_DOB())"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Gender: '+LA_Gender()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Employee No. : '+LA_EMPLOYEECODE()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Mobile No. : '+LA_Mobileno()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Email : '+LA_EmailId()"></div>
+            </div>
+         </div>
+         <div class="thirdreview">
+            <div class="heading1">
+               <p class="form-heading1 appon">Appointee/Nominee details</p>
+               <p class="edit" onclick="editnominee()">Edit</p>
+            </div>
+            <div class="lifeassuredetails" data-bind="with:appointeeOrNomineedetails">
+               <div class="juci_title assuredetails" data-bind="html:'Name : '+ NOM_Name()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'DOB : '+formatDate(NOM_DOB())"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Gender: '+NOM_Gender()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Employee No. : '+LA_EMPLOYEECODE()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Mobile No. : '+NOM_Mobileno()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Email : '+NOM_EmailId()"></div>
+            </div>
+         </div>
+         <div class="fourthreview">
+            <div class="heading1">
+               <p class="form-heading1 plandet">Plan details</p>
+               <p class="edit" onclick="editplan()" style="display:none">Edit</p>
+            </div>
+            <div class="lifeassuredetails" data-bind="with:plandetails">
+               <div class="juci_title assuredetails" data-bind="html:'Plan Name : '+ ProductCode()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Plan Code and Category : '+ PLanCode()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Policy Term : '+ PolicyTerm()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Premium Paying Term : '+ Premium_Frequency()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Sum Assured : '+ SumAssured()"></div>
+            </div>
+         </div>
+         <div class="fifthreview">
+            <div class="heading1">
+               <p class="form-heading1 premdet">Premium details</p>
+               <p class="edit" onclick="editpremium()" style="display:none">Edit</p>
+            </div>
+            <div class="lifeassuredetails" data-bind="with:premiumdetails">
+               <div class="juci_title assuredetails" data-bind="html:'Premium Term : '+ PremiumPayingTerm()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Installment Premium : '+ InstallmentPremium()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Annualized Premium : '+ SumAssured()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'ECS/Direct Debit : '+ ECS_NonECS()"></div>
+            </div>
+         </div>
+         <div class="sixthreview">
+            <div class="heading1">
+               <p class="form-heading1 othdet">Other details</p>
+               <p class="edit" onclick="editotherdetails()" style="display:none">Edit</p>
+            </div>
+            <div class="lifeassuredetails" data-bind="with:otherdetails">
+               <div class="juci_title assuredetails" data-bind="html:'Advisor Name : '+ Advisor_Name()"></div>
+               <div class="juci_title assuredetails" data-bind="html:'Advisor Code: : '+ Advisor_Code()"></div>
+            </div>
+         </div>
+         <div class="btn">
+            <div class="prev" onclick="backToProposolFulfilment()">Previous</div>
+            <button class="save" data-juci="button" class="btntxt" onclick="openPaymentOption()">Sync and proceed</button>
+         </div>
+      </div>
+      <!-- Payment Options -->
+      <div id="paymentoptions">
+         <div class="tab">
+            <div  class="juci_thinbar">
+               <div class="naming">Online</div>
+            </div>
+            <div class="collapse payment">
+               <p class="form-heading1 pay">Payment Review</p>
+               <div data-juci="form" data-bind="ref:onlinepayment" onsubmit="payPremium(event)">
+                  <div class="noborder" data-juci="display" data-label="Installment Premium" data-bind="ref:InstallmentPremium" disable></div>
+                  <div class="noborder" data-juci="display" data-label="Premium Frequency" data-bind="ref:Premium_Frequency" disable></div>
+                  <div class="noborder" data-juci="display" data-label="Premium Paying Term" data-bind="ref:PremiumPayingTerm" disable></div>
+                  <div class="paybtn"><button class="paynow" data-juci="button" type="submit"  >Pay Now</button></div>
+               </div>
+            </div>
+         </div>
+         <div class="tab">
+            <div  class="juci_thinbar">
+               <div class="naming">Cheque /Cash /DD</div>
+            </div>
+            <div class="collapse payment">
+               <p class="form-heading1 pay">Payment Review</p>
+               <div data-juci="form" data-bind="ref:cashpayment">
+                  <div class="noborder" data-juci="display" data-label="Installment Premium" data-bind="ref:InstallmentPremium"></div>
+                  <div class="noborder" data-juci="display" data-label="Amount Added" data-bind="ref:Amount_added"></div>
+                  <div class="noborder" data-juci="display" data-label="Remaining Amount" data-bind="ref:Remaining_Amount"></div>
+                  <div class="noborder" data-juci="display" data-label="Premium Frequency" data-bind="ref:Premium_Frequency"></div>
+                  <div class="noborder" data-juci="display" data-label="Premium Paying Term" data-bind="ref:PremiumPayingTerm"></div>
+               </div>
+               <p class="form-heading1 pay">Payment Details</p>
+               <div data-juci="form" data-bind="ref:paymentbycc" onsubmit="doSubmit(event)">
+                  <div data-juci="selectbox" data-mode="popup" data-label="Payment Mode<span class='star'>*</span>" 
+                     data-bind="optionsList:$root.modesOfPayment,ref:Payment_Type" required 
+                     onvalidationfail="Utils.GetValidationMessage(event,'Payment Mode')" onafterchange="onPaymentModeChange(event)"></div>
+                  <div data-juci="tel" id="installment-premium" data-label="Installment Premium<span class='star'>*</span>" 
+                     data-bind="ref:Amount_Paid" required onvalidationfail="Utils.GetValidationMessage(event,'Installment Premium')" 
+                     pattern="^(?!0)[0-9]+$"></div>
+                  <div data-juci="tel" id="cheque-no" data-label="Cheque/DD No<span class='star'>*</span>" 
+                     data-bind="visible:Payment_Type() != 'Cash',ref:Cheque_No,attr:{'data-novalidate':$data.Payment_Type() === 'Cash'}" 
+                     required onvalidationfail="Utils.GetValidationMessage(event,'Cheque/DD No')" pattern="^[0-9 ]*$" maxlength="50"></div>
+                  <div data-juci="datepicker" id="cheque-date" data-label="Cheque/DD Date<span class='star'>*</span>" data-picker="dob" 
+                     data-bind="visible:Payment_Type() != 'Cash',ref:Cheque_Date,attr:{'data-novalidate':Payment_Type() === 'Cash'}" 
+                     onafterchange="checkChequeDate(event)" required onvalidationfail="Utils.GetValidationMessage(event,'Cheque/DD Date')"></div>
+                  <div data-juci="text" id="bank-name" data-label="Bank Name<span class='star'>*</span>" 
+                     data-bind="visible:Payment_Type() != 'Cash',ref:Bank_Name,attr:{'data-novalidate':Payment_Type() === 'Cash'}" 
+                     required onvalidationfail="Utils.GetValidationMessage(event,'Bank Name')" pattern = "^[a-zA-Z ]*$" maxlength="30"></div>
+                  <div data-juci="text" id="branch-name" data-label="Branch Name<span class='star'>*</span>" 
+                     data-bind="visible:Payment_Type() != 'Cash',ref:Bank_Branch,attr:{'data-novalidate':Payment_Type() === 'Cash'}" 
+                     required onvalidationfail="Utils.GetValidationMessage(event,'Branch Name')"  pattern = "^[a-zA-Z ]*$" maxlength="30"></div>
+                  <div class="juci_vertical_bbar">
+                     <button class="savepayment" data-juci="button" type="submit">Submit</button>
+                  </div>
+               </div>
+               <div data-juci="xlist" id="offline-split" data-bind="ref:$root.offlinePayment" 
+                  data-delete="" onDeleteClick="deleteOfflineDetails(event)" data-title="'Payment Mode :' +Payment_Type()" 
+                  data-subtitle="'Installment Premium :' + Amount_Paid()"
+                  onsubmit="doSubmit(event)" onDeleteClick="deleteOfflineDetails(event)">	
+               </div>
+            </div>
+         </div>
+         <div class="tab">
+            <div  class="juci_thinbar">
+               <div class="naming">Send Link</div>
+            </div>
+            <div class="collapse payment">
+               <p class="form-heading1 pay">Payment Review</p>
+               <div data-juci="form" data-bind="ref:onlinepayment">
+                  <div class="noborder" data-juci="display" data-label="Installment Premium" data-bind="ref:InstallmentPremium" required onvalidationfail="Utils.GetValidationMessage(event,'Installment Premium')" pattern="^(?!0)[0-9]+$"></div>
+                  <div class="noborder" data-juci="display" data-label="Premium Frequency" data-bind="ref:Premium_Frequency"></div>
+                  <div class="noborder" data-juci="display" data-label="Premium Paying Term" data-bind="ref:PremiumPayingTerm"></div>
+               </div>
+               <p class="enteremail">Please enter the Email ID and/or Mobile Number on which you want to send a web link for online payment.</p>
+               <div data-juci="form" onsubmit="sendEmail(event)" data-bind="ref:sendlink">
+                  <div data-juci="email" id="emailid" data-label="Email ID<span class='star'>*</span>" data-bind="ref:emailid" required max-length="50" 
+                     pattern="^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])"></div>
+                  <div data-juci="tel" data-label="MobileNo<span class='star'>*</span>" data-bind="ref:mobileno" 
+                     required pattern="^[0-9]{10,11}$" onvalidationfail="Utils.GetValidationMessage(event,'Mobile No.')"
+                     minlength="10" maxlength="11"></div>
+                  <div class="paybtn"><button class="paynow" data-juci="button" type="submit">Send</button></div>
+               </div>
+            </div>
+         </div>
+         <div class="btn">
+            <div class="prev" onclick="backToPrePayment()">Previous</div>
+            <button class="save" data-juci="button" type="submit"  class="btntxt" onclick="onNext9()">Sync and proceed</button>
+         </div>
+      </div>
+      <!-- Documents Uploads -->
+      <div id="docsupload">
+         <div data-juci="form" id="pdForm9"  data-bind="ref:uploaddocuments" onsubmit="saveDocuments(event)" data-validation="all">
+            <div class="tab">
+               <div  class="juci_thinbar">
+                  <div class="naming">Address Proof</div>
+               </div>
+               <div class="collapse proof">
+                  <div data-juci="selectbox" data-mode="popup" id="laaddproof" data-label="Select Document Type<span class='star'>*</span>" 
+                     data-bind="optionsList: optionsforaddressproof, ref: optionselectedforaddressproof, optionsText:getDescription" 
+                     data-formatter="getDescription" required></div>
+                  <p class="attchheading">You can add multiple images for a document </p>
+                  <!--	<div data-juci="attachment" id="laphoto" data-label="You can add multiple images for a document" 
+                     data-bind="ref: optionselectedaddressproofimage" required data-photo-options="width:1000,height:1000"></div> -->
+                  <div id="addressproof" class="photo">
+                     <button class="b1 pic" data-juci="button"  onclick="toggleAttachment('addressproof',0)"><img src="images/Camera_Grey.png"></> Capture </button>
+                     <button class="b1 pic" data-juci="button"  onclick="toggleAttachment('addressproof',1)"><img src="images/Gallery_Grey.png"></> Gallery </button>
+                     <button class="b1 pic" data-juci="button"  onclick="toggleAttachment('addressproof',2)"><img src="images/Folder_grey.png"></> Browse </button>
+                  </div>
+                  <div id="pop">
+                     <p class="dismiss" onclick="hide()">X</p>
+                     <p class="cross">Please ensure that the images that you upload are properly visible.</p>
+                  </div>
+                  <div data-juci="xlist" id="adressprooflist" data-bind="ref:$root.adress"
+                     data-delete="" onDeleteClick="">
+                     <div data-juci="listitem" class="addresslist">
+                        <div class="row">
+                           <div class="cell bold">Image Thumnail</div>
+                           <img class="cell mgnlft" data-bind="attr:{src:img}"></>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Image Name</div>
+                           <div class="cell mgnlft"  data-bind="html:name" ></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Category</div>
+                           <div class="cell mgnlft" data-bind="html:getDoctype(catogory())"></div>
+                        </div>
+                        <div class="row last">
+                           <div class="cell bold">Action</div>
+                           <div class="cell"> <img class="delete" src="images/Delete_Blue.png"></img></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="tab">
+               <div  class="juci_thinbar">
+                  <div class="naming">Photo ID Proof</div>
+               </div>
+               <div class="collapse proof">
+                  <div id="laphotoproof" data-juci="selectbox" data-mode="popup" data-label="Select Document Type<span class='star'>*</span>" 
+                     data-bind="optionsList: optionsforidproof, ref: optionselectedforidproof, optionsText:getDescription" 
+                     data-formatter="getDescription" required></div>
+                  <div id="popup">
+                     <p class="dismiss" onclick="hidepop()">X</p>
+                     <p class="cross">Please ensure that the images that you upload are properly visible.</p>
+                  </div>
+                  <div class="photo" id="photoproof"  ontoggle="toggleAttachment(event)">
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('photoproof',0)"><img src="images/Camera_Grey.png"></> Capture </button>
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('photoproof',1)"><img src="images/Gallery_Grey.png"></> Gallery </button>
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('photoproof',2)"><img src="images/Folder_grey.png"></> Browse </button>
+                  </div>
+                  <!--	<div data-juci="attachment" data-label="You can add multiple images for a document" 
+                     data-bind="ref: optionselectedidproofimage"	required  data-photo-options="width:1000,height:1000"></div> -->
+                  <div data-juci="xlist" id="photoprooflist" data-bind="ref:$root.photo"
+                     data-delete="" onDeleteClick="">
+                     <div data-juci="listitem" class="addresslist">
+                        <div class="row">
+                           <div class="cell bold">Image Thumnail</div>
+                           <img class="cell mgnlft" data-bind="attr:{src:img}"></>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Image Name</div>
+                           <div class="cell mgnlft"  data-bind="html:name" ></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Catogory</div>
+                           <div class="cell mgnlft" data-bind="html:getDoctype(catogory())"></div>
+                        </div>
+                        <div class="row last">
+                           <div class="cell bold">Action</div>
+                           <div class="cell"> <img class="delete" src="images/Delete_Blue.png"></img></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="tab">
+               <div  class="juci_thinbar">
+                  <div class="naming">Upload ID Proof</div>
+               </div>
+               <div class="collapse proof">
+                  <div data-juci="selectbox" data-mode="popup" id="laidproof" data-label="Select Document Type <span class='star'>*</span>"
+                     data-bind="optionsList: optionsforproposeridproof, ref: optionselectedforproposeridproof, optionsText:getDescription" 
+                     data-formatter="getDescription" required></div>
+                  <div id="popup2">
+                     <p class="dismiss" onclick="hidepop2()">X</p>
+                     <p class="cross">Please ensure that the images that you upload are properly visible.</p>
+                  </div>
+                  <div class="photo" id="idproof">
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('idproof',0)"><img src="images/Camera_Grey.png"></> Capture </button>
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('idproof',1)"><img src="images/Gallery_Grey.png"></> Gallery </button>
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('idproof',2)"><img src="images/Folder_grey.png"></> Browse </button>
+                  </div>
+                  <!--	<div data-juci="attachment" id="laidpfimg" data-label="You can add multiple images for a document" 
+                     data-bind="ref: optionselectedproposeridproofimage"	required  data-photo-options="width:1000,height:1000"></div> -->
+                  <div data-juci="xlist" id="idprooflist" data-bind="ref:$root.idprf" data-delete=""  onDeleteClick="">
+                     <div data-juci="listitem" class="addresslist">
+                        <div class="row">
+                           <div class="cell bold">Image Thumnail</div>
+                           <img class="cell mgnlft" data-bind="attr:{src:img}"></>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Image Name</div>
+                           <div class="cell mgnlft"  data-bind="html:name" ></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Catogory</div>
+                           <div class="cell mgnlft" data-bind="html:getDoctype(catogory())"></div>
+                        </div>
+                        <div class="row last">
+                           <div class="cell bold">Action</div>
+                           <div class="cell"> <img class="delete" src="images/Delete_Blue.png"></img></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="tab">
+               <div  class="juci_thinbar">
+                  <div class="naming">Income Proof</div>
+               </div>
+               <div class="collapse proof">
+                  <div data-juci="selectbox" data-mode="popup" id="laincomeproof" data-label="Select Document Type<span class='star'>*</span>" 
+                     data-bind="optionsList: optionsforincomeproof, ref: optionselectedforincomeproofla, optionsText:getDescription, attr: {'data-novalidate': $root.installmentPremium < 100000" data-formatter="getDescription" required></div>
+                  <div id="popup3">
+                     <p class="dismiss" onclick="hidepop3()">X</p>
+                     <p class="cross">Please ensure that the images that you upload are properly visible.</p>
+                  </div>
+                  <div class="photo" id="incomeproof">
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('incomeproof',0)"><img src="images/Camera_Grey.png"></> Capture </button>
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('incomeproof',1)"><img src="images/Gallery_Grey.png"></> Gallery </button>
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('incomeproof',2)"><img src="images/Folder_grey.png"></> Browse </button>
+                  </div>
+                  <!--	<div data-juci="attachment" id="laincomepfimg" data-label="You can add multiple images for a document" 
+                     data-bind="ref: optionselectedincomeproofimagela, attr: {'data-novalidate': $root.installmentPremium < 100000}" required
+                     data-photo-options="width:1000,height:1000"></div> -->
+                  <div data-juci="xlist" id="incomeprooflist" data-bind="ref:$root.income" data-delete="" onDeleteClick="" >
+                     <div data-juci="listitem" class="addresslist">
+                        <div class="row">
+                           <div class="cell bold">Image Thumnail</div>
+                           <img class="cell mgnlft" data-bind="attr:{src:img}"></>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Image Name</div>
+                           <div class="cell mgnlft"  data-bind="html:name" ></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Catogory</div>
+                           <div class="cell mgnlft" data-bind="html:getDoctype(catogory())"></div>
+                        </div>
+                        <div class="row last">
+                           <div class="cell bold">Action</div>
+                           <div class="cell"> <img class="delete" src="images/Delete_Blue.png"></img></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="tab">
+               <div  class="juci_thinbar">
+                  <div class="naming">Age Proof</div>
+               </div>
+               <div class="collapse proof">
+                  <div data-juci="selectbox" data-mode="popup" id="laageproof" data-label="Select Document Type<span class='star'>*</span>" 
+                     data-bind="optionsList: optionsforageproof, ref:optionselectedforageproof, optionsText:getDescription" 
+                     data-formatter="getDescription" required></div>
+                  <div id="popup4">
+                     <p class="dismiss" onclick="hidepop4()">X</p>
+                     <p class="cross">Please ensure that the images that you upload are properly visible.</p>
+                  </div>
+                  <div class="photo" id="ageproof">
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('ageproof',0)"><img src="images/Camera_Grey.png"></> Capture </button>
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('ageproof',1)"><img src="images/Gallery_Grey.png"></> Gallery </button>
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('ageproof',2)"><img src="images/Folder_grey.png"></> Browse </button>
+                  </div>
+                  <!--	<div data-juci="attachment" id="laagepfimg" data-label="You can add multiple images for a documen" 
+                     data-bind="ref: optionselectedageproofimage" data-photo-options="width:1000,height:1000" required></div> -->
+                  <div data-juci="xlist" id="ageprooflist" data-bind="ref:$root.ageproof" data-delete="" onDeleteClick="">
+                     <div data-juci="listitem" class="addresslist">
+                        <div class="row">
+                           <div class="cell bold">Image Thumnail</div>
+                           <img class="cell mgnlft" data-bind="attr:{src:img}"></>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Image Name</div>
+                           <div class="cell mgnlft"  data-bind="html:name" ></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Catogory</div>
+                           <div class="cell mgnlft" data-bind="html:getDoctype(catogory())"></div>
+                        </div>
+                        <div class="row last">
+                           <div class="cell bold">Action</div>
+                           <div class="cell"> <img class="delete" src="images/Delete_Blue.png"></img></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="tab">
+               <div  class="juci_thinbar">
+                  <div class="naming">Customer Declaration Capture</div>
+               </div>
+               <div class="collapse proof">
+                  <div data-juci="selectbox" data-mode="popup" id="ladeclaration"  data-label="Select Document Type<span class='star'>*</span>" 
+                     data-bind="optionsList: optionsforcustomerdeclaration, ref:optionselectedforcustomerdeclaration, optionsText:getDescription" 
+                     data-formatter="getDescription" required></div>
+                  <div id="popup5">
+                     <p class="dismiss" onclick="hidepop5()">X</p>
+                     <p class="cross">Please ensure that the images that you upload are properly visible.</p>
+                  </div>
+                  <div class="photo" id="declarationproof">
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('declarationproof',0)"><img src="images/Camera_Grey.png"></> Capture </button>
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('declarationproof',1)"><img src="images/Gallery_Grey.png"></> Gallery </button>
+                     <button class="b1 pic" data-juci="button" onclick="toggleAttachment('declarationproof',2)"><img src="images/Folder_grey.png"></> Browse </button>
+                  </div>
+                  <!--	<div data-juci="attachment" data-label="Customer Declaration" data-bind="ref: customerdeclaration" required 
+                     data-photo-options="width:1000,height:1000"></div> -->
+                  <div data-juci="xlist" id="decprooflist" data-bind="ref:$root.customerdeclaration" data-delete="" onDeleteClick="">
+                     <div data-juci="listitem" class="addresslist">
+                        <div class="row">
+                           <div class="cell bold">Image Thumnail</div>
+                           <img class="cell mgnlft" data-bind="attr:{src:img}"></>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Image Name</div>
+                           <div class="cell mgnlft"  data-bind="html:name" ></div>
+                        </div>
+                        <div class="row">
+                           <div class="cell bold">Catogory</div>
+                           <div class="cell mgnlft" data-bind="html:getDoctype(catogory())"></div>
+                        </div>
+                        <div class="row last">
+                           <div class="cell bold">Action</div>
+                           <div class="cell"> <img class="delete" src="images/Delete_Blue.png"></img></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="btn">
+                  <div class="prev" onclick="backToPayment()">Previous</div>
+                  <button class="save" data-juci="button" type="submit"  class="btntxt">Sync and proceed</button>
+               </div>
+            </div>
+         </div>
+         <div class="footerbar">
+            <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+            <span> | </span>
+            <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+            <span> | </span>
+            <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+         </div>
+      </div>
+   </body>
+</html>

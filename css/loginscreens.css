@@ -1,0 +1,172 @@
+body {
+	background-image: url("../imgages/banner-log-mob.jpg");
+	background-size: cover;
+}
+
+header.juci_panel_title {
+    display: none;
+}
+
+.login-form {
+    background: rgba(255,255,255,0.85);
+    width: 94%;
+    height: 490px;
+    top: 50%;
+    margin-left: 10px;
+}
+
+.login-logo {
+	text-align: center;
+}
+
+img.logo {
+	max-width: 100%;
+	margin-top: 30px;
+}
+
+p.log {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+div#userName {
+    border: none;
+    background: none;
+    width: 90%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+div#password {
+    border: none;
+    background: none;
+    width: 90%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.juci_linker.juci_pencil {
+    display: none;
+}
+
+input.juci_ctrl_box {
+    border-bottom: 1px solid #555;
+    font-size: 14px;
+}
+
+button#add-button {
+    background: #093;
+    border-color: #093;
+    font-size: 16px;
+    width: 100%;
+    min-height: 42px;
+}
+
+button.juci_button.site.fb {
+    background: none;
+    border-color: #4269ab;
+    color: #4269ab;
+    font-size: 14px;
+    border-radius: 3px;
+    width: 100px;
+    min-height: 35px;
+}
+
+button.juci_button.site.google {
+    background: none;
+    border-color: #e02f2f;
+    font-size: 14px;
+    color: #e02f2f;
+    border-radius: 3px;
+    width: 100px;
+    min-height: 35px;
+}
+
+p.or {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+div#social {
+    text-align: center;
+}
+
+p.new_Reg-link {
+    padding-top: 20px;
+    text-align: center;
+}
+
+a.register_Now_link {
+    color: #1190e0;
+    text-decoration: none;
+}
+
+
+.juci_check_box {
+	height: 19px;
+	width: 19px;
+	border: 1px solid #434343;
+    background-image:none;
+	margin-right: 5px;
+	margin-left: 2%;
+	display: inline-block;
+    vertical-align: middle;
+    float: left;
+    margin-top: 10px;
+}
+
+.juci_switch_label {
+	display: inline-block;
+    vertical-align: middle;
+    width: 75%;
+    line-height: 40px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.juci_basecontrol.juci_checkbox.juci_check {
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #9d9d9d;
+    font-weight: 400;
+    width: 58%;
+    margin-left: 4px;
+    display: inline-block;
+}
+
+.juci_checkbox.touch{
+	background:none;
+}
+
+.juci_ctrl_box.juci_switch_box {
+    margin-top: 0px;
+}
+
+p.forgot-pass {
+    width: 115px;
+    display: inline-block;
+    color: #1190e0;
+}
+
+.juci_switch_box {
+	width: 88%;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.icn {
+	vertical-align:middle;
+}
+
+/* Css for registartion page */
+.term {
+    padding: 20px;
+    padding-top: 0px;
+}
+
+span.blue {
+    color: #1190e0;
+}

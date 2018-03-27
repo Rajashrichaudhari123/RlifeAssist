@@ -1,0 +1,329 @@
+.juci_basecontrol {
+	margin:0;
+	padding: 0;
+	min-height: 0;
+	min-width: 0;
+}
+.wrapper{
+	/* width: 90%; */
+	/* margin: 0 auto; */
+	}
+.wrapper .juci_selectbox .juci_ctrl_label {
+    height: 0;
+}
+.wrapper .juci_display .juci_ctrl_box{
+	display: none;	
+}
+.heading .juci_label_text{
+	color: #37568E;
+	font-weight: 500;
+}
+.my_business_lable{
+	width:100%;	
+	border: none;
+}
+.wrapper .juci_selectbox{
+	min-height: 0;
+	width: 100%;
+	border: none;
+	vertical-align: middle;
+}
+.period_dropdown_container .juci_selectbox_popup,.ARDM_container .juci_selectbox_popup{
+	position: relative;
+    top: 16px;	
+}
+.wrapper .juci_xlist_item.juci_list_item.juci_parent {
+    background-color: #F2F2F2;
+    margin-top: 6px;
+    padding: 0;
+}
+.name_and_vale{
+	width: 40%;	
+	display: inline-block;
+}
+.listitem .customer_name{
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    font-weight: bold;
+    height: 20px;
+    vertical-align: middle;
+    padding-top: 2px;
+    border: none;
+    text-align: center;
+}
+.action, .target{
+    width: 74px;
+    display: inline-block;
+}
+.target_ligents_image,.achivement_ligents_image, .action_ligents_image{
+	display: inline-block;
+	background-image: url(../images/target.png);
+	height: 30px;
+    width: 30px;
+    background-size: cover;
+}
+.action_ligents_image{
+	background-image: url(../images/action.png);
+}
+.achivement_ligents_image{
+	background-image: url(../images/achivement.png)
+}
+.ligents_lable{
+	width: 40px;
+    border: none;
+    display: inline-block;
+    position: relative;
+    bottom: 13px;
+}
+.achivement_lable{
+	width: 66px;
+}
+.percentage_value{
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    height: 20px;
+    color: #888;
+    vertical-align: middle;
+    padding-top: 2px;	
+    border: none;
+    width: 29px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+.target_data{
+	display: inline-block;
+	width: 15%;
+	/* position: relative; */
+	/* top: 8px; */
+}
+
+.action_image,.target_image{
+	display: inline-block;
+	background-image: url(../images/target.png);
+	height: 30px;
+    width: 30px;
+    background-size: cover;
+}
+.achivement{
+	display: inline-block;	
+}
+.action_image{
+	background-image: url(../images/action.png);
+	vertical-align: bottom;
+}
+.target_value{
+    display: inline-block;
+    /* width: 36%; */
+    vertical-align: middle;
+    /* margin-bottom: 23px; */
+    border: none;
+    position: relative;
+    right: 7px;
+}
+.achivement_data,.yoy_growth,.target_data,.name_and_vale{
+	display: inline-block;
+	width: 20%;
+	max-width: 100px;
+	vertical-align: middle;
+	text-align: center;
+	/* position: relative; */
+	/* left: -5px; */
+}
+.achivement_image{
+	display: inline-block;
+	background-image: url(../images/achivement.png);
+	height: 30px;
+    width: 30px;
+    background-size: cover;
+    position: relative;
+    top: 8px;
+}
+.achivement_value{
+	display: inline-block;
+    width: 10%;
+    border: none;
+    position: relative;
+    bottom: 2px;
+}
+.yoy_growth{
+	display:inline-block;
+	width: 100px;
+	text-align: center;
+}
+ .yoy_growth_value {
+   	/* position: absolute; */
+   	/* bottom: 24px; */
+   	/* float: right; */
+   	}
+.yoy_growth_lable{
+    font-size: 11px;
+    color: #aaa;
+    border: none;
+    /* text-align: left; */
+    /* margin-left: 3px; */
+    }
+.yoy_growth_value{
+    /* border: none; */
+    /* text-align: center; */
+    /* width: 65px; */
+    display: inline-block;
+    vertical-align: middle;
+    /* margin-left: 10px; */
+    }
+.yoygrowth_image{
+	width: 65px;
+	float: right;
+	display: inline-block;
+	background-repeat: no-repeat;
+	/* background-image: url('../images/growthup.png'); */
+}
+.ARDM_container .juci_radiogroup,.ARDM_container .juci_radiogroup {
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+.period_dropdown_container .juci_option_label,.ARDM_container .juci_option_label{
+	padding: 9px 3px;	
+}
+.period_dropdown_container .juci_radiogroup .juci_option,.ARDM_container .juci_radiogroup .juci_option{
+	margin: 0;
+}
+.ARDM_container .juci_radiogroup .juci_option.touch,.period_dropdown_container .juci_radiogroup .juci_option.touch{
+	border-color: #ddd;
+}
+.ARDM_container .juci_parent.touch .juci_ctrl_box {
+    color: black;
+    background-color: transparent;
+}
+.ARDM_container .juci_selectbox.touch,.period_dropdown_container .juci_selectbox.touch{
+	background: transparent;
+	border-bottom: 1px solid #ddd;
+	border: none;
+}
+.juci_option.selected{
+	background-image: none;
+}
+.ligents_container{
+    width: 94%;
+    margin-left: 20px;
+    position: relative;
+    bottom: 18px;
+    text-align: right;
+    margin-top: 20px;
+}
+.ARDM_container{
+	margin-bottom: 13px;
+	display: inline-block;
+    margin-top: 7px;
+}
+.scorecard_list_container .juci_linker,.listitem .juci_linker{
+	display: none;
+}
+.customer_name{
+	border: none;
+    font-weight: bold;	
+    line-height: 25px;
+    margin-left: 5px;
+}
+.scorecard_list_container .juci_list {
+    margin: 0;
+    width: 100%;
+    position: relative;
+    bottom: 17px;
+}
+.wrapper .juci_ctrl_box.juci_selectbox_box{
+	font-size: 15px;
+    color: #aaa;	
+}
+.scorecard_list_container .juci_vertical_list .juci_xlist_pane{
+	padding-top: 0;
+}
+.achivement_data{
+	width: 20%;
+	max-width: 140px;
+	height: 55px;
+	/* vertical-align: middle; */
+	padding-top: 20px;
+}
+/*-------------date --------------*/
+.from_date_picker,.to_date_picker{
+	 width: 49%;
+    height: 30px;
+    display: inline-block;	
+}
+.from_date_picker .juci_ctrl_label,.to_date_picker .juci_ctrl_label{
+	display: none;	
+}
+.from_date_picker .juci_linker,.to_date_picker .juci_linker{
+	display: none;	
+}
+.to_date,.from_date{
+	border: none;
+    border-bottom: 1px solid #ddd;
+    height: 30px;
+}
+.to_date .juci_datepicker_box,.from_date .juci_datepicker_box{
+	font-size: 15px;	
+}
+.juci_datepicker.touch{
+background-color: white;
+border: none;
+ border-bottom: 1px solid #ddd;
+}
+ .time_period.juci_parent.touch .juci_linker,.ARDM.juci_parent.touch .juci_linker{
+ 	display: block;	
+ }
+ .juci_parent.touch .juci_ctrl_box{
+	color: black;	
+}
+.period_dropdown_container, .customer_name_container{
+margin-top: 4px;
+    margin-left: 3px;
+}
+
+.name_and_vale img {
+    width: 40px;
+    vertical-align: middle;
+}
+
+.name_and_vale span {
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    /* text-align: center; */
+    width: initial;
+}
+
+.name_and_vale {
+    max-width: 110px;
+    /* min-width: 130px; */
+}
+
+.scorecard_list .juci_xlist_item.juci_list_item.juci_parent {
+    /* min-width: 500px; */
+}
+
+.achivement_data {
+    /* max-width: 160px; */
+    /* min-width: 160px; */
+}
+
+.achivement_data span {
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    /* max-width: 60px; */
+    /* text-align: center; */
+    width: initial;
+    padding-top: 13px;
+}
+.yoygrowth_image_holder {
+    display: inline-block;
+    vertical-align: middle;
+    padding-bottom: -10px;
+}
+.scorecard_list_container {
+    overflow-x: auto;
+}

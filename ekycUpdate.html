@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/proposal.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/ekycUpdate.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/x2js library.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/messagedigest.js"></script>
+		<script src="scripts/fingerPrintscan.js"></script>
+		<script src="scripts/ekycUpdate.js"></script>
+		<script src="scripts/AadharIntegration.js"></script>
+		<script src="scripts/aadharUtils.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/aadharServiceCallback.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/header.js"></script>
+	</head>
+	<body  onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+		<!--div class="juci_thinbar_ekyc">EKYC Update</div!-->
+			<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        	</div>
+        	<div class="menu arrow_box" id="profilelist" style="display:none;">
+	            <ul class="items">
+	            	<li class="item_list" onclick="openSync()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync</span>
+	                </li>
+	                <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+	                	<li class="item_list" onclick="openSyncContacts()">
+		                    <img src="images/Sync.png"></img>
+		                    <span>Super Sync</span>
+		                </li>
+	                </div>
+	               <!--<li class="item_list" onclick="">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync</span>
+	                </li>   -->
+	                
+	                 <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+	           		</li>--> 
+	          
+	            
+	             <!--<li class="item_list" onclick="openCustomers()">
+	                <img src="images/male.png"></img>
+	                <span>New Lead</span>
+	            </li>  -->
+		      		<div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                 <li class="item_list" onclick="openProposal()">
+		                    <img src="images/New-Proposal.png"></img>
+		                    <span>New Proposal</span>
+		                </li>  
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openCustomers()">
+		                    <img src="images/Profile.png"></img>
+		                    <span>Profile</span>
+		                </li>
+		            </div>
+					<li class="item_list" onclick="openLogs()">
+		                <img src="images/logs.png"></img>
+		                <span>Logs</span>
+		            </li>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+						<li class="item_list" onclick="openDataRetrieve()">
+		                    <img src="images/database.png"></img>
+		                    <span>Data Retrieve</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+						<li class="item_list" onclick="openForceUpdate()">
+		                    <img src="images/app.png"></img>
+		                    <span>Force Update</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM' && gettype()!=='RRB' && gettype()!=='NCKYC'">
+		               <li class="item_list" onclick="openCustomers()">
+		                    <img src="images/female.png"></img>
+		                    <span>My Customers</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openAdvisors()">
+		                    <img src="images/Folder_grey.png"></img>
+		                    <span class="my_advisors">My Advisors</span>
+		                </li>
+		            </div>
+					<li class="item_list" onclick="openVersion()">
+		                <img src="images/Folder_grey.png"></img>
+		                <span class="my_advisors">Version</span>
+		            </li>
+		             <li class="item_list" onclick="openSelfieVideoRetrieval()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Selfie PIVC Retrieval</span>
+	        		</li>
+		             <!--<div data-bind="visible:gettype()!=='ADV'">
+		             <li class="item_list" onclick="openTeamLogin()">
+		                <img src="images/team.png"></img>
+		                <span>Team Login</span>
+		            </li>
+		            </div>-->
+		            <div data-bind="visible:gettype()!=='RRB'">
+		                <li class="item_list" onclick="openHelpDesk()">
+		                    <img src="images/Gallery_Grey.png"></img>
+		                    <span class="help">Help Desk</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openConfirmUpdate()">
+		                    <img src="images/Gallery_Grey.png"></img>
+		                    <span class="help">Confirm Update</span>
+		                </li>
+		            </div>
+		            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+		                <li class="item_list" onclick="openCalculator()">
+			                <img src="images/Gallery_Grey.png"></img>
+			                <span class="help">Calculator</span>
+		        		</li>
+		    		</div>
+		            <li class="item_list" onclick="doLogout()">
+		                <img src="images/power-blackgold.png"></img>
+		                <span class="log">Logout</span>
+		            </li>
+            	</ul>
+	         </div>
+	           <div id="dialog-userData" data-juci="dialog">
+	           	<div class="client_details" data-bind="with:aadharDetails">
+             	<div class="adhar_heading">Aadhar Details</div>
+             		<div class="client_img_container">
+             		<img  class="client_img" src="images/01.png"></img>
+             		</div>
+                   <div class="aadhar_detail">
+                      <div class="aadhar_info_name">Name</div>
+                      <div class="aadhar_data" data-bind="html:Name"></div>
+                   </div>
+                   <div class="aadhar_detail">
+                      <div class="aadhar_info_name">Date of Birth</div>
+                      <div class="aadhar_data" data-bind="html:dob"></div>
+                   </div>
+                   <div class="aadhar_detail">
+                      <div class="aadhar_info_name">Gender</div>
+                      <div class="aadhar_data" data-bind="html:gender"></div>
+                   </div>
+                  	<div class="aadhar_detail">
+                      <div class="aadhar_info_name">Address</div>
+                      <div class="aadhar_data" data-bind="html:address"></div>
+               	  	</div>
+                 </div>
+	           </div>
+	         <!-- OTP !-->
+	         <div id="dialog-otp" data-juci="dialog">
+	            <div class="heading_otp">
+	               <div class="dialogheader">Confirm OTP</div>
+	               <div class="exit" onclick="closebox()">X</div>
+	            </div>
+	            <div class="col-xs-12">
+	               <div class="form-group"> A One Time Password (OTP) has been sent to the mobile number associated with Aadhaar No.<span class="value" data-bind="html:$root.Aadharno()"></span> </div>
+	        </div>
+            <div data-juci="form" data-bind="ref:otp" onsubmit="sendOtp(event)" onreset="closebox()">
+               <div id="otpNo" data-juci="number" data-label="Enter OTP<span class='star'>*</span>" data-bind placeholder data-trigger></div>
+	               <button class="resndotp" data-juci="button" onclick="resendOtp()">Resend OTP</button>
+	               <div class="juci_horizontal_bbar">
+	                  <button data-juci="button" class="cancel" type="reset">Cancel</button>
+	                  <button data-juci="button" class="submitotp" onclick="sendOtp()">Submit</button>
+	               </div>
+            	</div>
+         	</div>
+	         <!-- EKYC Update !-->
+	         <div class="client_id" id="client-id" data-juci="tel" data-label="Enter Your Client ID / Policy No" data-bind="ref:$root.client_no" placeholder ></div>
+	         <div class="dob" data-juci="datepicker" data-picker="dob" data-label="Date of Birth" placeholder="dd/mm/yyyy" data-bind="ref:DOB" required data-formatter="dobValidation"></div>
+             <div class="validate">
+             	<button class="btn_auth" data-juci="button" data-bind="visible:$root.isValidated" onclick ="onValidate()">Validate</button>
+             </div>
+             <div class="client_details" data-bind="visible:isValidate,with:clientDetails">
+             	<div class="adhar_heading">Client Details</div>
+                   <div class="aadhar_detail">
+                      <div class="aadhar_info_name">Name</div>
+                      <div class="aadhar_data" data-bind="html:Name"></div>
+                   </div>
+                   <div class="aadhar_detail">
+                      <div class="aadhar_info_name">Date of Birth</div>
+                      <div class="aadhar_data" data-bind="html:dob"></div>
+                   </div>
+                   <div class="aadhar_detail">
+                      <div class="aadhar_info_name">Gender</div>
+                      <div class="aadhar_data" data-bind="html:gender"></div>
+                   </div>
+                   <div class="aadhar_detail">
+                      <div class="aadhar_info_name">Marital Status</div>
+                      <div class="aadhar_data" data-bind="html:maritalStatus"></div>
+                   </div>
+                   <div class="aadhar_detail">
+                      <div class="aadhar_info_name">Nationality</div>
+                      <div class="aadhar_data" data-bind="html:nationality"></div>
+                   </div>
+                   <div class="aadhar_detail">
+                      <div class="aadhar_info_name">Address</div>
+                      <div class="aadhar_data" data-bind="html:address"></div>
+                   </div>
+                 </div>
+             	<div class="aadhar_number" data-bind="visible:isAadhaarValidate">
+		             <div class="adhar" id="Aadhar" data-juci="tel" data-label="Enter your Aadhaar Number" data-bind="ref:Aadharno" maxlength="12" placeholder="Aadhaar Card Number" pattern="^[0-9]*$"></div>
+		             <div class="adhar" id="verify-Aadhar" data-juci="tel" data-label="Verify your Aadhaar Number" data-bind="ref:VerifyAadharno" maxlength="12" placeholder="Aadhaar Card Number" pattern="^[0-9]*$"></div>
+		             <div class="client_details" data-bind="visible:isAadhar,with:$root.aadharDetails">
+             			<div class="adhar_heading">Aadhar Details</div>
+         				<div class="client_img_container">
+         					<img  class="client_img" id="client_img" data-bind="attr:{src:aadharPhoto}"></img>
+         				</div>
+	                    <div class="aadhar_detail">
+	                      <div class="aadhar_info_name">Name</div>
+	                      <div class="aadhar_data" data-bind="html:Name"></div>
+	                   </div>
+	                    <div class="aadhar_detail">
+	                      <div class="aadhar_info_name">Date of Birth</div>
+	                      <div class="aadhar_data" data-bind="html:dob"></div>
+	                   </div>
+	                    <div class="aadhar_detail">
+	                      <div class="aadhar_info_name">Gender</div>
+	                      <div class="aadhar_data" data-bind="html:gender"></div>
+	                   </div>
+             	  	 </div>
+              	  	 <div class="aadhar_validation" data-bind="visible:isAadhar"  >
+	               	  	<div class="adhar_question">Is Customer name match with our policy details </div>
+	               	  	<div data-juci="checkbox" class="yes_checkbox" id="yes_checkbox" data-label = "Yes" onafterchange="showSubmitButtonYes(event)"></div>
+	               	  	<div data-juci="checkbox" class="no_checkbox" id="no_checkbox" data-label = "No" onafterchange="showSubmitButtonNo(event)"></div>
+	               	</div>
+		             <div class="juci_horizontal_bbar is_submit">
+				<!--		<button data-juci="button" id="get_OTP" class="validate_device" onClick="callotp()">Get OTP</button>-->
+						<button data-juci="button" id="Biometric"  class="validate_device" onClick="callBiometric()">Biometric</button>
+						<button id="submit" data-juci="button" class="validate_device" onClick="saveData()">Submit</button>
+						<button data-juci="button" class="validate_device" onClick="onClose()">Close</button>
+					</div>
+					<div class="juci_horizontal_bbar is_submit" >
+						
+					</div>
+	             </div>
+             </div>
+		</div>
+	</body>
+</html>

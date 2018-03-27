@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/jqueryui.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/select2.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/select2Custom.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/Application.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/common.css"></link>
+    <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+    <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/jqueryui.js"></script>
+    <script src="scripts/select2.js"></script>
+    <script src="scripts/version.js"></script>
+    <script src="scripts/header.js"></script>
+    <script src="scripts/dbHelper.js"></script>
+    <script src="scripts/messages.js"></script>
+    <script src="scripts/constants.js"></script>
+    <script src="scripts/Utils.js"></script>
+    <script src="scripts/pdcCustomerDetailsPojo.js"></script>
+    <script src="scripts/pdcExistingPoliciesDetailsPojo.js"></script>
+    <script src="scripts/pdcFamilyHistoryDetailsPojo.js"></script>
+    <script src="scripts/pdcImageDetailsPojo.js"></script>
+    <script src="scripts/pdcLifeStyleDetailsPojo.js"></script>
+    <script src="scripts/pdcPaymentDetailsPojo.js"></script>
+    <script src="scripts/pdcPlanDetailsPojo.js"></script>
+    <script src="scripts/rlifeservices.js"></script>
+    <script src="scripts/Application.js"></script>
+    <script src="scripts/dialoguebox.js"></script>
+    <script src="scripts/show.js"></script>
+    <script src="scripts/teamhierarchy.js"></script>
+    <script src="scripts/SHDataPojo.js"></script>
+    <script src="scripts/ShTpdPojo.js"></script>
+    <script src="scripts/hierarchy.js"></script>
+    <script src="scripts/hierarchyDatamanager.js"></script>
+    <script src="scripts/sticky.js"></script>
+</head>
+<body onclick="hideMenu()">
+    <div data-juci="panel" data-first-panel>
+        <div class="menu arrow_add_box" id="menulist" style="display: none;">
+            <ul class="items">
+                <li class="item" onclick="openLead()">
+                    <span>New Lead</span>
+                </li>
+                <li class="item" onclick="openProposal()">
+                    <span>New Proposal</span>
+                </li>
+            </ul>
+        </div>
+        <div id="dialog-box" data-juci="dialog">
+            <div class="heading">
+                <div class="dialogheader">Add Lead</div>
+            </div>
+            <div class="lead" data-juci="form" data-bind="ref:lead" onsubmit="addLead(event)" onreset="removeBox()">
+                <div class="name" data-juci="text" data-label="First Name<span class='star'>*</span>" data-bind="ref:fname"></div>
+                <div data-juci="text" data-label="Last Name<span class='star'>*</span>" data-bind="ref:lname" placeholder data-trigger></div>
+                <div data-juci="email" data-label="Email<span class='star'>*</span>" data-bind="ref:email" placeholder data-trigger></div>
+                <div data-juci="number" data-label="Phone No.<span class='star'>*</span>" data-bind="ref:number" placeholder data-trigger></div>
+                <div class="managerselect" data-juci="selectbox" data-mode="popup" data-label="Manager Type<span class='star'>*</span>" data-bind="optionsList:$root.manager,ref:managertype" placeholder>
+                    <!--<div data-juci="optiontemplate"></div>-->
+                </div>
+                <div class="juci_horizontal_bbar">
+                    <button data-juci="button" class="bton1" type="reset">Cancel</button>
+                    <button data-juci="button" class="bton2" type="submit">Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openWhatsapp()">
+                    <img src="images/Sync.png"></img>
+                    <span>Whats app demo</span>
+                </li>
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                    <img src="images/male.png"></img>
+                    <span>New Lead</span>
+                </li>  -->
+          
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+                
+                <li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li>
+				<li class="item_list" onclick="openLogs()">
+                    <img src="images/logs.png"></img>
+                    <span>Logs</span>
+                </li>
+                <li class="item_list" onclick="openDeviceCompatibility()">
+                  <img src="images/tablet.png"></img>
+                  <span>Device Compatibility check</span>
+               </li>
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                    <img src="images/female.png"></img>
+	                    <span>My Customers</span>
+	                </li>
+                </div>
+                <div>
+	               <li class="item_list" onclick="openVideoRetrieval()">
+	                    <img src="images/video.png"></img>
+	                    <span>Video Retrieval</span>
+	                </li>
+                </div>
+                <li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li>
+                <li class="item_list" onclick="testVideo()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Test Video</span>
+                </li>
+				<li class="item_list" onclick="openVersion()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">Version</span>
+                </li>
+                
+                 <!--<div data-bind="visible:gettype()!=='ADV'">
+                 <li class="item_list" onclick="openTeamLogin()">
+                    <img src="images/team.png"></img>
+                    <span>Team Login</span>
+                </li>
+                </div>-->
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+                <li class="item_list" onclick="openCalculator()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Calculator</span>
+        		</li>
+        		<li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+                <li class="item_list" onclick="doLogout()">
+                    <img src="images/power-blackgold.png"></img>
+                    <span class="log">Logout</span>
+                </li>
+            </ul>
+        </div>
+        <!--<div id="dialog-teamlogin" data-juci="dialog">
+            <div class="heading_team">
+                <div class="dialogheader">Login As</div>
+                <div class="refresh_area">
+                    <div class="refresh_img"> <img src="images/refresh.png"></img>
+                    </div>
+                    <span class="close" onclick="hidebox()">X</span>
+                </div>
+            </div>
+            <div class="content-body">
+                <div class="user_name_area">
+                    <div class="info">Currently logged in as</div>
+                    <div class="user" data-bind="html: $root.user().name()"></div>
+                    <div class="sync_time">Last Sync 13 Hours ago</div>
+                </div>
+                <div id="zm" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format" onafterchange="drillDown(event)">
+                </div>
+                <div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format" onafterchange="drillDown(event)">
+                </div>
+                <div id="am" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format" onafterchange="drillDown(event)">
+                </div>
+                <div id="bm" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format" onafterchange="drillDown(event)">
+                </div>
+                <div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format" onafterchange="drillDown(event)">
+                </div>
+                <div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm'),optionsList:$root.adlist,ref:name,optionsText:format" data-formatter="format" onafterchange="confirmTeamUser(event)">
+                </div>
+            </div>
+            <div class="juci_thinbar team">
+                <button class="login" data-juci="button" onclick="openProducts()">Login as</button>
+                <button class="loginas" data-juci="button" onclick="openProposal()">Login as Myself</button>
+            </div>
+        </div>-->
+        <div id="tgl" data-juci="togglebar" data-toggled="0" ontoggle="toggleView(event)">
+            <div class="scroll" data-bind="with:application">
+                <button class="btn" data-juci="button" data-toggle="1">
+                    <div class="application1"><span class="pending" data-bind="html:AllApplications"></span><span class="notifctn">ALL</span>
+                    </div>
+                </button>
+                <button class="btn1 draft" data-juci="button" data-toggle="2">
+                    <div class="application"><span id="draft_proposal" class="approved" data-bind="html:Proposal"></span><span class="notifctn">Draft Proposals</span>
+                    </div>
+                </button>
+                <button class="btn1" data-juci="button" data-toggle="3">
+                    <div class="application"><span class="rejected" data-bind="html:LoginApplicationsList"></span><span class="notifctn">Logins</span>
+                    </div>
+                </button>
+                <button class="btn1" data-juci="button" data-toggle="4">
+                    <div class="application"><span class="inprocess" data-bind="html:IssuedApplicationsList"></span><span class="notifctn">Issued</span>
+                    </div>
+                </button>
+                <button class="btn1 lsttogle" data-juci="button" data-toggle="5">
+                    <div class="application"><span class="all" data-bind="html:RejectedApplicationsList"></span><span class="notifctn">Rejected</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div id="sticky-anchor"></div>
+        <div id="filter_scroll" class="filter_scroll">
+            <div class="bar">
+                <button class="search" data-juci="button" onclick="searchby()">Search By</button>
+                <button class="search" data-juci="button" onclick="sort()">Sort By</button>
+                <button class="search nobrd" data-juci="button" onclick="filter()">Filters</button>
+            </div>
+            <div class="display" id="searchbox" style="display: none;">
+                <div class="select_box sortoption">
+                    <select id="getSelectedoption" class="custome_selectbox" data-bind="options: options1" onChange="getSelectedoption(event)"></select>
+                </div>
+                <div class="select_box sortoption">
+                	<div data-juci="text" id="search-text" class="custome_text" data-label="" placeholder="Search" data-bind="event:{'keyup':showApplications}" data-trigger="keydown"></div>
+                </div>                
+            </div>
+            <div class="display" id="sort" style="display: none;">
+                <div class="select_box sortoption">
+                    <select id="filterList-sort" class="custome_selectbox" data-bind="options: options2" onChange="getSelectedoption(event)"></select>
+                </div>
+                <div class="select_box sortoption">
+                    <select id="getsortedList" class="custome_selectbox" data-bind="options: options3" onChange="getsortedList(event)"></select>
+                </div>
+                </div>
+                <div class="display" id="filter" style="display: none;">
+				<select  id="filterlist" class="fltroption"    data-bind="options:options4" onChange = "getFilteroption(event)"> </select>
+				<div id="dateranger" class="date_range" data-juci="daterange" data-label="" data-bind="ref:dateranged"  data-from-placeholder="To" data-to-placeholder="From" onafterchange= "getDateRange(event)" style="display: none;"></div>	
+			</div>
+            </div>
+        
+        
+        <!-- All View -->
+        <div id="allAppView">
+            <div id="pending" data-juci="xlist" data-bind="ref: allapplications">
+                <div data-juci="listitem" data-bind="attr:{id:'showlist'+$index()}" onclick="showlistitem(event)">
+                    <div class="pendingbox" data-bind="attr:{id: 'menuBox' + $index()}" style="display: none;">
+                        <div class="restart">
+                            <img src="images/loop.png"></img>
+                            <div class="elements" onclick="restart(event)">Restart</div>
+                        </div>
+                        <div class="delete">
+                            <img src="images/delete.png"></img>
+                            <div class="elements">Delete</div>
+                        </div>
+                        <div class="email">
+                            <img src="images/email.png"></img>
+                            <div class="elements">Email</div>
+                        </div>
+                        <div class="call">
+                            <img src="images/phone.png"></img>
+                            <div class="elements">Call</div>
+                        </div>
+                        <div class="sms">
+                            <img src="images/bubbles2.png"></img>
+                            <div class="elements">SMS</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell bold" data-bind="html:ClientName"></div>
+                        <div class="sidemenu" data-bind="attr:{ 'id':$index()}"><img class="vertical" src="images/dots-three-vertical.png">
+                            </>
+                        </div>
+                        <div class="nxtcell" data-bind="html:ClientID"></div>
+                        <div class="nxtcell" data-bind="html:ProductName"></div>
+                        <div class="nxtcell lstcell" data-bind="html:Status,css:{green:Status()==='Issued',red:Status()==='Rejected',blue:Status()==='Issuance Pending'}"></div>
+                    </div>
+                    <div class="show" id="more" data-bind="attr:{ 'id':$index()}">
+                        <div class="showing" data-bind="attr:{id: 'SM' +$index()}">Show more</div>
+                    </div>
+                    <div class="less" data-bind="attr:{id: 'less' + $index()}" style="display:none;">
+                        <div class="head">
+                            <div class="titles">Product Type</div>
+                            <div class="data" data-bind="html:ProductType"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Application No.</div>
+                            <div class="data" data-bind="html:ApplicationNumber"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Amount</div>
+                            <div class="data" data-bind="html:getSymbol(Premium())"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Type</div>
+                            <div class="data" data-bind="html:PremiumType"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Policy Term</div>
+                            <div class="data" data-bind="html:PolicyTerm"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Paying Term</div>
+                            <div class="data" data-bind="html:PremiumPayingTerm"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Login Date</div>
+                            <div class="data" data-bind="html:LoginDate"></div>
+                        </div>
+                        <div class="head" data-bind="visible:Status() == 'Proposal Incomplete'">
+                            <div class="resum">
+                                <button class="resume resumeProposal" data-juci="button"><img src="images/1.png">Resume</button>
+                            </div>
+                        </div>
+                        <div class="head" data-bind="visible:Status() == 'Issued' || Status() == 'Issuance Pending' || Status() == 'Rejected'">
+                            <div class="resum trace_proposal">
+                                <button class="resume" data-juci="button"><img class="track" src="images/track-proposal.png"> Track Proposal</></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Draft View -->
+        <div class="adisplay" id="draftView">
+            <div data-juci="xlist" id="draftedApplications" data-bind="ref: draftappliacations" onListItemclick="showlistitemfordraft(event)">
+                <div data-juci="listitem">
+                    <div class="row">
+                        <div class="pendingbox" data-bind="attr:{id: 'menuBoxD' + $index()}" style="display: none;">
+                            <div class="restart">
+                                <img src="images/loop.png"></img>
+                                <div class="elements">Restart</div>
+                            </div>
+                            <div class="delete">
+                                <img src="images/delete.png"></img>
+                                <div class="elements">Delete</div>
+                            </div>
+                            <div class="email">
+                                <img src="images/email.png"></img>
+                                <div class="elements">Email</div>
+                            </div>
+                            <div class="call">
+                                <img src="images/phone.png"></img>
+                                <div class="elements">Call</div>
+                            </div>
+                            <div class="sms">
+                                <img src="images/bubbles2.png"></img>
+                                <div class="elements">SMS</div>
+                            </div>
+                        </div>
+                        <div class="cell bold" data-bind="html:LA_Name"></div>
+                        <div class="sidemenu" data-bind="attr:{ 'id':$index()}"><img class="vertical" src="images/dots-three-vertical.png">
+                            </>
+                        </div>
+                        <div class="nxtcell" data-bind="html:Application_Number"></div>
+                         <div class="nxtcell" data-bind="html:planName"></div>
+                        <div class="draft nxtcell" data-bind="html:changeStatus(dataflag())"></div>
+                        <div class="show" id="more" data-bind="attr:{ 'id':$index()}">
+                            <div class="showing" data-bind="attr:{id: 'SMD' + $index()}">Show more</div>
+                        </div>
+                        <div class="less" data-bind="attr:{id:'lessD'+ $index()}" style="display:none;">
+                            <div class="head">
+                                <div class="titles">Product Type</div>
+                                <div class="data" data-bind="html:'-'"></div>
+                            </div>
+                            <div class="head">
+                                <div class="titles">Application No.</div>
+                                <div class="data" data-bind="html:Application_Number"></div>
+                            </div>
+                            <div class="head">
+                                <div class="titles">Premium Amount</div>
+                                <div class="data" data-bind="html: InstallmentPremium_ST"></div>
+                            </div>
+                            <div class="head">
+                                <div class="titles">Premium Type</div>
+                                <div class="data" data-bind="html:Premium_Frequency"></div>
+                            </div>
+                            <div class="head">
+                                <div class="titles">Policy Term</div>
+                                <div class="data" data-bind="html:PolicyTerm"></div>
+                            </div>
+                            <div class="head">
+                                <div class="titles">Premium Paying Term</div>
+                                <div class="data" data-bind="html:PremiumPayingTerm"></div>
+                            </div>
+                            <div class="head">
+                                <div class="titles">Draft Date</div>
+                                <div class="data" data-bind="html:Application_Dt"></div>
+                            </div>
+                            <div class="head">
+                                <div class="resum" data-bind="visible:(issync() == '0' && iscompleted() == '0') || dataflag() == 'D'">
+                                    <button class="resume resumeProposal" data-juci="button"><img src="images/1.png"> Resume</></button>
+                                </div>
+                                <div class="synced" data-bind="visible:issync() == '1' && DOCS_UPLOADED() == 'Y'">Synced</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Logins View -->
+        <div class="rdisplay" id="loginView">
+            <div data-juci="xlist" data-bind="ref: loginsapplications">
+                <div data-juci="listitem" onclick="showlistitemforlogin(event)">
+                    <div class="row">
+                        <div class="pendingbox nodel" data-bind="attr:{id: 'menuBoxL' + $index()}" style="display: none;">
+                            <div class="email">
+                                <img src="images/email.png"></img>
+                                <div class="elements">Email</div>
+                            </div>
+                            <div class="call">
+                                <img src="images/phone.png"></img>
+                                <div class="elements">Call</div>
+                            </div>
+                            <div class="sms">
+                                <img src="images/bubbles2.png"></img>
+                                <div class="elements">SMS</div>
+                            </div>
+                        </div>
+                        <div class="cell bold" data-bind="html:ClientName"></div>
+                        <div class="sidemenu" data-bind="attr:{ 'id':$index()}"><img class="vertical" src="images/dots-three-vertical.png">
+                            </>
+                        </div>
+                        <div class="nxtcell" data-bind="html:ClientID"></div>
+                        <div class="nxtcell" data-bind="html:ProductName"></div>
+                        <div class="rstatus" data-bind="html:Status,css:{green:Status()==='Issued',red:Status()==='Rejected',blue:Status()==='Issuance Pending'}"></div>
+                    </div>
+                    <div class="show" id="more" data-bind="attr:{ 'id':$index()}">
+                        <div class="showing" data-bind="attr:{id: 'SML' +$index()}">Show more</div>
+                    </div>
+                    <div class="less" data-bind="attr:{id: 'lessL' + $index()}" style="display:none;">
+                        <div class="head">
+                            <div class="titles">Product Type</div>
+                            <div class="data" data-bind="html:ProductType"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Application No.</div>
+                            <div class="data" data-bind="html:ApplicationNumber"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Amount</div>
+                            <div class="data" data-bind="html:getSymbol(Premium())"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Type</div>
+                            <div class="data" data-bind="html:PremiumType"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Policy Term</div>
+                            <div class="data" data-bind="html:getYears(PolicyTerm())"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Paying Term</div>
+                            <div class="data" data-bind="html:getYears(PremiumPayingTerm())"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Login Date</div>
+                            <div class="data" data-bind="html:LoginDate"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Issurance Pending Since</div>
+                            <div class="data" data-bind="html:IssuancePendingSince"></div>
+                        </div>
+                        <div class="head">
+                            <div class="resum trace_proposal">
+                                <button class="resume" data-juci="button"><img class="track" src="images/track-proposal.png"> Track Proposal</></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Issued View -->
+        <div class="ipdisplay" id="issuedView">
+            <div id="issuedapplications" data-juci="xlist" data-bind="ref: issuedapplications">
+                <div data-juci="listitem" onclick="showlistitemforissued(event)">
+                    <div class="row">
+                        <div class="pendingbox nodel" data-bind="attr:{id: 'menuBox4' + $index()}" style="display: none;">
+                            <div class="email">
+                                <img src="images/email.png"></img>
+                                <div class="elements">Email</div>
+                            </div>
+                            <div class="call">
+                                <img src="images/phone.png"></img>
+                                <div class="elements">Call</div>
+                            </div>
+                            <div class="sms">
+                                <img src="images/bubbles2.png"></img>
+                                <div class="elements">SMS</div>
+                            </div>
+                        </div>
+                        <div class="cell bold" data-bind="html:ClientName"></div>
+                        <div class="sidemenu" data-bind="attr:{ 'id':$index()}"><img class="vertical" src="images/dots-three-vertical.png">
+                            </>
+                        </div>
+                        <div class="nxtcell" data-bind="html:ClientID"></div>
+                        <div class="nxtcell" data-bind="html:ProductName"></div>
+                        <div class="ipstatus" data-bind="html:Status,css:{green:Status()==='Issued',red:Status()==='Rejected',blue:Status()==='Issuance Pending'}"></div>
+                    </div>
+                    <div class="show" id="more" data-bind="attr:{ 'id':$index()}">
+                        <div class="showing" data-bind="attr:{id: 'SMI' +$index()}">Show more</div>
+                    </div>
+                    <div class="less" data-bind="attr:{id: 'lessI' + $index()}" style="display:none;">
+                        <div class="head">
+                            <div class="titles">Product Type</div>
+                            <div class="data" data-bind="html:ProductType"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Application No.</div>
+                            <div class="data" data-bind="html:ApplicationNumber"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Amount</div>
+                            <div class="data" data-bind="html:getSymbol(Premium())"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Type</div>
+                            <div class="data" data-bind="html:PremiumType"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Policy Term</div>
+                            <div class="data" data-bind="html:PolicyTerm"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Paying Term</div>
+                            <div class="data" data-bind="html:PremiumPayingTerm"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Login Date</div>
+                            <div class="data" data-bind="html:LoginDate"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Issuance Date</div>
+                            <div class="data" data-bind="html:IssueDate"></div>
+                        </div>
+                        <div class="head">
+                            <div class="resum trace_proposal">
+                                <button class="resume" data-juci="button"><img class="track" src="images/track-proposal.png"> Track Proposal</></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Rejected View -->
+        <div class="aldisplay" id="rejectedView">
+            <div data-juci="xlist" data-bind="ref: rejectedapplications">
+                <div data-juci="listitem" onclick="showlistitemforrejected(event)">
+                    <div class="row">
+                        <div class="pendingbox nodel" data-bind="attr:{id: 'menuBox5' + $index()}" style="display: none;">
+                            <div class="email">
+                                <img src="images/email.png"></img>
+                                <div class="elements">Email</div>
+                            </div>
+                            <div class="call">
+                                <img src="images/phone.png"></img>
+                                <div class="elements">Call</div>
+                            </div>
+                            <div class="sms">
+                                <img src="images/bubbles2.png"></img>
+                                <div class="elements">SMS</div>
+                            </div>
+                        </div>
+                        <div class="cell bold" data-bind="html:ClientName"></div>
+                        <div class="sidemenu" data-bind="attr:{ 'id':$index()}"><img class="vertical" src="images/dots-three-vertical.png">
+                            </>
+                        </div>
+                        <div class="nxtcell" data-bind="html:ClientID"></div>
+                        <div class="nxtcell" data-bind="html:ProductName"></div>
+                        <div class="pstatus" data-bind="html:Status,css:{green:Status()==='Issued',red:Status()==='Rejected',blue:Status()==='Issuance Pending'}"></div>
+                    </div>
+                    <div class="show" id="more" data-bind="attr:{ 'id':$index()}">
+                        <div class="showing" data-bind="attr:{id: 'SMR' +$index()}">Show more</div>
+                    </div>
+                    <div class="less" data-bind="attr:{id: 'lessR' + $index()}" style="display:none;">
+                        <div class="head">
+                            <div class="titles">Product Type</div>
+                            <div class="data" data-bind="html:ProductType"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Application No.</div>
+                            <div class="data" data-bind="html:ApplicationNumber"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Amount</div>
+                            <div class="data" data-bind="html:getSymbol(Premium())"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Premium Amount Ref..</div>
+                            <div class="data" data-bind="html:RefundAmount"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Login Date</div>
+                            <div class="data" data-bind="html:LoginDate"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Refund Date</div>
+                            <div class="data" data-bind="html:RefundDate"></div>
+                        </div>
+                        <div class="head">
+                            <div class="titles">Reason</div>
+                            <div class="data" data-bind="html:RejectReason"></div>
+                        </div>
+                        <div class="head">
+                            <div class="resum trace_proposal">
+                                <button class="resume" data-juci="button"><img class="track" src="images/track-proposal.png"> Track Proposal</></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footerbar">
+            <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div>
+            <span> | </span>
+            <div class="terms" onclick="openTerms()">Terms and Conditions</div>
+            <span> | </span>
+            <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+        </div>
+    </div>
+</body>
+</html>

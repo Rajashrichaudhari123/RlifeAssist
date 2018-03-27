@@ -1,0 +1,308 @@
+body {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+header.juci_panel_title {
+  display: none;
+}
+
+form#loginform {
+  overflow: hidden;
+}
+
+.login-logo {
+  text-align: center;
+  overflow: hidden;
+}
+
+img.logo {
+  max-width: 100%;
+  margin-top: 30px;
+}
+
+p.log {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+div#userName {
+  border: none;
+  background: none;
+  width: 90%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  overflow: hidden;
+}
+
+div#password {
+  border: none;
+  background: none;
+  width: 90%;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  overflow: hidden;
+}
+
+.juci_linker.juci_pencil {
+  display: none;
+}
+
+input.juci_ctrl_box {
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 14px;
+  padding: 0;
+}
+
+button#add-button {
+  background: #093;
+  border-color: #093;
+  font-size: 16px;
+  width: 100%;
+  min-height: 38px;
+  border-radius: 3px;
+}
+
+button#change-button {
+  background: #093;
+  border-color: #093;
+  font-size: 16px;
+  width: 100%;
+  min-height: 38px;
+  border-radius: 3px;
+  margin-top: -4px;
+}
+
+.juci_switch_box {
+  padding: 0px 0px;
+}
+
+button.juci_button.site.fb {
+  background: none;
+  border-color: #8aace6;
+  color: #4269ab;
+  font-size: 15px;
+  border-radius: 3px;
+  width: 40%;
+  min-height: 45px;
+  display: inline-block;
+  line-height: 25px;
+  float: left;
+  margin-left: 5%;
+}
+
+button.juci_button.site.google {
+  background: none;
+  border-color: #f38080;
+  font-size: 15px;
+  color: #e02f2f;
+  border-radius: 3px;
+  width: 40%;
+  min-height: 45px;
+  margin-left: 0px;
+  line-height: 25px;
+}
+
+p.or {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+div#social {
+  text-align: center;
+  margin: auto;
+  max-width: 548px;
+  overflow: hidden;
+  width: 100%;
+}
+
+p.new_Reg-link {
+  text-align: center;
+}
+
+a.register_Now_link {
+  color: #1190e0;
+  text-decoration: none;
+}
+
+.juci_check_box {
+  height: 15px;
+  width: 15px;
+  border: 1px solid #434343;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+  margin-top: 13px;
+}
+
+.juci_switch_label {
+  display: inline-block;
+  width: 75%;
+  line-height: 48px;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.juci_basecontrol.juci_checkbox.juci_check {
+  border: none;
+  color: #9d9d9d;
+  font-weight: 400;
+  width: 59%;
+  display: table-cell;
+  text-align: left;
+  overflow: hidden;
+}
+
+.juci_checkbox.touch {
+  background: none;
+}
+
+.juci_ctrl_box.juci_switch_box {
+  margin-top: 0px;
+}
+
+p.change-pass {
+  color: #1190e0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.icn {
+  vertical-align: middle;
+}
+
+.juci_vertical_bbar {
+  min-height: 45px;
+  width: 90%;
+  margin: 10px auto;
+  max-width: 400px;
+  text-align: center;
+    /* color: black; */
+  overflow: hidden;
+}
+
+/* Css for registartion page */
+.term {
+  padding-top: 0px;
+}
+
+span.blue {
+  color: #1190e0;
+}
+
+.juci_panel.panel_shown {
+  top: 0px;
+  height: 100%;
+}
+
+.login-form {
+  width: 90%;
+  max-width: 400px;
+  background: rgba(255,255,255,0.85);
+  margin: auto;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+html {
+  height: 100%;
+  background: url("../../img/banner-log-mob.jpg") no-repeat top center fixed;
+  background-repeat: no-repeat;
+}
+
+.first_panel {
+  height: 100%;
+  overflow: hidden;
+}
+
+.forgot-pass {
+  display: table-cell;
+  color: #1190e0;
+  width: 40%;
+  font-size: 12px;
+  text-align: right;
+}
+
+.clearfix.frgt-logdesc {
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.or {
+  text-align: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.log {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 17px;
+  overflow: hidden;
+}
+
+.new_Reg-link {
+  width: 91%;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 5%;
+  margin-left: 6%;
+  color: black;
+}
+
+.need_account {
+  display: inline-block;
+  width: 44%;
+  margin: auto;
+}
+
+.register_Now_link {
+  color: #1190e0;
+  display: inline-block;
+  width: 38%;
+  padding-right: 9%;
+/* text-align: center; */;
+}
+
+@media only screen and (min-width: 700px) {
+  .login-form {
+    width: 40%;
+    float: right;
+  }
+
+  html {
+    background: url("../../img/banner-log-mob.jpg") no-repeat top left -200px fixed;
+  }
+}
+
+@media only screen and (min-width: 319px) and (max-height:600px) {
+}
+
+@media only screen and (max-width: 480px) and (min-height:601px) {
+}
+
+@media only screen and (max-width: 400px) and (min-height:800px) {
+}
+
+@media only screen and (max-width: 481px) and (min-height:800px) {
+}
+
+@media only screen and (min-width: 481px) and (max-height:800px) {
+}
+
+@media only screen and (min-width: 599px) and (max-height:801px) {
+}
+
+.juci_panel {
+  height: 100%;
+}
+
+.juci_panel {
+  top: 0px;
+}

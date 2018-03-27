@@ -1,0 +1,164 @@
+.dialogheader{
+    padding: 18px 10px;
+    display:inline-block;
+    font-size: 15px;
+}
+.heading_team{
+    overflow: hidden;
+    width: 100%;
+    height: 52px;
+    text-align: left;
+    vertical-align: middle;
+    background: #0B4DA1;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12) !important;
+}
+.juci_dialog_container{
+	
+	background: rgba(0, 0, 0, 0.79);
+}
+
+.juci_thinbar.team {
+    background: #f1f1f1;
+    text-align: right;
+    padding-top: 14px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    /* position: fixed;*/
+    height: 62px;
+    margin-top: 97px;
+    /* padding-top: 0px; */
+}
+
+.juci_dialog {
+	padding: 0px;
+	border-color: #0B4DA1;
+	/* position: absolute; */
+	left: 3%;
+	top: 65px;
+	right: 4%;
+	width: 93%;
+	/* margin: auto; */
+	/* height: 456px; */
+}
+.close {
+	display: inline-block;
+	float: right;
+	margin-right: 8px;
+	position: absolute;
+	top: 22px;
+	right: 6px;
+}
+
+.content-body{
+	height: 320px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.refresh_img {
+    position: absolute;
+    right: 32px;
+    top: 16px;
+}
+
+.refresh_img img {
+    height: 24px;
+}
+
+ .juci_selectbox.Team_select_box{
+	  background: none;
+	  border-width: 0;
+	  height: 57px;
+	  color: #343434;
+	  width: 95%;
+	  border-bottom: 1px solid  #cecece;
+	  margin: auto;
+	  overflow: hidden;
+	  margin-top: 13px;
+	}
+	
+ .juci_selectbox.Team_select_box  .juci_linker {
+    background-image: url("../images/arrow_dropdown.png");
+    height: 34px;
+  
+}
+
+label.juci_label_text {
+    font-size: 12px;
+}
+
+.user {
+    padding-top: 15px;
+    padding-left: 4%;
+    margin: auto;
+    display: inline-block;
+    padding-bottom: 6px;
+    font-size: 14px;
+    font-weight: normal;
+    font-weight: bold;
+    width: 44%;
+}
+
+.user_name_area {
+    overflow: hidden;
+    display: block;
+}
+
+button.juci_button.login {
+    height: 32px;
+    width: 109px;
+    float: right;
+    font-size: 11px;
+    background: #0b4da1;
+    border: #0b4da1;
+    border-radius: 3px;
+    text-overflow: ellipsis;
+    min-height: 30px;
+}
+
+button.juci_button.loginas {
+    height: 32px;
+    width: 109px;
+    float: right;
+    font-size: 11px;
+    background: #8d9094;
+    border: #0b4da1;
+    border-radius: 3px;
+    text-overflow: ellipsis;
+    min-height: 30px;
+    margin-right: 7px;
+}
+
+
+.info {
+    margin: auto;
+    display: inline-block;
+    background: #FFF;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #9D9D9D;
+}
+
+.sync_time {
+    float: right;
+    font-size: 85%;
+    padding-top: 17px;
+    padding-left: 0%;
+    margin: auto;
+    display: inline-block;
+    padding-bottom: 6px;
+}
+
+@media only screen and (min-width: 550px) and (max-height:500px) {
+ .content-body {
+    overflow: scroll;
+    height: 175px;
+    overflow-x: hidden;
+}
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/profileold.css"></link>
+		<!-- Add your stylesheets here -->
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div data-juci="form" data-bind="ref: profile"><div class="firstp"><div class="main"><div class="newcircle"  id="photo" data-photo-options="width: 175, height: 175" data-bind="ref:profilePicture"
+							data-juci="photo" disabled></div><div class="name" data-bind="html:fname"></div><div class="role" data-bind="html:role"></div></div><div class="info"><div class="info_title" data-bind="html:'ID : '+ID()"></div><div class="info_title" data-bind="html:'DOJ : '+DOJ()"></div><div class="info_title" data-bind="html:'DOB : '+DOB()"></div><button class="send" data-juci="button">Send Message</button></div><div class="per-info"><div class="info_title" data-bind="html:'Mobile : '+MOBILE()"></div><div class="info_title" data-bind="html:'Email : '+EMAIL()"></div></div></div><div class="secondp"><div class="mini"><div class="heading">Reporting To</div><div class="data" data-bind="html:report"></div></div><div class="mini"><div class="heading">Team Members</div><div class="data" data-bind="html:member"></div></div></div></div><div class="thirdp"><div  data-juci="selectbox" data-bind="optionsList:$root.date,ref:Date"></div><div data-juci="selectbox" data-bind="optionsList:$root.fdate"></div><div class="policydetails" data-juci="form" data-bind="ref:policyDetails"><div class="top"><p class="p1">Policies Sold</p><div class="val" data-bind="html:policynum"></div></div><div class="top"><p class="p1">Policies Sold</p><div class="val" data-bind="html:policynum2"></div></div><div class="top"><p class="p1 p2">First Premium Collected</p><div class="val" data-bind="html:fpremium"></div></div><div class="top"><p class="p1 p2">First Premium Collected</p><div class="val" data-bind="html:fpremium2"></div></div><div class="top"><p class="p1 p3">Persistancy Ratio</p><div class="val" data-bind="html:ratio"></div></div><div class="top"><p class="p1 p3">Persistancy Ratio</p><div class="val" data-bind="html:ratio2"></div></div><div class="top"><p class="p1 p4">Renewal Premium Collected</p><div class="val" data-bind="html:renpremium"></div></div><div class="top"><p class="p1 p4">Renewal Premium Collected</p><div class="val" data-bind="html:renpremium2"></div></div></div><div class="graph"><img class="adgraph" src="images/advisor-graph.jpg"></></div></div>
+		</div>
+	</body>
+</html>

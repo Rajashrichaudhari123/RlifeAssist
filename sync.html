@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+      <link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/common.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/progressbars.css"></link>
+      <link rel="stylesheet" type="text/css" href="css/sync.css"></link>
+      <script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+      <script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+      <script src="scripts/messages.js"></script>
+      <script src="scripts/constants.js"></script>
+      <script src="scripts/dbHelper.js"></script>
+      <script src="scripts/network.js"></script>
+      <script src="scripts/Utils.js"></script>
+      <script src="scripts/rlifeservices.js"></script>
+      <script src="scripts/pdcCustomerDetailsPojo.js"></script>
+      <script src="scripts/pdcVideoDetailsPojo.js"></script>
+      <script src="scripts/pdcFamilyHistoryDetailsPojo.js"></script>
+      <script src="scripts/pdcExistingPoliciesDetailsPojo.js"></script>
+      <script src="scripts/pdcLifeStyleDetailsPojo.js"></script>
+      <script src="scripts/pdcPaymentDetailsPojo.js"></script>
+      <script src="scripts/pdcPlanDetailsPojo.js"></script>
+      <script src="scripts/pdcImageDetailsPojo.js"></script>
+      <script src="scripts/pdcCfrDeatilsPojo.js"></script>
+      <script src="scripts/cfrNotificationspojo.js"></script>
+      <script src="scripts/superTrackAlertsPojo.js"></script>
+      <script src="scripts/pendingCfrPojo.js"></script>
+      <script src="scripts/pendingCfrDetailspojo.js"></script>
+      <script src="scripts/pendingCfrNotificationsPojo.js"></script>
+      <script src="scripts/CalendarEventsDataPojo.js"></script>
+      <script src="scripts/saveCandidateDetails.js"></script>
+      <script src="scripts/pendingApplicationNotificationsPojo.js"></script>
+      <script src="scripts/CalendarEventsDataPojo.js"></script>
+      <script src="scripts/medicalCfrPojo.js"></script>
+      <script src="scripts/cfrApplicationNotificationsPojo.js"></script>
+      <script src="scripts/expertToCallPojo.js"></script>
+      <script src="scripts/dailyAttendancePojo.js"></script>
+      <script src="scripts/inputPojo.js"></script>
+      <script src="scripts/runnerActivityPojo.js"></script>
+      <script src="scripts/saveLeadPojo.js"></script>
+      <script src="scripts/saveRunnerActivityPojo.js"></script>
+      <script src="scripts/saveActivityPlanningPojo.js"></script>
+      <script src="scripts/saveActivityResultPojo.js"></script>
+      <script src="scripts/aadharPojo.js"></script>
+      <script src="scripts/saveLPCDetailsPojo.js"></script>
+      <script src="scripts/cfrAlertNotificationsPojo.js"></script>
+      <script src="scripts/bmExceptionReportPojo.js"></script>
+      <script src="scripts/saveBMExceptionReportPojo.js"></script>
+      <script src="scripts/getViewDetailsPojo.js"></script>
+      <script src="scripts/sync.js"></script>
+      <script src="scripts/teamhierarchy.js"></script>
+      <script src="scripts/SHDataPojo.js"></script>
+      <script src="scripts/shTpdPojo.js"></script>
+      <script src="scripts/hierarchy.js"></script>
+      <script src="scripts/hierarchyDatamanager.js"></script>
+      <script src="scripts/header.js"></script>
+      <script src="scripts/version.js"></script>
+      <script src="scripts/versioncheck.js"></script>
+      <script src="scripts/newDBColumns.js"></script>
+   </head>
+   <body onclick="hideMenu()">
+      <div data-juci="panel" data-first-panel>
+      <div class="menu arrow_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+         <div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+                <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+                	<li class="item_list" onclick="openSyncContacts()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Super Sync</span>
+	                </li>
+                </div>
+               <!--<li class="item_list" onclick="">
+                    <img src="images/Sync.png"></img>
+                    <span>Sync</span>
+                </li>   -->
+                
+                 <!--<li class="item_list" onclick="openCustomers()">
+                  <img src="images/male.png"></img>
+                  <span>New Lead</span>
+           		</li>--> 
+          
+            
+             <!--<li class="item_list" onclick="openCustomers()">
+                <img src="images/male.png"></img>
+                <span>New Lead</span>
+            </li>  -->
+      		<div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+                 <li class="item_list" onclick="openProposal()">
+                    <img src="images/New-Proposal.png"></img>
+                    <span>New Proposal</span>
+                </li>  
+            </div>
+            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+                <li class="item_list" onclick="openCustomers()">
+                    <img src="images/Profile.png"></img>
+                    <span>Profile</span>
+                </li>
+            </div>
+			<li class="item_list" onclick="openLogs()">
+                <img src="images/logs.png"></img>
+                <span>Logs</span>
+            </li>
+            <li class="item_list" onclick="openDeviceCompatibility()">
+              <img src="images/tablet.png"></img>
+              <span>Device Compatibility check</span>
+           </li>
+            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+				<li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+            </div>
+            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+            </div>
+            <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM' && gettype()!=='RRB' && gettype()!=='NCKYC'">
+               <li class="item_list" onclick="openCustomers()">
+                    <img src="images/female.png"></img>
+                    <span>My Customers</span>
+                </li>
+            </div>
+            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+                <li class="item_list" onclick="openAdvisors()">
+                    <img src="images/Folder_grey.png"></img>
+                    <span class="my_advisors">My Advisors</span>
+                </li>
+            </div>
+			<li class="item_list" onclick="openVersion()">
+                <img src="images/Folder_grey.png"></img>
+                <span class="my_advisors">Version</span>
+            </li>
+            <li class="item_list" onclick="openSelfieVideoRetrieval()">
+                <img src="images/Gallery_Grey.png"></img>
+                <span class="help">Selfie PIVC Retrieval</span>
+    		</li>
+             <!--<div data-bind="visible:gettype()!=='ADV'">
+             <li class="item_list" onclick="openTeamLogin()">
+                <img src="images/team.png"></img>
+                <span>Team Login</span>
+            </li>
+            </div>-->
+            <div data-bind="visible:gettype()!=='RRB'">
+                <li class="item_list" onclick="openHelpDesk()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Help Desk</span>
+                </li>
+            </div>
+            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+                <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+            </div>
+            <div data-bind="visible:gettype()!=='RRB' && gettype()!=='NCKYC'">
+                <li class="item_list" onclick="openCalculator()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Calculator</span>
+        		</li>
+    		</div>
+            <li class="item_list" onclick="doLogout()">
+                <img src="images/power-blackgold.png"></img>
+                <span class="log">Logout</span>
+            </li>
+            </ul>
+         </div>
+             <div  class="networkConnection" id="networkconnection">
+         		<span class="connection" id="network_connection">No Internet Connection !!</span>
+         	 </div>
+		
+                
+                			<!--<div id="dialog-teamlogin" data-juci="dialog">
+			<div class="heading_team">
+				<div class="dialogheader">Login As</div>
+				<div class="refresh_area">
+		         	<div class="refresh_img">	<img src="images/refresh.png" onclick="syncHierarchy()"></img></div>
+				<span class="close" onclick="hidebox()">X</span>
+				</div>
+			</div>
+			
+			<div class="content-body"> 
+				<div class="user_name_area">
+				<div class="info">Currently logged in as</div>
+				<div class="user" data-bind="html: $root.user().name()"></div>
+				<div class="sync_time" data-bind="html:$root.syncTeam"></div>
+				</div>
+				<div id="zm" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup"data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="am"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="bm"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format"    onafterchange="drillDown(event)" >
+				
+				</div>
+				
+				<div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm'),optionsList:$root.adlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)">
+				
+				</div>
+				
+			</div>
+				<div class="juci_thinbar team">
+					<button class="login" data-juci="button" onclick="openProducts()">Login as</button>
+					<button class="loginas" data-juci="button" onclick="openProposal()">Login as Myself</button>
+				</div> 
+			
+			</div>-->
+         <div class="sync_section">
+         	<div class="header_section">
+				<div class="leftHeader_section">
+					<div><span class='star bytesNot'>*</span> Size in Bytes</div>
+				</div>
+				<div class="rightHeader_section">
+					<span class="version_title" data-bind="html: 'Version : ' +$root.version()"></span>
+				</div>
+			</div>
+            <div class="synctab" data-bind="with:syncDetails">
+               <p class="detail">Details<p>
+               <div class="filesinfo" id="info">
+                  <div class="row">
+                     <div class="cell" data-bind="html:filescount"></div>
+                     <div class="cell scnd">Total no. of files</div>
+                  </div>
+                  <div class="row snd">
+                     <div class="cell" data-bind="html:filesize"></div>
+                     <div class="cell scnd">Total size of files<span class='star'>*</span></div>
+                  </div>
+                  <div class="rowsync">
+                     <button  id="syncallb" class="syncall" data-juci="button" onclick="startSync()"><img class="refresh-icon" src="images/refresh-white.png"> Sync All </></button>
+                  </div>
+               </div>
+            </div>
+            <div class="sync_area">
+               <div class="progress_bars">
+                  <div class="progress_bar master">
+                     <div></div>
+                  </div>
+                  <div class="text">Sync not started</div>
+               <!--   <div class="cancelbtn"><button class="syncancel" data-juci="button" onclick="cancelSync()"><img class="refresh-icon" src="images/cancel.png"> Stop </></button></div>-->
+               </div>
+               <!-- Proposals -->
+               <div class="syncBox" data-bind="with:proposalFiles">
+                  <div class="syncBox-head">
+                     <span class="heading">Proposals</span>
+                     <span class="heading2 hide_type" data-bind="css: {'show_type':syncstate() == 'synced'}">
+                     <img src="images/tickcircle.png"> Synced </>
+                     </span>
+                 <!--    <button id="cfrsyncbtn" class="syn hide_type" data-juci="button" onclick="syncProposals()" data-bind="css: {'show_type':syncstate() == 'sync'}"><img class="refresh-icon" src="images/refresh-white.png"> Sync</>
+                     </button>
+                     <button id="cfrcancel" class="syncancel forcfr hide_type" data-juci="button" onclick="stopProposalSync()" data-bind="css: {'show_type':syncstate() == 'stop'}"><img class="refresh-icon" src="images/cancel.png"> Stop </></button>-->
+                  </div>
+                  <div class="records_details" data-bind="visible:syncstate() == 'sync'">
+					  <div class="header">
+	                     <div class="data" data-bind="html:filescount"></div>
+	                     <div class="data scnd">NO. OF FILES</div>
+	                  </div>
+	                  <div class="header">
+	                     <div class="data" data-bind="html:filesize"></div>
+	                     <div class="data scnd">SIZE<span class='star'>*</span></div>
+	                  </div>
+                  </div>
+                  <div class="sync_progress" data-bind="visible:(syncstate() == 'stop' ||  syncstate() == 'synced')">
+                  		<div class="progress_bar_container">
+                  			<div class="progress_bar" data-bind="style:{'width':syncpercent}">
+                  				<div class="progress_text" data-bind="html:syncpercent"></div>
+                  			</div>
+                  		</div>
+                  </div>
+               </div>
+               <!--Document Pending -->
+               <div class="syncBox" data-bind="with:docFiles">
+                  <div class="syncBox-head">
+                     <span class="heading">Documents</span>
+                     <span class="heading2 hide_type" data-bind="css: {'show_type':syncstate() == 'synced'}">
+                     <img src="images/tickcircle.png"> Synced </>
+                     </span>
+                  <!--   <button id="docssynbtn" class="syn hide_type" data-juci="button" onclick="syncDocuments()" data-bind="css: {'show_type':syncstate() == 'sync'}"><img class="refresh-icon" src="images/refresh-white.png"> Sync</></button>
+                     <button id="doccancel" class="syncancel forcfr hide_type" data-juci="button" onclick="stopDocumentSync()" data-bind="css: {'show_type':syncstate() == 'stop'}"><img class="refresh-icon" src="images/cancel.png"> Stop </></button>-->
+                  </div>
+                  <div class="records_details" data-bind="visible:syncstate() == 'sync'">
+					  <div class="header">
+	                     <div class="data" data-bind="html:filescount"></div>
+	                     <div class="data scnd">NO. OF FILES</div>
+	                  </div>
+	                  <div class="header">
+	                     <div class="data" data-bind="html:filesize"></div>
+	                     <div class="data scnd">SIZE<span class='star'>*</span></div>
+	                  </div>
+                  </div>
+                  <div class="sync_progress" data-bind="visible:(syncstate() == 'stop' ||  syncstate() == 'synced')">
+                  		<div class="progress_bar_container">
+                  			<div class="progress_bar" data-bind="style:{'width':syncpercent}">
+                  				<div class="progress_text" data-bind="html:syncpercent"></div>
+                  			</div>
+                  		</div>
+                  </div>
+               </div>
+               <!-- CFR -->
+               <div class="syncBox"  data-bind="with:cfrFiles">
+                  <div class="syncBox-head">
+                     <span class="heading">CFR Pending</span>
+                     <span class="heading2 hide_type" data-bind="css: {'show_type':syncstate() == 'synced'}">
+                     <img src="images/tickcircle.png"> Synced </>
+                     </span>
+                    <!-- <button id="cfrsyncbtn" class="syn hide_type" data-juci="button" onclick="syncCFRs()" data-bind="css: {'show_type':syncstate() == 'sync'}"><img class="refresh-icon" src="images/refresh-white.png"> Sync</></button>
+                     <button id="cfrcancel" class="syncancel forcfr hide_type" data-juci="button" onclick="stopCFRSync()" data-bind="css: {'show_type':syncstate() == 'stop'}"><img class="refresh-icon" src="images/cancel.png"> Stop </></button>-->
+                  </div>
+                  <div class="records_details" data-bind="visible:syncstate() == 'sync'">
+					  <div class="header">
+	                     <div class="data" data-bind="html:filescount"></div>
+	                     <div class="data scnd">NO. OF FILES</div>
+	                  </div>
+	                  <div class="header">
+	                     <div class="data" data-bind="html:filesize"></div>
+	                     <div class="data scnd">SIZE<span class='star'>*</span></div>
+	                  </div>
+                  </div>
+                  <div class="sync_progress" data-bind="visible:(syncstate() == 'stop' ||  syncstate() == 'synced')">
+                  		<div class="progress_bar_container">
+                  			<div class="progress_bar" data-bind="style:{'width':syncpercent}">
+                  				<div class="progress_text" data-bind="html:syncpercent"></div>
+                  			</div>
+                  		</div>
+                  </div>
+               </div>
+               <!-- Attendance Management -->
+               <div class="syncBox"  data-bind="with:inputManagement">
+                  <div class="syncBox-head">
+                     <span class="heading">Super Track</span>
+                     <span class="heading2 hide_type" data-bind="css: {'show_type':syncstate() == 'synced'}">
+                     <img src="images/tickcircle.png"> Synced </>
+                     </span>
+                    <!-- <button id="cfrsyncbtn" class="syn hide_type" data-juci="button" onclick="syncCFRs()" data-bind="css: {'show_type':syncstate() == 'sync'}"><img class="refresh-icon" src="images/refresh-white.png"> Sync</></button>
+                     <button id="cfrcancel" class="syncancel forcfr hide_type" data-juci="button" onclick="stopCFRSync()" data-bind="css: {'show_type':syncstate() == 'stop'}"><img class="refresh-icon" src="images/cancel.png"> Stop </></button>-->
+                  </div>
+                  <div class="records_details" data-bind="visible:syncstate() == 'sync'">
+					  <div class="header">
+	                     <div class="data" data-bind="html:filescount"></div>
+	                     <div class="data scnd">NO. OF FILES</div>
+	                  </div>
+	                  <div class="header">
+	                     <div class="data" data-bind="html:filesize"></div>
+	                     <div class="data scnd">SIZE<span class='star'>*</span></div>
+	                  </div>
+                  </div>
+                  <div class="sync_progress" data-bind="visible:(syncstate() == 'stop' ||  syncstate() == 'synced')">
+                  		<div class="progress_bar_container">
+                  			<div class="progress_bar" data-bind="style:{'width':syncpercent}">
+                  				<div class="progress_text" data-bind="html:syncpercent"></div>
+                  			</div>
+                  		</div>
+                  </div>
+               </div>
+               
+               <!-- Video Files-->
+               <div class="syncBox"  data-bind="with:videoFiles">
+                  <div class="syncBox-head">
+                     <span class="heading">Video Files</span>
+                     <span class="heading2 hide_type" data-bind="css: {'show_type':syncstate() == 'synced'}">
+                     <img src="images/tickcircle.png"> Synced </>
+                     </span>
+                    <!-- <button id="cfrsyncbtn" class="syn hide_type" data-juci="button" onclick="syncCFRs()" data-bind="css: {'show_type':syncstate() == 'sync'}"><img class="refresh-icon" src="images/refresh-white.png"> Sync</></button>
+                     <button id="cfrcancel" class="syncancel forcfr hide_type" data-juci="button" onclick="stopCFRSync()" data-bind="css: {'show_type':syncstate() == 'stop'}"><img class="refresh-icon" src="images/cancel.png"> Stop </></button>-->
+                  </div>
+                  <div class="records_details" data-bind="visible:syncstate() == 'sync'">
+					  <div class="header">
+	                     <div class="data" data-bind="html:filescount"></div>
+	                     <div class="data scnd">NO. OF FILES</div>
+	                  </div>
+	                  <div class="header">
+	                     <div class="data" data-bind="html:filesize"></div>
+	                     <div class="data scnd">SIZE<span class='star'>*</span></div>
+	                  </div>
+                  </div>
+                  <div class="sync_progress" data-bind="visible:(syncstate() == 'stop' ||  syncstate() == 'synced')">
+                  		<div class="progress_bar_container">
+                  			<div class="progress_bar" data-bind="style:{'width':syncpercent}">
+                  				<div class="progress_text" data-bind="html:syncpercent"></div>
+                  			</div>
+                  		</div>
+                  </div>
+               </div>
+               
+               <!-- Runner Activity Files !-->
+               
+               <div class="syncBox"  data-bind="with:runnerActivity">
+                  <div class="syncBox-head">
+                     <span class="heading">Runner Activity</span>
+                     <span class="heading2 hide_type" data-bind="css: {'show_type':syncstate() == 'synced'}">
+                     <img src="images/tickcircle.png"> Synced </>
+                     </span>
+                    <!-- <button id="cfrsyncbtn" class="syn hide_type" data-juci="button" onclick="syncCFRs()" data-bind="css: {'show_type':syncstate() == 'sync'}"><img class="refresh-icon" src="images/refresh-white.png"> Sync</></button>
+                     <button id="cfrcancel" class="syncancel forcfr hide_type" data-juci="button" onclick="stopCFRSync()" data-bind="css: {'show_type':syncstate() == 'stop'}"><img class="refresh-icon" src="images/cancel.png"> Stop </></button>-->
+                  </div>
+                  <div class="records_details" data-bind="visible:syncstate() == 'sync'">
+					  <div class="header">
+	                     <div class="data" data-bind="html:filescount"></div>
+	                     <div class="data scnd">NO. OF FILES</div>
+	                  </div>
+	                  <div class="header">
+	                     <div class="data" data-bind="html:filesize"></div>
+	                     <div class="data scnd">SIZE<span class='star'>*</span></div>
+	                  </div>
+                  </div>
+                  <div class="sync_progress" data-bind="visible:(syncstate() == 'stop' ||  syncstate() == 'synced')">
+                  		<div class="progress_bar_container">
+                  			<div class="progress_bar" data-bind="style:{'width':syncpercent}">
+                  				<div class="progress_text" data-bind="html:syncpercent"></div>
+                  			</div>
+                  		</div>
+                  </div>
+               </div>
+               
+               <!-- Sync History list-->
+               <div data-juci="xlist" data-bind="ref: synchistory" data-label="Sync History">
+                  <div data-juci="listitem" class="historylist">
+                     <div class="setrow">
+                        <div class="content bold">Type</div>
+                        <div class="content synced" data-bind="html:type"></div>
+                     </div>
+                     <div class="setrow">
+                        <div class="content bold">Name</div>
+                        <div class="content synced" data-bind="html:name" ></div>
+                     </div>
+                     <div class="setrow">
+                        <div class="content bold">Collected on</div>
+                        <div class="content synced" data-bind="html:time"></div>
+                     </div>
+                     <div class="setrow">
+                        <div class="content bold">Size<span class='star'>*</span></div>
+                        <div class="content synced" data-bind="html:size"></div>
+                     </div>
+                     <div class="setrow lst">
+                        <div class="content bold">Last Sync On</div>
+                        <div class="content synced" data-bind="html:synctime"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         	<div class="footerbar">
+	          <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div><span> | </span>
+	          <div class="terms" onclick="openTerms()">Terms and Conditions</div><span> | </span>
+	          <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+	        </div>
+      </div>
+   </body>
+</html>

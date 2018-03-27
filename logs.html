@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1.0,initial-scale=1.0" />
+		<meta http-equiv="x-rim-auto-match" content="none" />
+        <link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" href="css/system.css" type="text/css"/>
+		<style type="text/css">
+			.log_message {
+				overflow: inherit;
+				text-overflow: inherit;
+				white-space: inherit;
+			}
+			#loglist .juci_linker {
+				display: none;
+			}
+			.message{
+				word-wrap: break-word;
+			}
+		</style>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+      	<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/systemutils.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/logs.js"></script>
+		<script src="scripts/company.js"></script>
+		<script src="scripts/constants.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<div class="juci_thinbar">Logs</div>
+			<div class="juci_horizontal_bbar">
+				<button data-juci="button" id="refreshlogs" onclick="refreshLogs();">Refresh</button>
+				<button data-juci="button" id="clearlogs" onclick="clearLogs();">Delete Logs</button>
+				<button data-juci="button" id="syncLogs" onclick="syncLogs();">Force Sync</button>
+				<button data-juci="button" id="email" onclick="sendEmail();">Email</button>
+			</div>
+			<div data-juci="selectbox" id="loglevel" data-label="Logs Level" data-bind="optionsList: loglist,ref:'All',optionsText:" placeholder 
+			onAfterChange="getSelectedLogs(event)">
+			</div>
+            
+			<div data-juci="text" id="searchtext" data-label="Search logs"></div>
+			<div class="juci_horizontal_bbar">
+				<button data-juci="button" id="searchbtn" onclick="searchLogs(true)">Go</button>
+				<button data-juci="button" id="clearsearchbtn" onclick="clearSearch()">Clear Search</button>					
+			</div>
+			
+			<div id="loglist" data-juci="xlist" 
+				data-bind="ref:logs"
+				data-title="tag"
+				data-subtitles="formatDateFromTimestamp(timestamp), message"
+				data-flag="$data.level[0]"
+				placeholder="No logs found"
+				data-flag-css="{'juci_red': $data.level == 'FATAL', 'juci_red': $data.level == 'ERROR', 'juci_yellow': $data.level == 'WARN', 'juci_green': $data.level == 'INFO'}"> 
+				<div data-juci="listcontent">
+					<div data-juci="display" data-bind="ref: tag" data-label="Tag"></div>
+					<div data-juci="display" data-bind="ref: level" data-label="Level"></div>
+					<div data-juci="display" data-bind="ref: formatDateFromTimestamp(timestamp())" data-label="Timestamp"></div>
+					<div data-juci="display" data-bind="ref: message" data-label="Message" class="message"></div>
+					<div class="juci_vertical_bbar">
+                		<button data-juci="button" type="reset">Back</button>
+		            </div>
+				</div>
+			</div>
+            <div class="juci_vertical_bbar">
+                <button data-juci="button" id="fetchmore" onclick="fetchLogs();">Fetch More</button>
+            </div>
+		</div>
+	</body>
+</html>

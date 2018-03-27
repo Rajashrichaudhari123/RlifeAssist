@@ -1,0 +1,455 @@
+.juci_panel_title .actionbutton {
+    background: #0b4daa;
+    color: #ffffff;
+}
+.juci_panel_title .abtnholder {
+    width: 155px;
+}
+.juci_panel_title .abtnholder {
+    display: table-cell;
+    height: 45px;
+    width: 30px;
+    vertical-align: middle;
+    horizontal-align:right;
+    padding: 0px 2px;
+    background-color: #0b4daa;
+    color:white;
+}
+.juci_panel_title .title {
+    display: table-cell;
+    margin: 0px;
+    max-width: 100%;
+    right: 65px;
+    vertical-align: middle;
+    background-color: #0b4daa;
+}
+
+#account-name {
+    font-size: 13px;
+}
+
+.appitem {
+    margin-left: 0px;
+    margin-right: 0px;
+    display:inline-block;
+}
+
+.appheaderholder {
+    padding-left: 20px !important;
+    position: relative;
+    width:100%;
+}
+
+.appheader {
+	color: white;
+	margin: 0;
+	padding: 20px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: 90%;
+	font-size: 12pt;
+    padding-left: 0px;
+    padding-top: 5px;
+}
+
+.juci_panel_title {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    height: 50px;
+    padding-top: 0px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 12pt;
+    z-index: 2;
+    border-bottom: 1px solid;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.title{
+	color: white;
+}
+
+.juci_imageboard_image img {
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.juci_xlist_item {
+    margin-bottom: 15px;
+    min-height: 0px;
+}
+
+.juci_xlist_item.touch {
+  background:none;
+}
+
+.juci_display_container {
+    font-size: 13px;
+    padding: 0px;
+}
+
+.juci_list_item {
+    margin: 0px;
+    padding: 0px;
+    height:60px;
+}
+
+.juci_xlist_item:first-child {
+    height: 150px;
+}
+.juci_list_item:last-child {
+    height: 166px;
+}
+
+.refresh {
+	float:right;
+	}
+
+.juci_xlist_item.juci_xlist_item .juci_linker , .juci_xlist_item.juci_xlist_item.touch .juci_linker {
+	background-image:url("../images/loop2.png");
+}
+
+.icon {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 65px;
+}
+.pAlert {
+    position: relative;
+}
+.alert {
+    border: 1px solid black;
+    border-radius: 4px;
+    height: 10px;
+    width: 12px;
+    background: red;
+    border-color: red;
+    position: absolute;
+    color: white;
+    left: 5px;
+    font-size: 10px;
+    top: 0px;
+}
+.icon.icon1 {
+	top:10px;
+    right: 35px;
+}
+.icon.icon2 {
+	top:10px;
+    right: 5px;
+}
+
+.firstpck , .firstpck.touch{
+	height : 70%;
+	width : 98%;
+	background-image: 
+    linear-gradient(
+      rgba(11, 77, 161, 0.70),
+      rgba(11, 77, 161, 0.70)
+    ),
+    url("../images/dashboard.jpg");
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+.scndpck ,.scndpck.touch {
+    height : 70%;
+	width : 47%;
+	display:inline-block;
+	background-image:
+	linear-gradient(
+	rgba(59, 175, 218, 0.70),
+	rgba(59, 175, 218, 0.70)
+    ),
+    url(../images/products.jpg);
+	background-size: cover;
+	background-position:center;
+	background-repeat: no-repeat;
+}
+
+.thirdpck , .thirdpck.touch{
+	height : 70%;
+	width : 48%;
+	margin-left: 2%;
+	display:inline-block;
+	background-image: 
+    linear-gradient(
+      rgba(246, 187, 85, 0.80),
+      rgba(246, 187, 85, 0.80)
+    ),
+    url(../images/applications.jpg);
+	background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+.fourthpck , .fourthpck.touch{
+	height : 70%;
+	width : 98%;	
+	background-image: 
+    linear-gradient(
+       rgba(233, 87, 63, 0.70),
+       rgba(233, 87, 63, 0.70)
+    ),
+    url(../images/leads.jpg);
+	background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+.fifthpck , .fifthpck.touch{
+	height : 90%;
+	width : 98%;	
+	background-image: 
+    linear-gradient(
+      rgba(59, 175, 218, 0.70),
+      rgba(59, 175, 218, 0.70)
+    ),
+    url(../images/calculators.jpg);
+	background-size: cover;
+    background-position:bottom;
+    background-repeat: no-repeat;
+}
+
+.sixthpck , .sixthpck.touch{
+	height : 70%;
+	width : 47%;	
+	background-image: 
+    linear-gradient(
+      rgba(140, 193, 85, 0.70),
+      rgba(140, 193, 85, 0.70)
+    ),
+    url(../images/cfr.jpg);
+    display : inline-block;
+	background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+.svnthpck , .svnthpck.touch{
+	height : 70%;
+	width : 48%;
+	margin-left: 2%;
+	background-image: 
+    linear-gradient(
+      rgba(150, 123, 217, 0.70),
+      rgba(150, 123, 217, 0.70)
+    ),
+    url(../images/renewals.jpg);
+    display : inline-block;
+	background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+.eightpck , .eightpck.touch{
+	height : 57%;
+	width : 98%;	
+	background-image: 
+    linear-gradient(
+      rgba(55, 188, 155, 0.70),
+      rgba(55, 188, 155, 0.70)
+    ),
+    url(../images/proposals.jpg);
+    background-position:center;
+	background-size: cover;
+    background-repeat: no-repeat;
+}
+
+ img.appicon {
+    width: 90%;
+}
+
+.juci_xlist_item.juci_xlist_item.juci_parent.scndpck {
+    height: 120px;
+}
+
+.juci_xlist_item.juci_xlist_item.juci_parent.thirdpck {
+    height: 120px;
+}
+
+.juci_xlist_item.juci_xlist_item.juci_parent.fourthpck {
+    height: 150px;
+}
+
+.juci_xlist_item.juci_xlist_item.juci_parent.fifthpck {
+    height: 250px;
+}
+.juci_xlist_item.juci_xlist_item.juci_parent.sixthpck {
+    height: 120px;
+}
+.juci_xlist_item.juci_xlist_item.juci_parent.svnthpck {
+    height: 120px;
+}
+.juci_xlist_item.juci_xlist_item.juci_parent.eightpck {
+    height: 150px;
+}
+
+.juci_vertical_list .juci_xlist_pane {
+	background:none;
+}
+
+.juci_xlist_item.juci_xlist_item.subitem {
+    height: 10px;
+    width: 162%;
+    color: white;
+    border-bottom: 1px dotted #EAEAEA;
+}
+
+.juci_xlist_item.juci_xlist_item.subitem .juci_linker {
+    display: block;
+    float: right;
+    margin-top: -5px;
+    margin-right:106px;
+}
+
+
+
+.count {
+    float: right;
+    color: white;
+    font-size: 40px;
+    text-align: right;
+    width:100%;
+    margin-right:10px;
+}    
+ 
+div#menu_list {
+    margin-top: 10px;
+}
+ 
+.sixthpck .appitem {
+    width: 90%;
+}
+.fourthpck .appitem {
+    width: 95%;
+}
+
+.eightpck .appitem {
+    width: 95%;
+}
+.svnthpck .appitem {
+    width: 90%;
+}
+
+.thirdpck .appitem {
+    width: 90%;
+}
+
+.juci_panel.panel_shown {
+    background: #ebebeb;
+}
+
+.pname {
+   font-size: 14px;
+    color: white;
+    /* display: block; */
+    text-align: right;
+    margin-right:15px;
+}
+.edge {
+	font-size: 100%;
+    color: white;
+    display:inline- block;
+    text-align: right;
+    float:left;
+}
+
+.next {
+    height: 20px;
+    /* overflow: hidden; */
+    position: absolute;
+    /* background-color: white; */
+    bottom: -19px;
+    right: 0;
+}
+.dashboard-list{
+	width:100%;
+	
+}
+
+.dboard{
+	display:inline-block;
+	color: white;
+	width:32%;
+	
+}
+.dboard2{
+	display:inline-block;
+	color: white;
+	margin-left: -3px;
+	border-left: 1px;
+    border-left-color: rgba(234,234,234,234);
+    border-left-style: dotted;
+    border-left-width: thin;
+}
+.dboard3{
+	display:inline-block;
+	color: white;
+	margin-left: 10px;
+	border-left: 1px;
+    border-left-color: rgba(234,234,234,234);
+    border-left-style: dotted;
+    border-left-width: thin;
+}
+.dname{
+    color: white;
+    font-size: 10pt;
+    text-align: right;
+    width:32%;
+    margin-left:7px;
+    font-size:14px;
+}
+.dsname{
+	font-size: 7pt;
+	width:32%;
+    color: white;
+    display: block;
+    margin-left:7px;
+    font-size:16px;
+}
+
+@media only screen and (min-width:990px) { 
+	.firstpck {
+		height:336px;
+	}
+	.scndpck{
+		height: 160px;
+	}
+	.thirdpck{
+		    height: 160px;
+	}
+	.fourthpck{
+    height: 328px;
+	}
+	.fifthpck{
+		height: 673px;
+	}
+	.sixthpck{
+		    height: 219px;
+	}
+	.svnthpck{
+		    height: 219px;
+	}
+	.eightpck{
+		    height: 219px;
+	}
+}
+
+.calcltr.juci_xlist .juci_linker {
+    background-image:url("images/arrow.png");
+    color:white;
+}
+
+.juci_xlist.calcltr.juci_vertical_list {
+    margin-top: 0px;
+    margin-left: 0px;
+    
+}

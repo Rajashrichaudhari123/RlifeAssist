@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/testBiometric.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/juci-wcalendar.js"></script>
+		<script>
+			$m.juci.addDataset("test",["Kiran"])
+		</script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+		     <div data-juci="selectbox" data-label="" data-bind="optionsList:test, optionsText:" placeholder>
+								<!--<div data-juci="optiontemplate"></div>-->
+							</div>
+		</div>
+	</body>
+</html>

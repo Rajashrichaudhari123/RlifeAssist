@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0" />
+		<meta http-equiv="x-rim-auto-match" content="none" />
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/system.css"></link>
+		<style>
+			#__leftBtn{
+				border: none;
+				background: none;
+				padding: 0px;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/company.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/custom/loginpage.css"></link>
+			<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+        <script src="libs/mowbly/js/mowbly.js"></script>
+        <script src="scripts/login.js"></script>
+		<script src="libs/mowbly/js/juci-0.2.js"></script>
+		<script src="js/systemutils.js"></script>
+		<script src="js/messages.js"></script>
+		<script src="js/addaccount.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="js/company.js"></script>
+		<script src="js/companyaddaccount.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel class="first_panel">
+			<div class="login-form">
+				<div class="login-logo">
+					<img class="logo" src="img/logo-mob.png"></img>
+				</div>
+				<div class="log">LOGIN</div>
+				<form id="loginform" action="javascript:document.activeElement.blur();addAccount();">
+					<div id="userName" class="userid" data-juci="text" placeholder="Email ID / Mobile No. / Advisor Code" required onvalidationfail="Utils.GetValidationMessage(event,'User Name')"></div>
+					<div id="password" class="password" data-juci="password" placeholder="Password" required onvalidationfail="Utils.GetValidationMessage(event,'Password')"></div>
+					<div class="clearfix frgt-logdesc">
+                        <div data-juci="checkbox" data-label="Show Characters" onafterchange="show()" ></div>
+                        <div class="forgot-pass"  onclick="changepwd()">Forgot Password?</div>
+                    </div>
+					<div id="login-bbar" class="juci_vertical_bbar">
+						<button data-juci="button" id="add-button" value="Login" type="submit"></button>
+					</div>
+				</form> 
+				<div class="or">OR</div>
+				<div id ="social" class="social-networks">
+					<button class="site fb" data-juci="button"><img class="icn" src="img/facebook-icon.png">  Facebook </></button>
+					<button class="site google" data-juci="button"><img class="icn" src="img/googleplus.png">  Google </></button>
+				</div>
+				<div class="new_Reg-link" onclick="openregister()">
+				<div class="need_account">Need an Account?</div>
+				<div href="javascript:void(0)" class="register_Now_link">Register Now</div></div>
+			</div>
+		</div>
+	</body>
+</html>

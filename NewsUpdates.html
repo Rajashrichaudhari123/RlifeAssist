@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/NewsUpdates.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/messages.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/NewsUpdates.js"></script>
+		<script src="scripts/SHDataPojo.js"></script>
+		<script src="scripts/teamhierarchy.js"></script>
+		<script src="scripts/hierarchy.js"></script>
+		<script src="scripts/hierarchyDatamanager.js"></script>
+		
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+		<div class="menu arrow_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                    <li class="item" onclick="openPlanning()">
+                        <span>Planning</span>
+                    </li>
+                </ul>
+        </div>
+			<div class="menu arrow_box" id="profilelist" style="display:none;">
+            <ul class="items">
+            	<li class="item_list" onclick="openSyncContacts()">
+                    <img src="images/Sync.png"></img>
+                    <span>Super Sync</span>
+                </li>
+               <li class="item_list" onclick="openSync()">
+                  <img src="images/Sync.png"></img>
+                  <span>Sync</span>
+               </li>
+               <!--<li class="item_list" onclick="openCustomers()">
+	                  <img src="images/male.png"></img>
+	                  <span>New Lead</span>
+               		</li>-->
+               <li class="item_list" onclick="openProposal()">
+                  <img src="images/New-Proposal.png"></img>
+                  <span>New Proposal</span>
+               </li>
+               <li class="item_list" onclick="openProfileContent()">
+                  <img src="images/Profile.png"></img>
+                  <span>Profile</span>
+               </li>
+               <li class="item_list" onclick="openDeviceCompatibility()">
+                  <img src="img/tablet.png"></img>
+                  <span>Device Compatibility check</span>
+               </li>
+               <div class="" id="profile-content" style="display: none;">
+                  <li class="item"    data-bind="with:profileDetail" onclick="openProfile()">
+                     <div class="name" data-bind="html:name"></div>
+                     <div class="id" data-bind="html:'ADV ID:'+ id()"></div>
+                     <div class="id" data-bind="html:area"></div>
+                  </li>
+                  <li class="item_list" data-bind="with:goal" onclick="openDashboard()">
+                     <span>Goal Summary</span> 
+                     <div class="Goal_summary">
+                        <div class="summary">
+                           <div class="titles">Target:</div>
+                           <div class="tar" data-bind="html:target"></div>
+                        </div>
+                        <div class="summary">
+                           <div class="titles">Achieved:</div>
+                           <div class="tar" data-bind="html:acheived"></div>
+                        </div>
+                        <div class="summary">
+                           <div class="titles">Pending :</div>
+                           <div class="tar" data-bind="html:pending"></div>
+                        </div>
+                     </div>
+                  </li>
+               </div>
+               <li class="item_list" onclick="openLogs()">
+                  <img src="images/logs.png"></img>
+                  <span>Logs</span>
+               </li>
+               <li class="item_list" onclick="openDataRetrieve()">
+                    <img src="images/database.png"></img>
+                    <span>Data Retrieve</span>
+                </li>
+				<li class="item_list" onclick="openForceUpdate()">
+                    <img src="images/app.png"></img>
+                    <span>Force Update</span>
+                </li>
+               <li class="item_list" onclick="openVersion()">
+                  <img src="images/Folder_grey.png"></img>
+                  <span>Version</span>
+               </li>
+               <li class="item_list" onclick="openSelfieVideoRetrieval()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Selfie PIVC Retrieval</span>
+        		</li>
+               <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+	               <li class="item_list" onclick="openCustomers()">
+	                  <img src="images/female.png"></img>
+	                  <span>My Customers</span>
+	               </li>
+               </div>
+               <li class="item_list" onclick="openAdvisors()">
+                  <img src="images/Folder_grey.png"></img>
+                  <span class="my_advisors">My Advisors</span>
+               </li>
+               <!-- <div data-bind="visible:gettype()!=='ADV'">
+                  <li class="item_list" onclick="openTeamLogin()">
+                       <img src="images/Profile.png"></img>
+                       <span>Team Login</span>
+                  </li>
+                  </div> -->
+               <li class="item_list" onclick="openHelpDesk()">
+                  <img src="images/Gallery_Grey.png"></img>
+                  <span class="help">Help Desk</span>
+               </li>
+               <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+               <li class="item_list" onclick="openCalculator()">
+	                <img src="images/Gallery_Grey.png"></img>
+	                <span class="help">Calculator</span>
+        		</li>
+               <li class="item_list" onclick="doLogout()">
+                  <img src="images/power-blackgold.png"></img>
+                  <span class="log">Logout</span>
+               </li>
+            </ul>
+         </div>
+		<!--<div class="menu" id="profilelist" style="display:none;">
+                <ul class="items">
+                   <li class="item_list" onclick="openSync()">
+                        <img src="images/Sync.png"></img>
+                        <span>Sync</span>
+                    </li>   
+                    
+                     <li class="item_list" onclick="openCustomers()">
+                        <img src="images/male.png"></img>
+                        <span>New Lead</span>
+                    </li>  
+              
+                     <li class="item_list" onclick="openProposal()">
+                        <img src="images/New-Proposal.png"></img>
+                        <span>New Proposal</span>
+                    </li>  
+                    
+                    <li class="item_list" onclick="openProfileContent()">
+                        <img src="images/Profile.png"></img>
+                        <span>Profile</span>
+                    </li>
+                 <div class="" id="profile-content" style="display: none;">
+	                <li class="item"    data-bind="with:profileDetail" onclick="openProfile()">
+		              <div class="name" data-bind="html:name"></div>
+		              <div class="id" data-bind="html:'ADV ID:'+ id()"></div>
+		              <div class="id" data-bind="html:area"></div>
+	              </li>
+	                <li class="item" data-bind="with:goal" onclick="openDashboard()">
+	             		<span>Goal Summary</span> 
+	             		<div class="Goal_summary">
+		             <div class="summary">		
+		             	<div class="titles">Target:</div>	
+			              <div class="tar" data-bind="html:target"></div>
+			          </div>  
+			          <div class="summary">
+			            <div class="titles">Achieved:</div> 
+			              <div class="tar" data-bind="html:acheived"></div>
+			          </div>    
+			          <div class="summary">   
+			            <div class="titles">Pending :</div> 
+			              <div class="tar" data-bind="html:pending"></div>
+			           </div>   
+			          </div>
+			          
+	               </li>
+	            </div>
+                    <li class="item_list" onclick="openLogs()">
+                        <img src="images/logs.png"></img>
+                        <span>Logs</span>
+                    </li>
+                    
+                     <li class="item_list" onclick="openVersion()">
+                        <img src="images/logs.png"></img>
+                        <span>Version</span>
+                    </li>
+                    
+                   <li class="item" onclick="openCustomers()">
+                        <img src="images/female.png"></img>
+                        <span>My Customers</span>
+                   </li>
+                   <li class="item" onclick="openAdvisors()">
+                        <img src="images/Folder_grey.png"></img>
+                        <span class="my_advisors">My Advisors</span>
+                   </li>
+                    
+                     <div data-bind="visible:gettype()!=='ADV'">
+                   <li class="item_list" onclick="openTeamLogin()">
+                        <img src="images/team.png"></img>
+                        <span>Team Login</span>
+                   </li>
+                </div>
+                    
+                    <li class="item_list" onclick="openHelpDesk()">
+                        <img src="images/Gallery_Grey.png"></img>
+                        <span class="help">Help Desk</span>
+                    </li>
+                    <li class="item_list" onclick="doLogout()">
+                        <img src="images/power-blackgold.png"></img>
+                        <span class="log">Logout</span>
+                    </li>
+                </ul>
+             </div>
+		
+				<div id="dialog-teamlogin" data-juci="dialog">
+			<div class="heading_team">
+				<div class="dialogheader">Login As</div>
+				<div class="refresh_area">
+		         	<div class="refresh_img">	<img src="images/refresh.png" onclick="syncHierarchy()"></img></div>
+				<span class="close" onclick="hidebox()">X</span>
+				</div>
+			</div>
+			
+			<div class="content-body"> 
+				<div class="user_name_area">
+				<div class="info">Currently logged in as</div>
+				<div class="user" data-bind="html: $root.user().name()"></div>
+				<div class="sync_time" data-bind="html:$root.syncTeam"></div>
+				</div>
+				<div id="zm" class="Team_select_box" data-juci="selectbox"  data-mode="popup" data-label="Zonal Manager" data-bind="visible:gettype()== 'ZM',optionsList:$root.zmlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="rm" class="Team_select_box" data-juci="selectbox" data-mode="popup"data-label="Regional Manager" data-bind="visible:(gettype()== 'ZM'||getId()== 'zm'),optionsList:$root.rmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="am"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Area Manager" data-bind="visible:(gettype()== 'RM'||getId()== 'rm'),optionsList:$root.amlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+					<div id="bm"  class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Branch Manager" data-bind="visible:(gettype()== 'AM'||getId()== 'am'),optionsList:$root.bmlist,ref:name,optionsText:format" data-formatter="format"   onafterchange="drillDown(event)" >
+				
+				</div>
+				<div id="sm" class="Team_select_box" data-juci="selectbox" data-label="Sales Manager" data-mode="popup" data-bind="visible:(gettype()== 'BM'||getId()== 'am'),optionsList:$root.smlist,ref:name,optionsText:format" data-formatter="format"    onafterchange="drillDown(event)" >
+				
+				</div>
+				
+				<div id="ad" class="Team_select_box" data-juci="selectbox" data-mode="popup" data-label="Advisor" data-bind="visible:(gettype()== 'SM'||getId()== 'sm'),optionsList:$root.adlist,ref:name,optionsText:format" data-formatter="format"  onafterchange="confirmTeamUser(event)">
+				
+				</div>
+				
+			</div>
+				<div class="juci_thinbar team">
+					<button class="login" data-juci="button" onclick="openProducts()">Login as</button>
+					<button class="loginas" data-juci="button" onclick="openProposal()">Login as Myself</button>
+				</div> 
+			
+			</div>-->
+			
+			
+			<div class="news_time_selection_area">
+				<div class="news_year_toggle_area">
+					<div class="news_year_toggle" data-bind="foreach:years">
+						<div class="year_item" data-bind="css:{'selected_filter':($root.filterYear()==$data)},click:filterByYear">
+							<div class="year_item_text" data-bind="html:$data"></div>
+						</div>
+					</div>
+				</div>
+				<div class="month_selection_scroll">
+					<div class="news_month_selection" data-bind="foreach:newsmonths">
+						<div class="month_item">
+							<div class="month_item_text" data-bind="html:$data,css:{'selected_filter_month':($root.filterMonth()==$data)},click:filterByMonth"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="new_content_section">
+				<div class="news_type_selection" data-bind="foreach:newstypes">
+					<div class="new_type_button" data-bind="html:$data,css:{'selected_filter':($root.filterType()==$data)},click:filterByType"></div>
+				</div>
+				<div class="news_updates_list" data-bind="foreach:newslist">
+					<div class="news_item" data-bind="visible:(checkYear($root.filterYear,NewsDate) && checkType($root.filterType,Type) && checkMonth($root.filterMonth,NewsDate)),click:openNewsDetails">
+						<div class="news_item_time_type">
+							<div class="news_item_time" data-bind="html:formateDate(NewsDate)"></div>
+							<div class="news_item_type" data-bind="html:Type"></div>
+						</div>
+						<div class="news_item_title" data-bind="html:Title"></div>
+						<div class="news_item_image" data-bind="visible:ImagePreviewLink">
+							<img data-bind="attr : {src:ImagePreviewLink}" onError="this.src='https://earnwith.me/wp-content/uploads/2015/11/banner-news-updates.jpg';" class="news_image_content"/>
+						</div>
+						<div class="news_item_content_preview" data-bind="visible:getPreview(TextPreview)">
+							<span class="news_item_content" data-bind="html:getPreview(TextPreview)"></span>
+							<span class="readMore">Read more</span>
+						</div>
+						<div class="news_item_location_download">
+							<div class="news_item_location" data-bind="html:Location"></div>
+							<div class="news_seperator">|</div>
+							<div class="news_item_download">
+								<img src="images/newsdownload.png"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<div class="footerbar">
+	          <div class="disclaimer" onclick="openDisclaimer()">Disclaimer</div><span> | </span>
+	          <div class="terms" onclick="openTerms()">Terms and Conditions</div><span> | </span>
+	          <div class="privacy" onclick="openPrivacy()">Privacy Policy</div>
+	        </div>
+		</div>
+	</body>
+</html>

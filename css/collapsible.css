@@ -1,0 +1,53 @@
+.tab  .collapse{
+	display: none;
+}
+
+.tab  .collapse.ad{
+	display: none;
+}
+
+.tab.visible .collapse{
+	display:block;
+}
+
+.tab.visible .collapse.ad{
+	display:block;
+}
+.tab .juci_thinbar:after {
+	content: "+";
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 20px;
+	text-align: center;
+	width: 20px;
+	vertical-align: middle;
+	line-height: 36px;
+}
+.tab.visible .juci_thinbar:after {
+	content: "-";
+}
+
+.tab .juci_thinbar{
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 14px;
+	position : relative;
+	color: #565656;
+	min-height: 40px;
+	padding: 9px 8px;
+	background-color:#fff;
+}
+
+#insidethinbar:after,#insidethinbar2:after,#insidethinbar3:after{
+	content:"";
+}
+
+.tab {
+    /* width: 93%; */
+    margin-left: 10px;
+    margin-right: 10px;
+    /* margin: auto; */
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+}

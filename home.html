@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/home.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/hardcode.js"></script>
+		<script src="scripts/home.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/dialoguebox.js"></script>
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+		<div class="menu" id="menulist" style="display: none;">
+	          <ul class="items">
+	            <li class="item" onclick="openLead()">
+	              <span>New Lead</span>
+	            </li>
+	            <li class="item" onclick="openProposal()">
+	              <span>New Proposal</span>
+	            </li>
+	            </ul>
+	      </div>
+	        
+	     <div id="dialog-box" data-juci="dialog">
+			<div class="heading">
+				<div class="dialogheader">Add Lead</div>
+			</div>	
+				<div class="lead" data-juci="form" data-bind="ref:lead" onsubmit="addLead(event)" onreset="removeBox()">
+					<div class="name" data-juci="text" data-label="First Name<span class='star'>*</span>" data-bind="ref:fname"></div>
+					<div data-juci="text" data-label="Last Name<span class='star'>*</span>" data-bind="ref:lname" placeholder data-trigger></div>
+					<div data-juci="email" data-label="Email<span class='star'>*</span>" data-bind="ref:email" placeholder data-trigger></div>
+					<div data-juci="number" data-label="Phone No.<span class='star'>*</span>" data-bind="ref:number" placeholder data-trigger></div>
+					<div class="managerselect" data-juci="selectbox" data-label="Manager Type<span class='star'>*</span>" data-bind="optionsList:$root.manager,ref:managertype" placeholder>
+						<!--<div data-juci="optiontemplate"></div>-->
+					</div>
+					<div class="juci_horizontal_bbar">
+						<button data-juci="button" class="bton1" type="reset">Cancel</button>
+						<button data-juci="button" class="bton2" type="submit">Add</button>
+					</div>
+				</div>	
+		</div>
+	        
+	        <div class="menu arrow_box" id="profilelist" style="display: none;">
+	          <ul class="items">
+	          <li class="item" onclick="openProfile()">
+	          	<div data-juci="form" data-bind="ref:profileDetail">
+		              <div class="name" data-bind="html:name"></div>
+		              <div class="id" data-bind="html:'ADV ID:'+id()"></div>
+		              <div class="id" data-bind="html:area"></div>
+	            </div> 
+	            </li>
+	            <li class="item" onclick="openDashboard()">
+	             <div data-juci="form" data-bind="ref:goal">
+	             		<span>Goal Summary</span> 
+		             <div class="summary">		
+		             	<div class="titles">Target:</div>	
+			              <div class="tar" data-bind="html:target"></div>
+			          </div>  
+			          <div class="summary">
+			            <div class="titles">Achieved:</div> 
+			              <div class="tar" data-bind="html:acheived"></div>
+			          </div>    
+			          <div class="summary">   
+			            <div class="titles">Pending :</div> 
+			              <div class="tar" data-bind="html:pending"></div>
+			           </div>   
+	             </div>
+	            </li>
+	            <li class="item" onclick="openCustomers()">
+	              <img src="images/female.png"></img>
+	              <span>My Customers</span>
+	            </li>
+	            <li class="item" onclick="openAdvisors()">
+	              <img src="images/Folder_grey.png"></img>
+	              <span>My Advisors</span>
+	            </li>
+	            <li class="item" onclick="openHelpDesk()">
+	              <img src="images/Gallery_Grey.png"></img>
+	              <span>Help Desk</span>
+	            </li>
+	            <li class="item_list" onclick="openConfirmUpdate()">
+                    <img src="images/Gallery_Grey.png"></img>
+                    <span class="help">Confirm Update</span>
+                </li>
+	            <li class="item" onclick="doLogout()">
+	              <img src="images/power-blackgold.png"></img>
+	              <span>Logout</span>
+	            </li>
+	            </ul>
+	        </div>
+			<!-- Enter your HTML content here -->
+			<div class="dialoguebg"></div>
+			<div id="menu_list" data-juci="xlist" data-bind="ref:allpacks" onListItemclick="openPack(event)">
+				<div data-juci="listitem" data-bind="css:{firstpck: name() === 'Dashboard', scndpck: name() === 'Products', thirdpck : name() === 'Applications' , fourthpck : name() === 'Lead Managment', fifthpck : name() === 'Calculators', sixthpck : name() === 'CFR', svnthpck : name() === 'Renewals' , eightpck : name() === 'Proposals'}" >
+					<div class="appitem">
+						<div class="appheaderholder">
+							<div class="appheader" data-bind="html: name"></div>
+							<div class="calcltr" data-juci="xlist" data-bind="ref:subitems" data-titles data-subtitles data-new-item>
+								<div data-juci="listitem" class="subitem">
+									<div data-bind="html: subitem"></div>
+								</div>
+							</div>
+							
+						
+					<div data-bind="visible:name()=='Dashboard'">
+	            		<div data-bind="with:dash">
+	            		 <ul class="dashboard-list">
+                            	<li class="dboard">
+                                	<p class="dname">Target</p>
+                                    <span class="dsname" data-bind="html:subdash1"></span>
+                                </li>
+                                <li class="dboard2">
+                                	<p class="dname">Achieved</p>
+                                    <span class="dsname" data-bind="html:subdash2"></span>
+                                </li>
+                                <li class="dboard3">
+                                	<p class="dname">Shortfall</p>
+                                    <span class="dsname" data-bind="html:subdash3"></span>
+                                </li>
+                            </ul>
+                         </div>
+					 </div>
+			
+					<div class="next">
+						<div class="count" data-bind="html:count"></div>
+						<div class="pname" data-bind="html:pname"></div>
+						<div class="more" data-bind="visible:name()=='Calculators'">
+							<div class="edge">3 more</div>
+								<img src="images/arrow-right2.png"></>
+							</div>
+						</div>
+					</div>
+				    </div>
+				   </div>
+				  </div>	
+				</div>
+		
+	</body>
+</html>

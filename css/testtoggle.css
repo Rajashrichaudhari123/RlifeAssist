@@ -1,0 +1,19 @@
+.juci_togglebar .juci_button.toggled {
+ 
+}
+
+div#photo {
+    width: 100%;
+}
+
+.pic {
+	min-height: 38px !important;
+}
+button.juci_button.b2, .juci_button.b1 {
+	min-height: 30px;
+	font-size: 14px;
+	width: 100px;
+	vertical-align: middle;
+	}
+div#lang {width: 90%;}button.juci_button.langb {color: #0B4DAA;min-height: 34px;font-size: 14px;width: 25%;background: #fff;}
+div#english { margin: 5px 10px 10px;width: 95%;font-size: 85%;color: #565656;}

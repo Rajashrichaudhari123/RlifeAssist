@@ -1,0 +1,174 @@
+.monthYear_options {
+    display: table;
+    width: 100%;
+}
+
+.juci_basecontrol.juci_selectbox.month.juci_parent.juci_placeholder {
+    display: inline-block;
+    width: 48%;
+    padding: 10px;
+}
+
+.juci_basecontrol.juci_selectbox.year.juci_parent.juci_placeholder {
+    display: inline-block;
+    padding: 10px;
+    width: 48%;
+}
+
+.juci_basecontrol.juci_selectbox.month.juci_parent.juci_validated.juci_validated_pass {
+    display: inline-block;
+    width: 48%;
+    padding: 10px;
+}
+
+.juci_basecontrol.juci_selectbox.year.juci_parent.juci_validated.juci_validated_pass {
+    display: inline-block;
+    width: 48%;
+    padding: 10px;
+}
+
+.target_Panel{
+	background:#FFF;
+}
+
+.performance_Panel{
+	background:#FFF;
+}
+
+button.juci_button.submit_targets {
+    background: #0b4da1;
+    border: #0b4da1;
+    min-height: 32px;
+    font-size: 13px;
+    width: 108px;
+    /* margin-left: auto; */
+    border-radius: 4px;
+    text-align: center;
+    margin: 14px;
+    vertical-align: middle;
+}
+
+.submit_targets_div {
+	text-align: center;
+}
+
+.performance_info_name {
+    width: 34%;
+    padding-left: 5px;
+    display: inline-block;
+    background: #FFF;
+    color: #565656;
+    max-width: 180px;
+}
+
+.performance_detail {
+    display: block;
+    border-top: 1px solid #d8d8d8;
+    border-right: 0;
+    border-left: 0;
+}
+
+.target_data {
+    display: inline-block;
+    height: 34px;
+    line-height: 33px;
+    width: 20%;
+    vertical-align: middle;
+    border-left: 1px solid #d8d8d8;
+    text-align: center;
+}
+
+.achieved_data {
+    display: inline-block;
+    height: 34px;
+    line-height: 33px;
+    width: 20%;
+    vertical-align: middle;
+    border-left: 1px solid #d8d8d8;
+    text-align: center;
+}
+
+.target_data_header {
+    display: inline-block;
+    height: 34px;
+    line-height: 33px;
+    width: 20%;
+    vertical-align: middle;
+    border-left: 1px solid #d8d8d8;
+    text-align: center;
+}
+
+.achieved_data_header {
+    display: inline-block;
+    height: 34px;
+    line-height: 33px;
+    width: 20%;
+    vertical-align: middle;
+    border-left: 1px solid #d8d8d8;
+    text-align: center;
+}
+.performance_info_name_header{
+	background: #f1f1f1;	
+}
+
+button.juci_button.btn1 {
+    height: 77px;
+}
+
+
+.custom_selectbox {
+    width: 49%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 5px;
+    padding-right: 0;
+}
+
+.juci_selectbox_popup_panel {
+}
+
+.custom_selectbox .juci_selectbox_popup {
+    position: absolute;
+    width: 47.9%;
+    margin: auto !important;
+}
+
+.custom_selectbox .juci_selectbox {
+    margin: 0;
+    width: 98%;
+}
+
+.performance_details .bgcolor{
+	 background: #f1f1f1;
+}
+.performance_details {
+    width: 98%;
+    border: 1px solid #d8d8d8;
+    margin: auto;
+    border-top: 0;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.text_achievements{
+	padding: 10px;
+    border-bottom: 4px solid #0B4DA1;
+    color: #565656;
+    width: 160px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.salestarget{
+	padding: 20px 5px;
+	margin-bottom:20px;
+}
+.juci_validation.juci_fail {
+    width: 88%;
+    margin-top: -5px;
+}
+.juci_fail {
+    color: #F34A4A;
+    background-color: white;
+    padding: 6px 2px;
+}

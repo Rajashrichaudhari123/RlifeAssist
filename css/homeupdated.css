@@ -1,0 +1,398 @@
+.dashboard_menu .dashboard_menu.touch{
+	height: 490px;
+	/* margin-bottom: -1px; */
+	position: relative;
+	width: 99%;
+	margin: auto;
+	font-size: 10px;
+}
+
+
+.juci_xlist_item.juci_xlist_item.menu_item.juci_parent.dashboard_menu {
+    height: 490px;
+    width: 100%;
+    margin: auto;
+}
+
+
+.dashboard_section {
+    background: #4f70b8;
+    height: 50%;
+    width: 100%;
+}
+
+
+
+.dashboard_container {
+    height: 100%;
+}
+
+.version {
+    display: inline-block;
+    float: right;
+    /* text-align: right; */
+    /* padding: 6px; */
+    font-size: 12px;
+    width: 40%;
+    text-align: right;
+    vertical-align: top;
+}
+
+span.hi {
+    display: inline-block;
+    font-size: 12px;
+    /* width: 10%; */
+    padding: 7px;
+    vertical-align: middle;
+    padding-left: 7px;
+}
+
+.juci_thinbar.login {
+    height: 36px;
+    background: #eaeaea;
+}
+.user_name {
+    display: inline-block;
+    /* padding: 6px; */
+    font-size: 12px;
+    width: 40%;
+    vertical-align: middle;
+    text-align: left;
+    /* margin-left: -10px; */
+    float: left;
+}
+
+.header_container {
+  width: 98%;
+  margin: auto;
+  /* padding: 4px; */
+}
+
+.login_detail_section {
+    height: 50%;
+    background: #5d7bbe;
+    display: table;
+    width: 100%;
+    position: relative;
+}
+
+.dashboard_head_logo_img {display: table-row;width: 100%;margin: auto;text-align: center;height: 75%;vertical-align: middle;}
+
+.dashboard_head_logo {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+img.head_logo_src {
+    height: 100px;
+    vertical-align: middle;
+    margin-top: 30px;
+}
+
+.dashboard_head_logo_text {
+    display: table-row;
+    height: 25%;
+    text-align: center;
+    font-size: 18px;
+    color: #FFF;
+}
+
+.login_detials_tables {
+    width: 95%;
+    color: #FFF;
+    margin: auto;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.login_head_text {
+    font-size: 16px;
+    padding: 5px;
+}
+
+.login_logins_details {height: 50%;width: 95%;margin: auto;margin-bottom: 5px;}
+
+.login_detials_item {
+    display: inline-block;
+    width: 32%;
+}
+
+.login_insurance_details {
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.26);
+    height: 50%;
+    width: 95%;
+    margin: auto;
+}
+
+.dashboard_sync_refresh_area {
+     margin-top: 10px;
+    float: right;
+    width: 47%;
+    position: absolute;
+    bottom: 5px;
+    text-align: right;
+    right: 0px;
+    color: #FFF;
+    padding: 2% 3%;
+}
+
+.dashboard_sync_info {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 5px;
+    width: 50%;
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: right;
+    font-size: 10px;
+}
+
+.dashboard_sync_refres_seperator {
+    display: inline-block;
+    background: #FFF;
+    width: 1px;
+    height: 20px;
+    vertical-align: bottom;
+}
+
+.dashboard_refresh_icon {
+    display: inline-block;
+    width: 32px;
+    height: 20px;
+    vertical-align: bottom;
+}
+img.refresh_image {
+    height: 18px;
+}
+
+.lead_management_menu,.lead_management_menu.touch {
+    height: 150px;
+    background: #67beb1;
+    margin-bottom: 5px;
+}
+
+.juci_xlist_item {
+   
+padding: 8px 0px;
+}
+
+.lead_management_container {
+    height: 100%;
+}
+
+.common_menu_item {
+    height: 100%;
+    color: #FFF;
+    position: relative;
+    font-size: 12px;
+}
+
+.common_menu_item_row_one {
+    height: 50%;
+    display: table;
+    width: 96%;
+    margin: auto;
+}
+
+.common_menu_item_row_two {
+    height: 50%;
+    font-size: 0px;
+    width: 96%;
+    margin: auto;
+    display: table;
+}
+.menu_item_count_section {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.menu_item_image_section {
+    display: table-cell;
+    float: right;
+    vertical-align: top;
+    text-align: right;
+}
+
+.menu_item_count_value {
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 500;
+}
+
+.menu_item_count_key {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.menu_item_label {
+    width: 50%;
+    display: table-cell;
+    height: 100%;
+    font-size: 16px;
+    vertical-align: bottom;
+}
+
+.menu_item_refresh_section {
+    display: table-cell;
+    font-size: 14px;
+    vertical-align: bottom;
+    text-align: right;
+    width: 50%;
+}
+
+.cfr_menu, .cfr_menu.touch {
+    background: #6ebd7f;
+    margin-bottom: 5px;
+    height: 150px;
+    /* font-size: 5px; */
+}
+
+.cfr_continer {
+    height: 100%;
+}
+
+.renewals_menu,.renewals_menu.touch {
+    background: #49a5bc;
+     margin-bottom: 5px;
+    height: 150px;
+}
+
+.renewals_container {
+    height: 100%;
+}
+
+.applications_menu,.applications_menu.touch {
+    background: #4ebf8b;
+     margin-bottom: 5px;
+    height: 150px;
+}
+
+.applications_container {
+    height: 100%;
+}
+
+.need_menu,.need_menu.touch{
+    background: #8f68b9;
+     margin-bottom: 5px;
+    height: 150px;
+}
+
+.need_analysis_container {
+    height: 100%;
+}
+
+
+.need_analysis_list {
+    font-size: 14px;
+}
+
+.products_menu,.products_menu.touch {
+    background: #746dc2;
+    margin-bottom: 5px;
+    height: 153px;
+}
+
+.products_container {
+    height: 100%;
+}
+
+.menu_item_image_section_Products{
+	  display: table-cell;
+    float: none;
+    vertical-align: top;
+    text-align: center;
+    padding-right: 5%;
+}
+
+.menu_item_image_section {
+    float: none;
+}
+.news_menu, .news_menu.touch{
+    background: #5179a6;
+    padding-bottom: 24px; 
+    margin-bottom: 15px;
+    height: 180px;
+   
+}
+.news_update_container{
+	height:100%;
+}
+
+.common_menu_item_news{
+	height: 75%;
+    color: #FFF;
+    position: relative;
+	
+	}
+.menu_item_label_news {
+    width: 65%;
+    display: table-cell;
+    height: 100%;
+    font-size: 16px;
+    vertical-align:top;
+}
+.menu_item_link{
+    display: table-cell;
+    vertical-align: top;
+   padding-top: 5px;
+    width: 50%;
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: right;
+}
+
+.image_list_scroll {
+   overflow-x: hidden;
+    overflow-y: scroll;
+    margin-top:-31px ;
+
+  }
+
+.juci_imagelist .juci_xlist_pane {
+  width: 96%;
+  height: 0px;
+}
+
+.juci_imagelist {
+ border: 1px solid #d8d8d8;
+    background: white;
+    width: 96%;
+    height: 108px;
+ 
+}
+
+.menu_item_refresh_section_news {
+    display: table-cell;
+    font-size: 14px;
+    vertical-align: top;
+    text-align: right;
+    width: 32%;
+}
+.newupdate_sync_info{
+	    display: inline-block;
+	    vertical-align: top;
+	    margin-right: 5px;
+	    width: 26%;
+	    word-wrap: break-word;
+	    white-space: normal;
+	    text-align: right;
+	    font-size: 11px;
+	}
+
+
+.newupdate_sync_refres_seperator{
+	display: inline-block;
+    background: #FFF;
+    width: 1px;
+    height: 20px;
+    vertical-align: top;
+	}
+	
+.newupdate_refresh_icon{
+	    display: inline-block;
+    width: 40px;
+    height: 25px;
+    vertical-align: top;
+	}

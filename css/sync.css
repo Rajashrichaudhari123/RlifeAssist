@@ -1,0 +1,277 @@
+.synctab {
+    /* background: #fff; */
+    /* width: 92%; */
+    /* margin-left: 15px; */
+    /* height: 100%; */
+    /* margin-bottom: 20px; */
+}
+
+.detail {
+	border-bottom: 4px solid;
+    color: #0B4DA1;
+    width: 40px;
+    line-height: 16px;
+    margin: 0px 0px 14px;
+    padding-bottom: 6px;
+    padding-top: 20px;
+    margin-left: 14px;
+}
+
+.row {
+    margin-left: 12px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.rowsync{
+    display: inline;
+    width: 30%;
+}
+
+.cell {
+    font-size: 26px;
+    color: #9d9d9d;
+    line-height: 22px;
+}
+
+.scnd {
+    font-size: 11px;
+    color: #565656;
+}
+
+.syncall {
+    background-color: #0b4da1;
+    border-color: #0b4da1;
+    font-size: 12px;
+    width: 28%;
+    min-height: 32px;
+    height: 38px;
+    border-radius: 4px;
+        margin-left: 2px;
+    vertical-align: top;
+}
+
+.syncBox {
+    margin: 10px 0px 10px 10px;
+    border: 1px solid #d8d8d8;
+    border-radius: 2px;
+    height: 100px;
+    width: 92%;
+}
+
+.syncBox-head {
+    border-bottom: 1px solid #d8d8d8;
+    padding: 4px 10px;
+}
+
+.heading {
+    font-size: 14px;
+    line-height: 28px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+span.heading2 {
+    float: right;
+    color: #8ac45f;
+}
+
+.header {
+    display: inline-block;
+    padding: 20px;
+    padding-left: 5px;
+    width: 38%;
+}
+
+.data {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.data.scnd {
+    font-size: 10px;
+    color: #9d9d9d;
+}
+
+.filesinfo {
+	width: 100%;
+}
+
+.snd {
+	margin-left:5px;
+}
+
+.syn {
+    background-color: #0b4da1;
+    border-color: #0b4da1;
+    border-radius: 4px;
+    float: right;
+    min-height: 30px;
+    height: 30px;
+    font-size: 12px;
+    width: 30%;
+}
+
+.refresh-icon {
+	vertical-align: middle;
+}
+
+.syncancel {
+    color: #d04949;
+    border-color: #d04949;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    min-height: 30px;
+    height: 35px;
+}
+
+.juci_linker {
+	display:none;
+}
+
+.bold{
+	font-weight:bold;
+}
+
+.historylist {
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.setrow {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.content {
+    display: inline-block;
+    width: 48%;
+}
+
+.juci_xlist .juci_ctrl_label {
+    color: #565656;
+    font-weight: bold;
+}
+
+.juci_xlist_item:last-child {
+	border-bottom:1px solid #ccc;
+}
+
+.setrow.lst {
+    border-bottom: none;
+}
+
+.synced{
+	color:#9d9d9d;
+}
+
+.text {
+    position: absolute;
+    left: 35%;
+    top: 70px;
+    font-size: 10px;
+    color: #fff;
+}
+
+.forcfr {
+	float: right;
+    height: 30px;
+    font-size: 12px;
+}
+
+.innerbar{
+	margin-top: 30px !important;
+	width: 88% !important;
+}
+
+.texter{
+    position: absolute;
+    left: 45%;
+    top: 26%;
+    font-size: 10px;
+    color: #fff;
+}
+
+.show_type{
+	display : inline-block !important;
+}
+
+.hide_type{
+	display : none;
+}
+
+.sync_section {
+	display:block;
+    width: 95%;
+    margin: auto;
+    background: #FFF;
+    margin-top: 20px;
+}
+
+.sync_progress {
+    width: 75%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.progress_bar {
+    text-align: center;
+    background: #f0ad4e;
+    animation: progress-bar-stripes 2s linear infinite;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-size: 40px 40px;
+    color: #FFF;
+    border-radius: 15px;
+}
+
+.progress_bar_container {
+    border: 1px solid #DDD;
+    border-radius: 15px;
+}
+
+.juci_thinbar_version {
+    float: right;
+    margin-right: 15px;
+    padding-right: 6px;
+    margin-top: 5px;
+}
+.header_section{
+	display:table;
+	width:100%;
+}
+
+.leftHeader_section{
+	display:table-cell;
+	float:left;
+	margin-left: 7px;
+    margin-top: 6px;
+}
+
+.rightHeader_section{
+	display:table-cell;
+	margin-right: 8px;
+	float:right;
+    margin-top: 6px;
+}
+
+
+.networkConnection{
+	display: block !important;
+	background: black;
+	height: 22px;
+	color:white;
+	text-align: center;
+}
+
+.active{
+	display: none;
+	background: black;
+	height: 22px;
+	color:white;
+	text-align: center;
+}
+
+span.connection {
+    font-size: 20px;
+}

@@ -1,0 +1,62 @@
+.juci_title {
+	width:100%;
+}
+
+.content {
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    color: #fff;
+    font-family: sans-serif;
+}
+.content{
+	width:100%;
+}
+div#languages {
+    width: 35%;
+    float: right;
+    margin: 5px;
+    padding: 5px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    min-height: 34px;
+}
+button.juci_button.agree ,button.juci_button.agree.touch {
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    font-size: 12px;
+    width: 35%;
+    min-height: 25px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-top: 0px;
+    border-radius: 4px;
+    margin-bottom:3px;
+}
+button.juci_button.no,button.juci_button.no.touch {
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    font-size: 12px;
+    width: 35%;
+    min-height: 25px;
+    float: left;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-top: 0;
+    margin-left: 5px;
+    border-radius: 4px;
+    margin-bottom:3px;
+}
+.selfieData {
+    width: 100%;
+    margin: auto;
+    color: #444;
+    font-family: sans-serif;
+	 margin-top: 0px;
+    background: rgba(140, 168, 222, 0.85);
+    height: 217px;
+}
+.juci_title.assuredetails.address{
+	width:99%;
+}

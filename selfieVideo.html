@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select-box.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/selfieVideo.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/proposal.css"></link>
+      	<link rel="stylesheet" type="text/css" href="css/select.css"></link>
+      	
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/bindingObject.js"></script>
+		<script src="scripts/selfieTranslation.js"></script>
+		<script src="scripts/x2js library.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/paymentoptions.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/selfieVideo.js"></script>
+		<script src="scripts/dropdown.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/pdcCustomerDetailsPojo.js"></script>
+		<script src="scripts/pdcVideoDetailsPojo.js"></script>
+		<script src="scripts/pdcImageDetailsPojo.js"></script>
+	</head>
+	<body style="background: rgba(255, 255, 255, 0.2);">
+		<div data-juci="panel" data-first-panel class="first_panel">
+			<div class="selfie_video_section">
+			<div class="selfie_video" id="selfie-video" data-bind="visible:selfieEmpData">
+	            <div class="language_settings">
+	               <div data-juci="selectbox" data-mode="popup" id="languages" placeholder = "" data-bind="optionsList: languagesArray, ref: languages" 
+	               onafterchange="onLanguageChange(event)"></div>
+	            </div>
+	            <div class="content" data-bind="display:englishContent"></div>
+	            <button data-juci="button" class="no" onclick="onFirstScreenDisagreeClick()" data-bind="html:no"></button>
+         		<button data-juci="button" class="agree" onclick="onAgreeClick()" data-bind="html:isAgree"></button>
+	            <div  class ="selfieData" data-juci="form" data-bind="ref:lifeassuredetails">
+	            	<div class="parent_lifedetails">
+		            	<div class="lifeassured_details" data-bind="html:name"></div>
+	                  	<div class="juci_title assuredetails" data-bind="html:LA_Name"></div>
+	                </div>
+	                <div class="parent_lifedetails">
+	                	<div class="lifeassured_details" data-bind="html:dob"></div>
+                  		<div class="juci_title assuredetails" data-bind="html:formatDate(LA_DOB())"></div>
+                  	</div>
+                  	<div class="parent_lifedetails">
+                  		<div class="lifeassured_details" data-bind="html:address"></div>
+                  		<div class="juci_title assuredetails" data-bind="html:LA_AddressLine1"></div>
+                  	</div>
+                  	<div class="parent_lifedetails">
+                  		<div class="lifeassured_details" data-bind="html:mobile"></div>
+                  		<div class="juci_title assuredetails" data-bind="html:LA_Mobileno"></div>
+                  	</div>
+                  	<div class="parent_lifedetails">
+                  		<div class="lifeassured_details" data-bind="html:emailid"></div>
+                  		<div class="juci_title assuredetails" data-bind="html:LA_EmailId"></div>
+                  	</div>
+                  	<div class="parent_lifedetails">
+                  		<div class="lifeassured_details" data-bind="html:occupation"></div>
+                  		<div class="juci_title assuredetails" data-bind="html:formatOccupation(LA_Occupation)"></div>
+                  	</div>
+               </div>
+                <div id="dialog-firstScreenContent" class="dialog_plancontent" data-juci="dialog">
+         			<div class="select_correntplan" data-bind="html:firstScreenDisagreeContent"></div>
+         			<div class="parent_btn">
+         				<button class="ok_btn" onclick="onSelectFirstScreenOk()" data-juci="button">Ok</button>
+         			</div>
+         		</div>
+         	</div>
+         	<div class="questionaries" data-bind="visible:questions">
+         		<div class="question">
+	         		<button data-juci="button" id="no-questions" class="no" onclick="onNoClick()" data-bind="html:no"></button>
+	         		<button data-juci="button" id="agree-questions" class="agree" onclick="onQuestionariesAgreeClick()" data-bind="html:isConfirm"></button>
+	         	</div>
+	         	<div class="questionaries_content">
+         			<div class="selfie_content" data-bind="html:confirm"></div>
+	         		<div  class ="questionaries_data" data-juci="form" data-bind="ref:$root.questionaries">
+	         			<div class="ques_parent">
+			         		<div class="ques_data" data-bind="html:medication"></div>
+			         		<div class="ques_ans" data-bind="html:medicationAnswer"></div>
+			         	</div>
+			         	<div class="ques_parent">
+			         		<div class="ques_data" data-bind="html:medicalAlignments"></div>
+			         		<div class="ques_ans" data-bind="html:alignmentAnswer"></div>
+			         	</div>
+			         	<div class="ques_parent">
+			         		<div class="ques_data" data-bind="html:surgery"></div>
+			         		<div class="ques_ans" data-bind="html:surgeryAnswer"></div>
+			         	</div>
+		         	</div>
+		         </div>
+         	</div>
+         	<div class="plancontent_section" data-bind="visible:planContent">
+         		<div class="question">
+	         		<button data-juci="button" class="no" onclick="onNoPlanContentClick()" data-bind="html:no"></button>
+	         		<button data-juci="button" class="agree" onclick="onPlanContentAgreeClick()" data-bind="html:isAgree"></button>
+	         	</div>
+         		<div class="planner_content" data-bind="html:lifePlannerContent"></div>
+         		<div id="dialog-planContent" class="dialog_plancontent" data-juci="dialog">
+         			<div class="select_correntplan" data-bind="html:plansContent"></div>
+         			<div class="parent_btn">
+         				<button class="ok_btn" onclick="onClickOk()" data-juci="button">Yes</button>
+         				<button class="ok_btn" onclick="onClickNo()" data-juci="button">No</button>
+         			</div>
+         		</div>
+         	</div>
+         	<div class="finalcontent_section" data-bind="visible:finalContent">
+         		<div class="question">
+	         		<button data-juci="button" class="no" onclick="onNoFinalContentClick()" data-bind="html:no"></button>
+	         		<button data-juci="button" class="agree" onclick="onFinalContentAgreeClick()" data-bind="html:isAgree"></button>
+	         	</div>
+	         	<div class="final_content">
+		         	<div class="selfie_content" data-bind="html:screenContent"></div>
+		         	<div class="final_data" data-bind="html:bonusContent"></div>
+		         	<div class="final_data" data-bind="html:benefitsContent"></div>
+		         </div>
+		         <div id="dialog-finalContent" class="dialog_plancontent" data-juci="dialog">
+         			<div class="select_correntplan" data-bind="html:correctPlanContent"></div>
+         			<div class="parent_btn">
+         				<button class="ok_btn" onclick="onSelectOk()" data-juci="button">Ok</button>
+         			</div>
+         		</div>
+         	</div>
+         	</div>
+		</div>
+	</body>
+</html>

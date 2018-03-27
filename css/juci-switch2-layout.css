@@ -1,0 +1,109 @@
+/*
+switch2
+======
+*/
+.juci_switch2{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.juci_switch2_bar{
+	position: relative;
+	width: 85px;
+	height: 32px;
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+/*	display: table-cell;  Changed by ali*/
+	display:block;
+	vertical-align: middle;
+	margin-top: 10px; /*Changed by ali*/
+}
+
+.juci_switch2_bar div{
+	display: inline-block;
+}
+
+.juci_switch2_label{
+	display: table-cell;
+	width: 95%;
+	overflow: inherit;
+	font-size: 12pt;
+	vertical-align: middle;
+	white-space: inherit;
+}
+.juci_switch2_scroller{
+	width: 150px;
+	height: 34px;
+}
+.juci_switch2_scroller > *{
+	line-height: 30px;
+	width: 50px;
+	padding: 0px 2px;
+	display: inline-block;
+	text-align: center;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	vertical-align: middle;
+	height: 32px;
+	font-weight: bold;
+	font-size: 11pt;
+	border: 1px solid;
+}
+.juci_switch2_box{
+	display: table;
+	margin: 8px auto;
+	padding: 0px 4px;
+	table-layout: fixed;
+	width: 98%;
+}
+.juci_switch2_on{
+	border-bottom-left-radius: 7px;
+	border-top-left-radius: 7px;
+}
+.juci_switch2_thumb{
+	position:absolute;
+	height: 34px;
+	border-radius: 1px;
+	-webkit-border-radius: 1px;
+	
+}
+.juci_switch2_off{
+	border-bottom-right-radius: 7px;
+	border-top-right-radius: 7px;
+}
+
+.juci_switch{
+	border-radius:0;
+	border:1px solid;
+}
+.juci_switch_scroller>*{
+	border-radius: 0px;
+}
+.juci_switch.touch{}
+
+.juci_switch2_val {
+    width: 41%;
+    border: 1px solid;
+    height: 24px;
+    margin: 0;
+    padding-top: 7px;
+    font-size: 11pt;
+}
+
+.juci_switch2_on {
+border-right: 0;text-align: left;      padding-left: 5px;border-top-left-radius: 48%;border-bottom-left-radius: 48%;}
+
+.juci_switch2_off {
+    border-left: 0;
+    text-align: right;
+    padding-right: 8px;
+    border-top-right-radius: 48%;
+    border-bottom-right-radius: 48%;
+}
+
+.juci_switch2_thumb {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}

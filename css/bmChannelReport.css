@@ -1,0 +1,378 @@
+.juci_selectbox_options_panel {
+	background:#fff;
+}
+.juci_basecontrol.juci_selectbox {
+    border: none;
+    width: 90%;
+    margin: 5px auto;
+}
+.juci_ctrl_box.juci_selectbox_box {
+    border-bottom: 1px solid #ccc;
+}
+.juci_ctrl_box.juci_selectbox_box {
+	padding:0;
+    font-size: 14px;
+}
+.juci_selectbox .juci_linker {
+    background-image: url("../images/down_arrow.png");
+    height: 39px;
+}
+.bmReport {
+    width: 96%;
+    background: #ffffff;
+    margin-left: 2%;
+}
+div#dateranger {
+    /* width: 48%; */
+    /* margin-top: 0px; */
+    margin-bottom: 0;
+    width: 94%;
+    margin-left: 4%;
+    background: #fff;
+}
+.dateLabel {
+    margin-left: 5%;
+    margin-top: 20px;
+    font-size: 15px;
+    color: #9b9ea3;
+}
+
+.dateRangeFilter {
+    /* width: 75%; */
+    margin-top: 4px;
+}
+.juci_basecontrol.juci_datepicker.juci_not_rounded.juci_parent {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 50%;
+    display: inline-block;
+    min-height: 20px;
+}
+
+
+.juci_basecontrol.juci_datepicker.juci_not_rounded.juci_parent .juci_linker{
+display:none;	
+	
+}
+#dateranger label.juci_label_text {
+    display: none;
+}
+
+#dateranger .juci_datepicker_box {
+    font-size: 13px;
+}
+
+.juci_ctrl_box.juci_range_ctrl.juci_daterange_box {
+    margin-top: -80px;
+}
+
+button.juci_button.searchButrange {
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    font-size: 15px;
+    min-height: 33px;
+    border-radius: 4px;
+    margin-top: 7px;
+    margin-bottom: 6px;
+}
+
+.searchButtonRange {
+    margin-left: 38%;
+}
+.table_section {
+    width: 95%;
+    margin: auto;
+    margin-top: 13px;
+}
+.aadhar_detail_last{
+	 /* display: block; */
+	 /* border: 1px solid #d8d8d8; */
+	 display: block;
+	 border: 1px solid #d8d8d8;
+	 border-bottom: none;
+	 /* height: 34px; */
+	 border-bottom: 1px solid #d8d8d8;
+	}
+	
+.adhar_heading {
+    width: 100%;
+    margin: auto;
+    padding: 20px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.aadhar_info_name_last {
+    display: inline-block;
+    width: 28%;
+    height: 75px;
+    padding-left: 5px;
+    vertical-align: middle;
+    line-height: 75px;
+    background: #f1f1f1;
+    border-right: 1px solid #d8d8d8;
+    }
+
+.aadhar_data_last {
+    display: inline-block;
+    height: 100%;
+    line-height: 19px;
+    width: 67%;
+    vertical-align: middle;
+    word-break: break-all;
+}
+
+.aadhar_detail {
+    display: block;
+    border: 1px solid #d8d8d8;
+    border-bottom: none;
+    min-height: 44px;
+}
+
+.aadhar_info_name {
+    width: 14%;
+    height: 36px;
+    border-right: 1px solid #d8d8d8;
+    line-height: 31px;
+    padding-left: 5px;
+    display: inline-block;
+    /*background: #f1f1f1;*/
+    color: #565656;
+    vertical-align: middle;
+}
+
+.aadhar_info_name_nels {
+    width: 14%;
+    height: 44px;
+    border-right: 1px solid #d8d8d8;
+    line-height: 31px;
+    padding-left: 5px;
+    display: inline-block;
+    /*background: #f1f1f1;*/
+    color: #565656;
+    vertical-align: middle;
+}
+
+.aadhar_info_name_neac {
+    width: 14%;
+    height: 44px;
+    border-right: 1px solid #d8d8d8;
+    line-height: 31px;
+    padding-left: 5px;
+    display: inline-block;
+    /*background: #f1f1f1;*/
+    color: #565656;
+    vertical-align: middle;
+}
+
+.aadhar_info_name_eansl {
+    width: 14%;
+    height: 44px;
+    border-right: 1px solid #d8d8d8;
+    line-height: 31px;
+    padding-left: 5px;
+    display: inline-block;
+    /*background: #f1f1f1;*/
+    color: #565656;
+    vertical-align: middle;
+}
+
+.aadhar_info_name_elac {
+    width: 14%;
+    height: 44px;
+    border-right: 1px solid #d8d8d8;
+    line-height: 31px;
+    padding-left: 5px;
+    display: inline-block;
+    /*background: #f1f1f1;*/
+    color: #565656;
+    vertical-align: middle;
+}
+
+.aadhar_data {
+    display: inline-block;
+    height: 37px;
+    line-height: 22px;
+    width: 8%;
+    /* padding: 0px; */
+    text-align: center;
+    /* word-break: break-all; */
+    border-right: 1px solid #d8d8d8;
+    vertical-align: middle;
+}
+
+.aadhar_data_nels {
+    display: inline-block;
+    height: 44px;
+    line-height: 22px;
+    width: 8%;
+    /* padding: 0px; */
+    text-align: center;
+    /* word-break: break-all; */
+    border-right: 1px solid #d8d8d8;
+    vertical-align: middle;
+}
+
+.aadhar_data_elac {
+    display: inline-block;
+    height: 44px;
+    line-height: 22px;
+    width: 8%;
+    /* padding: 0px; */
+    text-align: center;
+    /* word-break: break-all; */
+    border-right: 1px solid #d8d8d8;
+    vertical-align: middle;
+}
+
+.aadhar_data_neac {
+    display: inline-block;
+    height: 44px;
+    line-height: 22px;
+    width: 8%;
+    /* padding: 0px; */
+    text-align: center;
+    /* word-break: break-all; */
+    border-right: 1px solid #d8d8d8;
+    vertical-align: middle;
+}
+
+.aadhar_data_eansl {
+    display: inline-block;
+    height: 44px;
+    line-height: 22px;
+    width: 8%;
+    /* padding: 0px; */
+    text-align: center;
+    /* word-break: break-all; */
+    border-right: 1px solid #d8d8d8;
+    vertical-align: middle;
+}
+
+
+/*.select_box.chooseoption {
+    width: 88%;
+    display: block;
+}*/
+
+.select2-container--default {
+    width: 100% !important;
+}
+
+.exceptionsName {
+    margin-top: 11px;
+}
+span.exceptionSym {
+    font-weight: bold;
+}
+.aadhar_data_reason {
+    display: inline-block;
+    height: 44px;
+    line-height: 22px;
+    width: 27%;
+    /* padding: 0px; */
+    text-align: center;
+    /* word-break: break-all; */
+    border-right: 1px solid #d8d8d8;
+    vertical-align: middle;
+}
+
+.aadhar_data_remarks {
+    display: inline-block;
+    height: 43px;
+    line-height: 22px;
+    width: 18%;
+    /* padding: 0px; */
+    text-align: center;
+    /* word-break: break-all; */
+    border-right: 1px solid #d8d8d8;
+    vertical-align: middle;
+}
+.aadhar_data_w3 {
+    display: inline-block;
+    height: 34px;
+    line-height: 22px;
+    width: 8%;
+    /* padding: 0px; */
+    text-align: center;
+    /* word-break: break-all; */
+    /* border-right: 1px solid #d8d8d8; */
+    vertical-align: middle;
+}
+
+input[type="text"] {
+    border: none;
+}
+
+textarea#remarks-nelstext,textarea#remarks-elactext,textarea#remarks-neactext,textarea#remarks-eansltext {
+    width: 48px;
+    word-break: break-all;
+    border: none;
+    resize: none;
+    overflow: hidden;
+}
+
+.select_box.chooseoption_elac {
+    width: 90%;
+    overflow-wrap: break-word;
+}
+
+.select_box.chooseoption_neac {
+    width: 90%;
+    overflow-wrap: break-word;
+}
+.select_box.chooseoption_eansl {
+    width: 90%;
+    overflow-wrap: break-word;
+}
+.select_box.chooseoption_nels {
+    width: 90%;
+    overflow-wrap: break-word;
+}
+
+select#choose-nels {
+    /* width: 254%; */
+    width: 270%;
+    /* padding-top: 6px; */
+    margin-top: 4px;
+    background: none;
+    border: none;
+}
+select#choose-elac {
+    /* width: 254%; */
+    width: 270%;
+    /* padding-top: 6px; */
+    margin-top: 4px;
+    background: none;
+    border: none;
+}
+select#choose-neac {
+    /* width: 254%; */
+    width: 270%;
+    /* padding-top: 6px; */
+    margin-top: 4px;
+    background: none;
+    border: none;
+}
+select#choose-eansl {
+    /* width: 254%; */
+    width: 270%;
+    /* padding-top: 6px; */
+    margin-top: 4px;
+    background: none;
+    border: none;
+}
+label.juci_label_text {
+    font-size: 15px;
+}
+.select_box.chooseoption {
+    width: 89%;
+}
+
+.bm_table_data {
+    display: block;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 98%;
+    margin-left: 1%;
+}

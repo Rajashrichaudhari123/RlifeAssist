@@ -1,0 +1,923 @@
+button.juci_button.btn1 {
+    width:42%;
+    background: #fff;
+    border: none;
+    padding-bottom: 8px;
+}
+
+span.prop {
+    font-size: 12pt;
+    display: inline-block;
+}
+
+.juci_selectbox_options_panel {
+	background:#fff;
+}
+
+span.cont {
+    padding-right: 8px;
+    font-size: 50px;
+    text-align: left;
+    display: inline-block;
+    color: #9D9D9D;
+}
+
+.toggled span.cont {
+    color: #0B4DA1;
+}
+
+.toglediv{
+	overflow:hidden;
+	margin: 0px;
+}
+
+.togcount{
+	width:100%;
+}
+
+.juci_basecontrol.juci_timepicker.activity_time.juci_parent {
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #CECECE;
+}
+
+button.juci_button.btn1.lftbrd.toggled {
+    background: #fff;
+    color: #565656;
+    float: left;
+}
+
+button.btn1.toggled {
+	background: #fff;
+    border-bottom: 4px solid #0B4DA1;
+    color: #565656;
+}
+
+
+.info {
+    /* overflow: auto; */
+}
+
+.juci_title {
+    font-size: 10pt;
+    display: inline-block;
+    width: 40%;
+}
+
+.juci_titl {
+	font-size: 10pt;
+}
+
+.juci_ctrl_label {
+    margin: 0;
+    padding: 0;
+}
+
+div#toogle {
+    
+background: #fff;
+    
+margin-top: 0px;
+    
+padding-top: 8px;
+    
+width:100%;
+    
+margin-left: 0px;
+    
+padding-top: 0;
+    
+/* height: 99px; */
+    
+margin-top: -3px;
+    
+overflow: hidden;
+    
+/* overflow-y: hidden; */
+}
+
+div {
+    overflow: hidden;
+}
+
+.propos {
+    height: 100px;
+    background: #fff;
+    width: 95%;
+    margin-left: 8px;
+}
+
+.life2assure {
+    background: #fff;
+    width: 95%;
+    margin-left: 8px;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 71px;
+}
+
+p.form-heading1 {
+    margin: 15px;
+    padding-top: 15px;
+    font-weight: bold;
+    color: #0B4DA1;
+    font-size: 15px;
+    border-bottom: 4px solid;
+    width: 91px;
+}
+
+/*input.juci_ctrl_box {
+    text-transform: capitalize;
+}*/
+
+
+button.juci_button.submit {
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    min-width: 90px;
+    margin-top: 13px;
+    margin-left: 20px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    min-height: 36px;
+    font-size: 14px;
+}
+
+.details {
+    font-style: italic;
+    color: #9d9d9d;
+    margin: 25px;
+    font-size: 14px;
+}
+
+p.label {
+    color: #9d9d9d;
+    font-size: 12px;
+    margin-left: 25px;
+}
+
+.juci_ctrl_box.juci_timepicker_box {
+    padding: 0;
+}
+
+.form-heading2 {
+    width: 75%;
+    color: #565656;
+    line-height: 20px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.juci_basecontrol.juci_text {
+    border: none;
+    width: 90%;
+    margin: 12px auto;
+}
+
+.juci_basecontrol.juci_textarea.remarks.juci_text {
+    border-bottom: 1px solid #ccc; 
+}
+
+input.juci_ctrl_box {
+    border-bottom: 1px solid #ccc;
+}
+
+
+
+.juci_basecontrol.juci_selectbox {
+    border: none;
+    width: 90%;
+     margin: 5px auto;
+}
+
+.juci_ctrl_box.juci_selectbox_box {
+    border-bottom: 1px solid #ccc;
+}
+
+.juci_basecontrol.juci_datepicker.dob.juci_parent {
+    border: none;
+    width: 90%;
+    padding: 0;
+}
+
+.juci_ctrl_box.juci_datepicker_box {
+    border-bottom: 1px solid #ccc;
+    padding: 0;
+    color: #444;
+}
+
+.juci_options_placeholder {
+    display: none;
+}
+
+.btn {
+    margin-top: 20px;
+    background: #fff;
+    width: 95%;
+    margin-left: 7px;
+    height: 70px;
+    margin-bottom: 30px;
+}
+
+button.juci_button.save {
+	width:40%;
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    font-size: 13px;
+    min-height: 38px;
+    border-radius: 4px;
+    display: inline-block;
+    float: left;
+    margin-left: 15px;
+    margin-top: 16px;
+}
+
+.prev {
+    width: 40%;
+    display: inline-block;
+    margin-left: 20px;
+    padding-top: 25px;
+    color: #0B4DA1;
+}
+
+.gender {
+    margin-left: 20px;
+}
+
+.form-group {
+    margin-top: 10px;
+    padding: 7px;
+}
+
+button.juci_button.resndotp {
+    width: 92px;
+    font-size: 13px;
+    min-height: 35px;
+    margin-left: 10px;
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    border-radius: 4px;
+}
+
+button.juci_button.cancel {
+     width: 90px;
+     background: #0B4DA1;
+     border-color: #0B4DA1;
+     font-size: 13px;
+     min-height: 35px;
+     border-radius: 4px;
+     display: inline-block;
+     vertical-align: middle;
+     /* float: right; */
+     margin-right: 15px;
+     /* margin-top: 16px; */
+}
+
+button.juci_button.submitotp {
+    width: 90px;
+    min-height: 35px;
+    background: #0B4DA1;
+    border-color: #0B4DA1;
+    border-radius: 4px;
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Css for language toogle */
+
+div#lang {
+	width: 90%;
+	margin-top: 20px;
+}
+
+div#language {
+	width: 90%;
+	margin-top: 20px;
+}
+
+button.juci_button.langb {
+	color: #0B4DAA;
+	min-height: 34px;
+	font-size: 14px;
+	width: 30%;
+	background: #fff;
+}
+			
+div#english { 
+	margin: 5px 20px 10px;
+	width: 90%;
+	font-size: 90%;
+	color: #565656;
+}
+
+div#hindi { 
+	margin: 5px 20px 10px;
+	width: 90%;
+	font-size: 90%;
+	color: #565656;
+}
+
+div#tamil { 
+	margin: 5px 20px 10px;
+	width: 90%;
+	font-size: 90%;
+	color: #565656;
+}
+
+
+div#englishlang { 
+	margin: 5px 20px 10px;
+	width: 90%;
+	font-size: 90%;
+	color: #565656;
+}
+
+div#hindilang { 
+	margin: 5px 20px 10px;
+	width: 90%;
+	font-size: 90%;
+	color: #565656;
+}
+
+div#tamillang { 
+	margin: 5px 20px 10px;
+	width: 90%;
+	font-size: 90%;
+	color: #565656;
+}
+
+.agrement .juci_switch_label {
+    line-height: normal;
+    font-size: 13px;
+    margin-top: 8px;
+    width: 80%;
+}
+
+.consent {
+	width: 85%;
+}
+
+/* Css for language toogle ending */
+
+.juci_horizontal_bbar {
+    padding-top: 15px !important;
+    margin:0;
+}
+
+.bankdetails_mandatory_label {
+    margin-left: 18px;
+    color: #9d9d9d;
+}
+/*
+li.juci_check.juci_option {
+    width: 40%;
+    display: inline-block;
+    background-image:url("../images/male.png");
+    background-repeat: no-repeat;
+    text-align: center;
+}*/
+
+.juci_option.selected {
+background: #0b4da1;
+color: #fff;
+}
+
+.pic {
+	min-height: 38px !important;
+}
+
+.tog_img1{	
+	content: url("../images/male.png");
+	float: right;
+	}
+	
+.toggled .tog_img1{
+	content: url("../images/maleWhite.png");
+	}
+	
+.tog_img2{
+	content: url("../images/female.png");
+	float: right;
+	}
+	
+.toggled .tog_img2{
+	content: url("../images/femaleWhte.png");	
+	}
+
+.adhar label.juci_label_text {
+    color: #565656;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+label.juci_label_text {
+    color: #9d9d9d;
+    font-size: 12px;
+}
+
+.juci_ctrl_box.juci_selectbox_box {
+	padding:0;
+    font-size: 14px;
+}
+.gender_label {
+	margin-left: 20px;
+    padding-top: 7px;
+}
+
+
+
+
+.heading_family{
+	 overflow: hidden;
+    width: 100%;
+    height: 52px;
+    text-align: left;
+    vertical-align: middle;
+    background: #0B4DA1;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12) !important;
+	
+}
+.dialog_header_family{
+	padding: 18px 10px;;
+    display:inline-block;
+    font-size: 15px;
+}
+
+.exit {
+    display: inline-block;
+    float: right;
+    font-size: 18px;
+    padding: 17px;
+}
+
+.heading_otp{
+	overflow: hidden;
+    width: 100%;
+    height: 52px;
+    text-align: left;
+    vertical-align: middle;
+    background: #0B4DA1;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12) !important;
+	}
+	
+.juci_dialog {
+	padding: 0px;
+	border-color: #0B4DA1;
+	/* position: absolute; */
+	left: 3%;
+	top: 65px;
+	right: 4%;
+	width: 93%;
+	/* margin: auto; */
+}
+	
+.juci_selectbox .juci_linker {
+    background-image: url("../images/down_arrow.png");
+    height: 39px;
+}
+
+.juci_switch_label {
+	display: inline-block;
+    vertical-align: middle;
+    width: 75%;
+    line-height: 48px;
+}
+
+.juci_xlist_item.juci_xlist_item.addresslist {
+    border: 1px solid #CCC;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 90%;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.attchheading{
+	padding: 10px;
+    padding-bottom: 0px;
+    color: #9d9d9d;
+    font-size: 13px;
+}
+.juci_check_box{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image:none;
+	opacity: 0.2;
+}
+@media screen and (min-width: 600px) {
+	
+}
+
+button.juci_button.b1.pic {
+    background: none;
+    color: #6E6E6E;
+    border: 1px solid #AAA;
+}
+
+button.juci_button.b2.pic {
+    background: none;
+    color: #6E6E6E;
+    border: 1px solid #AAA;
+}
+
+.b1 {
+    min-height: 30px;
+    font-size: 14px;
+    width: 88px;
+    vertical-align: middle;
+    background: #f7f7f7;
+    border-color: #cecece;
+    color: black;
+    margin-right: -9px;
+}
+
+.langb.toggled {
+    background: #0B4DA1 !important;
+    color: #fff !important;
+    border: #0B4DA1;
+}
+
+
+.juci_display{
+	border: none;
+}
+
+input.juci_ctrl_box {
+    padding: 0;
+}
+
+.modal_body {
+    overflow: scroll;
+   /* height: 326px;*/
+    overflow-x: hidden;
+}
+
+.juci_xlist_item.juci_xlist_item.familymemberdetails.juci_parent.touch {
+    background: none;
+    color: black;
+}
+
+img.delete {
+    position: absolute;
+    right: 37%;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+}
+
+
+.familymemberdetails .juci_linker {
+    display: none;
+}
+
+@media only screen and (min-width: 550px) and (max-height:500px) {
+	.modal_body {
+	    overflow: scroll;
+	    height: 184px;
+	    overflow-x: hidden;
+	}
+}
+
+.app_num {
+    font-size: 12px;
+    float: right;
+    padding-top: 2px;
+}
+
+.aadhar_info_name {
+    width: 28%;
+    height: 34px;
+    border-right: 1px solid #d8d8d8;
+    line-height: 31px;
+    padding-left: 5px;
+    display: inline-block;
+    background: #f1f1f1;
+    color: #565656;
+    vertical-align: middle;
+}
+
+.aadhar_data {
+    display: inline-block;
+    height: 34px;
+    line-height: 33px;
+    /* width: 50%; */
+    vertical-align: middle;
+}
+
+.aadhar_detail {
+    display: block;
+    border: 1px solid #d8d8d8;
+    border-bottom: none;
+    /* height: 34px; */
+}
+
+.Aadhar_section {
+    width: 95%;
+    margin: auto;
+    margin-top: 13px;
+}
+.aadhar_detail_last{
+	 display: block;
+    border: 1px solid #d8d8d8;
+    
+	}
+.adhar_heading {
+    width: 100%;
+    margin: auto;
+    padding: 20px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.aadhar_info_name_last {
+    display: inline-block;
+    width: 28%;
+    height: 75px;
+    padding-left: 5px;
+    vertical-align: middle;
+    line-height: 75px;
+    background: #f1f1f1;
+    border-right: 1px solid #d8d8d8;
+    }
+
+.aadhar_data_last {
+    display: inline-block;
+    height: 100%;
+    line-height: 19px;
+    width: 67%;
+    vertical-align: middle;
+    word-break: break-all;
+}
+
+.juci_xlist_item.juci_xlist_item.addresslist.juci_parent .juci_linker {
+    display: none;
+}
+
+.collapse.section_color{
+	background: #f3eaeaed;
+    width: 100%;
+    padding-top: 10px;
+    display: inline-block;	
+}
+
+.juci_timer,.juci_dobpick{
+	background:none;
+	color:#343434;
+	height: 650px;
+	background: #FFF;
+}
+
+.toggbutton {
+    width: 90%;
+    margin: auto;
+}
+
+.lead_code{
+    height: 139px;
+    background: #fff;
+    width: 95%;
+    margin-left: 8px;
+    padding-top: 1px;
+}
+
+.life_header {
+    margin: 15px;
+    padding-top: 15px;
+    font-weight: bold;
+    color: #0B4DA1;
+    font-size: 15px;
+    border-bottom: 4px solid;
+    width: 134px;
+}
+
+.Aadhar_image_area {
+    display: table;
+    width: 95%;
+    margin: auto;
+    margin-top: 40px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.image_section {
+}
+
+.content_body {
+    height: 215px;
+}
+
+.icon_label {
+    color: #0B4DA1;
+    margin-top: 5px;
+}
+
+.aadhar_content {
+    width: 100%;
+    margin: auto;
+    display: table;
+    margin-top: 10px;
+}
+
+.aadhar_key {
+    display: inline-block;
+    margin: auto;
+    padding-left: 10px;
+    font-size: 15px;
+    color: #0b4da1;
+    vertical-align: middle;
+}
+
+.aadhar_value{
+	display: inline-block;
+	margin: auto;
+	padding-left: 3px;
+	font-size: 15px;
+	color: #0b4da1;
+	font-weight: bold;
+	vertical-align: middle;
+	}
+	
+button.juci_button.btn_auth {
+    background: #0b4da1;
+    border: #0b4da1;
+    min-height: 32px;
+    font-size: 13px;
+    width: 95px;
+    /* margin-left: auto; */
+    border-radius: 4px;
+    text-align: center;
+}
+
+.btn_section {
+    width: 90%;
+    margin: auto;
+    /* text-align: left; */
+}
+
+	span.value {
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+.image_container {
+    width: 80%;
+    margin: auto;
+    height: 204px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.image_box {
+    width: 99%;
+    margin: auto;
+    /* height: 98%; */
+    border: 1px #0b4da1 solid;
+    background: #fff;
+    /* text-align: center; */
+}
+
+img.img_fingerprint {
+    transform: rotate(270deg);
+    vertical-align: middle;
+}
+
+button.juci_button.authenticationBtn {
+    background: #f7f7f7;
+    border: none;
+    display: table-cell;
+    width: 45%;
+    font-size: 13px;
+    margin: auto;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.juci_button.authenticationBtn.touch {
+    background: #FAC671;
+    border: none;
+    color:white;
+}
+
+.juci_button.touch {
+    background: #0b4da1;
+    border: none;
+    color:#FAB33F;
+}
+
+.juci_check_box {
+	height: 19px;
+	width: 19px;
+	border: 1px solid #0a0101;
+	margin-right: 10px;
+	margin-left: 2%;
+	display: inline-block;
+	vertical-align: middle;
+	float: left;
+	margin-top: 6px;
+}
+
+.juci_check_box{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image:none;
+	opacity: 0.2;
+}
+
+.juci_checkbox.touch{
+	background:none;
+	color:#444;
+}
+
+.juci_basecontrol.juci_checkbox.juci_check {
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #9d9d9d;
+    font-weight: 400;
+}
+
+.agrement .juci_switch_label {
+    line-height: normal;
+    font-size: 13px;
+    margin-top: 8px;
+    width: 80%;
+}
+
+button.juci_button.ref_button {
+    float: right;
+    background: #0b4daa;
+    border-color: #0b4daa;
+    width: 104px;
+    min-height: 37px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.ref_button_section {
+    width: 94%;
+    margin: auto;
+}
+
+span.but_text {
+    float: left;
+    margin-left: -3px;
+}
+
+.TriggerSMS {
+    display: table;
+    color: #0b4da1;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 8px;
+    /* text-decoration: underline; */
+}
+
+div#plan-code {
+    margin-top: -13px;
+}
+
+button.juci_button.edit_button {
+    background: #0b4daa;
+    border-color: #0b4daa;
+    width: 104px;
+    min-height: 37px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.consent_text {
+    display: block;
+    margin-left: 20px;
+    font-size: 13px;
+    color: grey;
+    margin-top: -13px;
+    margin-bottom: 6px;
+}
+.consent_full_text {
+    display: block;
+    margin-left: 17px;
+    margin-bottom: 5px;
+    color: grey;
+}
+
+.submit_dob {
+	text-align:center
+}
+
+.dialog_header {
+    color: #0B4DA1;
+    margin: 10px;
+    font-weight: 600;
+}

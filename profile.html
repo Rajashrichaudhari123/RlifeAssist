@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/profile.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/Chart.js"></script>
+		<!-- Add your scripts here -->
+		<script src="scripts/profile.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/header.js"></script>
+		<script src="scripts/bars.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div class="Profile_container">
+				<!---Profile Area -->
+				<div id ="adv-profile" class="Profile_section" data-bind="with:profile">
+					<div class="profile_details">
+						<div class="profile_image">
+							<img class="adv_image_src" data-bind="attr:{src :ProfileImage}" />
+						</div>
+						<div class="advisor_details">
+							<div class="adv_name" data-bind="html:Name"></div>
+							<div class="adv_role" data-bind="html:AdvisorCode"></div>
+							<div class="rating" data-bind=""></div>
+						</div>
+					</div>
+					<div class="Adv_details_section_area">
+						<div class="detail_section">
+							<div class="adv_detail_Title">Branch </div>
+							<div class="adv_detail_data" data-bind="html:':  '+ BranchAddress()"></div>
+						</div>
+						<div class="detail_section">
+							<div class="adv_detail_Title">Branch Mangaer</div>
+							<div class="adv_detail_data" data-bind="html:':  '+BranchManager()"></div>
+						</div>
+						<div class="detail_section">
+							<div class="adv_detail_Title">Sales Manager</div>
+							<div class="adv_detail_data" data-bind="html:':  '+SalesManager()"></div>
+						</div>
+						<div id="dobirth" class="detail_section1">
+							<div class="adv_detail_Title">Date of Birth</div>
+							<div class="adv_detail_data" data-bind="html:':  '+BirthDate()"></div>
+							<div class="image_edit">
+								<img class="pencil" src="images/pencil-icon.png" onclick="editdob()"></img>
+							</div>
+						</div>
+						<div class="dob" >
+							<div class="dob_text">Today is Kasturi Shah’s Birthday
+								
+								
+								<br>Wish her!!!
+								
+								
+								</div>
+							</div>
+							<div class="detail_section1">
+								<div class="adv_detail_Title">Date of Licensing</div>
+								<div class="adv_detail_data" data-bind="html:':  '+LicenseDate()"></div>
+							</div>
+							<div class="dob">
+								<div class="dob_text">Celebrating 1 year with Reliance Life! </div>
+							</div>
+							<div id="Profile-address" class="detail_section">
+								<div class="adv_detail_Title">Address</div>
+								<div class="adv_detail_data" data-bind="html:':  '+Address()"></div>
+								<div class="image_edit">
+									<img class="pencil" src="images/pencil-icon.png" onclick="editAddress()"></img>
+								</div>
+							</div>
+							<div   id="Pan" class="detail_section">
+								<div class="adv_detail_Title">PAN No.</div>
+								<div class="adv_detail_data" data-bind="html:':  '+PanNumber()"></div>
+								<div class="image_edit">
+									<img class="pencil" src="images/pencil-icon.png" onclick="editPan()"></img>
+								</div>
+							</div>
+							<div id="mobile" class="detail_section">
+								<div class="adv_detail_Title">Mobile</div>
+								<div class="adv_detail_data" data-bind="html:': '+MobileNumber()"></div>
+								<div class="image_edit">
+									<img class="pencil" src="images/pencil-icon.png" onclick="editMobile()"></img>
+								</div>
+							</div>
+							<div id="email" class="detail_section">
+								<div class="adv_detail_Title">Email</div>
+								<div class="adv_detail_data" data-bind="html:':  '+EmailAddress()"></div>
+								<div class="image_edit">
+									<img class="pencil" src="images/pencil-icon.png" onclick="editEmail()" ></img>
+								</div>
+							</div>
+						</div>
+						<!---Dialog Box Date of Birth-->
+						<div id="dialog-dob" data-juci="dialog">
+							<div class="heading_dialog">
+								<div class="dialogheader">Change date of birth </div>
+								<span class="close" onclick="hidebox()">X</span>
+							</div>
+							<div data-juci="form" data-bind="" onsubmit="" onreset="hidebox()">
+								<div class="content_body">
+									<div class="data_head">Current Date of Birth</div>
+									<div class="info_data" data-bind=""></div>
+									<div data-juci="datepicker" data-label="New Date of Birth" data-bind="" placeholder=""></div>
+									<div data-juci="text" data-label="To change date of birth please provide password
+									
+										<span class='star'>*</span>" data-bind placeholder data-trigger>
+									</div>
+								</div>
+								<div class="juci_horizontal_bbar">
+									<button data-juci="button" class="cancel" type="reset">Cancel</button>
+									<button data-juci="button" class="add" type="submit">Request Change</button>
+								</div>
+							</div>
+						</div>
+						<!-- Address change -->
+						<div id="dialog-Address" data-juci="dialog">
+							<div class="heading_dialog">
+								<div class="dialogheader">Change Address </div>
+								<span class="close" onclick="hideAddbox()">X</span>
+							</div>
+							<div data-juci="form" data-bind="" onsubmit="" onreset="hideAddbox()">
+								<div class="content_body">
+									<div class="data_head" >Current Address </div>
+									<div class="info_data" data-bind=""></div>
+									<div class="data_head" >New Address </div>
+									<div data-juci="text" data-label="Address 1" data-bind placeholder data-trigger></div>
+									<div data-juci="text" data-label="Address 2" data-bind placeholder data-trigger></div>
+									<div data-juci="text" data-label="Address 3" data-bind placeholder data-trigger></div>
+								</div>
+								<div class="juci_horizontal_bbar">
+									<button data-juci="button" class="cancel" type="reset">Cancel</button>
+									<button data-juci="button" class="add" type="submit">Request Change</button>
+								</div>
+							</div>
+						</div>
+						<!-- Pan change -->
+						<div id="dialog-Pan" data-juci="dialog">
+							<div class="heading_dialog">
+								<div class="dialogheader">Change Pan No. </div>
+								<span class="close" onclick="hidePanbox()">X</span>
+							</div>
+							<div data-juci="form" data-bind="" onsubmit="" onreset="hidePanbox()">
+								<div class="content_body">
+									<div class="data_head"> Old PAN No.</div>
+									<div class="info_data" data-bind="html:"></div>
+									<div data-juci="text" data-label="New PAN No.
+									
+										<span class='star'>*</span>" data-bind placeholder data-trigger>
+									</div>
+								</div>
+								<div class="juci_horizontal_bbar">
+									<button data-juci="button" class="cancel" type="reset">Cancel</button>
+									<button data-juci="button" class="add" type="submit">Submit</button>
+								</div>
+							</div>
+						</div>
+						<!-- Mobile change -->
+						<div id="dialog-Mobile" data-juci="dialog">
+							<div class="heading_dialog">
+								<div class="dialogheader">Change Mobile No. </div>
+								<span class="close" onclick="hideMobilebox()">X</span>
+							</div>
+							<div data-juci="form" data-bind="" onsubmit="" onreset="hideMobilebox()">
+								<div class="content_body">
+									<div class="data_head" >Old Mobile No. </div>
+									<div class="info_data" data-bind=""></div>
+									<div data-juci="text" data-label="New Mobile No.
+									
+										<span class='star'>*</span>" data-bind placeholder data-trigger>
+									</div>
+								</div>
+								<div class="juci_horizontal_bbar">
+									<button data-juci="button" class="cancel" type="reset">Cancel</button>
+									<button data-juci="button" class="add" type="submit">Submit</button>
+								</div>
+							</div>
+						</div>
+						<!-- email change -->
+						<div id="dialog-email" data-juci="dialog">
+							<div class="heading_dialog">
+								<div class="dialogheader">Change Email </div>
+								<span class="close" onclick="hideemailbox()">X</span>
+							</div>
+							<div data-juci="form" data-bind="" onsubmit="" onreset="">
+								<div class="content_body">
+									<div class="data_head" > Old Email</div>
+									<div class="info_data" data-bind=""></div>
+									<div data-juci="text" data-label="New Email
+									
+										<span class='star'>*</span>" data-bind placeholder data-trigger>
+									</div>
+								</div>
+								<div class="juci_horizontal_bbar">
+									<button data-juci="button" class="cancel" type="reset">Cancel</button>
+									<button data-juci="button" class="add" type="submit">Submit</button>
+								</div>
+							</div>
+						</div>
+						<!--  Verification -->
+						<div id="dialog-Verf" data-juci="dialog">
+							<div class="heading_dialog">
+								<div class="dialogheader">Verification </div>
+								<span class="close" onclick="hideVerbox()">X</span>
+							</div>
+							<div data-juci="form" data-bind="" onsubmit="" onreset="hideVerbox()">
+								<div class="content_body">
+									<div data-juci="text" data-label="Enter Date of Joining
+									
+										<span class='star'>*</span>" data-bind placeholder data-trigger>
+									</div>
+									<div data-juci="text" data-label="Enter your IRDA No.
+									
+										<span class='star'>*</span>" data-bind placeholder data-trigger>
+									</div>
+								</div>
+								<div class="juci_horizontal_bbar">
+									<button data-juci="button" class="cancel" type="reset">Cancel</button>
+									<button data-juci="button" class="add" type="submit">Submit</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--- Recognizzation -->
+					<div class="recognization_container">
+						<div class="recog_heading">Recognition</div>
+						<div class="club_section">
+							<div class="club_heading">Clubs </div>
+							<div class="club_name" >EMDRT</div>
+							<div class="club_data" data-bind=""></div>
+							<div class="club_name" >COT</div>
+							<div class="club_data" data-bind=""></div>
+						</div>
+					</div>
+					<div class="qualification_container">
+						<div class="qualif_section">
+							<div class="qualif_heading">R&R Qualifications </div>
+							<div class="qualif_data">Attended Arabian Nights event Aug, 2015s </div>
+						</div>
+					</div>
+					<div class="Trainings_container">
+						<div class="Trainings_section">
+							<div class="Trainings_heading">Trainings attended / Certifications </div>
+							<div class="Trainings_data">Trainings attended / Certifications Arjuna Induction Program in May, 2015 Life Council Training Program in Sep, 2014 </div>
+						</div>
+					</div>
+					<!--My account-->
+					<div class="account_container">
+						<div class="account_heading">Account Details</div>
+						<div class="account_section" data-bind="with:AccountDtls">
+							<div class="account_filter_select" data-juci="selectbox" data-label=""  data-bind="optionsList: $root.date_filter,ref:currentType" onafterchange="getAccountDetails(event)">
+								<!--<div data-juci="optiontemplate"></div>-->
+							</div>
+							<div class="account_details_section">
+								<div class="account_section_area">
+									<div class="acc_detail_head">Logins</div>
+									<div class="account_details">
+										<div class="accnt_content">
+											<div class="acc_data_info" data-bind="html:LoginsNop"></div>
+											<div class="aacc_data" data-bind="">NOP</div>
+											</div>
+												<div class="acc_seperator" ></div>
+												<div class="accnt_content1">
+													<div class="acc_data_info" data-bind="html:prependRs(LoginsWrp)"></div>
+													<div class="aacc_data" data-bind="">WRP</div>
+												</div>
+											</div>
+										</div>
+							
+								
+								<div class="account_section_area">
+									<div class="acc_detail_head">Issuances</div>
+									<div class="account_details">
+										<div class="accnt_content">
+											<div class="acc_data_info" data-bind="html:IssuanceNop"></div>
+											<div class="aacc_data" data-bind="">NOP</div>
+										</div>
+										<div class="acc_seperator" ></div>
+										<div class="accnt_content1">
+											<div class="acc_data_info" data-bind="html:prependRs(IssuanceWrp)"></div>
+											<div class="aacc_data" data-bind="">WRP</div>
+										</div>
+									</div>
+								</div>
+								<div class="account_section_area">
+									<div class="acc_detail_head">Persistency</div>
+									<div class="account_details_per">
+										<div class="accnt_content_per">
+											<div class="acc_data_info" data-bind="html:Persistency13() + ' %'"></div>
+											<div class="aacc_data" data-bind="">13th month</div>
+										</div>
+										<div class="acc_seperator" ></div>
+										<div class="accnt_content1">
+											<div class="acc_data_info" data-bind="html:Persistency25() + ' %'"></div>
+											<div class="aacc_data" data-bind="">25th month</div>
+										</div>
+									</div>
+								</div>
+						</div>
+						</div>
+						</div>
+					
+					<!--toggle section -->
+					<div class="toggle_container">
+						<div class="toogle_section_area">
+							<div class="toogle_buttons">
+								<div class="toggle_head" data-juci="togglebar" data-toggled="0" ontoggle="toggleHead(event)">
+									<button class="togbtn" data-juci="button" data-toggle="1">Business</button>
+									<button class="togbtn" data-juci="button" data-toggle="2">Persistency</button>
+								</div>
+							</div>
+						</div>
+						
+						<div id="Business">
+							<div class="toggle_sub">
+								<div class="subtoggle_heading">Total Business for Logins and Issuance</div>
+								<div class="toggle_subhead" data-juci="togglebar" data-toggled="0" ontoggle="toggleSubHead(event)">
+									<button class="togbtn_sub" data-juci="button" data-toggle="1">
+										<div class="togg_img1" ></div>
+									</button>
+									<button class="togbtn_sub" data-juci="button" data-toggle="2">
+										<div class="togg_img2" ></div>
+									</button>
+								</div>
+							</div>
+							<div id="bus-chart">
+							<div class="barchart">
+								<canvas id="busiChart" width="280" height="350"></canvas>
+								</div>
+								
+							</div>
+							<div id="bus-summary">
+								<div class="table_container">
+									<div class="table_heading">Logins</div>
+									<div class="scroll">
+									<div class="logins_table">
+										<div class="logins_month_row">
+											<div data-bind="foreach:bus_month">
+												<div class="table_column" data-bind="html:$data"></div>
+											</div>
+										</div>
+										<div class="logins_value_row">
+											<div data-bind="foreach:bus_values">
+												<div class="table_column_values"  data-bind="html:$data"></div>
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+									<div class="table_container">
+									<div class="table_heading">Issuance</div>
+									<div class="scroll">
+									<div class="logins_table">
+										<div class="logins_month_row">
+											<div data-bind="foreach:bus_month">
+												<div class="table_column" data-bind="html:$data"></div>
+											</div>
+										</div>
+										<div class="logins_value_row">
+											<div data-bind="foreach:bus_values">
+												<div class="table_column_values"  data-bind="html:$data"></div>
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="Persistency">
+							<div class="toggle_sub">
+								<div class="subtoggle_heading">13th Month and 25th Month Persistency</div>
+								<div class="toggle_subhead" data-juci="togglebar" data-toggled="0" ontoggle="togglePerSubHead(event)">
+									<button class="togbtn_sub" data-juci="button" data-toggle="1">
+										<div class="togg_img1" ></div>
+									</button>
+									<button class="togbtn_sub" data-juci="button" data-toggle="2">
+										<div class="togg_img2" ></div>
+									</button>
+								</div>
+							</div>
+							<div id="per-chart">
+								
+								<canvas id="persChart" width="400" height="400"></canvas>
+							</div>
+							<div id="per-summary">
+										<div class="table_container">
+									<div class="table_heading">13th Month</div>
+									<div class="scroll">
+									<div class="logins_table">
+										<div class="logins_month_row">
+											<div data-bind="foreach:bus_month">
+												<div class="table_column" data-bind="html:$data"></div>
+											</div>
+										</div>
+										<div class="logins_value_row">
+											<div data-bind="foreach:bus_values">
+												<div class="table_column_values"  data-bind="html:$data"></div>
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+									<div class="table_container">
+									<div class="table_heading">25th Month</div>
+									<div class="scroll">
+									<div class="logins_table">
+										<div class="logins_month_row">
+											<div data-bind="foreach:bus_month">
+												<div class="table_column" data-bind="html:$data"></div>
+											</div>
+										</div>
+										<div class="logins_value_row">
+											<div data-bind="foreach:bus_values">
+												<div class="table_column_values"  data-bind="html:$data"></div>
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+						</div>
+					</div>
+			
+				
+				
+				
+		</div>
+		</div>
+	</body>
+</html>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			
+			
+	
+
+
+
+
+
+
+
+
+
+	<!--	<div data-juci="form" data-bind="ref: profile"><div class="firstp"><div class="main"><div class="newcircle"  id="photo" data-photo-options="width: 175, height: 175" data-bind="ref:profilePicture"
+							data-juci="photo" disabled></div><div class="name" data-bind="html:fname"></div><div class="role" data-bind="html:role"></div></div><div class="info"><div class="info_title" data-bind="html:'ID : '+ID()"></div><div class="info_title" data-bind="html:'DOJ : '+DOJ()"></div><div class="info_title" data-bind="html:'DOB : '+DOB()"></div><button class="send" data-juci="button">Send Message</button></div><div class="per-info"><div class="info_title" data-bind="html:'Mobile : '+MOBILE()"></div><div class="info_title" data-bind="html:'Email : '+EMAIL()"></div></div></div><div class="secondp"><div class="mini"><div class="heading">Reporting To</div><div class="data" data-bind="html:report"></div></div><div class="mini"><div class="heading">Team Members</div><div class="data" data-bind="html:member"></div></div></div></div><div class="thirdp"><div  data-juci="selectbox" data-bind="optionsList:$root.date,ref:Date"></div><div data-juci="selectbox" data-bind="optionsList:$root.fdate"></div><div class="policydetails" data-juci="form" data-bind="ref:policyDetails"><div class="top"><p class="p1">Policies Sold</p><div class="val" data-bind="html:policynum"></div></div><div class="top"><p class="p1">Policies Sold</p><div class="val" data-bind="html:policynum2"></div></div><div class="top"><p class="p1 p2">First Premium Collected</p><div class="val" data-bind="html:fpremium"></div></div><div class="top"><p class="p1 p2">First Premium Collected</p><div class="val" data-bind="html:fpremium2"></div></div><div class="top"><p class="p1 p3">Persistancy Ratio</p><div class="val" data-bind="html:ratio"></div></div><div class="top"><p class="p1 p3">Persistancy Ratio</p><div class="val" data-bind="html:ratio2"></div></div><div class="top"><p class="p1 p4">Renewal Premium Collected</p><div class="val" data-bind="html:renpremium"></div></div><div class="top"><p class="p1 p4">Renewal Premium Collected</p><div class="val" data-bind="html:renpremium2"></div></div></div><div class="graph"><img class="adgraph" src="images/advisor-graph.jpg"></></div></div>-->

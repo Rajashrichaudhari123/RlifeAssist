@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<!-- Add your stylesheets here -->
+		<link rel="stylesheet" type="text/css" href="css/loginscreens.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<!-- Add your scripts here -->
+	</head>
+	<body onclick="hideMenu()">
+		<div data-juci="panel" data-first-panel>
+			<!-- Enter your HTML content here -->
+			<div class="login-form">
+				<div class="login-logo">
+					<img class="logo" src="images/logo-mob.png"></img>
+				</div>
+				<p class="log">LOGIN</p>
+				<form id="loginform" action="javascript:document.activeElement.blur();">
+					<div id="userName" class="userid" data-juci="text" placeholder="Email ID / Mobile No. / Advisor Code"></div>
+					<div id="password" class="password" data-juci="password" placeholder="Password"></div>
+					<div class="clearfix frgt-logdesc">
+                        <div data-juci="checkbox" data-label="Show Characters"></div>
+                        <p class="forgot-pass">Forgot Password?</p>
+                    </div>
+					<div id="login-bbar" class="juci_vertical_bbar">
+						<button data-juci="button" id="add-button" value="Login" type="submit"></button>
+					</div>
+				</form> 
+				<p class="or">OR</p>
+				<div id ="social" class="social-networks">
+					<button class="site fb" data-juci="button"><img class="icn" src="images/facebook-icon.png">  Facebook </></button>
+					<button class="site google" data-juci="button"><img class="icn" src="images/googleplus.png">  Google </></button>
+				</div>
+				<p class="new_Reg-link">Need an Account? <a href="javascript:void(0)" class="register_Now_link">Register Now</a></p>
+			</div>
+		</div>
+	</body>
+</html>

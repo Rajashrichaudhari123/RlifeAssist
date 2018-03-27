@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../../system/libs/mowbly/themes/default/css/default.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/rlifecss.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/proposal.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/select.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/myDreamCalculator.css"></link>
+		<script src="../../../system/libs/mowbly/js/mowbly.js"></script>
+		<script src="../../../system/libs/mowbly/js/juci-0.2.js"></script>
+		<script src="scripts/rlifeservices.js"></script>
+		<script src="scripts/dbHelper.js"></script>
+		<script src="scripts/datasets.js"></script>
+		<script src="scripts/Calculations.js"></script>
+		<script src="scripts/constants.js"></script>
+		<script src="scripts/myDreamCalculator.js"></script>
+		<script src="scripts/inputPojo.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/messages.js"></script>
+	</head>
+	<body>
+		<div data-juci="panel" data-first-panel>
+		 	<div class="menu arrow_add_box" id="menulist" style="display: none;">
+                <ul class="items">
+                    <li class="item" onclick="openLead()">
+                        <span>New Lead</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu arrow_box" id="profilelist" style="display:none;">
+	            <ul class="items">
+	            	<li class="item_list" onclick="openSyncContacts()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Super Sync</span>
+	                </li>
+	               <li class="item_list" onclick="openSync()">
+	                    <img src="images/Sync.png"></img>
+	                    <span>Sync</span>
+	                </li>   
+	                
+	                 <!--<li class="item_list" onclick="openCustomers()">
+	                    <img src="images/male.png"></img>
+	                    <span>New Lead</span>
+	                </li>  -->
+	          
+	                 <li class="item_list" onclick="openProposal()">
+	                    <img src="images/New-Proposal.png"></img>
+	                    <span>New Proposal</span>
+	                </li>  
+	                
+	                <!--<li class="item_list" onclick="openCustomers()">
+	                    <img src="images/Profile.png"></img>
+	                    <span>Profile</span>
+	                </li-->
+					<li class="item_list" onclick="openLogs()">
+	                    <img src="images/logs.png"></img>
+	                    <span>Logs</span>
+	                </li>
+					<li class="item_list" onclick="openDataRetrieve()">
+	                    <img src="images/database.png"></img>
+	                    <span>Data Retrieve</span>
+	                </li>
+					<li class="item_list" onclick="openForceUpdate()">
+	                    <img src="images/app.png"></img>
+	                    <span>Force Update</span>
+	                </li>
+	                <div data-bind="visible:gettype()!=='TPADV' && gettype()!=='TPSM'">
+		               <li class="item_list" onclick="openCustomers()">
+		                    <img src="images/female.png"></img>
+		                    <span>My Customers</span>
+		                </li>
+	                </div>
+	                <li class="item_list" onclick="openDeviceCompatibility()">
+	                  <img src="images/tablet.png"></img>
+	                  <span>Device Compatibility check</span>
+	               </li>
+	                <!--<li class="item_list" onclick="openAdvisors()">
+	                    <img src="images/Folder_grey.png"></img>
+	                    <span class="my_advisors">My Advisors</span>
+	                </li-->
+					<li class="item_list" onclick="openVersion()">
+	                    <img src="images/Folder_grey.png"></img>
+	                    <span class="my_advisors">Version</span>
+	                </li>
+	                <li class="item_list" onclick="openSelfieVideoRetrieval()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Selfie PIVC Retrieval</span>
+	        		</li>
+	                 <!--<div data-bind="visible:gettype()!=='ADV'">
+	                 <li class="item_list" onclick="openTeamLogin()">
+	                    <img src="images/team.png"></img>
+	                    <span>Team Login</span>
+	                </li>
+	                </div>-->
+	                <li class="item_list" onclick="openHelpDesk()">
+	                    <img src="images/Gallery_Grey.png"></img>
+	                    <span class="help">Help Desk</span>
+	                </li>
+	                <li class="item_list" onclick="openConfirmUpdate()">
+	                    <img src="images/Gallery_Grey.png"></img>
+	                    <span class="help">Confirm Update</span>
+	                </li>
+	                <li class="item_list" onclick="openCalculator()">
+		                <img src="images/Gallery_Grey.png"></img>
+		                <span class="help">Calculator</span>
+	        		</li>
+	        		 <div>
+		               <li class="item_list" onclick="openVideoRetrieval()">
+		                    <img src="images/video.png"></img>
+		                    <span>Video Retrieval</span>
+		                </li>
+	                </div>
+	                <li class="item_list" onclick="doLogout()">
+	                    <img src="images/power-blackgold.png"></img>
+	                    <span class="log">Logout</span>
+	                </li>
+	                <li></li>
+	            </ul>
+	        </div>
+	        
+			<div class="juci_thinbar welcome_text" id="welcome-text" data-bind="html:thinbar">Welcome</div>
+			<div data-juci="radiogroup" data-label="Please select your calculator" id="calculator" data-bind="visible:isCalculator,optionsList: calculatorOptions, ref:calculatorName" onafterchange="onCalculatorChange(event)"></div>
+			<!-- My Dream my income Calculator !-->
+			<div class="first_section" id="first-section" style="display:none">
+				<div data-juci="radiogroup" id="select-role" class="role_names" data-label="Select Role" data-bind="optionsList: roles, ref:roleNames" onafterchange="onRolesChange(event)"></div>
+				<div class="lead_no" id="lead-no" data-juci="text" data-label data-bind="visible:roleNames() == 'Prospect Recruit',ref:$root.leadno" placeholder="Enter Your Lead No" onafterchange="fetchByLeadNumber(event)"></div>
+				
+				<div class="advisor_code" id="advisor-no" data-juci="tel" data-label data-bind="visible:(roleNames() == 'New Advisor' || roleNames() == 'Existing Advisor'),ref:$root.advisorCode" placeholder="Enter Your Advisor Code" onafterchange="fetchByAdvisorCode(event)"></div>
+				
+				<div class="juci_horizontal_bbar options" data-bind="visible:isLeadOrAdvisor">
+					<button data-juci="button" data-bind="click:onPreviousEntry">Previous Entry</button>
+					<div class="or">Or</div>
+					<button data-juci="button" data-bind="click:onNewEntry">New Entry</button>
+				</div>
+				
+				<!-- Previous Entry !-->
+				<div class="previous_entry" id = "previous-entry" data-bind="visible:isPreviousEntry,foreach:previousEntry">
+					<div class="Aadhar_section">
+						<div class="aadhar_detail">
+			                 <div class="aadhar_info_name"><strong>User Details</strong></div>
+			                 <div class="aadhar_data" data-bind=""></div>
+			            </div>
+						<div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Name</div>
+			                 <div class="aadhar_data" data-bind="html:Name"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name"><strong>Your goals</strong></div>
+			                 <div class="aadhar_data" data-bind=""></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Home Goal(in Lacs)</div>
+			                 <div class="aadhar_data" data-bind="html:Goal_Home"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Car Goal(in Lacs)</div>
+			                 <div class="aadhar_data" data-bind="html:Goal_Car"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Child Education'sGoal(in Lacs)</div>
+			                 <div class="aadhar_data" data-bind="html:Goal_Child_Education"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Child Marriage's'Goal(in Lacs)</div>
+			                 <div class="aadhar_data" data-bind="html:Goal_Child_Marriage"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Vacation Goal(in Lacs)</div>
+			                 <div class="aadhar_data" data-bind="html:Goal_Vacation"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Others Goal(in Lacs)</div>
+			                 <div class="aadhar_data" data-bind="html:Goal_Others"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Total Goal Amount(in Lacs)</div>
+			                 <div class="aadhar_data" data-bind="html:Total_Goal_Amount"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Time To Reach Your Goals(in Years)</div>
+			                 <div class="aadhar_data" data-bind="html:Years_To_ReachGoals"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Current Savings(in Lacs)</div>
+			                 <div class="aadhar_data" data-bind="html:Current_Savings_A"></div>
+			            </div>
+			            <div class="aadhar_detail_last">
+			                 <div class="aadhar_info_name">Annual Income(in Lacs)</div>
+			                 <div class="aadhar_data" data-bind="html:Income_Per_Annum"></div>
+			            </div>
+			            <div class="your_options">
+			            	<div class="aadhar_detail">
+				                 <div class="your_options_sum">Your Options</div>
+				                 <div class="your_options_sum" data-bind=""></div>
+				            </div>
+			            	<div class="aadhar_detail">
+				                 <div class="base_options_sum">Base Option</div>
+				                 <div class="base_options_sum" data-bind=""></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">Years</div>
+				                 <div class="aadhar_data" data-bind="html:Base_Years"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">No of policies/month</div>
+				                 <div class="aadhar_data" data-bind="html:Base_No_of_policies_PerMonth"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">No of meetings/month</div>
+				                 <div class="aadhar_data" data-bind="html:Base_No_of_meetings_PerMonth"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">Avg no of meetings/day</div>
+				                 <div class="aadhar_data" data-bind="html:Base_Avg_No_of_meetings_Perday"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				            	<div class="fisrt_content">Base Option: You need to sell <span class="meeting_content" data-bind="html:Base_No_of_policies_PerMonth"></span> policies every month for next <span class="meeting_content" data-bind="html:Base_Years"></span> years to achieve your goals.</div>		
+				            	<div class="second_content">Target to meet <span class="meeting_content" data-bind="html:Base_No_of_meetings_PerMonth"></span> prospect customers every month from today!</div>
+				            </div>
+			            </div>
+			            <div class="your_options">
+			            	<div class="aadhar_detail">
+				                 <div class="base_options_sum">Aggressive Option</div>
+				                 <div class="base_options_sum" data-bind=""></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">Years</div>
+				                 <div class="aadhar_data" data-bind="html:Aggressive_Years"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">No of policies/month</div>
+				                 <div class="aadhar_data" data-bind="html:Aggressive_No_of_policies_PerMonth"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">No of meetings/month</div>
+				                 <div class="aadhar_data" data-bind="html:Aggressive_No_of_meetings_PerMonth"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">Avg no of meetings/day</div>
+				                 <div class="aadhar_data" data-bind="html:Aggressive_Avg_No_of_meetings_Perday"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				            	<div class="fisrt_content">Aggressive Option: You need to sell <span class="meeting_content" data-bind="html:Aggressive_No_of_policies_PerMonth"></span> policies every month for next <span class="meeting_content" data-bind="html:Aggressive_Years"></span> years to achieve your goals.</div>		
+				            	<div class="second_content">Target to meet <span class="meeting_content" data-bind="html:Aggressive_No_of_meetings_PerMonth"></span> prospect customers every month from today!</div>
+				            </div>
+			            </div>
+			            <div class="your_options">
+			            	<div class="aadhar_detail">
+				                 <div class="base_options_sum">Conservative Option</div>
+				                 <div class="base_options_sum" data-bind=""></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">Years</div>
+				                 <div class="aadhar_data" data-bind="html:Conservative_Years"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">No of policies/month</div>
+				                 <div class="aadhar_data" data-bind="html:Conservative_No_of_policies_PerMonth"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">No of meetings/month</div>
+				                 <div class="aadhar_data" data-bind="html:Conservative_No_of_meetings_PerMonth"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				                 <div class="aadhar_info_name">Avg no of meetings/day</div>
+				                 <div class="aadhar_data" data-bind="html:Conservative_Avg_No_of_meetings_Perday"></div>
+				            </div>
+				            <div class="aadhar_detail">
+				            	<div class="fisrt_content">Aggressive Option: You need to sell <span class="meeting_content" data-bind="html:Conservative_No_of_policies_PerMonth"></span> policies every month for next <span class="meeting_content" data-bind="html:Conservative_Years"></span> years to achieve your goals.</div>		
+				            	<div class="second_content">Target to meet <span class="meeting_content" data-bind="html:Conservative_No_of_meetings_PerMonth"></span> prospect customers every month from today!</div>
+				            </div>
+			            </div>
+			            <button class="next" data-juci="button" data-bind="click:onBackClick">Back</button>
+					</div>
+				</div>
+				<!-- New Entry !-->
+				<div data-bind="visible:$root.userdetails_section">
+					<div class="user_details">User Details</div>
+					<div id="userdetails-section" class="Aadhar_section" data-bind="with:$root.fetchingUserDetails">
+						<div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Name</div>
+			                 <div class="aadhar_data" data-bind="html:Name"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Age</div>
+			                 <div class="aadhar_data" data-bind="html:DOB"></div>
+			            </div>
+			            <div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Mobile Number</div>
+			                 <div class="aadhar_data" data-bind="html:Mobile"></div>
+			            </div>
+			            <!--div class="aadhar_detail">
+			                 <div class="aadhar_info_name">Aadhaar Number</div>
+			                 <div class="aadhar_data" data-bind="html:Aadhaar"></div>
+			            </div!-->
+					</div>
+					<button class="next" data-juci="button" data-bind="click:onFirstSectionClick">Next</button>
+				</div>
+			</div>
+			<div class="second_section" id="second-section" data-bind="visible:$root.secondSection">
+				<div data-juci="selectbox" id="time-goals" class="time_goal" data-label="Choose Your Goals" data-mode="popup"  data-bind="optionsList:goalOptions,ref:goalName" placeholder onafterchange="onChangeGoals(event)"></div>
+				<div id="goals-section" data-bind="with:$root.goalsSection">
+					<div class="goals_Sec" data-juci="tel" data-bind="visible:$root.isHomeGoal,ref:homeGoal" data-label="Home Goal" placeholder="Enter your amount in lacs" onafterchange="sumGoalsAmount(event)" maxlength="3"></div>
+					<div class="goals_Sec" data-juci="tel" data-bind="visible:$root.isCarGoal,ref:carGoal" data-label="Car Goal" placeholder="Enter your amount in lacs" onafterchange="sumGoalsAmount(event)" maxlength="3"></div>
+					<div class="goals_Sec" data-juci="tel" data-bind="visible:$root.isEducationGoal,ref:childEducationGoal" data-label="Child's Education Goal" placeholder="Enter your amount in lacs" onafterchange="sumGoalsAmount(event)" maxlength="3"></div>
+					<div class="goals_Sec" data-juci="tel" data-bind="visible:$root.isMarriageGoal,ref:childMarriageGoal" data-label="Child's Marriage Goal" placeholder="Enter your amount in lacs" onafterchange="sumGoalsAmount(event)" maxlength="3"></div>
+					<div class="goals_Sec" data-juci="tel" data-bind="visible:$root.isVacationGoal,ref:vacatonGoals" data-label="Vacation Goal" placeholder="Enter your amount in lacs" onafterchange="sumGoalsAmount(event)" maxlength="3"></div>
+					<div class="goals_Sec" data-juci="tel" data-bind="visible:$root.isOtherGoal,ref:otherGoals" data-label="Other Goals" placeholder="Enter your amount in lacs" onafterchange="sumGoalsAmount(event)" maxlength="3"></div>
+				</div>
+				<div class="goals_section" id="pop">
+					<!--p class="dismiss" onclick="hide()">X</p!-->
+	                <!--p class="goals">Goals - Home, Car, Child Education, Child Marriage, Vacation and Others.</p!-->
+	                <div class="goal_amount_txt">
+	                	<p class="total_goal_amount">Total Goal Amount</p>
+	                	<div class="total_amount" data-bind="html:'Rs : '+ totalAmount() + ' Lacs'"></div>
+	                </div>
+	                 <div data-juci="selectbox" id="reach-goal" class="time_goal" data-label="Time to reach your goal" data-mode="popup"  data-bind="optionsList:goalTimeArr,ref:goalTime" onafterchange="sumGoalsAmount(event)" placeholder></div>
+	            </div>
+	            <div class="income_Sec" data-juci="tel" data-label="Current Savings<span class='income_class'>(in Lacs)</span>" data-bind="ref:currentSavings" placeholder="Enter your amount in lacs" ></div>
+	            <div class="income_Sec" data-juci="tel" data-label="Annual Income<span class='income_class'>(in Lacs)</span>" data-bind="ref:annualIncome" placeholder="Enter your amount in lacs" ></div>
+	            <button class="next" data-juci="button" data-bind="click:onSecondSectionClick">Next</button>
+			</div>
+			<div class="third_section" id="third-section" data-bind="visible:$root.thirdSection">
+				<div class="third_sec" data-bind="with:calculatedAmount">
+					<div class="cal_amount" data-juci="tel" data-label="How much more do you need to achieve your goals on time<span class='income_class'>(Rs. in Lacs)</span>?" data-bind="ref:amountToBeAchieved,disabled:$root.goalsText" placeholder="Amount in lacs" ></div>
+					<div class="cal_amount" data-juci="tel" data-label="How much time will you actually take to reach your goal (years)?" data-bind="ref:amountToBeAchievedInTime,disabled:$root.goalsText" placeholder="In years" ></div>
+					<div class="cal_amount" data-juci="tel" data-label="How much more do you need to save each year to achieve your goals on time<span class='income_class'>(Rs. in Lacs)</span>?" data-bind="ref:amountToBeSaved,disabled:$root.goalsText" placeholder="Amount in lacs" ></div>
+				</div>
+				<button class="next" data-juci="button" data-bind="click:onThirdSectionClick">Next</button>
+			</div>
+			<div class="fourth_section" id="fourth-section" data-bind="visible:fourthSection">
+				<div class="inline">
+					<div id="base-section" class="table_section" data-bind="with:baseOption">
+	              		<div class="table_header">Base Option</div>
+			             <div class="table_detail">
+			                <div class="table_info_name">Years</div>
+			                <div class="table_data" data-bind="html:years"></div>
+			             </div>
+			             <div class="table_detail">
+			                <div class="table_info_name">No of policies/month</div>
+			                <div class="table_data" data-bind="html:noOfPoliciesPerMonth"></div>
+			             </div>
+			             <div class="table_detail">
+			                <div class="table_info_name">No of meetings/month</div>
+			                <div class="table_data" data-bind="html:noOfMeetingsPerMonth"></div>
+			             </div>
+			             <div class="table_detail">
+			                <div class="table_info_name">Avg no of meetings/day</div>
+			                <div class="table_data" data-bind="html:avgMeetingsPerDay"></div>
+			             </div>
+		           	</div>
+		           	<div class="base_option">
+		           		<div class="base_value" data-bind="html:'Base Option: You need to sell '+ baseOption().noOfPoliciesPerMonth() + ' policies every month for next ' + baseOption().years() + ' years to achieve your goals. '"></div>
+		           		<div class="base_value" data-bind="html:'Target to meet ' + baseOption().noOfMeetingsPerMonth() +  ' prospect customers every month from today!'"></div>
+	           		</div>
+		           	<div id="Aggressive-section" class="table_section" data-bind="with:aggressiveOption">
+	              		<div class="table_header">Aggressive Option</div>
+			             <div class="table_detail">
+			                <div class="table_info_name">Years</div>
+			                <div class="table_data" data-bind="html:years"></div>
+			             </div>
+			             <div class="table_detail">
+			                <div class="table_info_name">No of policies/month</div>
+			                <div class="table_data" data-bind="html:noOfPoliciesPerMonth"></div>
+			             </div>
+			             <div class="table_detail">
+			                <div class="table_info_name">No of meetings/month</div>
+			                <div class="table_data" data-bind="html:noOfMeetingsPerMonth"></div>
+			             </div>
+			             <div class="table_detail">
+			                <div class="table_info_name">Avg no of meetings/day</div>
+			                <div class="table_data" data-bind="html:avgMeetingsPerDay"></div>
+			             </div>
+		           	</div>
+		        </div>
+		        <div class="base_option">
+	           		<div class="base_value" data-bind="html:'Aggressive Option: You need to sell '+ aggressiveOption().noOfPoliciesPerMonth() + ' policies every month for next ' + aggressiveOption().years() + ' years to achieve your goals. '"></div>
+	           		<div class="base_value" data-bind="html:'Target to meet ' + aggressiveOption().noOfMeetingsPerMonth() +  ' prospect customers every month from today!'"></div>
+	           	</div>
+		        <div id="Conservative-section" class="table_section" data-bind="with:conservativeOption">
+              		<div class="table_header">Conservative Option</div>
+		             <div class="table_detail">
+		                <div class="table_info_name">Years</div>
+		                <div class="table_data" data-bind="html:years"></div>
+		             </div>
+		             <div class="table_detail">
+		                <div class="table_info_name">No of policies/month</div>
+		                <div class="table_data" data-bind="html:noOfPoliciesPerMonth"></div>
+		             </div>
+		             <div class="table_detail">
+		                <div class="table_info_name">No of meetings/month</div>
+		                <div class="table_data" data-bind="html:noOfMeetingsPerMonth"></div>
+		             </div>
+		             <div class="table_detail">
+		                <div class="table_info_name">Avg no of meetings/day</div>
+		                <div class="table_data" data-bind="html:avgMeetingsPerDay"></div>
+		             </div>
+	           	</div>
+	           	<div class="base_option">
+	           		<div class="base_value" data-bind="html:'Conservative Option: You need to sell '+ conservativeOption().noOfPoliciesPerMonth() + ' policies every month for next ' + conservativeOption().years() + ' years to achieve your goals. '"></div>
+	           		<div class="base_value" data-bind="html:'Target to meet ' + conservativeOption().noOfMeetingsPerMonth() +  ' prospect customers every month from today!'"></div>
+	           	</div>
+	           	<div class="finished">
+	           		<button class="finish" data-juci="button" onClick="onFinishedClick()">Finish..</button>
+	           	</div>
+			</div>
+			<div class="Premium" style="display:none" id="fifth-section">
+				<div data-juci="selectbox" id="premium-value" class="time_goal" data-label="Choose the premium per policy" data-mode="popup"  data-bind="optionsList:PremiumOptions,ref:premiumValue" placeholder onafterchange="onPremiumChange(event)"></div>
+			</div>
+				
+			<!-- Netowork Calculator !-->
+			<div class="network_calculator" id="network-calculator" style="display:none">
+				<div class="network-related-ques" data-bind="with:questionaries">
+					<div data-juci="selectbox" class="time_goal" data-label="How many relatives do you have in your family?" data-mode="popup"  data-bind="optionsList:relatives,ref:relativesCount" placeholder ></div>
+					<div data-juci="selectbox" class="time_goal" data-label="Do you have a spouse?" data-mode="popup"  data-bind="optionsList:spouseOptions,ref:spouse" placeholder onafterchange="onChangeClick(event)"></div>
+					<div data-juci="selectbox" class="time_goal" data-label="How many relatives do you have in your in-laws family?" data-mode="popup"  data-bind="visible:spouse() == 'Yes',optionsList:inLawsoptions,ref:inLawsValue" placeholder></div>
+					<div data-juci="selectbox" class="time_goal" data-label="How many friends/followers do you have on Facebook, Twitter, Instagram, WhatsApp?" data-mode="popup"  data-bind="optionsList:socialMediaoptions,ref:socialMediaValue" placeholder></div>
+					<div data-juci="selectbox" class="time_goal" data-label="Do you have any business?" data-mode="popup"  data-bind="optionsList:businessOptions,ref:businessValue" placeholder onafterchange="onChangeBusinessClick(event)"></div>
+					<div data-juci="selectbox" class="time_goal" data-label="How many customers does your business have?" data-mode="popup"  data-bind="visible:businessValue() == 'Yes',optionsList:businessCustomerOptions,ref:businessCustomerValue" placeholder></div>
+					<div data-juci="selectbox" id = "policy-sold" class="time_goal" data-label="How many policies will you sell in a month?" data-mode="popup"  data-bind="optionsList:policyOptions,ref:policyValue" placeholder></div>
+					<div class="finished">
+						<button class="finish" data-juci="button" onClick="onSubmitClick()">Submit</button>
+					</div>
+				</div>
+				<div id="dialog-network-calculator" data-juci="dialog">
+		            <div class="network_output">
+		            	<div class="network_calculation" data-bind="html:networkCalci"></div>
+		            	<div class="finished">
+		            		<button class="finish" data-juci="button" onClick="onClose('dialog-network-calculator')">Ok</button>
+		            	</div>
+		            </div>
+            	</div>
+			</div>
+			<div class="footerbar">
+				<div class="disclaimer" id="disclaimer" data-bind="html:footerText">Select your calculator..</div> 
+			</div>
+		</div>
+	</body>
+</html>

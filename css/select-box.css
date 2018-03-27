@@ -1,0 +1,26 @@
+select {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    border-color: #2A47A7;
+    height: 38px;
+}
+
+.select_box {
+    display: inline-block;
+    vertical-align:middle;
+    width: 24%;
+}
+
+.select_text {
+    display: inline-block;
+    vertical-align:middle;
+    color: #2A47A7;
+    font-weight: bold;
+}
+
+.select_cont {
+    display: inline-block;
+    vertical-align:middle;
+    width: 60%;
+}

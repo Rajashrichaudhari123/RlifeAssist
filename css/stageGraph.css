@@ -1,0 +1,163 @@
+.main .content p.titlecontent {
+    width: 91%;
+    padding-left: 0px;
+}
+
+.titleHeader{
+	display : table;
+	width:100%;
+    margin-bottom: 7px;
+}
+
+.heading{
+	display :table-cell;
+	vertical-align: middle;
+	float: left;
+	font-size: 15px;
+	color: #787878;
+	margin-left: 2px;
+	margin-left: 3px;
+	margin-top: 6px;
+}
+
+.titleContent{
+	display:block;
+	text-align: justify;
+	color: #787878;
+	margin-left: 5px;
+}
+
+.lifeplan.carefreeyears {
+    width: 24%;
+    word-spacing: 0px !important;
+    background-color: #2196F3;
+    color: white;
+}
+
+.imageContainer{
+	overflow: hidden;
+}
+
+.planTitle{
+	display:table;
+	width:100%
+}
+.lifeplan.carefreeyears .head, .lifeplan.carefreeyears .body {
+    word-spacing: 0px;
+}
+
+.lifeplan.carefree,.lifeplan.planning,.lifeplan.responsible,.lifeplan.settlement,.lifeplan.relaxed {
+	width: 13%;
+}
+.choose_language {
+    width: 35%;
+    float: right;
+}
+
+div#languages {
+    width: 35%;
+    float: right;
+    margin: 5px;
+    padding: 5px;
+}
+
+/*.juci_selectbox_popup{
+	background: #ffffff;
+    padding: 1px;
+    -webkit-transform: translate3d(0, 0, 0);
+    z-index: 1;
+    position: relative;
+    margin: auto;
+    margin-top: 42px;
+    width: 35%;
+    max-height: 221px;
+    float: right;
+    margin-right: -133px;		
+}
+
+.juci_ctrl_box.juci_selectbox_box {
+    font-size: 14px;
+    background: #0B4DA1;
+    color: #FFF;
+}
+
+.juci_selectbox .juci_linker {
+    background-image: url(../images/down_arrow.png);
+    height: 12px !important;
+}*/
+
+
+div#plyears,#cfyears,#rpyears,#styears,#rxyears{
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.tamil_fontYears{
+	font-size: 10px;
+    width: 79%;
+}
+
+.tamil_fontLsdesc{
+	font-size:8px;
+	margin-top:18px;
+}
+
+.tamil_fontTitle{
+	font-size:8px;
+	overflow:hidden;
+}
+
+select {
+    width: 100%;
+    height: 33px;
+    margin-right: 5px;
+}
+
+.select-boxes {
+    display: inline-block;
+    width: 100%;
+}
+
+.img {
+	position: absolute;
+}
+
+.icon {
+    display: inline-block;
+}
+
+.icon.movie {
+    position: absolute;
+    bottom: 34%;
+    left: 20%;
+}
+
+.icon.ring {
+    position: absolute;
+    bottom: 43%;
+    left: 30%;
+}
+
+.icon.home {
+    position: absolute;
+    bottom: 53%;
+    left: 43%;
+}
+
+.icon.child {
+    position: absolute;
+    bottom: 53%;
+    left: 55%;
+}
+
+.icon.edu {
+    position: absolute;
+    bottom: 63%;
+    left: 71%;
+}
+
+.icon.vacation {
+    position: absolute;
+    bottom: 57%;
+    left: 85%;
+}
